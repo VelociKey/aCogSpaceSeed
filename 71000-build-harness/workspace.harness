@@ -1,0 +1,13 @@
+workspace_harness {
+    test_enabled: true;
+    name : "extendgo" ;
+    targets {
+        target {
+            mode : DYNAMIC ;
+            engine : "go-compiler" ;
+            src : "81000-active-source/cmd/extendgo" ;
+            out : "extendgo" ;
+            category : "BINARY" ;
+        }
+    }
+}
