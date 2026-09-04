@@ -14,6 +14,12 @@ type RawRule struct {
 // ParseEBNFRules splits raw EBNF text into individual production rules.
 // Go spec EBNF terminates rules with a period '.' at the end of the production.
 func ParseEBNFRules(ebnfText string) ([]RawRule, error) {
+	// 1. First attempt parsing via sovereign GoEBNFSpecScanner
+	if rules, _, err := ParseEBNFWithScanner([]byte(ebnfText)); err == nil && len(rules) > 0 {
+		return rules, nil
+	}
+
+	// 2. Resilient fallback to line-based parser
 	var rules []RawRule
 
 	lines := strings.Split(ebnfText, "\n")

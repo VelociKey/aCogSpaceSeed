@@ -1,17 +1,53 @@
-# Declarative Go Grammar Extensions Overlay
-# Format: context-sensitive weBNF.sn (:com:velocikey:extendgo:overlay)
+# Sovereign Go Extension Specification
+# Format: context-sensitive weBNF.sn (:com:velocikey:extendgo:go_extension_spec)
 
-:com:velocikey:extendgo:overlay
+:com:velocikey:extendgo:go_extension_spec
 
-; Scalar precision extensions for scientific supercomputing
-ScalarTypes = "float2048" / "float1024" / "float512" / "float256" / "float128"
-            / "complex4096" / "complex2048" / "complex1024" / "complex512" / "complex256"
-            / "int2048" / "int1024" / "int512" / "int256" / "int128"
-            / "uint2048" / "uint1024" / "uint512" / "uint256" / "uint128"
-            / DecimalType ;
+# Extension Metadata
+ExtensionMetadata = "name" ":" "SovereignGo"
+                  / "base_version" ":" "1.27"
+                  / "target_grammar" ":" "go" ;
 
-; Arbitrary-precision decimal scalars
-DecimalType = "decimal" "[" ( Number / Identifier ) "]" ;
+# 1. Targeted Type Extension: Sovereign Supercomputing Scalars
+# Section: types | Target: BaseType | Action: AUGMENT
+ScalarPrecisionExtension = "target_rule" ":" "BaseType"
+                         / "section" ":" "types"
+                         / "action" ":" "AUGMENT"
+                         / ( "float2048" / "float1024" / "float512" / "float256" / "float128"
+                           / "complex4096" / "complex2048" / "complex1024" / "complex512" / "complex256"
+                           / "int2048" / "int1024" / "int512" / "int256" / "int128"
+                           / "uint2048" / "uint1024" / "uint512" / "uint256" / "uint128"
+                           / DecimalType ) ;
 
-; Extra keyword registrations
-ExtraKeywords = "decimal" ;
+# 2. Injected Production: Arbitrary Precision Decimal Type
+# Section: types | Target: DecimalType | Action: INJECT
+DecimalTypeExtension = "target_rule" ":" "DecimalType"
+                     / "section" ":" "types"
+                     / "action" ":" "INJECT"
+                     / ( "decimal" "[" ( Number / Identifier ) "]" ) ;
+
+# 3. Targeted Declarations Extension: Go 1.27 Generic Receiver Methods
+# Section: declarations | Target: FuncDecl | Action: REPLACE
+FuncDeclExtension = "target_rule" ":" "FuncDecl"
+                  / "section" ":" "declarations"
+                  / "action" ":" "REPLACE"
+                  / ( "func" [ Receiver ] Identifier [ TypeParamList ] Signature [ Block ] ) ;
+
+# 4. Targeted Expression Extension: Go 1.27 Chained Selectors
+# Section: expressions | Target: Selector | Action: REPLACE
+SelectorExtension = "target_rule" ":" "Selector"
+                  / "section" ":" "expressions"
+                  / "action" ":" "REPLACE"
+                  / ( "." Identifier [ TypeArgs ] ) ;
+
+# 5. Targeted Interface Negative Constraint: Forbid Generics on Interface Methods
+# Section: interfaces | Target: InterfaceMethod | Action: FORBID
+InterfaceMethodConstraint = "target_rule" ":" "InterfaceMethod"
+                          / "section" ":" "interfaces"
+                          / "action" ":" "FORBID"
+                          / "forbid" ":" "TypeParamList" ;
+
+# 6. Targeted Lexical Extension: Decimal Keyword Registration
+# Section: lexical | Action: REGISTER_KEYWORD
+ExtraKeywords = "action" ":" "REGISTER_KEYWORD"
+              / "decimal" ;

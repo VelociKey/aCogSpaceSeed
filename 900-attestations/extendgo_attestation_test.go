@@ -147,3 +147,98 @@ func TestNegativeConstraintEnforcement(t *testing.T) {
 
 	t.Logf("✅ Negative constraint guard successfully blocked invalid interface method generics")
 }
+
+func TestGoEBNFSpecScannerAndMacroIRAST(t *testing.T) {
+	snippet := []byte(`
+// Go 1.27 Method and Selector productions
+MethodDecl = "func" Receiver MethodName Signature [ FunctionBody ] .
+Selector   = "." identifier [ TypeArgs ] .
+`)
+
+	rules, astNodes, err := spec_ingest.ParseEBNFWithScanner(snippet)
+	if err != nil {
+		t.Fatalf("ParseEBNFWithScanner failed: %v", err)
+	}
+
+	if len(rules) != 2 {
+		t.Fatalf("expected 2 rules, got %d", len(rules))
+	}
+
+	if rules[0].Name != "MethodDecl" || rules[1].Name != "Selector" {
+		t.Fatalf("unexpected rule names: %s, %s", rules[0].Name, rules[1].Name)
+	}
+
+	if len(astNodes) != 2 {
+		t.Fatalf("expected 2 AST roots, got %d", len(astNodes))
+	}
+
+	for _, node := range astNodes {
+		if node.Kind != spec_ingest.NodeProduction {
+			t.Errorf("expected NodeProduction, got %s", node.Kind)
+		}
+		if len(node.Children) == 0 {
+			t.Errorf("expected AST children for rule %s", node.Text)
+		}
+	}
+
+	t.Logf("✅ Successfully verified GoEBNFSpecScanner tokenization and Macro-IR opcode AST lowering")
+}
+
+func TestGoExtensionSpecDSLParser(t *testing.T) {
+	spec, err := overlay.LoadDefaultGoExtensionSpec()
+	if err != nil {
+		t.Fatalf("LoadDefaultGoExtensionSpec failed: %v", err)
+	}
+
+	if spec.Name != "SovereignGo" {
+		t.Errorf("expected spec.Name == 'SovereignGo', got %s", spec.Name)
+	}
+	if spec.BaseVersion != "1.27" {
+		t.Errorf("expected spec.BaseVersion == '1.27', got %s", spec.BaseVersion)
+	}
+	if spec.TargetGrammar != "go" {
+		t.Errorf("expected spec.TargetGrammar == 'go', got %s", spec.TargetGrammar)
+	}
+
+	if len(spec.Extensions) < 5 {
+		t.Fatalf("expected at least 5 targeted extension blocks, got %d", len(spec.Extensions))
+	}
+
+	extMap := make(map[string]overlay.TargetedExtension)
+	for _, ext := range spec.Extensions {
+		extMap[ext.Name] = ext
+	}
+
+	// Verify ScalarPrecisionExtension
+	scalarExt, ok := extMap["ScalarPrecisionExtension"]
+	if !ok {
+		t.Errorf("missing ScalarPrecisionExtension")
+	} else {
+		if scalarExt.TargetRule != "BaseType" || scalarExt.Section != "types" || scalarExt.Action != "AUGMENT" {
+			t.Errorf("unexpected ScalarPrecisionExtension properties: %+v", scalarExt)
+		}
+	}
+
+	// Verify FuncDeclExtension
+	funcExt, ok := extMap["FuncDeclExtension"]
+	if !ok {
+		t.Errorf("missing FuncDeclExtension")
+	} else {
+		if funcExt.TargetRule != "FuncDecl" || funcExt.Section != "declarations" || funcExt.Action != "REPLACE" {
+			t.Errorf("unexpected FuncDeclExtension properties: %+v", funcExt)
+		}
+	}
+
+	// Verify InterfaceMethodConstraint
+	ifaceExt, ok := extMap["InterfaceMethodConstraint"]
+	if !ok {
+		t.Errorf("missing InterfaceMethodConstraint")
+	} else {
+		if ifaceExt.TargetRule != "InterfaceMethod" || ifaceExt.Section != "interfaces" || ifaceExt.Action != "FORBID" {
+			t.Errorf("unexpected InterfaceMethodConstraint properties: %+v", ifaceExt)
+		}
+	}
+
+	t.Logf("✅ Successfully parsed and verified Go extension DSL specification (%d blocks)", len(spec.Extensions))
+}
+

@@ -2,6 +2,7 @@ package overlay
 
 import (
 	"fmt"
+	"os"
 	"strings"
 
 	"sov.fleet/extendgo/81000-active-source/spec_ingest"
@@ -38,6 +39,7 @@ func DefaultGoExtensions() *ExtensionOverlay {
 // RuleOverlayFunctor applies categorical rule morphisms from the overlay onto base Go rules.
 type RuleOverlayFunctor struct {
 	Overlay *ExtensionOverlay
+	Spec    *ExtensionSpec
 }
 
 // NewRuleOverlayFunctor creates an instance initialized with the given overlay.
@@ -45,7 +47,27 @@ func NewRuleOverlayFunctor(ov *ExtensionOverlay) *RuleOverlayFunctor {
 	if ov == nil {
 		ov = DefaultGoExtensions()
 	}
-	return &RuleOverlayFunctor{Overlay: ov}
+	functor := &RuleOverlayFunctor{Overlay: ov}
+	if spec, err := LoadDefaultGoExtensionSpec(); err == nil && spec != nil {
+		functor.Spec = spec
+	}
+	return functor
+}
+
+// LoadDefaultGoExtensionSpec discovers and parses the authoritative go_extensions.wag DSL file.
+func LoadDefaultGoExtensionSpec() (*ExtensionSpec, error) {
+	candidates := []string{
+		`C:\aCogSpaceSeed\00flow\extendgo\81000-active-source\overlay\go_extensions.wag`,
+		`81000-active-source/overlay/go_extensions.wag`,
+		`00flow/extendgo/81000-active-source/overlay/go_extensions.wag`,
+		`../81000-active-source/overlay/go_extensions.wag`,
+	}
+	for _, c := range candidates {
+		if data, err := os.ReadFile(c); err == nil {
+			return ParseExtensionSpec(data)
+		}
+	}
+	return nil, fmt.Errorf("no go_extensions.wag found in search candidates")
 }
 
 // Apply transforms the ingested rules by injecting sovereign scalar types,
@@ -100,6 +122,31 @@ func (f *RuleOverlayFunctor) Apply(baseRules []spec_ingest.RawRule) ([]spec_inge
 	ruleMap["DecimalType"] = f.Overlay.DecimalRule
 	ruleMap["GenericType"] = `Identifier TypeArgs`
 	ruleMap["TypeArgs"] = `"[" TypeList "]"`
+
+	// Apply declarative extension overrides from go_extensions.wag DSL if present
+	if f.Spec != nil {
+		for _, ext := range f.Spec.Extensions {
+			switch ext.Action {
+			case "AUGMENT":
+				if ext.TargetRule == "BaseType" && ext.ProductionBody != "" {
+					ruleMap["BaseType"] = ext.ProductionBody + ` / "float64" / "float32" / "complex128" / "complex64" / "int64" / "int32" / "int16" / "int8" / "int" / "uint64" / "uint32" / "uint16" / "uint8" / "uint" / GenericType / "string" / "bool" / "byte" / "rune" / "error" / Identifier`
+				}
+			case "INJECT":
+				if ext.ProductionBody != "" {
+					ruleMap[ext.TargetRule] = ext.ProductionBody
+					f.ensureRule(ruleMap, &ruleOrder, ext.TargetRule, ext.ProductionBody)
+				}
+			case "REPLACE":
+				if ext.ProductionBody != "" {
+					ruleMap[ext.TargetRule] = ext.ProductionBody
+				}
+			case "REGISTER_KEYWORD":
+				for _, kw := range ext.Keywords {
+					f.Overlay.ExtraKeywords = append(f.Overlay.ExtraKeywords, fmt.Sprintf("%q", kw))
+				}
+			}
+		}
+	}
 
 	// 7. Expressions and Go 1.27 chained selectors
 	ruleMap["Expr"] = `PrimaryExpr / CompositeLit / Number / StringLit / Identifier`
