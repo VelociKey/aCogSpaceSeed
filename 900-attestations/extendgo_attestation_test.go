@@ -8,6 +8,7 @@ import (
 	"testing"
 
 	"sov.fleet/extendgo/81000-active-source/emitter"
+	"sov.fleet/extendgo/81000-active-source/ghost"
 	"sov.fleet/extendgo/81000-active-source/overlay"
 	"sov.fleet/extendgo/81000-active-source/spec_ingest"
 	"sov.fleet/extendgo/81000-active-source/verifier"
@@ -343,6 +344,92 @@ func TestSubsumptionAnalyzerAndConvergenceAudit(t *testing.T) {
 	}
 
 	t.Logf("✅ Successfully validated version delta extend_go_v1.27.webnf with formal linter gates")
+}
+
+func TestGhostMaterializationAndModernization(t *testing.T) {
+	// 1. Test InferVisibilityFromCasing
+	pub := ghost.InferVisibilityFromCasing("ProcessBuffer")
+	if pub.Kind != ghost.VisPublic || !pub.IsGhost || pub.Keyword != "public" {
+		t.Errorf("expected ProcessBuffer to infer ghost public, got %+v", pub)
+	}
+
+	priv := ghost.InferVisibilityFromCasing("localWorker")
+	if priv.Kind != ghost.VisPrivate || !priv.IsGhost || priv.Keyword != "private" {
+		t.Errorf("expected localWorker to infer ghost private, got %+v", priv)
+	}
+
+	// 2. Test ScanAndMaterializeSource with mixed legacy and physical code
+	src := []byte(`package sample
+
+func ExportedFunc() error {
+	return nil
+}
+
+func internalWorker() int {
+	return 42
+}
+
+func ExplicitPublic() bool public {
+	return true
+}
+
+func explicitPrivate() bool private {
+	return false
+}
+
+type Config struct {
+	Port int
+	host string
+}
+`)
+
+	report, err := ghost.ScanAndMaterializeSource(src)
+	if err != nil {
+		t.Fatalf("ScanAndMaterializeSource failed: %v", err)
+	}
+
+	if report.TotalDecls < 6 {
+		t.Errorf("expected at least 6 decls, got %d", report.TotalDecls)
+	}
+
+	if report.GhostPublic < 2 { // ExportedFunc, Config (or Port)
+		t.Errorf("expected at least 2 ghost public, got %d", report.GhostPublic)
+	}
+
+	if report.GhostPrivate < 2 { // internalWorker, host
+		t.Errorf("expected at least 2 ghost private, got %d", report.GhostPrivate)
+	}
+
+	if report.PhysicalPublic != 1 {
+		t.Errorf("expected 1 physical public, got %d", report.PhysicalPublic)
+	}
+
+	if report.PhysicalPrivate != 1 {
+		t.Errorf("expected 1 physical private, got %d", report.PhysicalPrivate)
+	}
+
+	// 3. Test ModernizeSource desugaring
+	modernized, modReport, err := ghost.ModernizeSource(src)
+	if err != nil {
+		t.Fatalf("ModernizeSource failed: %v", err)
+	}
+
+	modStr := string(modernized)
+	if !strings.Contains(modStr, "func ExportedFunc() error public {") {
+		t.Errorf("expected modernized ExportedFunc to have 'public {', got:\n%s", modStr)
+	}
+
+	if !strings.Contains(modStr, "func internalWorker() int private {") {
+		t.Errorf("expected modernized internalWorker to have 'private {', got:\n%s", modStr)
+	}
+
+	// Existing physical keywords must not be duplicated
+	if strings.Contains(modStr, "public public") || strings.Contains(modStr, "private private") {
+		t.Errorf("detected duplicated visibility keywords in modernized output:\n%s", modStr)
+	}
+
+	t.Logf("✅ Successfully verified Ghost Materialization Functor (scanned %d decls, modernized %d ghost public / %d ghost private)",
+		modReport.TotalDecls, modReport.GhostPublic, modReport.GhostPrivate)
 }
 
 

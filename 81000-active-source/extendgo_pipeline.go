@@ -9,6 +9,7 @@ import (
 	"path/filepath"
 
 	"sov.fleet/extendgo/81000-active-source/emitter"
+	"sov.fleet/extendgo/81000-active-source/ghost"
 	"sov.fleet/extendgo/81000-active-source/overlay"
 	"sov.fleet/extendgo/81000-active-source/spec_ingest"
 	"sov.fleet/extendgo/81000-active-source/verifier"
@@ -20,8 +21,23 @@ func main() {
 	deltaOutFlag := flag.String("delta-out", "", "Target output path for generated version delta extend_go_v<version>.webnf")
 	versionFlag := flag.String("version", "1.27", "Target Go version")
 	verifyOnlyFlag := flag.Bool("verify", false, "Verify without writing to destination")
+	auditFlag := flag.String("audit-visibility", "", "Path to Go source file to audit for ghost vs physical visibility")
+	modernizeFlag := flag.String("modernize", "", "Path to Go source file to modernize with materialized explicit suffixes")
+	modernizeOutFlag := flag.String("modernize-out", "", "Output path for modernized Go source (optional)")
 
 	flag.Parse()
+
+	// Handle ghost visibility audit if requested
+	if *auditFlag != "" {
+		handleAuditVisibility(*auditFlag)
+		return
+	}
+
+	// Handle ghost modernization if requested
+	if *modernizeFlag != "" {
+		handleModernizeSource(*modernizeFlag, *modernizeOutFlag)
+		return
+	}
 
 	// 1. Resolve Spec Path
 	specPath := *specFlag
@@ -185,5 +201,67 @@ func invokeLinterGates(targetWag string) {
 				slog.Info("Linter gate passed", "linter", filepath.Base(l))
 			}
 		}
+	}
+}
+
+func handleAuditVisibility(path string) {
+	data, err := os.ReadFile(path)
+	if err != nil {
+		slog.Error("Failed to read file for visibility audit", "path", path, "error", err)
+		os.Exit(1)
+	}
+
+	report, err := ghost.ScanAndMaterializeSource(data)
+	if err != nil {
+		slog.Error("Visibility audit failed", "path", path, "error", err)
+		os.Exit(1)
+	}
+
+	slog.Info("=== SOVEREIGN GHOST VISIBILITY AUDIT ===",
+		"file", path,
+		"total_decls", report.TotalDecls,
+		"ghost_public", report.GhostPublic,
+		"ghost_private", report.GhostPrivate,
+		"physical_public", report.PhysicalPublic,
+		"physical_private", report.PhysicalPrivate,
+	)
+
+	for _, d := range report.Declarations {
+		status := "GHOST"
+		if !d.Visibility.IsGhost {
+			status = "PHYSICAL"
+		}
+		fmt.Printf("  [%s] %-5s %-25s -> %s (casing: %s)\n",
+			status, d.Kind, d.Name, d.Visibility.Kind, d.OriginalCasing)
+	}
+}
+
+func handleModernizeSource(inPath, outPath string) {
+	data, err := os.ReadFile(inPath)
+	if err != nil {
+		slog.Error("Failed to read file for modernization", "path", inPath, "error", err)
+		os.Exit(1)
+	}
+
+	modernized, report, err := ghost.ModernizeSource(data)
+	if err != nil {
+		slog.Error("Modernization failed", "path", inPath, "error", err)
+		os.Exit(1)
+	}
+
+	slog.Info("=== SOVEREIGN SOURCE MODERNIZATION COMPLETE ===",
+		"file", inPath,
+		"materialized_public", report.GhostPublic,
+		"materialized_private", report.GhostPrivate,
+	)
+
+	if outPath == "" {
+		fmt.Println(string(modernized))
+	} else {
+		if err := os.WriteFile(outPath, modernized, 0644); err != nil {
+			slog.Error("Failed to write modernized source", "dest", outPath, "error", err)
+			os.Exit(1)
+		}
+		slog.Info("Successfully wrote modernized source", "dest", outPath, "bytes", len(modernized))
 	}
 }
