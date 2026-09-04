@@ -1,53 +1,81 @@
-# Sovereign Go Extension Specification
-# Format: context-sensitive weBNF.sn (:com:velocikey:extendgo:go_extension_spec)
+# ==============================================================================
+# Sovereign Go Extension Grammar Specification (go_extensions.wag)
+# Domain: Language Extension Specification Meta-Grammar
+# Storage Format: Wirth Syntax Notation (WSN) / weBNF.sn
+# Namespace: :com:velocikey:extendgo:go_extensions
+# ==============================================================================
 
-:com:velocikey:extendgo:go_extension_spec
+:com:velocikey:extendgo:go_extensions
 
-# Extension Metadata
-ExtensionMetadata = "name" ":" "SovereignGo"
-                  / "base_version" ":" "1.27"
-                  / "target_grammar" ":" "go" ;
+Grammar = GoExtensionGrammar ;
 
-# 1. Targeted Type Extension: Sovereign Supercomputing Scalars
-# Section: types | Target: BaseType | Action: AUGMENT
-ScalarPrecisionExtension = "target_rule" ":" "BaseType"
-                         / "section" ":" "types"
-                         / "action" ":" "AUGMENT"
-                         / ( "float2048" / "float1024" / "float512" / "float256" / "float128"
-                           / "complex4096" / "complex2048" / "complex1024" / "complex512" / "complex256"
-                           / "int2048" / "int1024" / "int512" / "int256" / "int128"
-                           / "uint2048" / "uint1024" / "uint512" / "uint256" / "uint128"
-                           / DecimalType ) ;
+GoExtensionGrammar = { ExtensionDeclaration ";" } ;
 
-# 2. Injected Production: Arbitrary Precision Decimal Type
-# Section: types | Target: DecimalType | Action: INJECT
-DecimalTypeExtension = "target_rule" ":" "DecimalType"
-                     / "section" ":" "types"
-                     / "action" ":" "INJECT"
-                     / ( "decimal" "[" ( Number / Identifier ) "]" ) ;
+ExtensionDeclaration = ExtensionMetadataDecl
+                     / TargetedExtensionDecl
+                     / KeywordExtensionDecl
+                     / ProductionRule ;
 
-# 3. Targeted Declarations Extension: Go 1.27 Generic Receiver Methods
-# Section: declarations | Target: FuncDecl | Action: REPLACE
-FuncDeclExtension = "target_rule" ":" "FuncDecl"
-                  / "section" ":" "declarations"
-                  / "action" ":" "REPLACE"
-                  / ( "func" [ Receiver ] Identifier [ TypeParamList ] Signature [ Block ] ) ;
+ExtensionMetadataDecl = Identifier "=" "name" ":" StringLit
+                      / "target_language" ":" StringLit
+                      / "description" ":" StringLit ;
 
-# 4. Targeted Expression Extension: Go 1.27 Chained Selectors
-# Section: expressions | Target: Selector | Action: REPLACE
-SelectorExtension = "target_rule" ":" "Selector"
-                  / "section" ":" "expressions"
-                  / "action" ":" "REPLACE"
-                  / ( "." Identifier [ TypeArgs ] ) ;
+TargetedExtensionDecl = Identifier "=" "target_rule" ":" StringLit
+                      / "section" ":" SpecSection
+                      / "action" ":" ActionKind
+                      [ / "feature" ":" StringLit ]
+                      [ / "lifecycle" ":" LifecycleStatus ]
+                      [ / "subsumed_in" ":" StringLit ]
+                      [ / "subsumed_if" ":" StringLit ]
+                      [ / "forbid" ":" StringLit ]
+                      [ / ( "(" ProductionExpression ")" / ProductionExpression ) ] ;
 
-# 5. Targeted Interface Negative Constraint: Forbid Generics on Interface Methods
-# Section: interfaces | Target: InterfaceMethod | Action: FORBID
-InterfaceMethodConstraint = "target_rule" ":" "InterfaceMethod"
-                          / "section" ":" "interfaces"
-                          / "action" ":" "FORBID"
-                          / "forbid" ":" "TypeParamList" ;
+KeywordExtensionDecl = Identifier "=" "action" ":" "REGISTER_KEYWORD"
+                     { / StringLit } ;
 
-# 6. Targeted Lexical Extension: Decimal Keyword Registration
-# Section: lexical | Action: REGISTER_KEYWORD
-ExtraKeywords = "action" ":" "REGISTER_KEYWORD"
-              / "decimal" ;
+SpecSection = '"types"'
+            / '"declarations"'
+            / '"interfaces"'
+            / '"structs"'
+            / '"expressions"'
+            / '"statements"'
+            / '"lexical"' ;
+
+ActionKind = '"AUGMENT"'
+           / '"REPLACE"'
+           / '"INJECT"'
+           / '"FORBID"'
+           / '"REGISTER_KEYWORD"' ;
+
+LifecycleStatus = '"ACTIVE"'
+                / '"SUBSUMED"'
+                / '"DEPRECATED"' ;
+
+ProductionRule = Identifier "=" ProductionExpression ;
+
+ProductionExpression = Term { "/" Term } ;
+
+Term = Factor { Factor } ;
+
+Factor = Identifier
+       / StringLit
+       / Group
+       / Option
+       / Repetition ;
+
+Group = "(" ProductionExpression ")" ;
+
+Option = "[" ProductionExpression "]" ;
+
+Repetition = "{" ProductionExpression "}" ;
+
+Identifier = Letter { Letter / Digit / "_" } ;
+
+StringLit = '"' { StringChar } '"' ;
+
+StringChar = Letter / Digit / "_" / "-" / "." / ":" / "/" / "\\" / "[" / "]" / "(" / ")" / "{" / "}" / " " ;
+
+Letter = "a" / "b" / "c" / "d" / "e" / "f" / "g" / "h" / "i" / "j" / "k" / "l" / "m" / "n" / "o" / "p" / "q" / "r" / "s" / "t" / "u" / "v" / "w" / "x" / "y" / "z"
+       / "A" / "B" / "C" / "D" / "E" / "F" / "G" / "H" / "I" / "J" / "K" / "L" / "M" / "N" / "O" / "P" / "Q" / "R" / "S" / "T" / "U" / "V" / "W" / "X" / "Y" / "Z" ;
+
+Digit = "0" / "1" / "2" / "3" / "4" / "5" / "6" / "7" / "8" / "9" ;

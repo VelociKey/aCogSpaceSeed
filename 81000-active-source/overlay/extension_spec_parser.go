@@ -13,6 +13,10 @@ type TargetedExtension struct {
 	TargetRule     string   // Production name in the Go spec being targeted
 	Section        string   // Spec section (types, declarations, interfaces, expressions, lexical)
 	Action         string   // AUGMENT, REPLACE, INJECT, FORBID, REGISTER_KEYWORD
+	Feature        string   // Semantic feature identifier (e.g., GENERIC_RECEIVER_METHODS)
+	Lifecycle      string   // ACTIVE, SUBSUMED, DEPRECATED
+	SubsumedIn     string   // Go version where this was natively subsumed (e.g., "1.27")
+	SubsumedIf     string   // Predicate pattern to test against upstream Go spec
 	ForbidElements []string // Elements forbidden by negative constraints
 	Keywords       []string // Lexical keywords registered by the extension
 	ProductionBody string   // Extended production expression in weBNF.sn
@@ -97,7 +101,7 @@ func parseMetadataDecl(tokens []languagegrammar.Token, spec *ExtensionSpec) {
 				spec.Name = val
 			case "base_version":
 				spec.BaseVersion = val
-			case "target_grammar":
+			case "target_grammar", "target_language":
 				spec.TargetGrammar = val
 			case "description":
 				spec.Description = val
@@ -122,7 +126,6 @@ func parseTargetedExtension(name string, tokens []languagegrammar.Token) Targete
 			case "target_rule":
 				ext.TargetRule = val
 				i += 3
-				// Skip trailing slash if present
 				if i < n && (tokens[i].Text == "/" || tokens[i].Text == "|") {
 					i++
 				}
@@ -136,6 +139,34 @@ func parseTargetedExtension(name string, tokens []languagegrammar.Token) Targete
 				continue
 			case "action":
 				ext.Action = val
+				i += 3
+				if i < n && (tokens[i].Text == "/" || tokens[i].Text == "|") {
+					i++
+				}
+				continue
+			case "feature":
+				ext.Feature = val
+				i += 3
+				if i < n && (tokens[i].Text == "/" || tokens[i].Text == "|") {
+					i++
+				}
+				continue
+			case "lifecycle":
+				ext.Lifecycle = val
+				i += 3
+				if i < n && (tokens[i].Text == "/" || tokens[i].Text == "|") {
+					i++
+				}
+				continue
+			case "subsumed_in":
+				ext.SubsumedIn = val
+				i += 3
+				if i < n && (tokens[i].Text == "/" || tokens[i].Text == "|") {
+					i++
+				}
+				continue
+			case "subsumed_if":
+				ext.SubsumedIf = val
 				i += 3
 				if i < n && (tokens[i].Text == "/" || tokens[i].Text == "|") {
 					i++

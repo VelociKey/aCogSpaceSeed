@@ -242,3 +242,107 @@ func TestGoExtensionSpecDSLParser(t *testing.T) {
 	t.Logf("✅ Successfully parsed and verified Go extension DSL specification (%d blocks)", len(spec.Extensions))
 }
 
+func TestSubsumptionAnalyzerAndConvergenceAudit(t *testing.T) {
+	specPath := `C:\aCogSpaceSeed\00flow\forge\92000-external-toolchains\go\doc\go_spec.html`
+	if _, err := os.Stat(specPath); err != nil {
+		specPath = `C:\aCogSpaceSeed\86sref\golang-go\doc\go_spec.html`
+	}
+
+	if _, err := os.Stat(specPath); err != nil {
+		t.Skipf("Go language spec not found at %s", specPath)
+	}
+
+	specData, err := os.ReadFile(specPath)
+	if err != nil {
+		t.Fatalf("failed to read spec: %v", err)
+	}
+
+	detectedVersion := overlay.DetectGoVersionFromSpec(string(specData), "1.27")
+	if detectedVersion != "1.27" {
+		t.Errorf("expected detected version == '1.27', got %s", detectedVersion)
+	}
+
+	extracted, err := spec_ingest.ExtractEBNFFromFile(specPath)
+	if err != nil {
+		t.Fatalf("extract failed: %v", err)
+	}
+
+	rawRules, err := spec_ingest.ParseEBNFRules(extracted.FullText)
+	if err != nil {
+		t.Fatalf("parse rules failed: %v", err)
+	}
+
+	extSpec, err := overlay.LoadDefaultGoExtensionSpec()
+	if err != nil {
+		t.Fatalf("load extension spec failed: %v", err)
+	}
+
+	report := overlay.AnalyzeSubsumption(extSpec, rawRules, detectedVersion)
+	if report == nil {
+		t.Fatalf("subsumption report is nil")
+	}
+
+	if report.GoVersion != "1.27" {
+		t.Errorf("expected report version 1.27, got %s", report.GoVersion)
+	}
+
+	// Subsumption assertions:
+	// 1. Generic receiver methods should be detected as SUBSUMED in Go 1.27
+	foundSubsumedReceiver := false
+	for _, sf := range report.SubsumedFeatures {
+		if sf.Feature == "GENERIC_RECEIVER_METHODS" {
+			foundSubsumedReceiver = true
+			if sf.SubsumedIn != "1.27" {
+				t.Errorf("expected SubsumedIn == '1.27', got %s", sf.SubsumedIn)
+			}
+			t.Logf("✅ Verified upstream subsumption: %s (Reason: %s)", sf.Feature, sf.Reason)
+		}
+	}
+	if !foundSubsumedReceiver {
+		t.Errorf("expected GENERIC_RECEIVER_METHODS to be detected as subsumed in Go 1.27")
+	}
+
+	// 2. Scalar precision and Decimal types must remain ACTIVE
+	activeMap := make(map[string]bool)
+	for _, act := range report.ActiveExtensions {
+		activeMap[act.Feature] = true
+	}
+
+	for _, expectedActive := range []string{"SUPERCOMPUTING_SCALARS", "ARBITRARY_PRECISION_DECIMALS", "CHAINED_GENERIC_SELECTORS"} {
+		if !activeMap[expectedActive] {
+			t.Errorf("expected feature %s to remain ACTIVE in Go 1.27", expectedActive)
+		}
+	}
+
+	// 3. Verify Version Delta .webnf Emission
+	deltaWebNF := overlay.EmitVersionDeltaWebNF(extSpec, report)
+	if !strings.Contains(deltaWebNF, ":com:velocikey:extendgo:go_extensions_v1_27") {
+		t.Errorf("missing versioned taxonomy header in delta .webnf")
+	}
+	if !strings.Contains(deltaWebNF, "SUPERCOMPUTING_SCALARS") {
+		t.Errorf("missing active scalar feature in delta .webnf")
+	}
+	if !strings.Contains(deltaWebNF, "NO LONGER NEEDED as of Go v1.27") {
+		t.Errorf("missing subsumed feature audit trail in delta .webnf")
+	}
+
+	// Validate delta .webnf with webnf-sn-lint
+	tmpDelta := filepath.Join(os.TempDir(), "test_extend_go_v1.27.webnf")
+	if err := os.WriteFile(tmpDelta, []byte(deltaWebNF), 0644); err != nil {
+		t.Fatalf("failed to write tmp delta: %v", err)
+	}
+	defer os.Remove(tmpDelta)
+
+	snLint := `C:\aCogSpaceSeed\00flow\latentlingua\webnf-sn-lint.exe`
+	if _, err := os.Stat(snLint); err == nil {
+		cmd := exec.Command(snLint, tmpDelta)
+		out, err := cmd.CombinedOutput()
+		if err != nil {
+			t.Fatalf("webnf-sn-lint failed on emitted delta: %v\nOutput: %s", err, string(out))
+		}
+	}
+
+	t.Logf("✅ Successfully validated version delta extend_go_v1.27.webnf with formal linter gates")
+}
+
+

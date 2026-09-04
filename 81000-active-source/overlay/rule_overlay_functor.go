@@ -38,8 +38,9 @@ func DefaultGoExtensions() *ExtensionOverlay {
 
 // RuleOverlayFunctor applies categorical rule morphisms from the overlay onto base Go rules.
 type RuleOverlayFunctor struct {
-	Overlay *ExtensionOverlay
-	Spec    *ExtensionSpec
+	Overlay               *ExtensionOverlay
+	Spec                  *ExtensionSpec
+	LastSubsumptionReport *SubsumptionReport
 }
 
 // NewRuleOverlayFunctor creates an instance initialized with the given overlay.
@@ -127,9 +128,12 @@ func (f *RuleOverlayFunctor) Apply(baseRules []spec_ingest.RawRule) ([]spec_inge
 	ruleMap["GenericType"] = `Identifier TypeArgs`
 	ruleMap["TypeArgs"] = `"[" TypeList "]"`
 
-	// Apply declarative extension overrides from go_extensions.wag DSL if present
+	// Apply declarative extension overrides from go_extensions.webnf DSL
 	if f.Spec != nil {
-		for _, ext := range f.Spec.Extensions {
+		report := AnalyzeSubsumption(f.Spec, baseRules, f.Overlay.TargetVersion)
+		f.LastSubsumptionReport = report
+
+		for _, ext := range report.ActiveExtensions {
 			switch ext.Action {
 			case "AUGMENT":
 				if ext.TargetRule == "BaseType" && ext.ProductionBody != "" {

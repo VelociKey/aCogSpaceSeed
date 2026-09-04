@@ -3,21 +3,24 @@
 # Grammar Conformance: go_extensions.wag (grammar_go_extension_spec.wag)
 # Domain: Sovereign Systems, Supercomputing & High-Precision Science
 # Storage Format: Wirth Syntax Notation (WSN) / weBNF Program Record (.webnf)
-# Namespace: :com:velocikey:extendgo:go_extension_spec
+# Namespace: :com:velocikey:extendgo:go_extensions
 # ==============================================================================
 
-:com:velocikey:extendgo:go_extension_spec
+:com:velocikey:extendgo:go_extensions
 
-# --- Extension Metadata ---
+# --- Extension Catalog Metadata ---
 ExtensionMetadata = "name" ":" "SovereignGo"
-                  / "base_version" ":" "1.27"
-                  / "target_grammar" ":" "go" ;
+                  / "target_language" ":" "go"
+                  / "description" ":" "Sovereign supercomputing scalars, generic methods, and precision extensions" ;
 
 # --- 1. Targeted Type Extension: Sovereign Supercomputing Scalars ---
-# Section: types | Target: BaseType | Action: AUGMENT
+# Section: types | Target: BaseType | Action: AUGMENT | Lifecycle: ACTIVE
 ScalarPrecisionExtension = "target_rule" ":" "BaseType"
                          / "section" ":" "types"
                          / "action" ":" "AUGMENT"
+                         / "feature" ":" "SUPERCOMPUTING_SCALARS"
+                         / "lifecycle" ":" "ACTIVE"
+                         / "subsumed_if" ":" "float128"
                          / ( "float2048" / "float1024" / "float512" / "float256" / "float128"
                            / "complex4096" / "complex2048" / "complex1024" / "complex512" / "complex256"
                            / "int2048" / "int1024" / "int512" / "int256" / "int128"
@@ -25,34 +28,46 @@ ScalarPrecisionExtension = "target_rule" ":" "BaseType"
                            / DecimalType ) ;
 
 # --- 2. Injected Production: Arbitrary Precision Decimal Type ---
-# Section: types | Target: DecimalType | Action: INJECT
+# Section: types | Target: DecimalType | Action: INJECT | Lifecycle: ACTIVE
 DecimalTypeExtension = "target_rule" ":" "DecimalType"
                      / "section" ":" "types"
                      / "action" ":" "INJECT"
+                     / "feature" ":" "ARBITRARY_PRECISION_DECIMALS"
+                     / "lifecycle" ":" "ACTIVE"
+                     / "subsumed_if" ":" "decimal["
                      / ( "decimal" "[" ( Number / Identifier ) "]" ) ;
 
 # --- 3. Targeted Declarations Extension: Go 1.27 Generic Receiver Methods ---
-# Section: declarations | Target: FuncDecl | Action: REPLACE
+# Section: declarations | Target: FuncDecl | Action: REPLACE | Lifecycle: SUBSUMED in Go 1.27
 FuncDeclExtension = "target_rule" ":" "FuncDecl"
                   / "section" ":" "declarations"
                   / "action" ":" "REPLACE"
+                  / "feature" ":" "GENERIC_RECEIVER_METHODS"
+                  / "lifecycle" ":" "SUBSUMED"
+                  / "subsumed_in" ":" "1.27"
+                  / "subsumed_if" ":" "TypeParamList"
                   / ( "func" [ Receiver ] Identifier [ TypeParamList ] Signature [ Block ] ) ;
 
 # --- 4. Targeted Expression Extension: Go 1.27 Chained Selectors ---
-# Section: expressions | Target: Selector | Action: REPLACE
+# Section: expressions | Target: Selector | Action: REPLACE | Lifecycle: ACTIVE
 SelectorExtension = "target_rule" ":" "Selector"
                   / "section" ":" "expressions"
                   / "action" ":" "REPLACE"
+                  / "feature" ":" "CHAINED_GENERIC_SELECTORS"
+                  / "lifecycle" ":" "ACTIVE"
+                  / "subsumed_if" ":" "TypeArgs"
                   / ( "." Identifier [ TypeArgs ] ) ;
 
 # --- 5. Targeted Interface Negative Constraint: Forbid Generics on Interface Methods ---
-# Section: interfaces | Target: InterfaceMethod | Action: FORBID
+# Section: interfaces | Target: InterfaceMethod | Action: FORBID | Lifecycle: ACTIVE
 InterfaceMethodConstraint = "target_rule" ":" "InterfaceMethod"
                           / "section" ":" "interfaces"
                           / "action" ":" "FORBID"
+                          / "feature" ":" "INTERFACE_METHOD_GENERIC_GUARD"
+                          / "lifecycle" ":" "ACTIVE"
                           / "forbid" ":" "TypeParamList" ;
 
 # --- 6. Targeted Lexical Extension: Decimal Keyword Registration ---
-# Section: lexical | Action: REGISTER_KEYWORD
+# Section: lexical | Action: REGISTER_KEYWORD | Lifecycle: ACTIVE
 ExtraKeywords = "action" ":" "REGISTER_KEYWORD"
               / "decimal" ;

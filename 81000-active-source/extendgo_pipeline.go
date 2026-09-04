@@ -2,6 +2,7 @@ package main
 
 import (
 	"flag"
+	"fmt"
 	"log/slog"
 	"os"
 	"os/exec"
@@ -16,6 +17,7 @@ import (
 func main() {
 	specFlag := flag.String("spec", "", "Path to Go language specification HTML/text file")
 	outFlag := flag.String("out", "", "Target output path for generated grammar_go.wag")
+	deltaOutFlag := flag.String("delta-out", "", "Target output path for generated version delta extend_go_v<version>.webnf")
 	versionFlag := flag.String("version", "1.27", "Target Go version")
 	verifyOnlyFlag := flag.Bool("verify", false, "Verify without writing to destination")
 
@@ -32,7 +34,13 @@ func main() {
 		os.Exit(1)
 	}
 
-	slog.Info("Ingesting upstream Go specification", "path", specPath, "version", *versionFlag)
+	// Detect version from spec content if possible
+	detectedVersion := *versionFlag
+	if specContent, err := os.ReadFile(specPath); err == nil {
+		detectedVersion = overlay.DetectGoVersionFromSpec(string(specContent), *versionFlag)
+	}
+
+	slog.Info("Ingesting upstream Go specification", "path", specPath, "version", detectedVersion)
 
 	// 2. Ingest & Extract EBNF
 	extracted, err := spec_ingest.ExtractEBNFFromFile(specPath)
@@ -52,12 +60,38 @@ func main() {
 
 	slog.Info("Parsed base Go production rules", "count", len(rawRules))
 
-	// 4. Apply Sovereign Extension Overlay Functor
-	functor := overlay.NewRuleOverlayFunctor(overlay.DefaultGoExtensions())
+	// 4. Apply Sovereign Extension Overlay Functor & Perform Subsumption Audit
+	overlayConfig := overlay.DefaultGoExtensions()
+	overlayConfig.TargetVersion = detectedVersion
+	functor := overlay.NewRuleOverlayFunctor(overlayConfig)
 	synthesizedRules, err := functor.Apply(rawRules)
 	if err != nil {
 		slog.Error("Rule overlay synthesis failed", "error", err)
 		os.Exit(1)
+	}
+
+	if rep := functor.LastSubsumptionReport; rep != nil {
+		slog.Info("Subsumption & convergence audit complete",
+			"go_version", rep.GoVersion,
+			"total_extensions", rep.TotalExtensions,
+			"active_extensions", rep.ActiveCount,
+			"subsumed_upstream", rep.SubsumedCount,
+		)
+		for _, sf := range rep.SubsumedFeatures {
+			slog.Info("[SUBSUMED] Feature natively converged into Go",
+				"feature", sf.Feature,
+				"subsumed_in", sf.SubsumedIn,
+				"rule", sf.TargetRule,
+				"reason", sf.Reason,
+			)
+		}
+		for _, act := range rep.ActiveExtensions {
+			slog.Info("[ACTIVE] Sovereign extension required",
+				"name", act.Name,
+				"action", act.Action,
+				"target_rule", act.TargetRule,
+			)
+		}
 	}
 
 	slog.Info("Applied sovereign rule overlay", "synthesized_rules", len(synthesizedRules))
@@ -74,7 +108,7 @@ func main() {
 	slog.Info("All grammar constraints & negative guards passed", "checked_rules", report.CheckedRulesCount)
 
 	// 6. Emit strictly formatted webnf.sn grammar
-	wagContent := emitter.EmitWebNFSN(synthesizedRules, *versionFlag)
+	wagContent := emitter.EmitWebNFSN(synthesizedRules, detectedVersion)
 
 	if *verifyOnlyFlag {
 		slog.Info("Verification completed successfully (dry-run mode).")
@@ -99,7 +133,22 @@ func main() {
 
 	slog.Info("Successfully synthesized and emitted grammar", "destination", outPath, "bytes", len(wagContent))
 
-	// 8. Invoke Platform Linter Gates
+	// 8. Emit version-specific realized extension program (.webnf)
+	if functor.Spec != nil && functor.LastSubsumptionReport != nil {
+		deltaWebNF := overlay.EmitVersionDeltaWebNF(functor.Spec, functor.LastSubsumptionReport)
+		deltaPath := *deltaOutFlag
+		if deltaPath == "" {
+			deltaPath = filepath.Join(`C:\aCogSpaceSeed\00flow\extendgo\81000-active-source\overlay`, fmt.Sprintf("extend_go_v%s.webnf", detectedVersion))
+		}
+		if err := os.WriteFile(deltaPath, []byte(deltaWebNF), 0644); err != nil {
+			slog.Warn("Failed to write version delta webnf", "path", deltaPath, "error", err)
+		} else {
+			slog.Info("Emitted realized version extension specification", "path", deltaPath, "bytes", len(deltaWebNF))
+			invokeLinterGates(deltaPath)
+		}
+	}
+
+	// 9. Invoke Platform Linter Gates
 	invokeLinterGates(outPath)
 }
 
