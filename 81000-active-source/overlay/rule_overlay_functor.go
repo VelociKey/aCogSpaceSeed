@@ -98,7 +98,7 @@ func (f *RuleOverlayFunctor) Apply(baseRules []spec_ingest.RawRule) ([]spec_inge
 
 	// 2. Go 1.27 Generic Function and Method Declarations with Visibility Suffix
 	ruleMap["FuncDecl"] = `"func" [ Receiver ] Identifier [ TypeParamList ] Signature [ VisibilitySuffix ] [ Block ]`
-	ruleMap["VisibilitySuffix"] = `"public" / "private" / "package"`
+	ruleMap["VisibilitySuffix"] = `"public" / "private"`
 	ruleMap["Receiver"] = `"(" [ Identifier ] DataType ")"`
 	ruleMap["Signature"] = `"(" [ ParamList ] ")" [ ResultType ]`
 	ruleMap["ResultType"] = `DataType / "(" TypeList ")"`

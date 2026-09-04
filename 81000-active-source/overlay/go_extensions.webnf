@@ -75,7 +75,7 @@ VisibilitySuffixExtension = "target_rule" ":" "VisibilitySuffix"
                           / "feature" ":" "DECLARATION_VISIBILITY_SUFFIXES"
                           / "lifecycle" ":" "ACTIVE"
                           / "subsumed_if" ":" "VisibilitySuffix"
-                          / ( "public" / "private" / "package" ) ;
+                          / ( "public" / "private" ) ;
 
 # --- 7. Targeted Lexical Extension: Decimal & Visibility Keywords Registration ---
 # Section: lexical | Action: REGISTER_KEYWORD | Lifecycle: ACTIVE

@@ -32,8 +32,8 @@ func formatSingleRule(sb *strings.Builder, r spec_ingest.RawRule) {
 		sb.WriteString("         / Identifier [ TypeParamList ] [ \":\" DataType ] [ \"=\" Expr ] ;\n\n")
 
 	case "FuncDecl":
-		sb.WriteString("# Go 1.27 Generic Function and Method Declarations\n")
-		sb.WriteString("FuncDecl = \"func\" [ Receiver ] Identifier [ TypeParamList ] Signature [ Block ] ;\n\n")
+		sb.WriteString("# Go 1.27 Generic Function and Method Declarations with Visibility Suffix\n")
+		sb.WriteString(fmt.Sprintf("FuncDecl = %s ;\n\n", r.Body))
 
 	case "TypeParamList":
 		sb.WriteString("# Generic Type Parameters\n")
@@ -72,7 +72,7 @@ func formatSingleRule(sb *strings.Builder, r spec_ingest.RawRule) {
 		sb.WriteString("Keyword = \"break\" / \"case\" / \"chan\" / \"const\" / \"continue\" / \"default\" / \"defer\" / \"else\"\n")
 		sb.WriteString("        / \"fallthrough\" / \"for\" / \"func\" / \"go\" / \"goto\" / \"if\" / \"import\" / \"interface\"\n")
 		sb.WriteString("        / \"map\" / \"package\" / \"range\" / \"return\" / \"select\" / \"struct\" / \"switch\"\n")
-		sb.WriteString("        / \"type\" / \"var\" / \"decimal\" ;\n\n")
+		sb.WriteString("        / \"type\" / \"var\" / \"decimal\" / \"public\" / \"private\" ;\n\n")
 
 	default:
 		sb.WriteString(fmt.Sprintf("%s = %s ;\n\n", r.Name, r.Body))

@@ -1,4 +1,4 @@
-# Proposal: spec: declaration-suffix visibility modifiers (`public`, `private`, `package`)
+# Proposal: spec: declaration-suffix visibility modifiers (`public`, `private`)
 
 **Author:** Sovereign Architecture & Antigravity Team  
 **Date:** September 2026  
@@ -8,13 +8,14 @@
 
 ## 1. Abstract
 
-We propose introducing optional declaration-tail visibility modifiers—`public`, `private`, and `package`—to the Go specification for top-level declarations (`func`, `type`, `var`, `const`) and struct fields. 
+We propose introducing optional declaration-tail visibility modifiers—`public` and `private`—to the Go language specification for top-level declarations (`func`, `type`, `var`, `const`) and struct fields. Package-level visibility remains the natural language default when modifiers are omitted.
 
-By placing the visibility modifier at the **tail** of declarations (e.g., `func parseConfig() (Config, error) package { ... }`, `type token struct { ... } private`, `Field int public`), this proposal:
+By placing the visibility modifier at the **tail** of declarations (e.g., `func parseConfig() (Config, error) public { ... }`, `type token struct { ... } private`, `field int public`), this proposal:
 1. **Decouples semantic encapsulation from typography**: Eliminates naming friction with acronyms (`url`, `json`, `id`), Unicode scripts without casing, and awkward renaming.
-2. **Eliminates directory-as-grammar (`internal/`) leakage**: Provides explicit, source-level package/subsystem encapsulation without forcing artificial filesystem hierarchy or path re-nesting.
+2. **Eliminates directory-as-grammar (`internal/`) leakage**: Provides explicit, source-level file/package encapsulation without forcing artificial filesystem hierarchy or directory re-nesting.
 3. **Preserves standard Go parser & AST lookahead**: Avoids prefix keywords (`pub`, `private`) which break existing Go tooling, parsers (`go/parser`), linters, DWARF symbols, and LSP engines (`gopls`).
-4. **Guarantees 100% Go 1 Backward Compatibility**: Any declaration omitting a visibility suffix defaults to standard Go identifier capitalization semantics.
+4. **Adheres to Go's Minimalist Aesthetic**: Omits any redundant `package` keyword—package-level scope remains the universal default for unexported declarations.
+5. **Guarantees 100% Go 1 Backward Compatibility**: Any declaration omitting a visibility suffix defaults to standard Go identifier capitalization semantics.
 
 ---
 
@@ -26,7 +27,7 @@ Since its inception, Go has used identifier capitalization to dictate visibility
 - **Acronym and Casing Clashes**: Field names or identifiers that naturally start with an acronym must either violate idiomatic naming conventions or distort casing (e.g., `url` vs `URL`, `jsonEncoder` vs `JSONEncoder`).
 - **Non-Latin Scripts**: In many international scripts (CJK, Arabic, Hebrew, Devanagari), case distinction does not exist. Casing-based export creates awkward disparities for non-Latin identifiers.
 - **Refactoring Breakage**: Changing an unexported symbol to exported changes its lexical name, requiring cascading find-and-replace throughout call sites rather than adjusting an access modifier in place.
-- **No True File or Module Scope**: Go has no mechanism to make a helper private to a single `.go` source file; all unexported declarations are visible to the entire package.
+- **No True File-Level Scope**: Go has no mechanism to make a helper private to a single `.go` source file; all unexported declarations are unconditionally visible across the entire package.
 
 ### 2.2 Directory Structure as a Pseudo-Grammar (`internal/`)
 To achieve encapsulation across multiple packages without exposing APIs publicly, Go introduced the `internal/` directory convention (Go 1.4). 
@@ -44,7 +45,7 @@ Proposals in other languages often suggest leading keywords (e.g., `pub func Foo
 
 ## 3. Proposed Solution: Declaration-Suffix Modifiers
 
-We propose placing optional visibility keywords at the **declaration tail**, immediately preceding the block body or assignment.
+We propose placing optional visibility keywords (`public`, `private`) at the **declaration tail**, immediately preceding the block body or assignment.
 
 ### 3.1 Syntax Overview
 
@@ -55,13 +56,13 @@ func generateUUID() string public {
     return uuid.NewString()
 }
 
-// Package-private helper (explicit, even if capitalized for domain reasons)
-func ValidateHeader(h Header) error package {
+// Strictly private to this compilation unit / source file
+func internalBufferPool() *sync.Pool private {
     ...
 }
 
-// Strictly private to this compilation unit / source file
-func internalBufferPool() *sync.Pool private {
+// Unmodified: Standard Go default (package-scoped because lowercase)
+func validateHeader(h Header) error {
     ...
 }
 ```
@@ -75,17 +76,25 @@ type config struct {
     salt string private
 } public
 
-// Package-private type
+// Strictly private type (file-scoped)
 type connectionPool struct {
     ...
-} package
+} private
+
+// Unmodified: Standard Go default (package-scoped)
+type sessionState struct {
+    ...
+}
 ```
 
 #### Variables and Constants
 ```go
 var DefaultTimeout = 30 * time.Second public
-const maxRetries = 5 package
 var localScratch = make([]byte, 1024) private
+
+// Unmodified: Standard Go defaults
+var retryLimit = 5
+const defaultPort = 8080
 ```
 
 #### Struct Fields
@@ -93,8 +102,8 @@ var localScratch = make([]byte, 1024) private
 type Request struct {
     // Explicit public field matching lowercase JSON convention
     id        int64  public  `json:"id"`
-    authToken string private // Strictly invisible outside the declaring file/type
-    status    string package // Visible to package, invisible to consumers
+    authToken string private // Strictly invisible outside declaring file/type
+    status    string         // Default package visibility
 }
 ```
 
@@ -105,7 +114,7 @@ type Request struct {
 The formal grammar additions are flat, non-recursive, and integrate cleanly into the existing Go specification:
 
 ```ebnf
-VisibilitySuffix = "public" | "private" | "package" ;
+VisibilitySuffix = "public" | "private" ;
 
 FuncDecl = "func" [ Receiver ] Identifier [ TypeParamList ] Signature [ VisibilitySuffix ] [ Block ] ;
 
@@ -119,7 +128,7 @@ ConstSpec = IdentifierList [ [ Type ] [ VisibilitySuffix ] ] "=" ExpressionList 
 ```
 
 ### Parser Invariant
-The parser encounters `func`, `type`, `var`, or `const` in standard position. The identifier is parsed unambiguously. When completing the signature or type specification, the parser checks for an optional terminal token `public`, `private`, or `package`.
+The parser encounters `func`, `type`, `var`, or `const` in standard position. The identifier is parsed unambiguously. When completing the signature or type specification, the parser checks for an optional terminal token `public` or `private`.
 
 ---
 
@@ -127,13 +136,13 @@ The parser encounters `func`, `type`, `var`, or `const` in standard position. Th
 
 1. **Precedence**:
    - When a `VisibilitySuffix` is explicitly present, it **overrides** the capitalization of the identifier.
-   - Example: `func auditLog() public` is exported. `func SystemReset() private` is unexported and private to the compilation file.
+   - Example: `func auditLog() public` is exported outside the package. `func SystemReset() private` is unexported and private to the compilation file.
 2. **Default Fallback (Zero Breaking Changes)**:
    - When `VisibilitySuffix` is omitted, the symbol's visibility defaults strictly to Go 1 capitalization rules (`Uppercase` = exported, `lowercase` = package-scoped).
 3. **Levels of Visibility**:
    - `public`: Accessible to any importing package.
-   - `package`: Accessible anywhere within the same Go package (replaces the need for arbitrary `internal/` directory packaging).
-   - `private`: Accessible only within the declaring source file / lexical scope.
+   - `private`: Accessible only within the declaring source file (`.go` compilation unit).
+   - *(omitted)*: Standard Go behavior (package-scoped if lowercase; exported if uppercase).
 
 ---
 
@@ -150,7 +159,7 @@ The parser encounters `func`, `type`, `var`, or `const` in standard position. Th
 
 This proposal strictly satisfies the **Go 1 Compatibility Promise**:
 - Every existing valid Go program remains valid with identical semantic behavior.
-- `public`, `private`, and `package` are contextually recognized as visibility modifiers at declaration tail positions, avoiding breaking code where these words are used as local variable names.
+- `public` and `private` are contextually recognized as visibility modifiers at declaration tail positions, avoiding breaking code where these words are used as local variable names.
 
 ---
 
@@ -163,4 +172,5 @@ This proposal strictly satisfies the **Go 1 Compatibility Promise**:
 | **Acronym Ergonomics** | Poor (`json` vs `JSON`) | Good | Excellent |
 | **Directory Coupling** | Relies on `internal/` | Relies on `internal/` | Purely Source-Level Encapsulation |
 | **File-Level Privacy** | Not supported | Varied | Supported (`private`) |
+| **Go Minimalism** | High | Low (introduces new syntax blocks) | High (only `public` and `private`) |
 | **Go 1 Compatible** | Baseline | Breaking or complex lookahead | 100% Backwards-Compatible |

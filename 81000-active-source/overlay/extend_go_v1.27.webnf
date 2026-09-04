@@ -61,7 +61,7 @@ VisibilitySuffixExtension = "target_rule" ":" "VisibilitySuffix"
                  / "feature" ":" "DECLARATION_VISIBILITY_SUFFIXES"
                  / "lifecycle" ":" "ACTIVE"
                  / "subsumed_if" ":" "VisibilitySuffix"
-                 / ( "public" / "private" / "package" ) ;
+                 / ( "public" / "private" ) ;
 
 # --- [6/6] Active Extension: ExtraKeywords ---
 ExtraKeywords = "action" ":" "REGISTER_KEYWORD"
