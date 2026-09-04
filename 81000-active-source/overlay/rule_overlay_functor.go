@@ -57,9 +57,13 @@ func NewRuleOverlayFunctor(ov *ExtensionOverlay) *RuleOverlayFunctor {
 // LoadDefaultGoExtensionSpec discovers and parses the authoritative go_extensions.wag DSL file.
 func LoadDefaultGoExtensionSpec() (*ExtensionSpec, error) {
 	candidates := []string{
+		`C:\aCogSpaceSeed\00flow\extendgo\81000-active-source\overlay\go_extensions.webnf`,
 		`C:\aCogSpaceSeed\00flow\extendgo\81000-active-source\overlay\go_extensions.wag`,
+		`81000-active-source/overlay/go_extensions.webnf`,
 		`81000-active-source/overlay/go_extensions.wag`,
+		`00flow/extendgo/81000-active-source/overlay/go_extensions.webnf`,
 		`00flow/extendgo/81000-active-source/overlay/go_extensions.wag`,
+		`../81000-active-source/overlay/go_extensions.webnf`,
 		`../81000-active-source/overlay/go_extensions.wag`,
 	}
 	for _, c := range candidates {
