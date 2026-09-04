@@ -308,7 +308,7 @@ func TestSubsumptionAnalyzerAndConvergenceAudit(t *testing.T) {
 		activeMap[act.Feature] = true
 	}
 
-	for _, expectedActive := range []string{"SUPERCOMPUTING_SCALARS", "ARBITRARY_PRECISION_DECIMALS", "CHAINED_GENERIC_SELECTORS"} {
+	for _, expectedActive := range []string{"SUPERCOMPUTING_SCALARS", "ARBITRARY_PRECISION_DECIMALS", "CHAINED_GENERIC_SELECTORS", "DECLARATION_VISIBILITY_SUFFIXES"} {
 		if !activeMap[expectedActive] {
 			t.Errorf("expected feature %s to remain ACTIVE in Go 1.27", expectedActive)
 		}

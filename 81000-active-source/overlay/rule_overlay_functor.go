@@ -32,7 +32,7 @@ func DefaultGoExtensions() *ExtensionOverlay {
 			`"string"`, `"bool"`, `"byte"`, `"rune"`, `"error"`, `Identifier`,
 		},
 		DecimalRule:   `"decimal" "[" ( Number / Identifier ) "]"`,
-		ExtraKeywords: []string{`"decimal"`},
+		ExtraKeywords: []string{`"decimal"`, `"public"`, `"private"`},
 	}
 }
 
@@ -96,8 +96,9 @@ func (f *RuleOverlayFunctor) Apply(baseRules []spec_ingest.RawRule) ([]spec_inge
 	f.ensureRule(ruleMap, &ruleOrder, "ImportStmt", `"import" ( StringLit / "(" { StringLit ";" } ")" )`)
 	f.ensureRule(ruleMap, &ruleOrder, "DeclStmt", `"type" Identifier [ TypeParamList ] ( StructType / InterfaceType / DataType ) / "var" Identifier [ TypeParamList ] [ DataType ] [ "=" Expr ] / "const" Identifier [ DataType ] [ "=" Expr ] / Identifier [ TypeParamList ] [ ":" DataType ] [ "=" Expr ]`)
 
-	// 2. Go 1.27 Generic Function and Method Declarations
-	ruleMap["FuncDecl"] = `"func" [ Receiver ] Identifier [ TypeParamList ] Signature [ Block ]`
+	// 2. Go 1.27 Generic Function and Method Declarations with Visibility Suffix
+	ruleMap["FuncDecl"] = `"func" [ Receiver ] Identifier [ TypeParamList ] Signature [ VisibilitySuffix ] [ Block ]`
+	ruleMap["VisibilitySuffix"] = `"public" / "private" / "package"`
 	ruleMap["Receiver"] = `"(" [ Identifier ] DataType ")"`
 	ruleMap["Signature"] = `"(" [ ParamList ] ")" [ ResultType ]`
 	ruleMap["ResultType"] = `DataType / "(" TypeList ")"`
@@ -117,9 +118,9 @@ func (f *RuleOverlayFunctor) Apply(baseRules []spec_ingest.RawRule) ([]spec_inge
 	ruleMap["InterfaceElem"] = `InterfaceMethod / TypeConstraint`
 	ruleMap["InterfaceMethod"] = `Identifier Signature`
 
-	// 5. Struct Types & Go 1.27 Field Selectors
+	// 5. Struct Types & Go 1.27 Field Selectors with Field-Level Visibility
 	ruleMap["StructType"] = `"struct" "{" { FieldDecl ";" } "}"`
-	ruleMap["FieldDecl"] = `IdentifierList DataType [ StringLit ] / [ "*" ] Identifier [ StringLit ]`
+	ruleMap["FieldDecl"] = `IdentifierList DataType [ StringLit ] [ VisibilitySuffix ] / [ "*" ] Identifier [ StringLit ] [ VisibilitySuffix ]`
 	ruleMap["DataType"] = `[ "*" / "[]" ] BaseType`
 
 	// 6. Sovereign BaseType with all scientific supercomputing scalar types
@@ -193,7 +194,7 @@ func (f *RuleOverlayFunctor) Apply(baseRules []spec_ingest.RawRule) ([]spec_inge
 	// Canonical rule order for deterministic, stable output
 	canonicalOrder := []string{
 		"Grammar", "GoProgram", "StatementList", "Statement", "ImportStmt", "DeclStmt",
-		"FuncDecl", "Receiver", "Signature", "ResultType", "Block",
+		"FuncDecl", "VisibilitySuffix", "Receiver", "Signature", "ResultType", "Block",
 		"TypeParamList", "TypeParamDecl", "TypeConstraint", "TypeList", "ParamList", "Param", "IdentifierList",
 		"InterfaceType", "InterfaceElem", "InterfaceMethod",
 		"StructType", "FieldDecl",

@@ -3,7 +3,7 @@
 # Upstream Target: Go v1.27
 # Grammar Conformance: go_extensions.wag (grammar_go_extension_spec.wag)
 # Domain: Sovereign Systems, Supercomputing & High-Precision Science
-# Active Extensions: 5 | Subsumed Upstream Features: 1
+# Active Extensions: 6 | Subsumed Upstream Features: 1
 # ==============================================================================
 
 :com:velocikey:extendgo:go_extensions_v1_27
@@ -18,7 +18,7 @@ ExtensionMetadata = "name" ":" "ExtendGo_v1.27"
 # 1. ACTIVE SOVEREIGN EXTENSIONS (Required for Go v1.27)
 # ==============================================================================
 
-# --- [1/5] Active Extension: ScalarPrecisionExtension ---
+# --- [1/6] Active Extension: ScalarPrecisionExtension ---
 ScalarPrecisionExtension = "target_rule" ":" "BaseType"
                  / "section" ":" "types"
                  / "action" ":" "AUGMENT"
@@ -27,7 +27,7 @@ ScalarPrecisionExtension = "target_rule" ":" "BaseType"
                  / "subsumed_if" ":" "float128"
                  / ( "float2048" / "float1024" / "float512" / "float256" / "float128" / "complex4096" / "complex2048" / "complex1024" / "complex512" / "complex256" / "int2048" / "int1024" / "int512" / "int256" / "int128" / "uint2048" / "uint1024" / "uint512" / "uint256" / "uint128" / DecimalType ) ;
 
-# --- [2/5] Active Extension: DecimalTypeExtension ---
+# --- [2/6] Active Extension: DecimalTypeExtension ---
 DecimalTypeExtension = "target_rule" ":" "DecimalType"
                  / "section" ":" "types"
                  / "action" ":" "INJECT"
@@ -36,7 +36,7 @@ DecimalTypeExtension = "target_rule" ":" "DecimalType"
                  / "subsumed_if" ":" "decimal["
                  / ( "decimal""["(Number / Identifier)"]" ) ;
 
-# --- [3/5] Active Extension: SelectorExtension ---
+# --- [3/6] Active Extension: SelectorExtension ---
 SelectorExtension = "target_rule" ":" "Selector"
                  / "section" ":" "expressions"
                  / "action" ":" "REPLACE"
@@ -45,7 +45,7 @@ SelectorExtension = "target_rule" ":" "Selector"
                  / "subsumed_if" ":" "TypeArgs"
                  / ( "." Identifier[TypeArgs] ) ;
 
-# --- [4/5] Active Extension: InterfaceMethodConstraint ---
+# --- [4/6] Active Extension: InterfaceMethodConstraint ---
 InterfaceMethodConstraint = "target_rule" ":" "InterfaceMethod"
                  / "section" ":" "interfaces"
                  / "action" ":" "FORBID"
@@ -54,9 +54,20 @@ InterfaceMethodConstraint = "target_rule" ":" "InterfaceMethod"
                  / "forbid" ":" "TypeParamList"
                  ;
 
-# --- [5/5] Active Extension: ExtraKeywords ---
+# --- [5/6] Active Extension: VisibilitySuffixExtension ---
+VisibilitySuffixExtension = "target_rule" ":" "VisibilitySuffix"
+                 / "section" ":" "declarations"
+                 / "action" ":" "INJECT"
+                 / "feature" ":" "DECLARATION_VISIBILITY_SUFFIXES"
+                 / "lifecycle" ":" "ACTIVE"
+                 / "subsumed_if" ":" "VisibilitySuffix"
+                 / ( "public" / "private" / "package" ) ;
+
+# --- [6/6] Active Extension: ExtraKeywords ---
 ExtraKeywords = "action" ":" "REGISTER_KEYWORD"
-              / "decimal" ;
+              / "decimal"
+              / "public"
+              / "private" ;
 
 # ==============================================================================
 # 2. SUBSUMED UPSTREAM FEATURES (NO LONGER NEEDED as of Go v1.27)

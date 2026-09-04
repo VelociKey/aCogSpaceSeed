@@ -199,11 +199,11 @@ func EmitVersionDeltaWebNF(spec *ExtensionSpec, report *SubsumptionReport) strin
 	for idx, ext := range report.ActiveExtensions {
 		sb.WriteString(fmt.Sprintf("# --- [%d/%d] Active Extension: %s ---\n", idx+1, report.ActiveCount, ext.Name))
 		if ext.Action == "REGISTER_KEYWORD" {
-			sb.WriteString(fmt.Sprintf("%s = \"action\" \":\" \"REGISTER_KEYWORD\"\n", ext.Name))
+			sb.WriteString(fmt.Sprintf("%s = \"action\" \":\" \"REGISTER_KEYWORD\"", ext.Name))
 			for _, kw := range ext.Keywords {
-				sb.WriteString(fmt.Sprintf("              / %q ;\n", kw))
+				sb.WriteString(fmt.Sprintf("\n              / %q", kw))
 			}
-			sb.WriteString("\n")
+			sb.WriteString(" ;\n\n")
 			continue
 		}
 

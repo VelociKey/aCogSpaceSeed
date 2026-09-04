@@ -67,7 +67,19 @@ InterfaceMethodConstraint = "target_rule" ":" "InterfaceMethod"
                           / "lifecycle" ":" "ACTIVE"
                           / "forbid" ":" "TypeParamList" ;
 
-# --- 6. Targeted Lexical Extension: Decimal Keyword Registration ---
+# --- 6. Injected Production: Declaration Visibility Suffixes ---
+# Section: declarations | Target: VisibilitySuffix | Action: INJECT | Lifecycle: ACTIVE
+VisibilitySuffixExtension = "target_rule" ":" "VisibilitySuffix"
+                          / "section" ":" "declarations"
+                          / "action" ":" "INJECT"
+                          / "feature" ":" "DECLARATION_VISIBILITY_SUFFIXES"
+                          / "lifecycle" ":" "ACTIVE"
+                          / "subsumed_if" ":" "VisibilitySuffix"
+                          / ( "public" / "private" / "package" ) ;
+
+# --- 7. Targeted Lexical Extension: Decimal & Visibility Keywords Registration ---
 # Section: lexical | Action: REGISTER_KEYWORD | Lifecycle: ACTIVE
 ExtraKeywords = "action" ":" "REGISTER_KEYWORD"
-              / "decimal" ;
+              / "decimal"
+              / "public"
+              / "private" ;
