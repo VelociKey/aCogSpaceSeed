@@ -146,7 +146,160 @@ The parser encounters `func`, `type`, `var`, or `const` in standard position. Th
 
 ---
 
-## 6. Ecosystem & Tooling Impact
+## 6. Upstream Implementation Architecture & Transformation of the Capitalization Format Hack
+
+An inspection of the Go compiler (`cmd/compile`) and runtime ABI (`internal/abi`, `reflect`) reveals that **Go's runtime and ABI do not use rune casing**. They already represent visibility as a **1-bit boolean flag**. The capitalization rule is an artifact of the compiler frontend, making the transformation to declaration-suffix modifiers straightforward.
+
+### 6.1 The Anatomy of the Current Capitalization Hack
+In upstream Go, the capitalization rule is distributed across four distinct layers:
+
+1. **Lexical / Token Layer (`go/token/token.go`, `cmd/compile/internal/types/sym.go`)**:
+   ```go
+   // cmd/compile/internal/types/sym.go
+   func IsExported(name string) bool {
+       if r := name[0]; r < utf8.RuneSelf {
+           return 'A' <= r && r <= 'Z'
+       }
+       r, _ := utf8.DecodeRuneInString(name)
+       return unicode.IsUpper(r)
+   }
+   ```
+   Every visibility check triggers rune decoding and Unicode uppercase table lookups.
+
+2. **AST & Typechecker Layer (`go/types/object.go`)**:
+   ```go
+   func (obj *object) Exported() bool {
+       return isExported(obj.name) // Re-decodes string runes on every invocation!
+   }
+   ```
+   Because AST nodes (`ast.FuncDecl`, `ast.Field`) store no visibility metadata, `obj.Exported()` is forced to re-parse the string characters on demand.
+
+3. **Selector Disambiguation (`go/types/object.go`)**:
+   ```go
+   func Id(pkg *Package, name string) string {
+       if isExported(name) {
+           return name
+       }
+       return pkg.path + "." + name
+   }
+   ```
+   Unexported identifiers are qualified with `package.path` so that unexported symbols across packages do not collide in selector resolution and method sets.
+
+4. **Runtime ABI & Reflection Layer (`cmd/compile/internal/reflectdata/reflect.go`, `internal/abi/type.go`)**:
+   ```go
+   // cmd/compile/internal/reflectdata/reflect.go
+   var bits byte
+   if exported {
+       bits |= 1 << 0 // Bit 0 is the EXPORTED bit
+   }
+   ```
+   ```go
+   // internal/abi/type.go
+   func (n Name) IsExported() bool {
+       return (*n.Bytes)&(1<<0) != 0
+   }
+   ```
+   At runtime, `reflect.StructField.IsExported()` and interface method dispatches query `bit 0`. **The compiled runtime binary never inspects string casing.**
+
+### 6.2 Step-by-Step Compiler Transformation
+
+```
+                  ┌──────────────────────────────────────────────────────────┐
+                  │                 CURRENT UPSTREAM HACK                    │
+                  │ func worker() string                                     │
+                  │   -> name[0] = 'w' -> unicode.IsUpper('w') -> FALSE      │
+                  └──────────────────────────────────────────────────────────┘
+                                                │
+                                                ▼
+                  ┌──────────────────────────────────────────────────────────┐
+                  │               TRANSFORMED COMPILER PIPELINE              │
+                  │ func worker() string public { ... }                      │
+                  │   -> Parser consumes optional `public` / `private`       │
+                  │   -> AST stores VisPublic (1-byte enum)                  │
+                  │   -> obj.Exported() queries VisPublic -> TRUE            │
+                  │   -> reflectdata sets Bit 0 = 1 (Identical ABI!)         │
+                  └──────────────────────────────────────────────────────────┘
+```
+
+#### Step 1: Parser Ingestion (`cmd/compile/internal/syntax/parser.go`)
+Directly in `funcDeclOrNil()`, consume the optional suffix before the block `{`:
+```go
+// Immediately after parsing signature:
+f.TParamList, f.Type = p.funcType("")
+
+// NEW: Consume declaration-tail suffix with 1-token lookahead:
+if p.got(_Public) {
+    f.Visibility = VisPublic
+} else if p.got(_Private) {
+    f.Visibility = VisPrivate
+}
+
+// Then parse body block as usual:
+if p.tok == _Lbrace {
+    f.Body = p.funcBody()
+}
+```
+Because `public` and `private` are contextual keywords parsed immediately before `{`, lookahead is exactly 1 token with zero ambiguity.
+
+#### Step 2: AST & Symbol Representation (`go/ast`, `cmd/compile/internal/types`)
+Add an explicit 2-bit visibility enum to AST nodes and symbols:
+```go
+type Visibility uint8
+
+const (
+    VisDefault Visibility = iota // 0: fallback to capitalization
+    VisPublic                    // 1: explicitly exported
+    VisPrivate                   // 2: explicitly private (file/lexical)
+)
+```
+
+#### Step 3: Replace the Rune Inspection Hack in `obj.Exported()`
+```go
+// Transformed: Direct O(1) integer check with backwards-compatibility fallback
+func (obj *object) Exported() bool {
+    switch obj.vis {
+    case VisPublic:
+        return true
+    case VisPrivate:
+        return false
+    default:
+        // 100% Go 1 backwards compatibility fallback:
+        ch, _ := utf8.DecodeRuneInString(obj.name)
+        return unicode.IsUpper(ch)
+    }
+}
+```
+Replaces thousands of redundant `utf8.DecodeRuneInString` and `unicode.IsUpper` table queries with a single integer branch.
+
+#### Step 4: Selector Disambiguation (`Id`)
+Update `Id()` to key off semantic export status rather than string casing:
+```go
+func Id(pkg *Package, name string, exported bool) string {
+    if exported {
+        return name
+    }
+    return pkg.path + "." + name
+}
+```
+
+#### Step 5: Zero Runtime ABI & Reflection Breakage
+In `cmd/compile/internal/reflectdata/reflect.go`:
+```go
+// Replace:
+nsym := dname(ft.Sym.Name, ft.Note, nil, types.IsExported(ft.Sym.Name), ...)
+
+// With:
+nsym := dname(ft.Sym.Name, ft.Note, nil, ft.Sym.Exported(), ...)
+```
+Because the runtime ABI already uses bit 0 of the name descriptor, this transformation requires **zero changes** to:
+- `internal/abi/type.go`
+- `reflect.Type` and `reflect.Value`
+- DWARF debug symbols
+- Garbage collector type shape descriptors
+
+---
+
+## 7. Ecosystem & Tooling Impact
 
 - **`go/parser` & `go/ast`**: Add an optional `Visibility *ast.Ident` or `VisibilityToken token.Pos` to `ast.FuncDecl`, `ast.TypeSpec`, and `ast.Field`.
 - **`go/types`**: During object resolution, query `obj.Exported()` via the explicit visibility specifier if present, falling back to `token.IsExported(obj.Name())`.
@@ -155,7 +308,7 @@ The parser encounters `func`, `type`, `var`, or `const` in standard position. Th
 
 ---
 
-## 7. Compatibility Guarantee
+## 8. Compatibility Guarantee
 
 This proposal strictly satisfies the **Go 1 Compatibility Promise**:
 - Every existing valid Go program remains valid with identical semantic behavior.
@@ -163,7 +316,7 @@ This proposal strictly satisfies the **Go 1 Compatibility Promise**:
 
 ---
 
-## 8. Summary Comparison
+## 9. Summary Comparison
 
 | Aspect | Go 1 (Status Quo) | Prefix Modifiers (`pub func`) | Proposed: Declaration-Suffix (`func ... public`) |
 | :--- | :--- | :--- | :--- |
@@ -172,5 +325,6 @@ This proposal strictly satisfies the **Go 1 Compatibility Promise**:
 | **Acronym Ergonomics** | Poor (`json` vs `JSON`) | Good | Excellent |
 | **Directory Coupling** | Relies on `internal/` | Relies on `internal/` | Purely Source-Level Encapsulation |
 | **File-Level Privacy** | Not supported | Varied | Supported (`private`) |
+| **Runtime ABI Impact** | Baseline (Bit 0) | May alter name symbols | Zero changes (Bit 0 preserved) |
 | **Go Minimalism** | High | Low (introduces new syntax blocks) | High (only `public` and `private`) |
 | **Go 1 Compatible** | Baseline | Breaking or complex lookahead | 100% Backwards-Compatible |
