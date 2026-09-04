@@ -1,0 +1,17 @@
+# Declarative Go Grammar Extensions Overlay
+# Format: context-sensitive weBNF.sn (:com:velocikey:extendgo:overlay)
+
+:com:velocikey:extendgo:overlay
+
+; Scalar precision extensions for scientific supercomputing
+ScalarTypes = "float2048" / "float1024" / "float512" / "float256" / "float128"
+            / "complex4096" / "complex2048" / "complex1024" / "complex512" / "complex256"
+            / "int2048" / "int1024" / "int512" / "int256" / "int128"
+            / "uint2048" / "uint1024" / "uint512" / "uint256" / "uint128"
+            / DecimalType ;
+
+; Arbitrary-precision decimal scalars
+DecimalType = "decimal" "[" ( Number / Identifier ) "]" ;
+
+; Extra keyword registrations
+ExtraKeywords = "decimal" ;

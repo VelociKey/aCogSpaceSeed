@@ -5,7 +5,7 @@ workspace_harness {
         target {
             mode : DYNAMIC ;
             engine : "go-compiler" ;
-            src : "81000-active-source/cmd/extendgo" ;
+            src : "81000-active-source" ;
             out : "extendgo" ;
             category : "BINARY" ;
         }
