@@ -1,6 +1,7 @@
 go 1.26.4
 
 use (
+	./00xper/romaineinvestigation
 	./00xper/romaineattestation
 	./00xper/romaine
 	./00xper/telog-engine
