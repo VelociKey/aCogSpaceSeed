@@ -1,0 +1,4 @@
+# Custom Skills Registry
+entries:
+  - path: "C:/aCogSpaceSeed/00flow/fab-aides/81000-active-source/drivers/fab-emulator/skills"
+  - path: "C:/aCogSpaceSeed/00flow/applyconcurrency/.agents/skills"

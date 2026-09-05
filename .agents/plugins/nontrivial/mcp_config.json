@@ -1,0 +1,13 @@
+{
+  "mcpServers": {
+    "nontrivial-security": {
+      "command": "${pluginDir}/bin/nontrivial-windows-amd64.exe",
+      "args": ["mcp"],
+      "env": {
+        "SOVEREIGN_SECURITY_LEVEL": "strict",
+        "SOVEREIGN_BLAKE3_AUDIT": "1",
+        "SOVEREIGN_CLOUD_MODE": "auto"
+      }
+    }
+  }
+}

@@ -1,0 +1,97 @@
+{
+  "name": "com.velocikey.plomb",
+  "version": "1.0.0",
+  "displayName": "Plomb Sovereign Germinate & Bare-Metal Binary Hydration Engine",
+  "description": "Antigravity Plugin for hardware-tailored 'plomb germinate' host topology inspection, zero-secrets passwordless seat affirmations, and local 'plomb grow' bare-metal binary synthesis via Nautilus.",
+  "author": "VelociKey Sovereign Fleet",
+  "license": "Sovereign Fleet License (Tier A)",
+  "category": "Runtime & Software Delivery",
+  "homepage": "https://velocikey.com/plomb",
+  "entrypoint": "C:\\aCogSpaceSeed\\00flow\\forge\\96000-internal-executables\\purchaseinfo-validation.exe",
+  "transport": "stdio",
+  "skills": [
+    "skills/plomb"
+  ],
+  "capabilities": [
+    "host_hardware_topology_discovery",
+    "zero_secrets_passwordless_affirmation",
+    "nautilus_local_bare_metal_synthesis",
+    "multi_db_pii_shielding_vault",
+    "mercury_relay_settlement_reconciliation",
+    "wayfair_mpu_tax_apportionment",
+    "permanent_blake3_append_only_ledger"
+  ],
+  "billing": {
+    "provider": "antigravity_marketplace",
+    "tier": "tiered_subscription",
+    "plans": {
+      "developer_tier": {
+        "annual_usd": 190,
+        "sku": "SKU-DEVELOPER-T1",
+        "description": "Single Developer Workstation Seat + 100k Monthly VPUs"
+      },
+      "pro_tier": {
+        "annual_usd": 990,
+        "sku": "SKU-PRO-T2",
+        "description": "Professional 5-Seat Cluster + 1M Monthly VPUs"
+      },
+      "enterprise_team_tier": {
+        "annual_usd": 4990,
+        "sku": "SKU-TENSORCORE-TEAM-T3",
+        "description": "Enterprise Team Tier 3 + 10M Monthly VPUs + Multi-Rooftop MPU Tax Sourcing + Mercury/Relay Dedicated Wires"
+      }
+    }
+  },
+  "tools": [
+    {
+      "name": "plomb_germinate",
+      "description": "Inspects host hardware (SIMD/AVX-512/Metal/CUDA) and generates a cryptosealed seed manifest for Antigravity.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "account_uuid": { "type": "string", "description": "Customer Account UUID" },
+          "corporate_email": { "type": "string", "description": "Affirmed developer email" }
+        },
+        "required": ["account_uuid", "corporate_email"]
+      }
+    },
+    {
+      "name": "plomb_grow",
+      "description": "Synthesizes and materializes the exact chip-tailored, bare-metal binary locally on the host via Nautilus.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "manifest_id": { "type": "string", "description": "Signed Plomb Germinate Manifest ID" },
+          "target_runtime": { "type": "string", "description": "Target runtime name (e.g. 'tensorcore_umc')" }
+        },
+        "required": ["manifest_id"]
+      }
+    },
+    {
+      "name": "plomb_affirm_seat",
+      "description": "Affirms a corporate developer seat bound to a physical rooftop location with zero static license keys.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "account_uuid": { "type": "string", "description": "Enterprise Account UUID" },
+          "admin_email": { "type": "string", "description": "Company Security Admin Email" },
+          "developer_email": { "type": "string", "description": "Developer corporate email to affirm" },
+          "rooftop_location_id": { "type": "string", "description": "Verified rooftop location ID (e.g. 'LOC-AUSTIN')" }
+        },
+        "required": ["account_uuid", "admin_email", "developer_email", "rooftop_location_id"]
+      }
+    },
+    {
+      "name": "plomb_verify_settlement",
+      "description": "Verifies bank settlement from Mercury or Relay in the permanent BLAKE3 append-only transaction log.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "account_uuid": { "type": "string", "description": "Account UUID to check" },
+          "invoice_id": { "type": "string", "description": "Invoice ID reference" }
+        },
+        "required": ["account_uuid", "invoice_id"]
+      }
+    }
+  ]
+}

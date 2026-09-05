@@ -1,0 +1,18 @@
+# Ingress Routing Rules (.webnf)
+# This file dynamically configures the sovereign-ingress proxy routes.
+
+:IngressRules {
+    backends = {
+        "pubsub.googleapis.com" = "127.0.0.1:42090" ;
+        "firestore.googleapis.com" = "127.0.0.1:42095" ;
+        "storage.googleapis.com" = "127.0.0.1:4443" ;
+        "run.googleapis.com" = "127.0.0.1:42098" ;
+    } ;
+    
+    routes = {
+        "/telemetry" = "run.googleapis.com" ;
+        "/valuevector" = "run.googleapis.com" ;
+        "/databases" = "firestore.googleapis.com" ;
+        "/projects" = "pubsub.googleapis.com" ;
+    } ;
+}

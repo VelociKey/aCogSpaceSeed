@@ -1,0 +1,37 @@
+{
+  "name": "com.velocikey.ephemeralcapacity",
+  "version": "1.0.0",
+  "displayName": "Ephemeral Capacity & Spot Silicon Hunter",
+  "description": "Sovereign multi-cloud Spot VM intelligence, cross-region price arbitrage screener, and silicon architecture candidate radar with seamless 1-click Nautilus compilation upgrade.",
+  "author": "VelociKey Sovereign Fleet Group",
+  "homepage": "https://velocikey.com/ephemeralcapacity",
+  "entrypoint": "bin/ephemeralcapacity.exe",
+  "skills": ["skills/ephemeralcapacity"],
+  "capabilities": [
+    "spot_capacity_radar",
+    "regional_arbitrage_screener",
+    "chipgrammar_silicon_taxonomy",
+    "pose_cost_yield_calculator",
+    "adph_price_vector_index",
+    "one_click_nautilus_compilation_funnel",
+    "antigravity_marketplace_customer_onboarding"
+  ],
+  "billing": {
+    "provider": "antigravity_marketplace",
+    "tier": "tiered_subscription",
+    "plans": {
+      "ephemeral_hunter_starter": {
+        "monthly_usd": 499,
+        "description": "Daily Ephemeral Capacity Feeds, US-East & Global Spot Radar, Preemption Risk Scores"
+      },
+      "nautilus_compiler_addon": {
+        "monthly_usd": 1490,
+        "description": "1-Click Sovereign Compilation for Target ChipGrammar (Node-Locked Binary)"
+      },
+      "nautilus_compiler_floating_enterprise": {
+        "monthly_usd": 4900,
+        "description": "Floating Generic Chip-Target Compilation (MachineID: GENERIC) for Autoscaling Spot Fleets"
+      }
+    }
+  }
+}

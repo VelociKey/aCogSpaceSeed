@@ -1,0 +1,8 @@
+{
+  "hooks": {
+    "PreToolExecution": {
+      "command": "${pluginDir}/bin/nontrivial-windows-amd64.exe",
+      "args": ["hook-guard", "--payload", "${toolInput}"]
+    }
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "hooks": [
+    {
+      "event": "PreToolUse",
+      "matcher": "run_command",
+      "handler": {
+        "type": "command",
+        "command": "C:\\aCogSpaceSeed\\00flow\\forge\\97000-internal-toolchains\\vkey.exe inspect guard"
+      }
+    }
+  ]
+}

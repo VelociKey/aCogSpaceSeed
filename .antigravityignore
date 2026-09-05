@@ -1,0 +1,61 @@
+# Antigravity IDE Agent Context Ignore Rules
+# Exclude heavy artifact stores, dependency trees, and caches to prevent token scope explosion.
+
+# 1. Prune sovereign artifact registry and toolchains (keep executables runnable via absolute path)
+/00flow/s-forge/
+/00flow/s-builder/
+/86sref/
+/13reng/
+/00xper/
+
+
+# 2. Prune ephemeral scratch spaces, test assets, and caches
+/c0990-ephemeral-scratch/
+**/.gemini/
+**/.antigravitycli/
+**/.agents/
+**/.idea/
+**/.vscode/
+
+# 3. Prune package and build artifacts
+**/node_modules/
+**/build/
+**/.dart_tool/
+**/.next/
+**/ios/
+**/android/
+**/windows/
+**/macos/
+**/linux/
+
+# 4. Prune binary outputs and log files
+**/*.exe
+**/*.wasm
+**/*.dll
+**/*.log
+**/*.o
+**/*.a
+**/*.so
+**/*.zip
+**/*.tar.gz
+**/*.tgz
+**/*.pkg
+
+# 5. Prune internal VCS indexes
+**/.git/
+**/.gitroot
+
+# 6. Ignore local Jules staging/temporary folders to protect token quota
+_jules_staging/
+_jules_temp/
+**/_jules_staging/**
+**/_jules_temp/**
+
+# 7. Ignore all cognitive ephemeral cnnnn directories to protect build caches and scratch state
+c[0-9][0-9][0-9][0-9]*/
+**/c[0-9][0-9][0-9][0-9]*/**
+
+# 8. Ignore all 9xxxx authority/artifact subdirectories globally in any workspace to prevent token scope explosion
+9[0-9][0-9][0-9][0-9]*/
+**/9[0-9][0-9][0-9][0-9]*/**
+

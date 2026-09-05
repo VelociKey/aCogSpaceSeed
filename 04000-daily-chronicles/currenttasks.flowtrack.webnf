@@ -1,0 +1,5 @@
+(* FLOW-Track Sovereign Time Database *)
+
+task task_001 title "Integrity Checks" status "planned" category "research" project "general"
+
+log log_1784075339862799200 developer "josep" role "employee" soc_code "15-1252" state_code "MD" start "2026-07-15T00:28:59Z" end "2026-07-15T00:29:05Z" classification "capex" description "Wrote tests and parser for audit trail verification" hash "7e76dada80c856b8f8be03af7eb126628f61ba3be2c1e94bb931541e7cc6cd17"

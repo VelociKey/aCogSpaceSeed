@@ -1,0 +1,7 @@
+extension_manifest "velocikey-antigravity-sdk-go" {
+    name        = "VelociKey Antigravity SDK for Go Extension"
+    version     = "1.2.0"
+    publisher   = "VelociKey LLC"
+    mode        = "qAPC"
+    commands    = "/agysdk-chat,/agysdk-status"
+}

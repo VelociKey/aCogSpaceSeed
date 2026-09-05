@@ -1,8 +1,70 @@
-bin/
-*.exe
-*.wasm
-c0990-ephemeral-scratch/
-c8900-build-cache/
+# aCogSpaceSeed Root Gitignore
 
+# Large Binary & Scratch Exclusions
+*.h5ad
+*.tensorbin*
+*.wasm
+*.exe
+*.tmp
+*.bin
+*.zip
+*.tar.gz
+*.gose
+*/scratch/*
+scratch/
+data/
+exports/
+
+# Ignore everything inside the silo directories
+/000ALL/*
+/000all/*
 /00flow/*
+/86SREF/*
+/86sref/*
+/00AAIF/*
+/00aaif/*
+/00xper/*
+/13reng/*
+/50cove/*
+/51slam/*
+/00floo/*
+/00flob/*
+/00flon/*
+/99cbox/*
+/99cogt/*
+/00fora/*
+/00cogt/*
+/01xpsd/*
+/01prod/*
+
+# Unignore .gitkeep files to preserve the empty directory structure
+!/000ALL/.gitkeep
+!/000all/.gitkeep
 !/00flow/.gitkeep
+!/86SREF/.gitkeep
+!/86sref/.gitkeep
+!/00AAIF/.gitkeep
+!/00aaif/.gitkeep
+!/00xper/.gitkeep
+!/13reng/.gitkeep
+!/50cove/.gitkeep
+!/51slam/.gitkeep
+!/00floo/.gitkeep
+!/00flob/.gitkeep
+!/00flon/.gitkeep
+!/99cbox/.gitkeep
+!/99cogt/.gitkeep
+!/00fora/.gitkeep
+!/00cogt/.gitkeep
+!/01xpsd/.gitkeep
+!/01prod/.gitkeep
+
+# Other managed directories
+/.gemini/
+
+# Ephemeral Scratch
+/c0990-ephemeral-scratch/
+
+# Distribution/packaging directories
+/.nvelwraith/
+/.lithic/

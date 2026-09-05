@@ -1,0 +1,99 @@
+{
+  "name": "com.velocikey.tensorcore",
+  "version": "2.1.0",
+  "displayName": "TensorCore Sovereign High-Performance Inference & Flat DAG Engine",
+  "description": "Sovereign TensorCore High-Performance Inference, Virtual MoE, Flat DAG Pipelines, Multi-Document Codec Engine, and WebNF MBOM Compliance for Antigravity Agents.",
+  "author": "VelociKey Sovereign Fleet",
+  "license": "Sovereign Fleet License (Tier A)",
+  "category": "Inference & Model Orchestration",
+  "homepage": "https://velocikey.com/tensorcore",
+  "entrypoint": "C:\\aCogSpaceSeed\\00flow\\forge\\96000-internal-executables\\tensorcoreattestation.exe",
+  "transport": "stdio",
+  "skills": [
+    "skills/tensorcore"
+  ],
+  "capabilities": [
+    "core_inference_dat_logit_masking",
+    "universal_multi_doc_batch_codecs",
+    "flutter_arb_dart_m3_metacompilation",
+    "virtual_moe_kronecker_delta_adapters",
+    "coe_simd_in_process_logit_blending",
+    "flat_rolled_model_dag_pipelines",
+    "one_way_private_model_ingestion",
+    "post_run_continual_learning_deltas",
+    "adph_64bit_feature_allowance_gating",
+    "webnf_mbom_cyclonedx_soc2_materialization"
+  ],
+  "billing": {
+    "provider": "antigravity_marketplace",
+    "tier": "tiered_subscription",
+    "plans": {
+      "standard_inference": {
+        "monthly_usd": 299,
+        "adph_mask": "0x0000000000008401",
+        "description": "Core DAT Logit Masking, UTF-8 Streaming & BLAKE3 Telemetry"
+      },
+      "pro_codecs_and_flutter": {
+        "monthly_usd": 999,
+        "adph_mask": "0x0000000000048507",
+        "description": "Standard + Universal Document Codecs (PDF/XML/CSV) + Flutter UI + Speculative Cascade"
+      },
+      "enterprise_sovereign_fleet": {
+        "monthly_usd": 3499,
+        "adph_mask": "0xFFFFFFFFFFFFFFFF",
+        "description": "Full Fleet Access: Virtual MoE, Flat Model DAGs, Private Model Ingestion & Continual Learning"
+      }
+    }
+  },
+  "tools": [
+    {
+      "name": "tensorcore_transpile_schema",
+      "description": "Transpiles JSON Schemas, TypeScript interfaces, or raw examples into formal zero-failure .model.webnf contracts.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "source_schema": { "type": "string", "description": "Raw JSON schema or TypeScript interface definition" },
+          "target_format": { "type": "string", "description": "Target format: 'webnf', 'json_compact', 'json_pretty'" }
+        },
+        "required": ["source_schema"]
+      }
+    },
+    {
+      "name": "tensorcore_batch_extract",
+      "description": "Processes heterogeneous document batches (PDFs, CSVs, XMLs, plain text) with zero-dependency pure-Go codecs and returns cryptosealed extraction scorecards.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "task_prompt": { "type": "string", "description": "Extraction prompt instructions" },
+          "documents": { "type": "array", "description": "List of document objects with names and raw payloads" }
+        },
+        "required": ["task_prompt", "documents"]
+      }
+    },
+    {
+      "name": "tensorcore_virtual_moe_deliberate",
+      "description": "Executes multi-specialist concurrence deliberation (CoE) or Kronecker-adapter virtual MoE routing across dense models with real-time SIMD logit blending.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "prompt": { "type": "string", "description": "The complex audit or clinical task prompt" },
+          "specialist_models": { "type": "array", "items": { "type": "string" }, "description": "List of participating domain models" },
+          "consensus_strategy": { "type": "string", "enum": ["LOGIT_BLENDING", "WEIGHTED_ENTROPY", "UNANIMOUS"], "description": "Consensus arbitration strategy" }
+        },
+        "required": ["prompt", "specialist_models"]
+      }
+    },
+    {
+      "name": "tensorcore_execute_flat_dag",
+      "description": "Executes a non-recursive flat rolled-out model pipeline (flat_pipeline) across sequential and parallel stages with zero-copy in-memory handoffs.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "pipeline_webnf": { "type": "string", "description": "Declarative flat_pipeline WebNF definition" },
+          "initial_input": { "type": "string", "description": "Initial input payload to feed Stage 0" }
+        },
+        "required": ["pipeline_webnf", "initial_input"]
+      }
+    }
+  ]
+}

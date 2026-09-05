@@ -1,6 +1,0 @@
-[workspace]
-name = "extendgo"
-version = "1.0.0"
-build_number = 14
-build_id = "2026.09.04.14"
-last_build_timestamp = "2026-09-04T10:54:41-04:00"

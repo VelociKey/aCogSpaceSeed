@@ -1,0 +1,21 @@
+{
+  "name": "lithicsql",
+  "version": "16.0.0",
+  "description": "LithicSQL Sovereign Cleanroom Postgres-Compatible Engine Antigravity Plugin with Autonomous Server Deployment and Antigravity Metered Billing",
+  "author": "Sovereign Fleet Research Group",
+  "entrypoint": "bin/lithicsql.exe",
+  "skills": ["skills/lithicsql"],
+  "capabilities": [
+    "sub_microsecond_sql_engine",
+    "pgwire_tcp_server",
+    "sacp_quic_wire_protocol",
+    "raft_consensus_replication",
+    "adph_bitmask_pruning",
+    "autonomous_server_self_deployment",
+    "antigravity_subscription_metered_billing"
+  ],
+  "billing": {
+    "provider": "antigravity_subscription",
+    "metrics": ["vpu_hourly_compute", "vip_volume_throughput"]
+  }
+}

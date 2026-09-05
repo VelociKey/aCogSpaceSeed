@@ -1,0 +1,71 @@
+{
+  "name": "com.velocikey.tensorcoreumc",
+  "version": "1.0.0",
+  "displayName": "TensorCore UMC Sovereign Workstation Actor & Verkle Carpetbag Engine",
+  "description": "Antigravity Plugin for local-first Post-Riemannian inference on compressed MCT weights, vkeygit worktree harvesting, and zero-allocation .webnf Verkle Carpetbag probing.",
+  "author": "VelociKey Sovereign Fleet",
+  "license": "Sovereign Fleet License (Tier A)",
+  "category": "Inference & Agent Tooling",
+  "homepage": "https://velocikey.com/tensorcore-umc",
+  "entrypoint": "C:\\aCogSpaceSeed\\00flow\\forge\\99000-internal-actors\\tensorcore-umc.exe",
+  "transport": "stdio",
+  "skills": [
+    "skills/carpetbag"
+  ],
+  "capabilities": [
+    "verkle_carpetbag_worktree_harvesting",
+    "mct_compressed_weight_in_situ_math",
+    "post_riemannian_galois_tilting",
+    "pure_native_go_sacp_conduit",
+    "lithicdb_persistent_ledger_audit"
+  ],
+  "billing": {
+    "provider": "antigravity_marketplace",
+    "tier": "tiered_subscription",
+    "plans": {
+      "developer_workstation": {
+        "monthly_usd": 0,
+        "description": "Local workstation pure-Go in-situ inference + worktree carpetbag inspection"
+      }
+    }
+  },
+  "tools": [
+    {
+      "name": "tensorcore_probe_worktree",
+      "description": "Harvests target workspace worktrees into a .webnf Carpetbag and evaluates the probe using tensorcore-core in CPU L1/L2 cache slabs.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "prompt": { "type": "string", "description": "The diagnostic, architectural, or verification prompt" },
+          "model": { "type": "string", "description": "Target model ID (e.g. 'kimi-k3', 'gemma-4-mini', 'deepseek-r1')" },
+          "worktrees": { "type": "array", "items": { "type": "string" }, "description": "List of workspace paths to harvest" },
+          "research_notes": { "type": "array", "items": { "type": "string" }, "description": "Optional external web/doc context notes" }
+        },
+        "required": ["prompt"]
+      }
+    },
+    {
+      "name": "tensorcore_pack_carpetbag",
+      "description": "Harvests workspace worktrees and saves a cryptosealed CARPETBAG-VERKLE-V1 .webnf file without running inference.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "prompt": { "type": "string", "description": "Prompt directive to embed" },
+          "model": { "type": "string", "description": "Target model ID" },
+          "worktrees": { "type": "array", "items": { "type": "string" }, "description": "Workspace paths to harvest" },
+          "out_path": { "type": "string", "description": "Destination file path for the .webnf carpetbag" }
+        },
+        "required": ["out_path"]
+      }
+    },
+    {
+      "name": "tensorcore_query_ledger",
+      "description": "Query the LithicDB job history and physical unit ledger.",
+      "parameters": {
+        "type": "object",
+        "properties": {},
+        "required": []
+      }
+    }
+  ]
+}

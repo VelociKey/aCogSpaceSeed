@@ -1,0 +1,20 @@
+{
+  "version": "1.0.0",
+  "hooks": [
+    {
+      "name": "vkeygit_command_router",
+      "type": "pre_tool_execution",
+      "tool": "run_command",
+      "description": "Intercepts git CLI commands and redirects to vkeygit.exe when vkeygit engine is active",
+      "condition": {
+        "command_prefix": "git "
+      },
+      "action": {
+        "type": "rewrite_command",
+        "match": "^git\\s+(.*)$",
+        "replace_if_engine_active": "vkeygit.exe $1",
+        "config_key": "vkeygit.vcsEngine"
+      }
+    }
+  ]
+}
