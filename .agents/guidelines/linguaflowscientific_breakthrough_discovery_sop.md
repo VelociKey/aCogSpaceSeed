@@ -70,7 +70,7 @@ Use this protocol for deep single-domain investigation or when the v4.0 grammar-
                                                                                                  v
 +---------------------------------+      +---------------------------------+      +---------------------------------+
 | Step 5: Rehydrate & Preserve    | <--- | Step 4: Empirical Verification  | <--- | Step 3b: Lower to wtulc         |
-| realize.exe & fab-construct     |      | Test equivalence & latency (.go)|      | Emit zero-copy Go SIMD AST      |
+| realize.exe & vkey construct    |      | Test equivalence & latency (.go)|      | Emit zero-copy Go SIMD AST      |
 +---------------------------------+      +---------------------------------+      +---------------------------------+
 ```
 
