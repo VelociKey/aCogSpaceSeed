@@ -1,6 +1,7 @@
 go 1.26.4
 
 use (
+	./00xper/telog-engine
 	./00flow/extendgo
 	./00flow/plinth-desktop
 	./00flow/plinth-hal
