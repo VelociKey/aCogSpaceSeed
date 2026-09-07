@@ -62,6 +62,7 @@ use (
 	./00flow/languagegrammar
 	./00flow/latentlingua-csl
 	./00flow/lingua-translator
+	./00flow/lingua-transpiler
 	./00flow/lithic
 	./00flow/lithicpersist
 	./00flow/logiclibrary
