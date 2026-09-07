@@ -71,7 +71,7 @@ A foundational E2E test already exists:
 - [ ] Create `71000-build-harness/run_e2e_tests.ps1` — a PowerShell script that:
   1. Runs `int-rehydrator.exe -local-only` to build the binary
   2. Runs `go test -v -race -count=1 ./...` in `cmd/o-afflume`
-  3. Captures output to `c0990-ephemeral-scratch/e2e-test.log`
+  3. Captures output to `00flow/hydrationcache/c0990-ephemeral-scratch/e2e-test.log`
   4. Exits with error code on any failure
 
 ## Verification

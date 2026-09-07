@@ -8,7 +8,7 @@
 > 4. **PURE NATIVE GO & NO CGO:** Avoid CGo (C-bindings) and npm/Node.js packages. Use pure Go to eliminate context-switching latency (~80ns) and maintain cross-platform portability.
 > 5. **PREFIX-FREE TAXONOMY & ROLE ENTRY POINTS:** Workspace names must be strictly prefix-free (e.g. `pubsub`, `firestore`, `neuro-wholecell`). Active source code lives under `81000-active-source/` using role-based entry point names (`<role_name>.<ext>`), explicitly deprecating generic `main.<ext>`.
 > 6. **DECLARATIVE FLUTTER & NO RAW CSS/HTML:** Never edit raw `.css` or `.html` files directly in `web_release/` or deployment directories. All UI must be authored strictly as declarative Dart ($\text{UI} = f(\text{State})$) in `81000-active-source/ui/` and bound to the Go Hub via `dart:js_interop` / SACP (see [flutter_gohub_declarative_pipeline.md](file:///c:/aCogSpaceSeed/.agents/guidelines/flutter_gohub_declarative_pipeline.md)).
-> 7. **SOVEREIGN AGENT SANDBOXING (com.velocikey.vkeygit):** When performing multi-file refactoring, experimental optimizations, or risky AST mutations, agents MUST spin up an isolated scratch worktree using the sovereign skill `com.velocikey.vkeygit` (`C:\aCogSpaceSeed\00flow\forge\97000-internal-toolchains\vkey.exe sandbox create` or `vkeygit.exe`). Perform all speculative edits and test verifications inside `c0990-ephemeral-scratch/sandboxes/` before merging back, ensuring zero active workspace corruption.
+> 7. **SOVEREIGN AGENT SANDBOXING (com.velocikey.vkeygit):** When performing multi-file refactoring, experimental optimizations, or risky AST mutations, agents MUST spin up an isolated scratch worktree using the sovereign skill `com.velocikey.vkeygit` (`C:\aCogSpaceSeed\00flow\forge\97000-internal-toolchains\vkey.exe sandbox create` or `vkeygit.exe`). Perform all speculative edits and test verifications inside `00flow/hydrationcache/c0990-ephemeral-scratch/sandboxes/` before merging back, ensuring zero active workspace corruption.
 
 > [!CAUTION]
 > **PROHIBITED EXECUTABLES & HOOK GUARD POLICY (ANTIGRAVITY v2.7.1):**
@@ -133,7 +133,7 @@ Always invoke sovereign toolchains directly using absolute workspace paths:
 * **Realize Workspace Builder:** `C:\aCogSpaceSeed\00flow\forge\96000-internal-executables\realize.exe`
 * **Sovereign Go Executable:** `C:\aCogSpaceSeed\00flow\forge\92000-external-toolchains\go\bin\go.exe`
 * **Formal Prover Engine (Lean 4):** `C:\aCogSpaceSeed\00flow\forge\92000-external-toolchains\lean4\bin\lean.exe`
-* **Sovereign Ephemeral Scratch:** `C:\aCogSpaceSeed\c0990-ephemeral-scratch`
+* **Sovereign Ephemeral Scratch:** `C:\aCogSpaceSeed\00flow\hydrationcache\c0990-ephemeral-scratch`
 
 ---
 

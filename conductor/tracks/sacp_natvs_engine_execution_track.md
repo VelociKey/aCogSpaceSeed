@@ -12,7 +12,7 @@ To ensure zero-trust compliance, the executing agent must utilize these sovereig
 *   **Sovereign Meta-Grammar:** `C:\aCogSpaceSeed\00flow\s-latentlingua\30100-meta-foundation\webnf.sn`
 *   **AAIF Master Grammar:** `C:\aCogSpaceSeed\00aaif\AAIF.webnf`
 *   **Symmetric Proxy Generator:** `C:\aCogSpaceSeed\00flow\s-latentlingua\02000-logic-libraries/gogen/generator.go`
-*   **Sovereign Ephemeral Scratch:** `C:\aCogSpaceSeed\c0990-ephemeral-scratch`
+*   **Sovereign Ephemeral Scratch:** `C:\aCogSpaceSeed\00flow\hydrationcache\c0990-ephemeral-scratch`
 
 ---
 
@@ -75,7 +75,7 @@ To ensure zero-trust compliance, the executing agent must utilize these sovereig
 *   **Execution Commands:**
     ```powershell
     # Verify compilation of the broker
-    & "C:\aCogSpaceSeed\00flow\s-forge\92000-external-toolchains\go\bin\go.exe" build -v -o C:\aCogSpaceSeed\c0990-ephemeral-scratch\bin\sacp_broker.exe C:\aCogSpaceSeed\00flow\s-hydration\100-synthesis-engine\sacp_broker.go
+    & "C:\aCogSpaceSeed\00flow\s-forge\92000-external-toolchains\go\bin\go.exe" build -v -o C:\aCogSpaceSeed\00flow\hydrationcache\c0990-ephemeral-scratch\bin\sacp_broker.exe C:\aCogSpaceSeed\00flow\s-hydration\100-synthesis-engine\sacp_broker.go
     ```
 
 ---
