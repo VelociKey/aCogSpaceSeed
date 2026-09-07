@@ -159,7 +159,7 @@ use (
 	./00xper/foundry
 	./00xper/fusion-tokamak
 	./00xper/gtc-p
-	// ./00flow/humanity_frontier_benchmarks
+	./00flow/humanity_frontier_benchmarks
 	./00xper/hydro-microturbine
 	./00xper/knuth-open-conjectures
 	./00xper/lang2lang
