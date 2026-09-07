@@ -1,0 +1,53 @@
+{
+  "name": "nontrivial",
+  "version": "1.0.0",
+  "displayName": "Nontrivial Sovereign SAST & Cloud Security Guard",
+  "description": "Zero-copy, sub-millisecond AST security scanner, prompt-injection firewall, credential leak blocker, and automated AST remediation engine for Antigravity IDE and Cloud Swarms.",
+  "author": "VelociKey Sovereign Fleet",
+  "homepage": "https://velocikey.com/nontrivial",
+  "repository": "https://github.com/VelociKey/velocikeyplugins",
+  "entrypoint": "bin/nontrivial-windows-amd64.exe",
+  "skills": ["skills/nontrivial"],
+  "rules": ["rules/nontrivial_security.md"],
+  "hooks": "hooks.json",
+  "capabilities": [
+    "sub_millisecond_ast_audit",
+    "prompt_injection_firewall",
+    "secret_and_credential_blocking",
+    "git_pre_commit_hook_guard",
+    "cloud_workstation_daemon",
+    "sacp_quic_telemetry",
+    "automated_ast_remediation"
+  ],
+  "distribution": {
+    "target": "antigravity_marketplace",
+    "architectures": [
+      {
+        "os": "windows",
+        "arch": "amd64",
+        "binary": "bin/nontrivial-windows-amd64.exe"
+      },
+      {
+        "os": "linux",
+        "arch": "amd64",
+        "binary": "bin/nontrivial-linux-amd64"
+      },
+      {
+        "os": "linux",
+        "arch": "arm64",
+        "binary": "bin/nontrivial-linux-arm64"
+      }
+    ],
+    "cloud": {
+      "mode": "hybrid_daemon",
+      "sacp_port": 8092,
+      "quic_enabled": true,
+      "docker_image": "gcr.io/velocikey-prod/nontrivial-cloud:1.0.0"
+    }
+  },
+  "billing": {
+    "provider": "antigravity_subscription",
+    "tier": "community_and_enterprise",
+    "metrics": ["repository_scans", "cloud_mesh_inspections"]
+  }
+}

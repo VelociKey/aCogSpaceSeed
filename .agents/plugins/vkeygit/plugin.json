@@ -1,0 +1,55 @@
+{
+  "id": "com.velocikey.vkeygit",
+  "name": "vkeygit",
+  "namespace": "com.velocikey",
+  "version": "1.0.0",
+  "displayName": "vkeygit Sovereign Ephemeral Sandboxing & Cognitive Memory",
+  "description": "Zero-copy, sub-millisecond isolated scratch sandboxing, topological multi-repo merge-back, and quantum-safe cognitive DAG memory for Antigravity V2 LLMs (Gemini & Claude).",
+  "author": "VelociKey Sovereign Fleet",
+  "homepage": "https://velocikey.com/vkeygit",
+  "repository": "https://github.com/VelociKey/velocikeyplugins",
+  "entrypoint": "bin/vkeygit-windows-amd64.exe",
+  "skills": ["skills/vkeygit"],
+  "rules": ["rules/vkeygit_sandbox.md"],
+  "hooks": "hooks.json",
+  "capabilities": [
+    "sub_millisecond_sandboxing",
+    "ephemeral_scratch_hydration",
+    "topological_merge_back",
+    "cognitive_memory_dag",
+    "zero_secret_in_memory_auth",
+    "white3_pqc_attestation",
+    "virtual_monorepo_federation"
+  ],
+  "distribution": {
+    "target": "antigravity_marketplace",
+    "architecture_mode": "hollowed_out_mold",
+    "architectures": [
+      {
+        "os": "windows",
+        "arch": "amd64",
+        "binary": "bin/vkeygit-windows-amd64.exe"
+      },
+      {
+        "os": "linux",
+        "arch": "amd64",
+        "binary": "bin/vkeygit-linux-amd64"
+      },
+      {
+        "os": "darwin",
+        "arch": "arm64",
+        "binary": "bin/vkeygit-darwin-arm64"
+      }
+    ],
+    "cloud": {
+      "mode": "hybrid_daemon",
+      "sacp_port": 8096,
+      "quic_enabled": true
+    }
+  },
+  "billing": {
+    "provider": "antigravity_subscription",
+    "tier": "community_and_enterprise",
+    "metrics": ["sandbox_creations", "merge_back_operations", "memory_attestations"]
+  }
+}

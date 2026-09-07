@@ -1,6 +1,0 @@
-[workspace]
-name = "plinth-filesystem"
-version = "1.0.0"
-build_number = 16
-build_id = "2026.09.07.16"
-last_build_timestamp = "2026-09-07T02:56:33-04:00"

@@ -1,0 +1,22 @@
+{
+  "product_name": "VelociUSD",
+  "version": "1.0.0-PROD",
+  "build_target": "Pure Go Zero-Dependency OpenUSD Stage Engine",
+  "targets": [
+    {
+      "os": "windows",
+      "arch": "amd64",
+      "binary": "velociusd.exe",
+      "size_mb": 4.8
+    },
+    {
+      "os": "js",
+      "arch": "wasm",
+      "binary": "velociusd.wasm",
+      "size_mb": 3.2
+    }
+  ],
+  "latency_micro": 0.15,
+  "heap_alloc_bytes": 0,
+  "cleanroom_status": "100% CGo-Free / Zero-IP Contamination"
+}

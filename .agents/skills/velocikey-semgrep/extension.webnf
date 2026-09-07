@@ -1,0 +1,19 @@
+extension_manifest "velocikey-semgrep" {
+    name        = "VelociKey Semgrep Security Extension"
+    version     = "1.1.0"
+    publisher   = "VelociKey LLC"
+    mode        = "qAPC"
+    binary      = "semgrep-seerci.exe"
+    
+    slash_commands {
+        command = "/seerci-scan"
+        command = "/seerci-audit"
+        command = "/seerci-guard"
+    }
+
+    capabilities {
+        allow_commands = true
+        allow_edits    = true
+        allow_web      = false
+    }
+}

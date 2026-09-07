@@ -1,0 +1,23 @@
+agypo_manifest "velocikey-semgrep" {
+    flat_monthly ProDev {
+        monthly_usd = 49.00;
+        annual_usd = 470.00;
+        discount_percent = 20.00;
+    }
+    metered_consumption PayPerScan {
+        metric_name = "Scan Pass";
+        unit_price_usd = 0.0050;
+        free_monthly_quota = 1000;
+    }
+    freemium_tier Starter {
+        free_quota_units = 500;
+        overage_rate_usd = 0.0100;
+        trial_period_days = 14;
+    }
+    enterprise_sla SovereignEnterprise {
+        base_contract_usd = 1500.00;
+        per_seat_usd = 35.00;
+        dedicated_gcp_node = true;
+        sla_uptime_percent = 99.99;
+    }
+}

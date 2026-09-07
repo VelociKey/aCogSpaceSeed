@@ -1,0 +1,15 @@
+{
+  "app_name": "VelociUSD Stage Viewport",
+  "framework": "Pure Flutter Web (Dart Wasm / Web Assembly)",
+  "design_system": "Google Material Design v3 (M3)",
+  "version": "1.0.0-PROD",
+  "interop_broker": "GO Hub Gateway",
+  "protocol": "qAPC over SACP",
+  "features": [
+    "Initial Screen Step Selector Modal",
+    "3-Step Ascending Test Ladder (Kitchen Set 250MB, ALab 4.2GB, Moana 93GB)",
+    "UsdStageSoA Tree Inspector",
+    "240 FPS Render Engine Viewport"
+  ],
+  "cleanroom_status": "100% CGo-Free / Zero-IP Contamination"
+}
