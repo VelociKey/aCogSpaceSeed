@@ -163,7 +163,6 @@ use (
 	./00flow/humanity_frontier_benchmarks
 	./00xper/hydro-microturbine
 	./00xper/knuth-open-conjectures
-	./00xper/lang2lang
 	./00xper/lflang
 	./00xper/lflang-test
 	./00xper/linpack
