@@ -24,6 +24,7 @@ import (
 	"sov.fleet/plinth-filesystem/81000-active-source/atlas"
 	"sov.fleet/plinth-filesystem/81000-active-source/hypercomplex"
 	"sov.fleet/plinth-filesystem/81000-active-source/m31"
+	"sov.fleet/plinth-filesystem/81000-active-source/qec"
 	"sov.fleet/plinth-filesystem/81000-active-source/slab"
 	"sov.fleet/plinth-filesystem/81000-active-source/tensor"
 	"sov.fleet/plinth-filesystem/81000-active-source/topos"
@@ -41,6 +42,8 @@ func main() {
 		runBenchmarkMode()
 	case "verify":
 		runVerifyMode()
+	case "qec":
+		runQECMode()
 	case "status":
 		fallthrough
 	default:
@@ -151,8 +154,14 @@ func runStatusMode() {
 	fmt.Printf("     • Invariant Bitmask : 0x%08x (Collinear Fano Subalgebra & 0 B/op SoA Invariant)\n", proofHdr.InvariantBitmask)
 	fmt.Printf("     • White3 Seal       : %064x\n", proofHdr.White3Seal)
 	fmt.Printf("     • White3 Witness    : 0x%016x (e7 State Witness)\n", proofHdr.White3Witness)
+
+	// 12. Fano [[7, 1, 3]] Steane Quantum Error Correction Simulator
+	qecTelem := qec.RunMonteCarloBatch(10000, 0.01)
+	fmt.Printf("   ✔ Fano Steane QEC Engine: [[7, 1, 3]] CSS Octonionic Quantum Stabilizer Online\n")
+	fmt.Printf("     • Monte Carlo Sample: %d shots @ 1%% noise -> Fidelity: %.4f (%.2f Mshots/s)\n",
+		qecTelem.TotalShots, qecTelem.FidelityMean, qecTelem.ThroughputShotsPerSec/1e6)
 	fmt.Println("================================================================================")
-	fmt.Println("✅ Plinth-Filesystem Bedrock Online (All 11 Frontiers Operational).")
+	fmt.Println("✅ Plinth-Filesystem Bedrock Online (All 12 Frontiers Operational).")
 }
 
 func runVerifyMode() {
@@ -161,7 +170,7 @@ func runVerifyMode() {
 	fmt.Println("================================================================================")
 
 	// Step 1: Directory Slab & Extent Stream
-	fmt.Println("   [1/11] Verifying Directory Slab & Extent Stream...")
+	fmt.Println("   [1/12] Verifying Directory Slab & Extent Stream...")
 	dirSlab := slab.NewFlatDirectorySlab(1024)
 	stream := slab.NewFlatExtentStream(4 * 1024 * 1024)
 
@@ -190,7 +199,7 @@ func runVerifyMode() {
 	fmt.Printf("         ✔ 500 contiguous extents verified. Lookup latency: %v (Slot #%d)\n", dur, slot)
 
 	// Step 2: ZNS Zone Stream Allocator & Reset
-	fmt.Println("   [2/11] Verifying ZNS / FDP Sequential Zone Allocator (WAF = 1.000)...")
+	fmt.Println("   [2/12] Verifying ZNS / FDP Sequential Zone Allocator (WAF = 1.000)...")
 	zoneMgr := zns.NewFlatZoneManager(4, 1024*1024) // 4x 1MB zones
 	zID, zOff, zLen, err := zoneMgr.AllocateExtent(64 * 1024)
 	if err != nil || zID != 0 || zOff != 0 || zLen == 0 {
@@ -204,7 +213,7 @@ func runVerifyMode() {
 	fmt.Printf("         ✔ Zone sequential allocation and hardware reset verified (WAF = 1.000)\n")
 
 	// Step 3: Topos Content-Addressable Deduplication & Merkle Reduction
-	fmt.Println("   [3/11] Verifying Topos Chunk Index & Intrinsic Deduplication...")
+	fmt.Println("   [3/12] Verifying Topos Chunk Index & Intrinsic Deduplication...")
 	toposIdx := topos.NewFlatChunkIndex(1024)
 	d1 := sha256.Sum256([]byte("UNIQUE_TENSOR_WEIGHT_A"))
 	s1, dedup1, err := toposIdx.RegisterChunk(d1, 0, 0, 4096)
@@ -221,7 +230,7 @@ func runVerifyMode() {
 	fmt.Printf("         ✔ Zero-pointer deduplication & 32-byte Merkle root verified: %x...\n", mRoot[:8])
 
 	// Step 4: Mersenne-31 Field Arithmetic, Bit-Rot Detection & Shard Recovery
-	fmt.Println("   [4/11] Verifying M31 Algebraic Parity & Silent Bit-Rot Recovery...")
+	fmt.Println("   [4/12] Verifying M31 Algebraic Parity & Silent Bit-Rot Recovery...")
 	const words = m31.WordsPerPage // 1024 words
 	dataSlabs := make([][]uint32, 4)
 	for j := 0; j < 4; j++ {
@@ -265,7 +274,7 @@ func runVerifyMode() {
 	fmt.Printf("         ✔ M31 parity bit-rot tripwire & 100%% exact shard reconstruction verified\n")
 
 	// Step 5: Adaptive Stratum Classification
-	fmt.Println("   [5/11] Verifying Adaptive Stratum Classification (Nano -> MegaCluster)...")
+	fmt.Println("   [5/12] Verifying Adaptive Stratum Classification (Nano -> MegaCluster)...")
 	nano := adaptive.DetectStratum(4*1024*1024*1024, 1)
 	mega := adaptive.DetectStratum(20*1024*1024*1024*1024*1024, 320)
 	if nano.Stratum != adaptive.StratumNano || mega.Stratum != adaptive.StratumMegaCluster {
@@ -275,7 +284,7 @@ func runVerifyMode() {
 	fmt.Printf("         ✔ Dynamic elastic geometry verified across all 4 operational strata\n")
 
 	// Step 6: Hypercomplex Octonion64 Algebra & Anti-Tamper Associator
-	fmt.Println("   [6/11] Verifying Octonion64 Algebra, Non-Associativity & Commutators...")
+	fmt.Println("   [6/12] Verifying Octonion64 Algebra, Non-Associativity & Commutators...")
 	e1 := hypercomplex.NewOctonion(0, 1, 0, 0, 0, 0, 0, 0)
 	e2 := hypercomplex.NewOctonion(0, 0, 1, 0, 0, 0, 0, 0)
 	e3 := hypercomplex.NewOctonion(0, 0, 0, 1, 0, 0, 0, 0)
@@ -302,7 +311,7 @@ func runVerifyMode() {
 	fmt.Printf("         ✔ 64-byte Octonion cacheline algebra, associator tripwire & commutator verified\n")
 
 	// Step 7: Fano Plane 7-Way Interlocking Parity & Zero-Copy Tensor Tiling
-	fmt.Println("   [7/11] Verifying Fano 7-Way Parity Self-Healing & Tensor Slicing...")
+	fmt.Println("   [7/12] Verifying Fano 7-Way Parity Self-Healing & Tensor Slicing...")
 	fd0 := hypercomplex.NewOctonion(10, 20, 30, 40, 50, 60, 70, 80)
 	fd1 := hypercomplex.NewOctonion(11, 21, 31, 41, 51, 61, 71, 81)
 	fd2 := hypercomplex.NewOctonion(12, 22, 32, 42, 52, 62, 72, 82)
@@ -335,7 +344,7 @@ func runVerifyMode() {
 	fmt.Printf("         ✔ Triply-interlocking Fano parity self-healing & zero-copy tensor slicing verified\n")
 
 	// Step 8: 8-Dimensional Octonionic Topos Atlas, Hyperplane Matching & Fano Lineage Proof
-	fmt.Println("   [8/11] Verifying 8-Dimensional Octonionic Atlas, Order-Free Lattice & Fano Lineage...")
+	fmt.Println("   [8/12] Verifying 8-Dimensional Octonionic Atlas, Order-Free Lattice & Fano Lineage...")
 	cAtlas := atlas.NewFlatCoordinateAtlas(1024)
 	coord := atlas.Coordinate64{
 		Authority: 0x505652474E,
@@ -392,7 +401,7 @@ func runVerifyMode() {
 	fmt.Printf("         ✔ Virtual POSIX fibration projection: %s\n", vPath)
 
 	// Step 9: Bijective Fibration Door & Ephemeral Virtual Directory Listing
-	fmt.Println("   [9/11] Verifying Bijective Fibration Door (Multi-Prism Views & Zero Inodes)...")
+	fmt.Println("   [9/12] Verifying Bijective Fibration Door (Multi-Prism Views & Zero Inodes)...")
 	fDoor := atlas.NewFibrationDoor(cAtlas)
 	semPath := fDoor.Project(coord, atlas.LensSemantic)
 	liftedCoord, err := fDoor.Lift(semPath, atlas.LensSemantic)
@@ -414,7 +423,7 @@ func runVerifyMode() {
 	fmt.Printf("         ✔ Semantic lens projection: %s\n", semPath)
 
 	// Step 10: Cognitive Topos Navigator (Bounded-Box, Relaxation, Mnemonic, Entropy)
-	fmt.Println("   [10/11] Verifying Cognitive Topos Navigator (Fuzzy SIMD Slicing & Codec)...")
+	fmt.Println("   [10/12] Verifying Cognitive Topos Navigator (Fuzzy SIMD Slicing & Codec)...")
 	bboxQ := atlas.BoundedBoxQuery{
 		ActiveMask: atlas.MaskChronos | atlas.MaskTopos,
 		Ranges: [8]atlas.CoordinateInterval{
@@ -450,7 +459,7 @@ func runVerifyMode() {
 	fmt.Printf("         ✔ Bijective mnemonic handle: %s\n", mnemonic)
 
 	// Step 11: Taut-Mathesis In-Process Prover & 64-Byte White3 Proof Header Certification
-	fmt.Println("   [11/11] Verifying Taut-Mathesis In-Process Prover & White3 Epistemic Seal...")
+	fmt.Println("   [11/12] Verifying Taut-Mathesis In-Process Prover & White3 Epistemic Seal...")
 	proofHdr, ok := atlas.AttestFanoCollinearity(c1, c2, c3)
 	if !ok || proofHdr.White3Witness == 0 || proofHdr.White3Seal == [32]byte{} {
 		fmt.Fprintf(os.Stderr, "Taut-Mathesis formal attestation failed\n")
@@ -470,8 +479,31 @@ func runVerifyMode() {
 	fmt.Printf("         ✔ White3-256 seal: %064x\n", proofHdr.White3Seal)
 	fmt.Printf("         ✔ White3-64 witness: 0x%016x (M31 Root: 0x%08x)\n", proofHdr.White3Witness, proofHdr.M31Digest)
 
+	// Step 12: Fano [[7, 1, 3]] Steane Quantum Error Correction & Associator Tripwire
+	fmt.Println("   [12/12] Verifying Fano [[7, 1, 3]] Steane Quantum Error Correction Simulator...")
+	for q := 0; q < 7; q++ {
+		for _, op := range []qec.PauliOp{qec.PauliX, qec.PauliY, qec.PauliZ} {
+			f := qec.NewPauliFrame7()
+			f.ApplyOp(q, op)
+			sX, sZ := qec.ExtractSyndrome(f)
+			corrected := qec.CorrectPauliFrame(f, sX, sZ)
+			if !corrected.IsIdentity() {
+				fmt.Fprintf(os.Stderr, "QEC verification failed for %s on qubit %d\n", op, q)
+				os.Exit(1)
+			}
+		}
+	}
+	isZ, _ := qec.CheckFanoAssociatorTripwire(1, 2, 3)
+	isNZ, _ := qec.CheckFanoAssociatorTripwire(1, 2, 4)
+	if !isZ || isNZ {
+		fmt.Fprintf(os.Stderr, "QEC Fano associator tripwire failed: isZ=%v, isNZ=%v\n", isZ, isNZ)
+		os.Exit(1)
+	}
+	fmt.Printf("         ✔ All 21 single-qubit Pauli errors (X, Y, Z on 7 qubits) detected and 100%% corrected\n")
+	fmt.Printf("         ✔ Octonionic non-associative associator tripwire verified: Collinear line [e1, e2, e3]=0, Broken line [e1, e2, e4]!=0\n")
+
 	fmt.Println("================================================================================")
-	fmt.Println("✅ All 11 Sovereign Storage Frontiers 100% Intact & Mathematically Proven.")
+	fmt.Println("✅ All 12 Sovereign Storage Frontiers 100% Intact & Mathematically Proven.")
 	fmt.Println("================================================================================")
 }
 
@@ -586,5 +618,51 @@ func runBenchmarkMode() {
 	nsPerAttest := float64(tTotalAttest.Nanoseconds()) / float64(atlasIterations)
 	fmt.Printf("   ✔ Completed %d Taut-Mathesis White3 attestations in %v (%.2f ns/attestation, throughput: %.2f Mproofs/sec)\n",
 		atlasIterations, tTotalAttest, nsPerAttest, 1e9/(nsPerAttest*1e6))
-	fmt.Println("✅ 8-Dimensional Octonionic Topos Atlas & Taut-Mathesis benchmark complete.")
+
+	// Benchmark Fano Steane QEC Syndrome Extraction & Correction
+	tStartQEC := time.Now()
+	qecBenchFrame := qec.NewPauliFrame7()
+	qecBenchFrame.ApplyOp(3, qec.PauliY) // Corrupted physical qubit
+	qecIterations := atlasIterations * 10
+	for i := 0; i < qecIterations; i++ {
+		sX, sZ := qec.ExtractSyndrome(qecBenchFrame)
+		_ = qec.CorrectPauliFrame(qecBenchFrame, sX, sZ)
+	}
+	tTotalQEC := time.Since(tStartQEC)
+	nsPerQEC := float64(tTotalQEC.Nanoseconds()) / float64(qecIterations)
+	fmt.Printf("   ✔ Completed %d QEC syndrome decode/correct cycles in %v (%.2f ns/cycle, throughput: %.2f Mops/sec)\n",
+		qecIterations, tTotalQEC, nsPerQEC, 1e9/(nsPerQEC*1e6))
+
+	fmt.Println("✅ 8-Dimensional Octonionic Topos Atlas, Taut-Mathesis & QEC benchmark complete.")
 }
+
+func runQECMode() {
+	fs := flag.NewFlagSet("qec", flag.ExitOnError)
+	shots := fs.Int("shots", 50000, "Number of Monte Carlo error shots")
+	noise := fs.Float64("noise", 0.02, "Physical error rate per qubit (e.g. 0.02 = 2%)")
+	_ = fs.Parse(os.Args[2:])
+
+	fmt.Println("================================================================================")
+	fmt.Println("⚡ [Plinth-Filesystem QEC] 7-Qubit Fano Steane [[7, 1, 3]] Quantum Error Corrector")
+	fmt.Println("   [Octonionic Non-Associative Geometry | PG(2, 2) Zero-Lookup Syndrome Decoding]")
+	fmt.Println("================================================================================")
+	fmt.Printf("   • Configuration       : %d shots, %.2f%% physical error rate/qubit\n", *shots, *noise*100)
+	fmt.Println("   • Stabilizer Symmetry : 3 X-Stabilizers, 3 Z-Stabilizers (Dual Fano Line Complements)")
+	fmt.Println("   • Non-Associativity   : [e_a, e_b, e_c] == 0 on line; != 0 on broken syndrome")
+	fmt.Println("--------------------------------------------------------------------------------")
+
+	telem := qec.RunMonteCarloBatch(*shots, *noise)
+
+	fmt.Printf("   ✔ Total Shots Simulated     : %d\n", telem.TotalShots)
+	fmt.Printf("   ✔ Total Noisy Frames        : %d (%.2f%% of shots experienced errors)\n",
+		telem.TotalErrorsInjected, float64(telem.TotalErrorsInjected)/float64(telem.TotalShots)*100)
+	fmt.Printf("   ✔ Single Errors Corrected   : %d (100.00%% recovery fidelity)\n", telem.SingleErrorsCorrected)
+	fmt.Printf("   ✔ Multi-Qubit Faults Trapped: %d\n", telem.MultiErrorsDetected)
+	fmt.Printf("   ✔ Uncorrectable Logical Errs: %d\n", telem.LogicalErrors)
+	fmt.Printf("   ✔ Average Logical Fidelity  : %.6f\n", telem.FidelityMean)
+	fmt.Printf("   ✔ Simulation Wall-Clock     : %v\n", telem.Elapsed)
+	fmt.Printf("   ✔ Syndrome Decode Throughput: %.2f Million shots/sec\n", telem.ThroughputShotsPerSec/1e6)
+	fmt.Println("================================================================================")
+	fmt.Println("✅ Fano Steane Quantum Error Correction Simulation Complete.")
+}
+
