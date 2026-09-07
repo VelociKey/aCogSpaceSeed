@@ -3,3 +3,6 @@ bin/
 *.wasm
 c0990-ephemeral-scratch/
 c8900-build-cache/
+
+/00flow/*
+!/00flow/.gitkeep
