@@ -1,0 +1,13 @@
+{
+  "mcpServers": {
+    "tensor": {
+      "command": "C:/aCogSpaceSeed/00flow/forge/99000-internal-actors/vkeymcp.exe",
+      "args": ["-stdio"],
+      "env": {
+        "SOVEREIGN_MODE": "strict",
+        "SOVEREIGN_TOKEN_POOL_SLOTS": "16",
+        "SOVEREIGN_ALLOC_CEILING_BYTES": "0"
+      }
+    }
+  }
+}

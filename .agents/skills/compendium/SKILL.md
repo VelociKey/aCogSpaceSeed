@@ -5,26 +5,17 @@ user_invocable: true
 ---
 
 # Compendium Builder Skill
-This skill compiles workspace files into self-contained text compendiums and generates silo summaries under `000all/cognition/c0411-compendium/`.
+This skill synthesizes concise, high-signal silo summaries under `000all/cognition/c0411-compendium/` detailing all workspaces and their architectural purposes for LLM chat ingestion.
 
 ## Command Execution
-Run the following commands to generate the compendiums and summaries:
+Run the sovereign `silo_summarizer.exe` tool to generate the individual silo status documents and the unified master summary:
 ```bash
-# Remove old summaries if they exist to prevent duplication
-rm -f C:/aCogSpaceSeed/000all/cognition/c0411-compendium/silo_all_summary.md
-
-# Loop through all active Go workspaces in go.work and compile their individual compendiums
-for relPath in $(grep -oP '(?<=\./)(?:00flow|00floo|00xper|00flon|99cbox|99cogt|51slam)/[^\s]+' C:/aCogSpaceSeed/go.work); do
-  absPath="C:/aCogSpaceSeed/$relPath"
-  if [ -d "$absPath" ]; then
-    echo "Compiling compendium for: $absPath"
-    C:/aCogSpaceSeed/00flow/forge/96000-internal-executables/create_compendium.exe -workspace "$absPath"
-  fi
-done
-
-# Run the silo summarizer to generate silo status documents and master summaries
-C:/aCogSpaceSeed/00flow/forge/96000-internal-executables/silo_summarizer.exe -silo 00floo
+# Generate concise summaries per silo
 C:/aCogSpaceSeed/00flow/forge/96000-internal-executables/silo_summarizer.exe -silo 00flow
+C:/aCogSpaceSeed/00flow/forge/96000-internal-executables/silo_summarizer.exe -silo 00floo
+C:/aCogSpaceSeed/00flow/forge/96000-internal-executables/silo_summarizer.exe -silo 00flon
 C:/aCogSpaceSeed/00flow/forge/96000-internal-executables/silo_summarizer.exe -silo 00xper
+
+# Generate the unified master summary across all silos
 C:/aCogSpaceSeed/00flow/forge/96000-internal-executables/silo_summarizer.exe -silo all
 ```

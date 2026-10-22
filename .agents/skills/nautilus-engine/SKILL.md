@@ -1,7 +1,7 @@
 ---
 name: nautilus-engine
 displayName: nautilus-engine
-description: Sovereign Nautilus Three-Border Compiler (Border 1 Polyglot Frontend, Border 2 Six Frontiers Universal Optimizer, Border 3 Chip-Specific Backend) with in-process nontrivial_core security gates for Antigravity agents.
+description: Sovereign Nautilus Three-Border Compiler (Border 1 Polyglot Frontend, Border 2 Nine-Field Langlands Universal Optimizer, Border 3 Chip-Specific Backend) with in-process nontrivial_core security gates for Antigravity agents.
 ---
 
 # Sovereign `nautilus-engine` Skill for Antigravity Agents
@@ -10,7 +10,7 @@ description: Sovereign Nautilus Three-Border Compiler (Border 1 Polyglot Fronten
 
 The **`nautilus-engine`** skill equips Antigravity (IDE Agent), Jules (Engineering Agent), and Conductor (Orchestration Agent) with the **Nautilus Sovereign Three-Border Compiler Pipeline**.
 
-Nautilus unifies 1024 polyglot language grammars into a 32 Macro-IR opcode universal representation, applies Six Frontiers ADPH mathematical optimizations, and lowers to target chip architectures with in-process `nontrivial_core` security gates.
+Nautilus unifies 1024 polyglot language grammars into a 32 Macro-IR opcode universal representation, applies the Nine Canonical Langlands Fields ADPH mathematical optimizations, and lowers to target chip architectures with in-process `nontrivial_core` security gates.
 
 ```mermaid
 flowchart TD
@@ -18,7 +18,7 @@ flowchart TD
         direction TB
 
         B1["Border 1: Polyglot Frontend (1024 Languages -> 128-bit Macro-IR)"]
-        B2["Border 2: Universal Optimizer (Six Frontiers ADPH & Functor Passes)"]
+        B2["Border 2: Universal Optimizer (Nine-Field Langlands ADPH & Functor Passes)"]
         B3["Border 3: Chip-Specific Backend (x86-64, ARM64, RISC-V, WASM)"]
         Gate["In-Process Security Gate: nontrivial_core (SAST, Secrets, SCA, Licenses)"]
 
@@ -36,8 +36,8 @@ flowchart TD
 - Ingests 1024 language grammars with zero-allocation Structure-of-Elements (SoE) representations.
 - Emits universal 128-bit `MacroIRNode` sheaves with p-adic Frobenius symbol tagging and Fukaya Lagrangian phase-locking.
 
-### 2. Border 2: Universal Six Frontiers Optimization
-- Six Frontiers ADPH mathematical passes (branchless `CMOV` surgery, tropical polyhedral fan scheduling, Dirac spectral trace SSA verification).
+### 2. Border 2: Universal Nine-Field Langlands Optimization
+- Nine Canonical Langlands Fields ADPH mathematical passes (Arithmetic Frobenius shifts, Automorphic NTTs, Sheaf Laplacians, Tannakian branchless `CMOV`, Fukaya Lagrangian contractions, Dirac spectral trace SSA verification, Univalent type rewrites, Condensed solid arenas, and Octonionic FMAs).
 - Sub-nanosecond deterministic functor lowering with zero heap allocations (`0 B/op`).
 
 ### 3. In-Process `nontrivial_core` Security Gates

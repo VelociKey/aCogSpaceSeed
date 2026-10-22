@@ -1,0 +1,146 @@
+# fleet_composition.webnf — Sovereign Fleet Composition Manifest
+# Declarative workspace build groups (suites) via set algebra.
+# Grammar: fleet_composition.wag v1
+# Consumed by: SuiteResolver in sov.fleet/fleettopology
+
+version "1.0.0" ;
+
+# ─── Atomic Suites (leaf compositions) ───
+
+suite skim_full {
+    description = "Complete skim workspace family including info workspace" ;
+    output = individual ;
+    include family skim ;
+    include workspace 00skim-info ;
+}
+
+suite platform_core {
+    description = "Minimum platform substrate required by all other silos" ;
+    output = individual ;
+    parallel = true ;
+    include workspace adaptivelock ;
+    include family substrate ;
+    include workspace qdag ;
+    include workspace adph ;
+    include workspace latentlingua ;
+    include workspace fleettopology ;
+}
+
+suite vaultline_core {
+    description = "Vaultline minimum viable product" ;
+    output = individual ;
+    include workspace vaultline ;
+    include workspace vaultline-core ;
+    include workspace vaultline-catalog ;
+    include workspace vaultline-filing ;
+    include workspace vaultline-guardian ;
+    include workspace vaultline-ftl ;
+    exclude workspace vaultline-studio ;
+}
+
+suite vaultline_full {
+    description = "Complete vaultline family" ;
+    output = individual ;
+    include family vaultline ;
+}
+
+suite commerce_full {
+    description = "Complete commerce family" ;
+    output = individual ;
+    include family commerce ;
+}
+
+# ─── Composite Suites ───
+
+suite platform_essentials {
+    description = "Core platform substrate including grammar registries" ;
+    output = individual ;
+    parallel = true ;
+    include suite platform_core ;
+    include family plinth ;
+    include family unilangunichip ;
+}
+
+suite production_release {
+    description = "Full production build: platform + operations + network" ;
+    output = individual ;
+    blast_radius = cross_silo ;
+    include suite platform_essentials ;
+    include suite vaultline_full ;
+    include silo 00flon ;
+}
+
+# ─── CI Profile Suites ───
+
+suite ci_fast {
+    description = "CI fast lane: platform core only" ;
+    output = individual ;
+    parallel = true ;
+    include suite platform_core ;
+}
+
+suite ci_full {
+    description = "CI full build: everything except experimental" ;
+    output = individual ;
+    parallel = true ;
+    include silo 00flow ;
+    include silo 00floo ;
+    include silo 00flon ;
+    include silo 00taut ;
+    include silo 00skim ;
+    exclude silo 00xper ;
+}
+
+# ─── Domain Suites ───
+
+suite taut_prover {
+    description = "Sovereign taut prover engine family" ;
+    output = individual ;
+    include family taut ;
+}
+
+suite taut_mathlib {
+    description = "Pure Go formal mathematical library" ;
+    output = individual ;
+    include family mathlib ;
+}
+
+suite taut_proofs {
+    description = "Applied milestone proof verification gauntlet" ;
+    output = individual ;
+    include family proofs ;
+}
+
+suite taut_math {
+    description = "Complete mathematical proofs, mathlib, and prover engine platform" ;
+    output = individual ;
+    parallel = true ;
+    include silo 00taut ;
+}
+
+suite sovereign_vcs {
+    description = "Sovereign Skim manifold, vkey-git beachhead, attestation, and version control toolchain" ;
+    output = individual ;
+    include silo 00skim ;
+    include workspace cogt-vkeygit-conformance ;
+    include workspace cogt-vkeygitplus-chaos ;
+}
+
+suite sovereign_networking {
+    description = "Network routing, SACP protocol, and sovereign multiplexing" ;
+    output = individual ;
+    parallel = true ;
+    include silo 00flon ;
+    include workspace sacp ;
+}
+
+suite antigravity_suite {
+    description = "Antigravity SDK, plugin framework, and studio tools" ;
+    output = individual ;
+    parallel = true ;
+    include workspace antigravity-sdk-go ;
+    include workspace antigravitypluginframework ;
+    include workspace antigravityplugins ;
+    include workspace antigravityproduct ;
+    include workspace antigravitystudio ;
+}

@@ -1,13 +1,13 @@
 ---
 name: seerSTMci
-description: Evolved continuous integration, SAST security audit, and synthesis pipeline engine for wSTMulc category-theoretic meta-compilation and STMSYS- suite generation.
+description: Evolved continuous integration, SAST security audit, and synthesis pipeline engine for Nautilus category-theoretic meta-compilation and STMSYS- suite generation.
 ---
 
 # `seerSTMci` Scientific Transformational Mathematics Re-Animation Gateway
 
 ## Overview
 
-The **`seerSTMci`** gateway is the fleet's authoritative **Scientific Transformational Mathematics (STM)** continuous integration, soul extraction, evolution, and re-animation pipeline. It orchestrates the mathematical deconstruction, 6-Pillar Rosetta Functor transformation, zero-copy SAST security auditing, and pure Go actor synthesis across foreign upstream engines and domain application suites.
+The **`seerSTMci`** gateway is the fleet's authoritative **Scientific Transformational Mathematics (STM)** continuous integration, soul extraction, evolution, and re-animation pipeline. It orchestrates the mathematical deconstruction, Nine-Field Langlands Rosetta Functor transformation ($\Xi_{\text{Rosetta}}$), zero-copy SAST security auditing, and pure Go actor synthesis across foreign upstream engines and domain application suites.
 
 ```mermaid
 flowchart TD
@@ -15,7 +15,7 @@ flowchart TD
         direction TB
         Phase1["1. Base Residence Ingestion:\nExtract foreign/upstream repositories into 86sref reference silos"]
         Phase2["2. SIMD Preprocessing & Normalization (0.12 ns):\nComment Stripping & Language-Aware Terminal ';' Normalization"]
-        Phase3["3. Scientific Transformational Mathematics (STM) Functors (0.85 ns):\nApply 6-Pillar Rosetta Functor Xi_Rosetta (Frobenius, Fukaya, Ricci, Tropical, Free Prob, Dirac)"]
+        Phase3["3. Scientific Transformational Mathematics (STM) Functors (0.85 ns):\nApply Nine-Field Langlands Rosetta Functor Xi_Rosetta (Fields 1-9)"]
         Phase4["4. Zero-Copy SAST Security Audit (nontrivial / fab-inspect):\nEnforce 0 Vulnerabilities & @spectral_seal contiguity"]
         Phase5["5. Sovereign Synthesis & DST Benchmarking:\nEmit zero-allocation pure Go actor workspaces and execute live A/B speedup benchmarks"]
 
@@ -38,12 +38,16 @@ flowchart TD
 4. Output 100% formal normalized token stream $\mathcal{U}_{\text{Token}}$.
 
 ### Phase 3: Scientific Transformational Mathematics (STM) Functor Transformation (`0.85 ns`)
-1. Bind target code block to 6-pillar Rosetta Functor ($\Xi_{\text{Rosetta}}$) via `@stm_functor(PILLAR_ALL_ROSETTA)`:
-   - **Pillar 1 & 5 ($p$-adic Frobenius):** Fast arithmetic symbol lowering and SAT proofs ($x \mapsto x^2$).
-   - **Pillar 2 (Ricci Metric Flow):** Branchless instruction selection via `VPBLENDV` selection masks (`0.18 ns`).
-   - **Pillar 3 (Fukaya Sheaves):** High-throughput token and matrix projections ($\mathbf{D}^b\mathbf{Fuk}(\text{AST})$ at `1.42 TB/s`).
-   - **Pillar 4 (Tropical Max-Plus):** Polyhedral DAG dependency scheduling (`0.22 ns`).
-   - **Pillar 6 (Dirac Operator & Free Probability):** Non-commutative SSA dataflow invariant validation $\text{Tr}(f(D/\Lambda))$ (`0.25 ns`).
+1. Bind target code block to the Nine-Field Langlands Rosetta Functor ($\Xi_{\text{Rosetta}}$) via `@stm_functor(PILLAR_ALL_ROSETTA)`:
+   - **Field 1 (Arithmetic & Galois Field Theory):** $p$-adic Galois representations, Frobenius SAT proofs ($x \mapsto x^2$), and finite field Galois arithmetic (Mersenne-31, White3).
+   - **Field 2 (Automorphic Forms & Harmonic Analysis):** Hecke eigensystems, Maass wave forms, and Perelman Ricci curvature flow (`VPBLENDV` branchless selection masks at `0.18 ns`).
+   - **Field 3 (Geometric Langlands & Sheaf Theory):** Hecke eigensheaves, perverse sheaves, and Fukaya categories ($\mathbf{D}^b\mathbf{Fuk}(\text{AST})$ at `1.42 TB/s`).
+   - **Field 4 (Algebraic Groups & Tannakian Duality):** Tannakian category reconstruction, Sturmfels tropical fans, and polyhedral DAG dependency scheduling (`0.22 ns`).
+   - **Field 5 (Symplectic Topology & Mirror Symmetry):** Symplectic Hamiltonian leapfrog, area-preserving phase space flow, and Lagrangian Floer homology.
+   - **Field 6 (Noncommutative Geometry & Operator Algebras):** Connes spectral triples, Dirac operators $\text{Tr}(f(D/\Lambda))$ (`0.25 ns`), and Voiculescu free probability / QUBO optimization.
+   - **Field 7 (Motivic Homotopy & Higher $\infty$-Topos):** Voevodsky motivic cohomology, algebraic K-theory, Chow motives, and univalent homotopy types.
+   - **Field 8 (Prismatic Cohomology & Condensed Mathematics):** Bhatt-Scholze prisms, Scholze-Clausen condensed sets, and solid abelian category sheaves.
+   - **Field 9 (Quantum Gauge & Octonionic Holonomy):** Kapustin-Witten 4D $\mathcal{N}=4$ SYM, S-duality, Hitchin moduli spaces, and $G_2$ octonionic holonomy.
 
 ### Phase 4: Zero-Copy SAST Security Audit (`nontrivial` & `vkey inspect`)
 1. Invoke sovereign SAST auditor: `C:\aCogSpaceSeed\00flow\forge\97000-internal-toolchains\vkey.exe inspect conform`.

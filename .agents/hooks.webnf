@@ -1,0 +1,13 @@
+HooksRecord "PreToolUseHook" {
+    Event: "PreToolUse" ;
+    Matcher: "run_command" ;
+    HandlerType: "command" ;
+    Command: "C:\\aCogSpaceSeed\\00flow\\forge\\97000-internal-toolchains\\vkey.exe inspect guard" ;
+}
+
+HooksRecord "PreToolUseSearchGuardHook" {
+    Event: "PreToolUse" ;
+    Matcher: "(find_by_name|grep_search)" ;
+    HandlerType: "command" ;
+    Command: "C:\\aCogSpaceSeed\\00flow\\forge\\97000-internal-toolchains\\vkey.exe inspect guard" ;
+}

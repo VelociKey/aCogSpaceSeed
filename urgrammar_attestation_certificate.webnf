@@ -1,0 +1,16 @@
+; ==========================================================================
+; SOVEREIGN UR-GRAMMAR ATTESTATION CERTIFICATE (weBNF Record)
+; ==========================================================================
+
+CERTIFICATE_ID       = "CERT-U0-d3895cb325309140" ;
+TARGET_WORKSPACE     = "sov.fleet/urgrammar-attestation" ;
+U0_PARITY_SEAL_0     = 0xAF3E241058893970 ;
+U0_PARITY_SEAL_1     = 0x5297B879617212B8 ;
+U0_PARITY_SEAL_2     = 0x64EA9D12A4A06767 ;
+U0_PARITY_SEAL_3     = 0xCA3FF0291F4CA5F4 ;
+LANGUAGES_VERIFIED   = 64 ;
+FUZZ_TREES_VERIFIED  = 500 ;
+TOTAL_RULES_SEALED   = 1293 ;
+CRYPTO_SEAL_SHA256   = "d3895cb32530914012f67b54a3315d5d9d5edb44400709dfacf8829097c826c6" ;
+STATUS               = "SOVEREIGN_NOTARIZED_AND_SEALED" ;
+TIMESTAMP_UTC        = "2026-10-22T19:26:37Z" ;

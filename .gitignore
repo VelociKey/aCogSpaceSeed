@@ -15,56 +15,207 @@ scratch/
 data/
 exports/
 
+# Transient CLI test & benchmark output captures
+out.txt
+test_out.txt
+*.out
+
 # Ignore everything inside the silo directories
-/000ALL/*
-/000all/*
-/00flow/*
-/86SREF/*
-/86sref/*
-/00AAIF/*
-/00aaif/*
-/00xper/*
-/13reng/*
-/50cove/*
-/51slam/*
-/00floo/*
-/00flob/*
-/00flon/*
-/99cbox/*
-/99cogt/*
-/00fora/*
-/00cogt/*
-/01xpsd/*
-/01prod/*
+# /000ALL/
+# /000all/
+# /00flow/
+# /86SREF/
+# /86sref/
+# /00AAIF/
+# /00aaif/
+# /00xper/
+# /13reng/
+# /50cove/
+# /51slam/
+# /00floo/
+# /00flob/
+# /00flon/
+# /99cbox/
+# /99cogt/
+# /00fora/
+# /00cogt/
+# /01xpsd/
+# /01prod/
+# /00taut/
+# /00skim/
 
-# Unignore .gitkeep files to preserve the empty directory structure
-!/000ALL/.gitkeep
-!/000all/.gitkeep
-!/00flow/.gitkeep
-!/86SREF/.gitkeep
-!/86sref/.gitkeep
-!/00AAIF/.gitkeep
-!/00aaif/.gitkeep
-!/00xper/.gitkeep
-!/13reng/.gitkeep
-!/50cove/.gitkeep
-!/51slam/.gitkeep
-!/00floo/.gitkeep
-!/00flob/.gitkeep
-!/00flon/.gitkeep
-!/99cbox/.gitkeep
-!/99cogt/.gitkeep
-!/00fora/.gitkeep
-!/00cogt/.gitkeep
-!/01xpsd/.gitkeep
-!/01prod/.gitkeep
+# Ephemeral Scratch & Hydration Caches (Recursive)
+c0990-ephemeral-scratch/
+**/c0990-ephemeral-scratch/**
+hydrationcache/
+**/hydrationcache/**
 
-# Other managed directories
-/.gemini/
+# Forge Toolchain & Executable Directories
+/forge/
+/96000-internal-executables/
+**/96000-internal-executables/**
+**/97000-internal-toolchains/**
+**/92000-external-toolchains/**
+**/93000-external-libraries/**
 
-# Ephemeral Scratch
-/c0990-ephemeral-scratch/
-
-# Distribution/packaging directories
+# Local runtime model & packaging caches (note: /.gemini/config.json is retained!)
+/.gemini/antigravity/
+/.gemini/tmp/
+/.tensorcore/
 /.nvelwraith/
 /.lithic/
+
+# BEGIN SOVEREIGN HOLLOW BONES (AUTO-GENERATED)
+# Silo 86sref (hollow silo .gitkeep tracked; external reference clones ignored)
+/86sref/*
+!/86sref/.gitkeep
+/86SREF/
+
+/000all/*
+!/000all/.gitkeep
+!/000all/cassandra/
+/000all/cassandra/*
+!/000all/cassandra/.gitkeep
+
+/00aaif/*
+!/00aaif/.gitkeep
+
+/00cogt/*
+!/00cogt/.gitkeep
+
+/00flob/*
+!/00flob/.gitkeep
+
+/00flon/*
+!/00flon/.gitkeep
+!/00flon/ingress/
+/00flon/ingress/*
+!/00flon/ingress/.gitkeep
+!/00flon/transport/
+/00flon/transport/*
+!/00flon/transport/.gitkeep
+
+/00floo/*
+!/00floo/.gitkeep
+!/00floo/afflume/
+/00floo/afflume/*
+!/00floo/afflume/.gitkeep
+!/00floo/commerce/
+/00floo/commerce/*
+!/00floo/commerce/.gitkeep
+!/00floo/company-portal/
+/00floo/company-portal/*
+!/00floo/company-portal/.gitkeep
+!/00floo/emulator/
+/00floo/emulator/*
+!/00floo/emulator/.gitkeep
+!/00floo/vaultline/
+/00floo/vaultline/*
+!/00floo/vaultline/.gitkeep
+
+/00flow/*
+!/00flow/.gitkeep
+!/00flow/actors/
+/00flow/actors/*
+!/00flow/actors/.gitkeep
+!/00flow/plinth/
+/00flow/plinth/*
+!/00flow/plinth/.gitkeep
+!/00flow/tensor/
+/00flow/tensor/*
+!/00flow/tensor/.gitkeep
+!/00flow/unilangunichip/
+/00flow/unilangunichip/*
+!/00flow/unilangunichip/.gitkeep
+
+/00fora/*
+!/00fora/.gitkeep
+
+/00gmkt/*
+!/00gmkt/.gitkeep
+!/00gmkt/launch/
+/00gmkt/launch/*
+!/00gmkt/launch/.gitkeep
+
+/00skim/*
+!/00skim/.gitkeep
+
+/00taut/*
+!/00taut/.gitkeep
+!/00taut/mathlib/
+/00taut/mathlib/*
+!/00taut/mathlib/.gitkeep
+!/00taut/proofs/
+/00taut/proofs/*
+!/00taut/proofs/.gitkeep
+!/00taut/taut/
+/00taut/taut/*
+!/00taut/taut/.gitkeep
+
+/00ulib/*
+!/00ulib/.gitkeep
+!/00ulib/commercial/
+/00ulib/commercial/*
+!/00ulib/commercial/.gitkeep
+!/00ulib/crypto/
+/00ulib/crypto/*
+!/00ulib/crypto/.gitkeep
+!/00ulib/genalgorithms/
+/00ulib/genalgorithms/*
+!/00ulib/genalgorithms/.gitkeep
+!/00ulib/language/
+/00ulib/language/*
+!/00ulib/language/.gitkeep
+!/00ulib/math/
+/00ulib/math/*
+!/00ulib/math/.gitkeep
+!/00ulib/substrate/
+/00ulib/substrate/*
+!/00ulib/substrate/.gitkeep
+!/00ulib/wire/
+/00ulib/wire/*
+!/00ulib/wire/.gitkeep
+
+/00xper/*
+!/00xper/.gitkeep
+!/00xper/carbon/
+/00xper/carbon/*
+!/00xper/carbon/.gitkeep
+!/00xper/codecs/
+/00xper/codecs/*
+!/00xper/codecs/.gitkeep
+!/00xper/corealgorithms/
+/00xper/corealgorithms/*
+!/00xper/corealgorithms/.gitkeep
+!/00xper/habitat/
+/00xper/habitat/*
+!/00xper/habitat/.gitkeep
+!/00xper/iso/
+/00xper/iso/*
+!/00xper/iso/.gitkeep
+!/00xper/npmresearch/
+/00xper/npmresearch/*
+!/00xper/npmresearch/.gitkeep
+!/00xper/software-vendors/
+/00xper/software-vendors/*
+!/00xper/software-vendors/.gitkeep
+
+/01prod/*
+!/01prod/.gitkeep
+
+/01xpsd/*
+!/01xpsd/.gitkeep
+
+/13reng/*
+!/13reng/.gitkeep
+
+/50cove/*
+!/50cove/.gitkeep
+
+/51slam/*
+!/51slam/.gitkeep
+
+/99cogt/*
+!/99cogt/.gitkeep
+# END SOVEREIGN HOLLOW BONES (AUTO-GENERATED)
+

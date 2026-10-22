@@ -1,0 +1,28 @@
+{
+  "context": {
+    "fileName": [
+      "AGENTS.md",
+      "CLAUDE.md"
+    ],
+    "memoryBoundaryMarkers": [
+      ".gitroot",
+      ".antigravityroot"
+    ]
+  },
+  "plugins": {
+    "com.velocikey.vkeygit": { "enabled": true },
+    "com.velocikey.tensorcore": { "enabled": true },
+    "com.velocikey.tensorcoreumc": { "enabled": true },
+    "com.velocikey.tensor": { "enabled": true },
+    "com.velocikey.ephemeralcapacity": { "enabled": true },
+    "com.velocikey.plomb": { "enabled": true },
+    "nontrivial": { "enabled": true },
+    "lithicsql": { "enabled": true }
+  },
+  "mcpServers": {
+    "developer-knowledge": {
+      "command": "C:\\aCogSpaceSeed\\00xper\\x-mcp-proxy\\81000-active-source\\proxy.exe",
+      "args": []
+    }
+  }
+}

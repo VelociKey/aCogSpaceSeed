@@ -26,7 +26,7 @@ To write Go code that complies with the platform's AST-verification standards fr
 
 ## 2. Explicit Variable Discards
 * **No Blank Discards:** Do not use the blank identifier `_ = someFunc()` to discard returned values.
-* **Use Discard Package:** Import `sov.fleet/logiclibrary/81000-active-source/pkg/200-enhancers/discard` and call:
+* **Use Discard Package:** Import `sov.fleet/logiclibrary/81000-active-source/discard` and call:
   ```go
   discard.Discard(someFunc()) // Explicit, auditable intent
   ```

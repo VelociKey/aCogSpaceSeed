@@ -1,0 +1,69 @@
+{
+  "id": "com.velocikey.tensor",
+  "name": "tensor",
+  "namespace": "com.velocikey",
+  "version": "1.1.0",
+  "displayName": "VelociKey Sovereign Open Model Tensor Engine & Subagent Flywheel",
+  "description": "Ultra-fast open model coprocessor (vkalpaca 405B, deepseek-r1, qwen-coder, gemma-2, vkgem) providing callable MCP agent tools and high-speed parallel subagents via UMOG 16-worker dispatcher and 16-slot token matrix.",
+  "author": "VelociKey Sovereign Fleet",
+  "homepage": "https://velocikey.com/tensor",
+  "repository": "https://github.com/VelociKey/tensor",
+  "entrypoint": "C:/aCogSpaceSeed/00flow/forge/99000-internal-actors/vkeymcp.exe",
+  "skills": ["skills/tensor-swarm"],
+  "transport": {
+    "type": "stdio",
+    "command": "C:/aCogSpaceSeed/00flow/forge/99000-internal-actors/vkeymcp.exe",
+    "args": ["-stdio"]
+  },
+  "capabilities": [
+    "sovereign_open_model_inference",
+    "vkalpaca_405b_kronecker",
+    "deepseek_r1_moe_reasoning",
+    "qwen_coder_ast_transformation",
+    "gemma_2b_dense_speculation",
+    "vkgem_sovereign_base",
+    "vkgem_multilingual_translation",
+    "cross_lingual_long_context_alignment",
+    "speculative_critic_verification",
+    "test_synthesis_zero_allocation",
+    "ast_sovereign_compliance_audit",
+    "umog_16_worker_parallel_swarm",
+    "cacheline_isolated_token_matrix",
+    "tensor_carpetbag_verkle_pack",
+    "tensor_catalog_inspection"
+  ],
+  "tools": [
+    {
+      "name": "tensor_model_infer",
+      "description": "Executes ultra-fast sovereign tensor open model inference (vkalpaca, deepseek-r1, qwen-coder, gemma-2, vkgem) with configurable parameters and specialized multilingual translation (vkgem)"
+    },
+    {
+      "name": "tensor_translate",
+      "description": "Dedicated multilingual translation tool backed by vkgem's 256K SentencePiece vocabulary returning translations and cross-lingual semantic fidelity"
+    },
+    {
+      "name": "tensor_speculative_critic",
+      "description": "Performs high-speed speculative critique and verification of proposed code diffs or algorithmic changes using local tensor models"
+    },
+    {
+      "name": "tensor_synthesize_tests",
+      "description": "Generates comprehensive Go unit, benchmark, and allocation tests for specified functions, interfaces, or structs"
+    },
+    {
+      "name": "tensor_ast_audit",
+      "description": "Performs deep AST security and compliance inspection, checking for prohibited patterns (log/slog, raw git, CGo, heap escapes)"
+    },
+    {
+      "name": "tensor_swarm_dispatch",
+      "description": "Dispatches a parallel multi-agent sweep across 16 UMOG workers with isolated slot contexts and aggregates consensus"
+    },
+    {
+      "name": "tensor_carpetbag_pack",
+      "description": "Traverses target path, packages files into CARPETBAG-VERKLE-V1 .webnf format with White3 cryptoseal"
+    },
+    {
+      "name": "tensor_catalog_inspect",
+      "description": "Returns the 8 registered .tensor.webnf model profiles and dimension metadata"
+    }
+  ]
+}

@@ -36,10 +36,12 @@ This index lists the modular phases mapping the platform monetization engine, id
 | **[Phase 1](file:///C:/aCogSpaceSeed/conductor/tasks/c0001-phase1-ledger.md)** | Core Double-Entry Ledger & Ingestor Backend | `o-afflume/pkg/generalledger` | ✅ Complete |
 | **[Phase 2](file:///C:/aCogSpaceSeed/conductor/tasks/c0002-phase2-stelemetry.md)** | sTelemetry & qAPC ValueVector Receiver | `meter`, `afflume/qapc` | ✅ Complete |
 | **[Phase 3](file:///C:/aCogSpaceSeed/conductor/tasks/c0003-phase3-receptor.md)** | Offering Receptor Rules Engine | `afflume/offering` | ✅ Complete |
-| **[Phase 4](file:///C:/aCogSpaceSeed/conductor/tasks/c0004-phase4-ordering.md)** | Concurrent Ordering Workflow | `o-afflume/pkg/workflow`, `x-wrapstripe` | 📋 Planned |
-| **[Phase 5](file:///C:/aCogSpaceSeed/conductor/tasks/c0005-phase5-studios.md)** | Symmetrical Studio & Portal Frontends | `o-afflume-realization` | 📋 Planned |
-| **[Phase 6](file:///C:/aCogSpaceSeed/conductor/tasks/c0006-phase6-integration.md)** | E2E Integration Suite & Verification | `o-afflume/cmd/o-afflume` | 📋 Planned |
-| **[Phase 7](file:///C:/aCogSpaceSeed/conductor/tasks/c0007-phase7-flowtrack.md)** | Sovereign Task & Time Tracker (FLOW-Track) | `x-flowtrack` | 🔄 Active (more complete than initially documented) |
+| **[Phase 4](file:///C:/aCogSpaceSeed/conductor/tasks/c0004-phase4-ordering.md)** | Concurrent Ordering Workflow | `00floo/afflume/81000-active-source/workflow` | ✅ Complete |
+| **[Phase 5](file:///C:/aCogSpaceSeed/conductor/tasks/c0005-phase5-studios.md)** | Symmetrical Studio & Portal Frontends | `o-afflume-realization` | ⏳ Deferred (Future Work) |
+| **[Phase 6](file:///C:/aCogSpaceSeed/conductor/tasks/c0006-phase6-integration.md)** | E2E Integration Suite & Verification | `o-afflume/cmd/o-afflume` | ⏳ Deferred (Future Work) |
+| **[Phase 7](file:///C:/aCogSpaceSeed/conductor/tasks/c0007-phase7-flowtrack.md)** | Sovereign Task & Time Tracker (FLOW-Track) | `00flow/flowtrack` | ✅ Complete & Promoted |
+| **[Ghost Tokens](file:///C:/aCogSpaceSeed/conductor/tasks/future-nautilus-border1-ghost-tokens.md)** | Full Implementation of Ghost Tokens in Nautilus Border 1 | `nautilus`, `languagegrammar`, `skim` | ⏳ Deferred (Future Work) |
+| **[Ancillary Registry](file:///C:/aCogSpaceSeed/conductor/tasks/ancillary-future-work-registry.md)** | Sovereign Ancillary Discoveries & Future Work Registry | Monorepo-Wide | 📋 Living Registry |
 
 ## Key Precision Standards (All Phases)
 - **Monetary amounts:** 9-digit integer scaling ($10^9$ nano-units). No floating-point at any layer.

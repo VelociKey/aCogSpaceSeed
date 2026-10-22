@@ -1,6 +1,6 @@
 # Phase 5: Symmetrical Studio & Portal Frontends
 
-* **Status:** Planned
+* **Status:** ⏳ Deferred (Future Work)
 * **Target Promotion Silo:** `00floo`
 * **Primary Workspaces:** [o-afflume-realization](file:///c:/aCogSpaceSeed/00floo/o-afflume-realization), [o-afflume](file:///c:/aCogSpaceSeed/00floo/o-afflume) (backend service layer)
 * **SDK Reference:** `s-a2a` (CODEC / MV4 bridge), `s-logiclibrary` (Gatekeeper mTLS)

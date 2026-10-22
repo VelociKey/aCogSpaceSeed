@@ -1,0 +1,2902 @@
+# fleet_topology.webnf — Sovereign Fleet Topology Manifest
+# Auto-generated from go.work (Phase 0 Bootstrap)
+# Grammar: fleet_topology.wag v1
+
+version "1.0.0" ;
+
+# ─── Band Registry ───
+band active_source   { number = 81000 ; status = active ; }
+band build_harness   { number = 71000 ; status = active ; }
+band workspace_prologue { number = 00001 ; status = active ; }
+
+
+# ─── Silo: 00ulib (28 workspaces across 3 families) ───
+silo 00ulib {
+    classification = library ;
+
+    family substrate {
+        github_repo = "VelociKey/substrate" ;
+        attestation_workspace = "attestation" ;
+
+        workspace net {
+            qualified_name = "substrate/net" ;
+            rel_path = "00ulib/substrate/net" ;
+            module_path = "sov.fleet/substrate/net" ;
+            buildable = true ;
+        }
+        workspace concurrency {
+            qualified_name = "substrate/concurrency" ;
+            rel_path = "00ulib/substrate/concurrency" ;
+            module_path = "sov.fleet/substrate/concurrency" ;
+            buildable = true ;
+        }
+        workspace galois {
+            qualified_name = "substrate/galois" ;
+            rel_path = "00ulib/substrate/galois" ;
+            module_path = "sov.fleet/substrate/galois" ;
+            buildable = true ;
+        }
+        workspace codecs {
+            qualified_name = "substrate/codecs" ;
+            rel_path = "00ulib/substrate/codecs" ;
+            module_path = "sov.fleet/substrate/codecs" ;
+            buildable = true ;
+        }
+        workspace attestation {
+            qualified_name = "substrate/attestation" ;
+            rel_path = "00ulib/substrate/attestation" ;
+            module_path = "sov.fleet/substrate/attestation" ;
+            buildable = true ;
+            tag = "attestation" ;
+        }
+        workspace fastbytes {
+            qualified_name = "substrate/fastbytes" ;
+            rel_path = "00ulib/substrate/fastbytes" ;
+            module_path = "sov.fleet/substrate/fastbytes" ;
+            buildable = true ;
+        }
+        workspace fasthash {
+            qualified_name = "substrate/fasthash" ;
+            rel_path = "00ulib/substrate/fasthash" ;
+            module_path = "sov.fleet/substrate/fasthash" ;
+            buildable = true ;
+        }
+        workspace fastcrypto {
+            qualified_name = "substrate/fastcrypto" ;
+            rel_path = "00ulib/substrate/fastcrypto" ;
+            module_path = "sov.fleet/substrate/fastcrypto" ;
+            buildable = true ;
+        }
+        workspace fastconv {
+            qualified_name = "substrate/fastconv" ;
+            rel_path = "00ulib/substrate/fastconv" ;
+            module_path = "sov.fleet/substrate/fastconv" ;
+            buildable = true ;
+        }
+        workspace fastsort {
+            qualified_name = "substrate/fastsort" ;
+            rel_path = "00ulib/substrate/fastsort" ;
+            module_path = "sov.fleet/substrate/fastsort" ;
+            buildable = true ;
+        }
+        workspace fastlog {
+            qualified_name = "substrate/fastlog" ;
+            rel_path = "00ulib/substrate/fastlog" ;
+            module_path = "sov.fleet/substrate/fastlog" ;
+            buildable = true ;
+        }
+        workspace info {
+            qualified_name = "substrate/info" ;
+            rel_path = "00ulib/substrate/info" ;
+            module_path = "sov.fleet/substrate/info" ;
+            buildable = true ;
+        }
+        workspace cas {
+            qualified_name = "substrate/cas" ;
+            rel_path = "00ulib/substrate/cas" ;
+            module_path = "sov.fleet/substrate/cas" ;
+            buildable = true ;
+        }
+    }
+
+    family math {
+        github_repo = "VelociKey/math" ;
+        attestation_workspace = "attestation" ;
+
+        workspace foundation {
+            qualified_name = "math/foundation" ;
+            rel_path = "00ulib/math/foundation" ;
+            module_path = "sov.fleet/math/foundation" ;
+            buildable = true ;
+        }
+        workspace linear {
+            qualified_name = "math/linear" ;
+            rel_path = "00ulib/math/linear" ;
+            module_path = "sov.fleet/math/linear" ;
+            buildable = true ;
+        }
+        workspace transforms {
+            qualified_name = "math/transforms" ;
+            rel_path = "00ulib/math/transforms" ;
+            module_path = "sov.fleet/math/transforms" ;
+            buildable = true ;
+        }
+        workspace solvers {
+            qualified_name = "math/solvers" ;
+            rel_path = "00ulib/math/solvers" ;
+            module_path = "sov.fleet/math/solvers" ;
+            buildable = true ;
+        }
+        workspace arithmetic {
+            qualified_name = "math/arithmetic" ;
+            rel_path = "00ulib/math/arithmetic" ;
+            module_path = "sov.fleet/math/arithmetic" ;
+            buildable = true ;
+        }
+        workspace automorphic {
+            qualified_name = "math/automorphic" ;
+            rel_path = "00ulib/math/automorphic" ;
+            module_path = "sov.fleet/math/automorphic" ;
+            buildable = true ;
+        }
+        workspace sheaf {
+            qualified_name = "math/sheaf" ;
+            rel_path = "00ulib/math/sheaf" ;
+            module_path = "sov.fleet/math/sheaf" ;
+            buildable = true ;
+        }
+        workspace tannakian {
+            qualified_name = "math/tannakian" ;
+            rel_path = "00ulib/math/tannakian" ;
+            module_path = "sov.fleet/math/tannakian" ;
+            buildable = true ;
+        }
+        workspace symplectic {
+            qualified_name = "math/symplectic" ;
+            rel_path = "00ulib/math/symplectic" ;
+            module_path = "sov.fleet/math/symplectic" ;
+            buildable = true ;
+        }
+        workspace noncommutative {
+            qualified_name = "math/noncommutative" ;
+            rel_path = "00ulib/math/noncommutative" ;
+            module_path = "sov.fleet/math/noncommutative" ;
+            buildable = true ;
+        }
+        workspace motivic {
+            qualified_name = "math/motivic" ;
+            rel_path = "00ulib/math/motivic" ;
+            module_path = "sov.fleet/math/motivic" ;
+            buildable = true ;
+        }
+        workspace condensed {
+            qualified_name = "math/condensed" ;
+            rel_path = "00ulib/math/condensed" ;
+            module_path = "sov.fleet/math/condensed" ;
+            buildable = true ;
+        }
+        workspace gauge {
+            qualified_name = "math/gauge" ;
+            rel_path = "00ulib/math/gauge" ;
+            module_path = "sov.fleet/math/gauge" ;
+            buildable = true ;
+        }
+        workspace combinatorics {
+            qualified_name = "math/combinatorics" ;
+            rel_path = "00ulib/math/combinatorics" ;
+            module_path = "sov.fleet/math/combinatorics" ;
+            buildable = true ;
+        }
+        workspace order {
+            qualified_name = "math/order" ;
+            rel_path = "00ulib/math/order" ;
+            module_path = "sov.fleet/math/order" ;
+            buildable = true ;
+        }
+        workspace attestation {
+            qualified_name = "math/attestation" ;
+            rel_path = "00ulib/math/attestation" ;
+            module_path = "sov.fleet/math/attestation" ;
+            buildable = true ;
+            tag = "attestation" ;
+        }
+        workspace info {
+            qualified_name = "math/info" ;
+            rel_path = "00ulib/math/info" ;
+            module_path = "sov.fleet/math/info" ;
+            buildable = true ;
+        }
+    }
+
+    family commercial {
+        github_repo = "VelociKey/commercial" ;
+        attestation_workspace = "attestation" ;
+
+        workspace banking {
+            qualified_name = "commercial/banking" ;
+            rel_path = "00ulib/commercial/banking" ;
+            module_path = "sov.fleet/commercial/banking" ;
+            buildable = true ;
+        }
+        workspace ledger {
+            qualified_name = "commercial/ledger" ;
+            rel_path = "00ulib/commercial/ledger" ;
+            module_path = "sov.fleet/commercial/ledger" ;
+            buildable = true ;
+        }
+        workspace contracts {
+            qualified_name = "commercial/contracts" ;
+            rel_path = "00ulib/commercial/contracts" ;
+            module_path = "sov.fleet/commercial/contracts" ;
+            buildable = true ;
+        }
+        workspace attestation {
+            qualified_name = "commercial/attestation" ;
+            rel_path = "00ulib/commercial/attestation" ;
+            module_path = "sov.fleet/commercial/attestation" ;
+            buildable = true ;
+            tag = "attestation" ;
+        }
+        workspace info {
+            qualified_name = "commercial/info" ;
+            rel_path = "00ulib/commercial/info" ;
+            module_path = "sov.fleet/commercial/info" ;
+            buildable = true ;
+        }
+    }
+
+    family genalgorithms {
+        github_repo = "VelociKey/genalgorithms" ;
+
+        workspace adph {
+            qualified_name = "genalgorithms/adph" ;
+            rel_path = "00ulib/genalgorithms/adph" ;
+            module_path = "sov.fleet/adph" ;
+            buildable = true ;
+        }
+    }
+
+    family language {
+        github_repo = "VelociKey/language" ;
+
+        workspace grammar-language {
+            qualified_name = "language/grammar-language" ;
+            rel_path = "00ulib/language/grammar-language" ;
+            module_path = "sov.fleet/extendgo" ;
+            buildable = true ;
+        }
+    }
+}
+
+# ─── Silo: 00flow (74 workspaces) ───
+silo 00flow {
+    classification = platform ;
+
+    # --- Family: actors (8 workspaces) ---
+    family actors {
+        github_repo = "VelociKey/actors" ;
+        attestation_workspace = "attestation" ;
+
+        workspace actors-info {
+            qualified_name = "actors/actors-info" ;
+            rel_path = "00flow/actors/actors-info" ;
+            module_path = "sov.fleet/actors/actors-info" ;
+            buildable = true ;
+        }
+        workspace attestation {
+            qualified_name = "actors/attestation" ;
+            rel_path = "00flow/actors/attestation" ;
+            module_path = "sov.fleet/actors/attestation" ;
+            buildable = true ;
+            tag = "attestation" ;
+        }
+        workspace core {
+            qualified_name = "actors/core" ;
+            rel_path = "00flow/actors/core" ;
+            module_path = "sov.fleet/actors/core" ;
+            buildable = true ;
+        }
+        workspace trustcircle {
+            qualified_name = "actors/trustcircle" ;
+            rel_path = "00flow/actors/trustcircle" ;
+            module_path = "sov.fleet/actors/trustcircle" ;
+            buildable = true ;
+        }
+        workspace lattice {
+            qualified_name = "actors/lattice" ;
+            rel_path = "00flow/actors/lattice" ;
+            module_path = "sov.fleet/actors/lattice" ;
+            buildable = true ;
+        }
+        workspace coordination {
+            qualified_name = "actors/coordination" ;
+            rel_path = "00flow/actors/coordination" ;
+            module_path = "sov.fleet/actors/coordination" ;
+            buildable = true ;
+        }
+        workspace transport {
+            qualified_name = "actors/transport" ;
+            rel_path = "00flow/actors/transport" ;
+            module_path = "sov.fleet/actors/transport" ;
+            buildable = true ;
+        }
+        workspace studio {
+            qualified_name = "actors/studio" ;
+            rel_path = "00flow/actors/studio" ;
+            module_path = "sov.fleet/actors/studio" ;
+            buildable = true ;
+        }
+    }
+
+
+    # --- Family: unilangunichip (23 workspaces) ---
+    family unilangunichip {
+        github_repo = "VelociKey/unilangunichip" ;
+        attestation_workspace = "attestation" ;
+
+        workspace grammar-ur {
+            qualified_name = "unilangunichip/grammar-ur" ;
+            rel_path = "00flow/unilangunichip/grammar-ur" ;
+            module_path = "sov.fleet/unilangunichip/grammar-ur" ;
+            buildable = true ;
+        }
+        workspace grammar-language {
+            qualified_name = "unilangunichip/grammar-language" ;
+            rel_path = "00flow/unilangunichip/grammar-language" ;
+            module_path = "sov.fleet/unilangunichip/grammar-language" ;
+            buildable = true ;
+        }
+        workspace grammar-data {
+            qualified_name = "unilangunichip/grammar-data" ;
+            rel_path = "00flow/unilangunichip/grammar-data" ;
+            module_path = "sov.fleet/unilangunichip/grammar-data" ;
+            buildable = true ;
+        }
+        workspace grammar-chip {
+            qualified_name = "unilangunichip/grammar-chip" ;
+            rel_path = "00flow/unilangunichip/grammar-chip" ;
+            module_path = "sov.fleet/unilangunichip/grammar-chip" ;
+            buildable = true ;
+        }
+        workspace grammar-microchip {
+            qualified_name = "unilangunichip/grammar-microchip" ;
+            rel_path = "00flow/unilangunichip/grammar-microchip" ;
+            module_path = "sov.fleet/unilangunichip/grammar-microchip" ;
+            buildable = true ;
+        }
+        workspace grammar-platform {
+            qualified_name = "unilangunichip/grammar-platform" ;
+            rel_path = "00flow/unilangunichip/grammar-platform" ;
+            module_path = "sov.fleet/unilangunichip/grammar-platform" ;
+            buildable = true ;
+        }
+        workspace grammar-use {
+            qualified_name = "unilangunichip/grammar-use" ;
+            rel_path = "00flow/unilangunichip/grammar-use" ;
+            module_path = "sov.fleet/unilangunichip/grammar-use" ;
+            buildable = true ;
+        }
+        workspace grammar-migrate {
+            qualified_name = "unilangunichip/grammar-migrate" ;
+            rel_path = "00flow/unilangunichip/grammar-migrate" ;
+            module_path = "sov.fleet/unilangunichip/grammar-migrate" ;
+            buildable = true ;
+        }
+        workspace grammar-info {
+            qualified_name = "unilangunichip/grammar-info" ;
+            rel_path = "00flow/unilangunichip/grammar-info" ;
+            module_path = "sov.fleet/unilangunichip/grammar-info" ;
+            buildable = true ;
+        }
+        workspace linguaflow {
+            qualified_name = "unilangunichip/linguaflow" ;
+            rel_path = "00flow/unilangunichip/linguaflow" ;
+            module_path = "sov.fleet/linguaflow" ;
+            buildable = true ;
+        }
+        workspace lingua-assembler {
+            qualified_name = "unilangunichip/lingua-assembler" ;
+            rel_path = "00flow/unilangunichip/lingua-assembler" ;
+            module_path = "sov.fleet/lingua-assembler" ;
+            buildable = true ;
+        }
+        workspace lingua-certifier {
+            qualified_name = "unilangunichip/lingua-certifier" ;
+            rel_path = "00flow/unilangunichip/lingua-certifier" ;
+            module_path = "sov.fleet/lingua-certifier" ;
+            buildable = true ;
+        }
+        workspace lingua-classifier {
+            qualified_name = "unilangunichip/lingua-classifier" ;
+            rel_path = "00flow/unilangunichip/lingua-classifier" ;
+            module_path = "sov.fleet/lingua-classifier" ;
+            buildable = true ;
+        }
+        workspace lingua-translator {
+            qualified_name = "unilangunichip/lingua-translator" ;
+            rel_path = "00flow/unilangunichip/lingua-translator" ;
+            module_path = "sov.fleet/lingua-translator" ;
+            buildable = true ;
+        }
+        workspace lingua-transpiler {
+            qualified_name = "unilangunichip/lingua-transpiler" ;
+            rel_path = "00flow/unilangunichip/lingua-transpiler" ;
+            module_path = "sov.fleet/lingua-transpiler" ;
+            buildable = true ;
+        }
+        workspace macroir {
+            qualified_name = "unilangunichip/macroir" ;
+            rel_path = "00flow/unilangunichip/macroir" ;
+            module_path = "sov.fleet/macroir" ;
+            buildable = true ;
+        }
+        workspace whelm {
+            qualified_name = "unilangunichip/whelm" ;
+            rel_path = "00flow/unilangunichip/whelm" ;
+            module_path = "sov.fleet/unilangunichip/whelm" ;
+            buildable = true ;
+        }
+        workspace chelm {
+            qualified_name = "unilangunichip/chelm" ;
+            rel_path = "00flow/unilangunichip/chelm" ;
+            module_path = "sov.fleet/unilangunichip/chelm" ;
+            buildable = true ;
+        }
+        workspace nautilus {
+            qualified_name = "unilangunichip/nautilus" ;
+            rel_path = "00flow/unilangunichip/nautilus" ;
+            module_path = "sov.fleet/nautilus" ;
+            buildable = true ;
+        }
+        workspace orchestrator-weaver {
+            qualified_name = "unilangunichip/orchestrator-weaver" ;
+            rel_path = "00flow/unilangunichip/orchestrator-weaver" ;
+            module_path = "sov.fleet/orchestrator-weaver" ;
+            buildable = true ;
+        }
+        workspace nontrivial {
+            qualified_name = "unilangunichip/nontrivial" ;
+            rel_path = "00flow/unilangunichip/nontrivial" ;
+            module_path = "sov.fleet/nontrivial" ;
+            buildable = true ;
+        }
+        workspace recovery {
+            qualified_name = "unilangunichip/recovery" ;
+            rel_path = "00flow/unilangunichip/recovery" ;
+            module_path = "sov.fleet/unilangunichip/recovery" ;
+            buildable = true ;
+        }
+        workspace attestation {
+            qualified_name = "unilangunichip/attestation" ;
+            rel_path = "00flow/unilangunichip/attestation" ;
+            module_path = "sov.fleet/unilangunichip/attestation" ;
+            buildable = true ;
+            tag = "attestation" ;
+        }
+    }
+
+    # --- Family: plinth (17 workspaces) ---
+    family plinth {
+        github_repo = "VelociKey/plinth" ;
+        attestation_workspace = "attestation" ;
+
+        workspace plinth {
+            qualified_name = "plinth" ;
+            rel_path = "00flow/plinth" ;
+            module_path = "sov.fleet/plinth" ;
+            buildable = true ;
+        }
+        workspace agentbox {
+            qualified_name = "plinth/agentbox" ;
+            rel_path = "00flow/plinth/agentbox" ;
+            module_path = "sov.fleet/plinth-agentbox" ;
+            buildable = true ;
+        }
+        workspace attestation {
+            qualified_name = "plinth/attestation" ;
+            rel_path = "00flow/plinth/attestation" ;
+            module_path = "sov.fleet/plinth-attestation" ;
+            buildable = true ;
+            tag = "attestation" ;
+        }
+        workspace basics {
+            qualified_name = "plinth/basics" ;
+            rel_path = "00flow/plinth/basics" ;
+            module_path = "sov.fleet/plinth-basics" ;
+            buildable = true ;
+        }
+        workspace conduit {
+            qualified_name = "plinth/conduit" ;
+            rel_path = "00flow/plinth/conduit" ;
+            module_path = "sov.fleet/plinth-conduit" ;
+            buildable = true ;
+        }
+        workspace dast-suite {
+            qualified_name = "plinth/dast-suite" ;
+            rel_path = "00flow/plinth/dast-suite" ;
+            module_path = "sov.fleet/plinth-dast-suite" ;
+            buildable = true ;
+        }
+        workspace desktop {
+            qualified_name = "plinth/desktop" ;
+            rel_path = "00flow/plinth/desktop" ;
+            module_path = "sov.fleet/plinth-desktop" ;
+            buildable = true ;
+        }
+        workspace filesystem {
+            qualified_name = "plinth/filesystem" ;
+            rel_path = "00flow/plinth/filesystem" ;
+            module_path = "sov.fleet/plinth-filesystem" ;
+            buildable = true ;
+        }
+        workspace hal {
+            qualified_name = "plinth/hal" ;
+            rel_path = "00flow/plinth/hal" ;
+            module_path = "sov.fleet/plinth-hal" ;
+            buildable = true ;
+            tag = "emplinths-stratum-0" ;
+        }
+        workspace hub {
+            qualified_name = "plinth/hub" ;
+            rel_path = "00flow/plinth/hub" ;
+            module_path = "sov.fleet/plinth-hub" ;
+            buildable = true ;
+        }
+        workspace kmsvault {
+            qualified_name = "plinth/kmsvault" ;
+            rel_path = "00flow/plinth/kmsvault" ;
+            module_path = "sov.fleet/plinth-kmsvault" ;
+            buildable = true ;
+        }
+        workspace nvmewal {
+            qualified_name = "plinth/nvmewal" ;
+            rel_path = "00flow/plinth/nvmewal" ;
+            module_path = "sov.fleet/plinth-nvmewal" ;
+            buildable = true ;
+        }
+        workspace pbac {
+            qualified_name = "plinth/pbac" ;
+            rel_path = "00flow/plinth/pbac" ;
+            module_path = "sov.fleet/plinth-pbac" ;
+            buildable = true ;
+        }
+        workspace polyaccum {
+            qualified_name = "plinth/polyaccum" ;
+            rel_path = "00flow/plinth/polyaccum" ;
+            module_path = "sov.fleet/plinth-polyaccum" ;
+            buildable = true ;
+        }
+        workspace posix {
+            qualified_name = "plinth/posix" ;
+            rel_path = "00flow/plinth/posix" ;
+            module_path = "sov.fleet/plinth-posix" ;
+            buildable = true ;
+        }
+        workspace substrate {
+            qualified_name = "plinth/substrate" ;
+            rel_path = "00flow/plinth/substrate" ;
+            module_path = "sov.fleet/plinth-substrate" ;
+            buildable = true ;
+        }
+        workspace experimental-attestation {
+            qualified_name = "plinth/experimental-attestation" ;
+            rel_path = "00flow/plinth/experimental-attestation" ;
+            module_path = "sov.fleet/plinthattestation" ;
+            buildable = true ;
+            tag = "experimental" ;
+        }
+    }
+
+    # --- Family: tensor (8 workspaces) ---
+    family tensor {
+        github_repo = "VelociKey/tensor" ;
+        attestation_workspace = "attestation" ;
+
+        workspace engine {
+            qualified_name = "tensor/engine" ;
+            rel_path = "00flow/tensor/engine" ;
+            module_path = "sov.fleet/tensor/engine" ;
+            buildable = true ;
+        }
+        workspace trainer {
+            qualified_name = "tensor/trainer" ;
+            rel_path = "00flow/tensor/trainer" ;
+            module_path = "sov.fleet/tensor/trainer" ;
+            buildable = true ;
+        }
+        workspace multimodal {
+            qualified_name = "tensor/multimodal" ;
+            rel_path = "00flow/tensor/multimodal" ;
+            module_path = "sov.fleet/tensor/multimodal" ;
+            buildable = true ;
+        }
+        workspace conduit {
+            qualified_name = "tensor/conduit" ;
+            rel_path = "00flow/tensor/conduit" ;
+            module_path = "sov.fleet/tensor/conduit" ;
+            buildable = true ;
+        }
+        workspace acquisition {
+            qualified_name = "tensor/acquisition" ;
+            rel_path = "00flow/tensor/acquisition" ;
+            module_path = "sov.fleet/tensor/acquisition" ;
+            buildable = true ;
+        }
+        workspace models {
+            qualified_name = "tensor/models" ;
+            rel_path = "00flow/tensor/models" ;
+            module_path = "sov.fleet/tensor/models" ;
+            github_repo = "VelociKey/VelociKey-Models" ;
+            buildable = true ;
+        }
+        workspace modelgrammar {
+            qualified_name = "tensor/modelgrammar" ;
+            rel_path = "00flow/tensor/modelgrammar" ;
+            module_path = "sov.fleet/modelgrammar" ;
+            buildable = true ;
+        }
+        workspace attestation {
+            qualified_name = "tensor/attestation" ;
+            rel_path = "00flow/tensor/attestation" ;
+            module_path = "sov.fleet/tensor/attestation" ;
+            buildable = true ;
+            tag = "attestation" ;
+        }
+    }
+
+    # --- Pseudo-Family: latentlingua (2 workspaces) ---
+    workspace latentlingua {
+        qualified_name = "latentlingua" ;
+        rel_path = "00flow/latentlingua" ;
+        module_path = "sov.fleet/latentlingua" ;
+        buildable = true ;
+    }
+    workspace latentlingua-csl {
+        qualified_name = "latentlingua-csl" ;
+        rel_path = "00flow/latentlingua-csl" ;
+        module_path = "sov.fleet/latentlingua-csl" ;
+        buildable = true ;
+    }
+
+    # --- Family: hotcross (2 workspaces) ---
+    family hotcross {
+        github_repo = "VelociKey/hotcross" ;
+        attestation_workspace = "attestation" ;
+
+        workspace hotcross {
+            qualified_name = "hotcross" ;
+            rel_path = "00flow/hotcross" ;
+            module_path = "sov.fleet/hotcross" ;
+            buildable = true ;
+        }
+        workspace attestation {
+            qualified_name = "hotcross/attestation" ;
+            rel_path = "00flow/hotcross/attestation" ;
+            module_path = "sov.fleet/hotcrossattestation" ;
+            buildable = true ;
+            tag = "attestation" ;
+        }
+    }
+
+    # --- Pseudo-Family: lithic (2 workspaces) ---
+    workspace lithic {
+        qualified_name = "lithic" ;
+        rel_path = "00flow/lithic" ;
+        module_path = "sov.fleet/lithic" ;
+        buildable = true ;
+    }
+    workspace lithicpersist {
+        qualified_name = "lithicpersist" ;
+        rel_path = "00flow/lithicpersist" ;
+        module_path = "sov.fleet/lithicpersist" ;
+        buildable = true ;
+    }
+
+    # --- Family: mcp (2 workspaces) ---
+    family mcp {
+        github_repo = "VelociKey/mcp" ;
+        attestation_workspace = "studio" ;
+
+        workspace mcp {
+            qualified_name = "mcp" ;
+            rel_path = "00flow/mcp" ;
+            module_path = "sov.fleet/mcp" ;
+            buildable = true ;
+        }
+        workspace studio {
+            qualified_name = "mcp/studio" ;
+            rel_path = "00flow/mcp/studio" ;
+            module_path = "sov.fleet/mcpstudio" ;
+            buildable = true ;
+            tag = "attestation" ;
+        }
+    }
+
+    # --- Family: introspect (2 workspaces) ---
+    family introspect {
+        github_repo = "VelociKey/introspect" ;
+        attestation_workspace = "synthesis" ;
+
+        workspace introspection {
+            qualified_name = "introspection" ;
+            rel_path = "00flow/introspection" ;
+            module_path = "sov.fleet/introspection" ;
+            buildable = true ;
+        }
+        workspace synthesis {
+            qualified_name = "introspection/synthesis" ;
+            rel_path = "00flow/introspection/synthesis" ;
+            module_path = "sov.fleet/introspect-synthesis" ;
+            buildable = true ;
+            tag = "attestation" ;
+        }
+    }
+
+    # --- Orphan Workspaces ---
+    workspace adaptivelock {
+        qualified_name = "adaptivelock" ;
+        rel_path = "00flow/adaptivelock" ;
+        module_path = "sov.fleet/s-adaptivelock" ;
+        buildable = true ;
+    }
+    workspace anchorsuite {
+        qualified_name = "anchorsuite" ;
+        rel_path = "00flow/anchorsuite" ;
+        module_path = "sov.fleet/anchorsuite" ;
+        buildable = true ;
+    }
+    workspace applyconcurrency {
+        qualified_name = "applyconcurrency" ;
+        rel_path = "00flow/applyconcurrency" ;
+        module_path = "sov.fleet/applyconcurrency" ;
+        buildable = true ;
+    }
+    workspace codeworld {
+        qualified_name = "codeworld" ;
+        rel_path = "00flow/codeworld" ;
+        module_path = "sov.fleet/codeworld" ;
+        buildable = true ;
+    }
+    workspace cyberneticstudio {
+        qualified_name = "cyberneticstudio" ;
+        rel_path = "00flow/cyberneticstudio" ;
+        module_path = "sov.fleet/cyberneticstudio" ;
+        buildable = true ;
+    }
+    workspace dedupkernel {
+        qualified_name = "dedupkernel" ;
+        rel_path = "00flow/dedupkernel" ;
+        module_path = "sov.fleet/dedupkernel" ;
+        buildable = true ;
+    }
+    workspace effectortokenizer {
+        qualified_name = "effectortokenizer" ;
+        rel_path = "00flow/effectortokenizer" ;
+        module_path = "sov.fleet/effectortokenizer" ;
+        buildable = true ;
+    }
+    workspace fab-aides {
+        qualified_name = "fab-aides" ;
+        rel_path = "00flow/fab-aides" ;
+        module_path = "sov.fleet/fab-aides" ;
+        buildable = true ;
+    }
+    workspace financialkernel {
+        qualified_name = "financialkernel" ;
+        rel_path = "00flow/financialkernel" ;
+        module_path = "sov.fleet/financialkernel" ;
+        buildable = true ;
+    }
+    workspace fleettopology {
+        qualified_name = "fleettopology" ;
+        rel_path = "00flow/fleettopology" ;
+        module_path = "sov.fleet/fleettopology" ;
+        buildable = true ;
+    }
+    workspace flowcore {
+        qualified_name = "flowcore" ;
+        rel_path = "00flow/flowcore" ;
+        module_path = "sov.fleet/flowcore" ;
+        buildable = true ;
+    }
+    workspace flowcorebackup {
+        qualified_name = "flowcorebackup" ;
+        rel_path = "00flow/flowcorebackup" ;
+        module_path = "sov.fleet/flowcorebackup" ;
+        buildable = true ;
+    }
+    workspace floweryworld {
+        qualified_name = "floweryworld" ;
+        rel_path = "00flow/floweryworld" ;
+        module_path = "sov.fleet/floweryworld" ;
+        buildable = true ;
+    }
+    workspace humanity_frontier_benchmarks {
+        qualified_name = "humanity_frontier_benchmarks" ;
+        rel_path = "00flow/humanity_frontier_benchmarks" ;
+        module_path = "sov.fleet/humanity_frontier_benchmarks" ;
+        buildable = true ;
+    }
+    workspace hydration {
+        qualified_name = "hydration" ;
+        rel_path = "00flow/hydration" ;
+        module_path = "sov.fleet/hydration" ;
+        buildable = true ;
+    }
+    workspace matterkernel {
+        qualified_name = "matterkernel" ;
+        rel_path = "00flow/matterkernel" ;
+        module_path = "sov.fleet/matterkernel" ;
+        buildable = true ;
+    }
+    workspace merkletree {
+        qualified_name = "merkletree" ;
+        rel_path = "00flow/merkletree" ;
+        module_path = "sov.fleet/merkletree" ;
+        buildable = true ;
+    }
+    workspace white3 {
+        qualified_name = "white3" ;
+        rel_path = "00flow/white3" ;
+        module_path = "sov.fleet/white3" ;
+        buildable = true ;
+    }
+    workspace modelaccess {
+        qualified_name = "modelaccess" ;
+        rel_path = "00flow/modelaccess" ;
+        module_path = "sov.fleet/modelaccess" ;
+        buildable = true ;
+    }
+    workspace observation {
+        qualified_name = "observation" ;
+        rel_path = "00flow/observation" ;
+        module_path = "sov.fleet/observation" ;
+        buildable = true ;
+    }
+    workspace paradigms {
+        qualified_name = "paradigms" ;
+        rel_path = "00flow/paradigms" ;
+        module_path = "sov.fleet/paradigms" ;
+        buildable = true ;
+    }
+    workspace qdag {
+        qualified_name = "qdag" ;
+        rel_path = "00flow/qdag" ;
+        module_path = "sov.fleet/qdag" ;
+        buildable = true ;
+    }
+    workspace sacp {
+        qualified_name = "sacp" ;
+        rel_path = "00flow/sacp" ;
+        module_path = "sov.fleet/sacp" ;
+        buildable = true ;
+    }
+    workspace seerSTMci {
+        qualified_name = "seerSTMci" ;
+        rel_path = "00flow/seerSTMci" ;
+        module_path = "sov.fleet/seerstmci" ;
+        buildable = true ;
+    }
+    workspace sensorytokenizer {
+        qualified_name = "sensorytokenizer" ;
+        rel_path = "00flow/sensorytokenizer" ;
+        module_path = "sov.fleet/sensorytokenizer" ;
+        buildable = true ;
+    }
+    workspace syntalist {
+        qualified_name = "syntalist" ;
+        rel_path = "00flow/syntalist" ;
+        module_path = "sov.fleet/syntalist" ;
+        buildable = true ;
+    }
+    workspace taskrelay {
+        qualified_name = "taskrelay" ;
+        rel_path = "00flow/taskrelay" ;
+        module_path = "sov.fleet/taskrelay" ;
+        buildable = true ;
+    }
+    workspace urpacklibrary {
+        qualified_name = "urpacklibrary" ;
+        rel_path = "00flow/urpacklibrary" ;
+        module_path = "sov.fleet/urpacklibrary" ;
+        buildable = true ;
+    }
+    workspace ververcontract {
+        qualified_name = "ververcontract" ;
+        rel_path = "00flow/ververcontract" ;
+        module_path = "sov.fleet/ververcontract" ;
+        buildable = true ;
+    }
+    workspace vkeymesh {
+        qualified_name = "vkeymesh" ;
+        rel_path = "00flow/vkeymesh" ;
+        module_path = "sov.fleet/vkeymesh" ;
+        buildable = true ;
+    }
+    workspace waps {
+        qualified_name = "waps" ;
+        rel_path = "00flow/waps" ;
+        module_path = "sov.fleet/waps" ;
+        buildable = true ;
+    }
+    workspace wpim {
+        qualified_name = "wpim" ;
+        rel_path = "00flow/wpim" ;
+        module_path = "sov.fleet/wpim" ;
+        buildable = true ;
+    }
+}
+
+# ─── Silo: 00floo (56 workspaces) ───
+silo 00floo {
+    classification = operations ;
+
+    # --- Family: vaultline (17 workspaces) ---
+    family vaultline {
+        github_repo = "VelociKey/vaultline" ;
+        attestation_workspace = "attestation" ;
+
+        workspace vaultline {
+            qualified_name = "vaultline" ;
+            rel_path = "00floo/vaultline" ;
+            module_path = "sov.fleet/vaultline" ;
+            buildable = true ;
+        }
+        workspace attestation {
+            qualified_name = "vaultline/attestation" ;
+            rel_path = "00floo/vaultline/attestation" ;
+            module_path = "sov.fleet/vaultline-attestation" ;
+            buildable = true ;
+            tag = "attestation" ;
+        }
+        workspace catalog {
+            qualified_name = "vaultline/catalog" ;
+            rel_path = "00floo/vaultline/catalog" ;
+            module_path = "sov.fleet/vaultline-catalog" ;
+            buildable = true ;
+        }
+        workspace certaffirm {
+            qualified_name = "vaultline/certaffirm" ;
+            rel_path = "00floo/vaultline/certaffirm" ;
+            module_path = "sov.fleet/vaultline-certaffirm" ;
+            buildable = true ;
+        }
+        workspace core {
+            qualified_name = "vaultline/core" ;
+            rel_path = "00floo/vaultline/core" ;
+            module_path = "sov.fleet/vaultline-core" ;
+            buildable = true ;
+        }
+        workspace filing {
+            qualified_name = "vaultline/filing" ;
+            rel_path = "00floo/vaultline/filing" ;
+            module_path = "sov.fleet/vaultline-filing" ;
+            buildable = true ;
+        }
+        workspace foresight {
+            qualified_name = "vaultline/foresight" ;
+            rel_path = "00floo/vaultline/foresight" ;
+            module_path = "sov.fleet/vaultline-foresight" ;
+            buildable = true ;
+        }
+        workspace ftl {
+            qualified_name = "vaultline/ftl" ;
+            rel_path = "00floo/vaultline/ftl" ;
+            module_path = "sov.fleet/vaultline-ftl" ;
+            buildable = true ;
+        }
+        workspace guardian {
+            qualified_name = "vaultline/guardian" ;
+            rel_path = "00floo/vaultline/guardian" ;
+            module_path = "sov.fleet/vaultline-guardian" ;
+            buildable = true ;
+        }
+        workspace identity {
+            qualified_name = "vaultline/identity" ;
+            rel_path = "00floo/vaultline/identity" ;
+            module_path = "sov.fleet/vaultline-identity" ;
+            buildable = true ;
+        }
+        workspace ingress {
+            qualified_name = "vaultline/ingress" ;
+            rel_path = "00floo/vaultline/ingress" ;
+            module_path = "sov.fleet/vaultline-ingress" ;
+            buildable = true ;
+        }
+        workspace persona {
+            qualified_name = "vaultline/persona" ;
+            rel_path = "00floo/vaultline/persona" ;
+            module_path = "sov.fleet/vaultline-persona" ;
+            buildable = true ;
+        }
+        workspace reconciler {
+            qualified_name = "vaultline/reconciler" ;
+            rel_path = "00floo/vaultline/reconciler" ;
+            module_path = "sov.fleet/vaultline-reconciler" ;
+            buildable = true ;
+        }
+        workspace replay {
+            qualified_name = "vaultline/replay" ;
+            rel_path = "00floo/vaultline/replay" ;
+            module_path = "sov.fleet/vaultline-replay" ;
+            buildable = true ;
+        }
+        workspace studio {
+            qualified_name = "vaultline/studio" ;
+            rel_path = "00floo/vaultline/studio" ;
+            module_path = "sov.fleet/vaultline-studio" ;
+            buildable = true ;
+        }
+        workspace twin {
+            qualified_name = "vaultline/twin" ;
+            rel_path = "00floo/vaultline/twin" ;
+            module_path = "sov.fleet/vaultline-twin" ;
+            buildable = true ;
+        }
+        workspace visibility {
+            qualified_name = "vaultline/visibility" ;
+            rel_path = "00floo/vaultline/visibility" ;
+            module_path = "sov.fleet/vaultline-visibility" ;
+            buildable = true ;
+        }
+    }
+
+    # --- Family: afflume (3 workspaces) ---
+    family afflume {
+        github_repo = "VelociKey/afflume" ;
+        attestation_workspace = "attestation" ;
+
+        workspace afflume {
+            qualified_name = "afflume" ;
+            rel_path = "00floo/afflume" ;
+            module_path = "sov.fleet/afflume" ;
+            buildable = true ;
+        }
+        workspace attestation {
+            qualified_name = "afflume/attestation" ;
+            rel_path = "00floo/afflume/attestation" ;
+            module_path = "sov.fleet/afflumeattestation" ;
+            buildable = true ;
+            tag = "attestation" ;
+        }
+        workspace realization {
+            qualified_name = "afflume/realization" ;
+            rel_path = "00floo/afflume/realization" ;
+            module_path = "sov.fleet/afflume-realization" ;
+            buildable = true ;
+        }
+    }
+
+    # --- Family: commerce (6 workspaces) ---
+    family commerce {
+        github_repo = "VelociKey/commerce" ;
+        attestation_workspace = "attestation" ;
+
+        workspace attestation {
+            qualified_name = "commerce/attestation" ;
+            rel_path = "00floo/commerce/attestation" ;
+            module_path = "sov.fleet/commerce/attestation" ;
+            buildable = true ;
+            tag = "attestation" ;
+        }
+        workspace banking {
+            qualified_name = "commerce/banking" ;
+            rel_path = "00floo/commerce/banking" ;
+            module_path = "sov.fleet/banking" ;
+            buildable = false ;
+        }
+        workspace billing {
+            qualified_name = "commerce/billing" ;
+            rel_path = "00floo/commerce/billing" ;
+            module_path = "sov.fleet/billing" ;
+            buildable = true ;
+        }
+        workspace entitlement {
+            qualified_name = "commerce/entitlement" ;
+            rel_path = "00floo/commerce/entitlement" ;
+            module_path = "sov.fleet/entitlement" ;
+            buildable = true ;
+        }
+        workspace invoicing {
+            qualified_name = "commerce/invoicing" ;
+            rel_path = "00floo/commerce/invoicing" ;
+            module_path = "sov.fleet/invoicing" ;
+            buildable = true ;
+        }
+        workspace jurisdiction-nexus {
+            qualified_name = "commerce/jurisdiction-nexus" ;
+            rel_path = "00floo/commerce/jurisdiction-nexus" ;
+            module_path = "sov.fleet/jurisdiction-nexus" ;
+            buildable = true ;
+        }
+    }
+
+    # --- Family: emulator (25 workspaces) ---
+    family emulator {
+        github_repo = "VelociKey/emulator" ;
+        attestation_workspace = "attestation" ;
+
+        workspace attestation {
+            qualified_name = "emulator/attestation" ;
+            rel_path = "00floo/emulator/attestation" ;
+            module_path = "sov.fleet/emulator/attestation" ;
+            buildable = true ;
+            tag = "attestation" ;
+        }
+        workspace adk-go {
+            qualified_name = "emulator/adk-go" ;
+            rel_path = "00floo/emulator/adk-go" ;
+            module_path = "sov.fleet/qadk-go" ;
+            buildable = true ;
+        }
+        workspace artifactregistry {
+            qualified_name = "emulator/artifactregistry" ;
+            rel_path = "00floo/emulator/artifactregistry" ;
+            module_path = "sov.fleet/qartifactregistry" ;
+            buildable = true ;
+        }
+        workspace bigquery {
+            qualified_name = "emulator/bigquery" ;
+            rel_path = "00floo/emulator/bigquery" ;
+            module_path = "sov.fleet/qbigquery" ;
+            buildable = true ;
+        }
+        workspace cloudrun {
+            qualified_name = "emulator/cloudrun" ;
+            rel_path = "00floo/emulator/cloudrun" ;
+            module_path = "sov.fleet/qcloudrun" ;
+            buildable = true ;
+        }
+        workspace cloudsql {
+            qualified_name = "emulator/cloudsql" ;
+            rel_path = "00floo/emulator/cloudsql" ;
+            module_path = "sov.fleet/qcloudsql" ;
+            buildable = true ;
+        }
+        workspace cloudtasks {
+            qualified_name = "emulator/cloudtasks" ;
+            rel_path = "00floo/emulator/cloudtasks" ;
+            module_path = "sov.fleet/qcloudtasks" ;
+            buildable = true ;
+        }
+        workspace compute {
+            qualified_name = "emulator/compute" ;
+            rel_path = "00floo/emulator/compute" ;
+            module_path = "sov.fleet/qcompute" ;
+            buildable = true ;
+        }
+        workspace eventarc {
+            qualified_name = "emulator/eventarc" ;
+            rel_path = "00floo/emulator/eventarc" ;
+            module_path = "sov.fleet/qeventarc" ;
+            buildable = true ;
+        }
+        workspace firebaseauth {
+            qualified_name = "emulator/firebaseauth" ;
+            rel_path = "00floo/emulator/firebaseauth" ;
+            module_path = "sov.fleet/qfirebaseauth" ;
+            buildable = true ;
+        }
+        workspace firestore {
+            qualified_name = "emulator/firestore" ;
+            rel_path = "00floo/emulator/firestore" ;
+            module_path = "sov.fleet/qfirestore" ;
+            buildable = true ;
+        }
+        workspace gcs {
+            qualified_name = "emulator/gcs" ;
+            rel_path = "00floo/emulator/gcs" ;
+            module_path = "sov.fleet/qgcs" ;
+            buildable = true ;
+        }
+        workspace iam {
+            qualified_name = "emulator/iam" ;
+            rel_path = "00floo/emulator/iam" ;
+            module_path = "sov.fleet/qiam" ;
+            buildable = true ;
+        }
+        workspace ingress {
+            qualified_name = "emulator/ingress" ;
+            rel_path = "00floo/emulator/ingress" ;
+            module_path = "sov.fleet/qingress" ;
+            buildable = true ;
+        }
+        workspace kms {
+            qualified_name = "emulator/kms" ;
+            rel_path = "00floo/emulator/kms" ;
+            module_path = "sov.fleet/qkms" ;
+            buildable = true ;
+        }
+        workspace logging {
+            qualified_name = "emulator/logging" ;
+            rel_path = "00floo/emulator/logging" ;
+            module_path = "sov.fleet/qlogging" ;
+            buildable = true ;
+        }
+        workspace monitoring {
+            qualified_name = "emulator/monitoring" ;
+            rel_path = "00floo/emulator/monitoring" ;
+            module_path = "sov.fleet/qmonitoring" ;
+            buildable = true ;
+        }
+        workspace psc {
+            qualified_name = "emulator/psc" ;
+            rel_path = "00floo/emulator/psc" ;
+            module_path = "sov.fleet/qpsc" ;
+            buildable = true ;
+        }
+        workspace pubsub {
+            qualified_name = "emulator/pubsub" ;
+            rel_path = "00floo/emulator/pubsub" ;
+            module_path = "sov.fleet/qpubsub" ;
+            buildable = true ;
+        }
+        workspace scheduler {
+            qualified_name = "emulator/scheduler" ;
+            rel_path = "00floo/emulator/scheduler" ;
+            module_path = "sov.fleet/qscheduler" ;
+            buildable = true ;
+        }
+        workspace secretmanager {
+            qualified_name = "emulator/secretmanager" ;
+            rel_path = "00floo/emulator/secretmanager" ;
+            module_path = "sov.fleet/qsecretmanager" ;
+            buildable = true ;
+        }
+        workspace servicedirectory {
+            qualified_name = "emulator/servicedirectory" ;
+            rel_path = "00floo/emulator/servicedirectory" ;
+            module_path = "sov.fleet/qservicedirectory" ;
+            buildable = true ;
+        }
+        workspace spanner {
+            qualified_name = "emulator/spanner" ;
+            rel_path = "00floo/emulator/spanner" ;
+            module_path = "sov.fleet/qspanner" ;
+            buildable = true ;
+        }
+        workspace stoass {
+            qualified_name = "emulator/stoass" ;
+            rel_path = "00floo/emulator/stoass" ;
+            module_path = "sov.fleet/qstoass" ;
+            buildable = true ;
+        }
+        workspace vertex {
+            qualified_name = "emulator/vertex" ;
+            rel_path = "00floo/emulator/vertex" ;
+            module_path = "sov.fleet/qvertex" ;
+            buildable = true ;
+        }
+    }
+
+    # --- Family: company-portal (5 workspaces) ---
+    family company-portal {
+        github_repo = "VelociKey/company-portal" ;
+        attestation_workspace = "attestation" ;
+
+        workspace info {
+            qualified_name = "company-portal/info" ;
+            rel_path = "00floo/company-portal/info" ;
+            module_path = "sov.fleet/company-portal-info" ;
+            buildable = true ;
+        }
+        workspace attestation {
+            qualified_name = "company-portal/attestation" ;
+            rel_path = "00floo/company-portal/attestation" ;
+            module_path = "sov.fleet/company-portal-attestation" ;
+            buildable = true ;
+        }
+        workspace portal-library {
+            qualified_name = "company-portal/portal-library" ;
+            rel_path = "00floo/company-portal/portal-library" ;
+            module_path = "sov.fleet/portal-library" ;
+            buildable = true ;
+        }
+        workspace gateway {
+            qualified_name = "company-portal/gateway" ;
+            rel_path = "00floo/company-portal/gateway" ;
+            module_path = "sov.fleet/company-portal-gateway" ;
+            buildable = true ;
+        }
+        workspace saas {
+            qualified_name = "company-portal/saas" ;
+            rel_path = "00floo/company-portal/saas" ;
+            module_path = "sov.fleet/company-portal-saas" ;
+            buildable = true ;
+        }
+    }
+}
+
+# ─── Silo: 00flon (9 workspaces) ───
+silo 00flon {
+    classification = network ;
+
+    # --- Family: ingress (3 workspaces) ---
+    family ingress {
+        github_repo = "VelociKey/ingress" ;
+        attestation_workspace = "attestation" ;
+
+        workspace attestation {
+            qualified_name = "ingress/attestation" ;
+            rel_path = "00flon/ingress/attestation" ;
+            module_path = "sov.fleet/ingress/attestation" ;
+            buildable = true ;
+            tag = "attestation" ;
+        }
+        workspace sovmux {
+            qualified_name = "ingress/sovmux" ;
+            rel_path = "00flon/ingress/sovmux" ;
+            module_path = "sov.fleet/sovmux" ;
+            buildable = true ;
+        }
+        workspace gateway {
+            qualified_name = "ingress/gateway" ;
+            rel_path = "00flon/ingress/gateway" ;
+            module_path = "sov.fleet/n-sovereign-ingress" ;
+            buildable = true ;
+        }
+    }
+
+    # --- Family: transport (5 workspaces) ---
+    family transport {
+        github_repo = "VelociKey/transport" ;
+        attestation_workspace = "attestation" ;
+
+        workspace attestation {
+            qualified_name = "transport/attestation" ;
+            rel_path = "00flon/transport/attestation" ;
+            module_path = "sov.fleet/transport/attestation" ;
+            buildable = true ;
+            tag = "attestation" ;
+        }
+        workspace client {
+            qualified_name = "transport/client" ;
+            rel_path = "00flon/transport/client" ;
+            module_path = "sov.fleet/sovereign-client" ;
+            buildable = true ;
+        }
+        workspace worker {
+            qualified_name = "transport/worker" ;
+            rel_path = "00flon/transport/worker" ;
+            module_path = "sov.fleet/sovereign-worker" ;
+            buildable = true ;
+        }
+        workspace blueprint {
+            qualified_name = "transport/blueprint" ;
+            rel_path = "00flon/transport/blueprint" ;
+            module_path = "sov.fleet/n-sovereign-blueprint" ;
+            buildable = true ;
+        }
+        workspace testing {
+            qualified_name = "transport/testing" ;
+            rel_path = "00flon/transport/testing" ;
+            module_path = "sov.fleet/sovereign-testing" ;
+            buildable = true ;
+        }
+    }
+
+    # --- Orphan Workspaces ---
+    workspace 00flon-info {
+        qualified_name = "00flon-info" ;
+        rel_path = "00flon/00flon-info" ;
+        module_path = "sov.fleet/00flon-info" ;
+        buildable = true ;
+    }
+}
+
+
+# ─── Silo: 00fora (1 workspace) ───
+silo 00fora {
+    classification = reference ;
+
+    # --- Orphan Workspaces ---
+    workspace ucis {
+        qualified_name = "ucis" ;
+        rel_path = "00fora/ucis" ;
+        module_path = "sov.fleet/ucis" ;
+        buildable = true ;
+    }
+}
+
+# ─── Silo: 00skim (8 workspaces) ───
+silo 00skim {
+    classification = platform ;
+
+    # --- Family: skim (7 workspaces) ---
+    family skim {
+        github_repo = "VelociKey/skim" ;
+        attestation_workspace = "attestation" ;
+
+        workspace info {
+            qualified_name = "skim/info" ;
+            rel_path = "00skim/skim/info" ;
+            module_path = "sov.fleet/skim-info" ;
+            buildable = true ;
+            tag = "info" ;
+        }
+        workspace attestation {
+            qualified_name = "skim/attestation" ;
+            rel_path = "00skim/skim/attestation" ;
+            module_path = "sov.fleet/skim-attestation" ;
+            buildable = true ;
+            tag = "attestation" ;
+        }
+        workspace manifold {
+            qualified_name = "skim/manifold" ;
+            rel_path = "00skim/skim/manifold" ;
+            module_path = "sov.fleet/skim/manifold" ;
+            buildable = true ;
+        }
+        workspace skim-library {
+            qualified_name = "skim/skim-library" ;
+            rel_path = "00skim/skim/skim-library" ;
+            module_path = "sov.fleet/skim-library" ;
+            buildable = true ;
+        }
+        workspace skim-client {
+            qualified_name = "skim/skim-client" ;
+            rel_path = "00skim/skim/skim-client" ;
+            module_path = "sov.fleet/skim-client" ;
+            buildable = true ;
+        }
+        workspace skim-governance {
+            qualified_name = "skim/skim-governance" ;
+            rel_path = "00skim/skim/skim-governance" ;
+            module_path = "sov.fleet/skim-governance" ;
+            buildable = true ;
+        }
+        workspace vkey-git {
+            qualified_name = "skim/vkey-git" ;
+            rel_path = "00skim/skim/vkey-git" ;
+            module_path = "sov.fleet/vkey-git" ;
+            buildable = true ;
+        }
+    }
+
+    # --- Silo Info Workspace ---
+    workspace 00skim-info {
+        qualified_name = "00skim-info" ;
+        rel_path = "00skim/00skim-info" ;
+        module_path = "sov.fleet/00skim-info" ;
+        buildable = true ;
+        tag = "silo-info" ;
+    }
+}
+
+# ─── Silo: 00taut (33 workspaces) ───
+silo 00taut {
+    classification = tautological ;
+
+    # --- Family: taut (6 workspaces) ---
+    family taut {
+        github_repo = "VelociKey/taut" ;
+        attestation_workspace = "attestation" ;
+
+        workspace attestation {
+            qualified_name = "taut/attestation" ;
+            rel_path = "00taut/taut/attestation" ;
+            module_path = "sov.fleet/taut/attestation" ;
+            buildable = true ;
+            tag = "attestation" ;
+        }
+        workspace mathesis {
+            qualified_name = "taut/mathesis" ;
+            rel_path = "00taut/taut/mathesis" ;
+            module_path = "sov.fleet/taut-mathesis" ;
+            buildable = true ;
+        }
+        workspace kernel {
+            qualified_name = "taut/kernel" ;
+            rel_path = "00taut/taut/kernel" ;
+            module_path = "sov.fleet/taut" ;
+            buildable = true ;
+        }
+        workspace sledgehammer {
+            qualified_name = "taut/sledgehammer" ;
+            rel_path = "00taut/taut/sledgehammer" ;
+            module_path = "sov.fleet/taut3" ;
+            buildable = true ;
+        }
+        workspace alphaproof {
+            qualified_name = "taut/alphaproof" ;
+            rel_path = "00taut/taut/alphaproof" ;
+            module_path = "sov.fleet/taut4" ;
+            buildable = true ;
+        }
+        workspace compressor {
+            qualified_name = "taut/compressor" ;
+            rel_path = "00taut/taut/compressor" ;
+            module_path = "sov.fleet/tautproof" ;
+            buildable = true ;
+        }
+    }
+
+    # --- Family: mathlib (15 workspaces) ---
+    family mathlib {
+        github_repo = "VelociKey/mathlib" ;
+        attestation_workspace = "attestation" ;
+
+        workspace attestation {
+            qualified_name = "mathlib/attestation" ;
+            rel_path = "00taut/mathlib/attestation" ;
+            module_path = "sov.fleet/mathlib/attestation" ;
+            buildable = true ;
+            tag = "attestation" ;
+        }
+        workspace bridge {
+            qualified_name = "mathlib/bridge" ;
+            rel_path = "00taut/mathlib/bridge" ;
+            module_path = "sov.fleet/tautmathlib" ;
+            buildable = true ;
+        }
+        workspace algebra {
+            qualified_name = "mathlib/algebra" ;
+            rel_path = "00taut/mathlib/algebra" ;
+            module_path = "sov.fleet/tautmathlib-algebra" ;
+            buildable = true ;
+        }
+        workspace analysis {
+            qualified_name = "mathlib/analysis" ;
+            rel_path = "00taut/mathlib/analysis" ;
+            module_path = "sov.fleet/tautmathlib-analysis" ;
+            buildable = true ;
+        }
+        workspace category {
+            qualified_name = "mathlib/category" ;
+            rel_path = "00taut/mathlib/category" ;
+            module_path = "sov.fleet/tautmathlib-category" ;
+            buildable = true ;
+        }
+        workspace combinatorics {
+            qualified_name = "mathlib/combinatorics" ;
+            rel_path = "00taut/mathlib/combinatorics" ;
+            module_path = "sov.fleet/tautmathlib-combinatorics" ;
+            buildable = true ;
+        }
+        workspace data {
+            qualified_name = "mathlib/data" ;
+            rel_path = "00taut/mathlib/data" ;
+            module_path = "sov.fleet/tautmathlib-data" ;
+            buildable = true ;
+        }
+        workspace geometry {
+            qualified_name = "mathlib/geometry" ;
+            rel_path = "00taut/mathlib/geometry" ;
+            module_path = "sov.fleet/tautmathlib-geometry" ;
+            buildable = true ;
+        }
+        workspace logic {
+            qualified_name = "mathlib/logic" ;
+            rel_path = "00taut/mathlib/logic" ;
+            module_path = "sov.fleet/tautmathlib-logic" ;
+            buildable = true ;
+        }
+        workspace measure {
+            qualified_name = "mathlib/measure" ;
+            rel_path = "00taut/mathlib/measure" ;
+            module_path = "sov.fleet/tautmathlib-measure" ;
+            buildable = true ;
+        }
+        workspace numbertheory {
+            qualified_name = "mathlib/numbertheory" ;
+            rel_path = "00taut/mathlib/numbertheory" ;
+            module_path = "sov.fleet/tautmathlib-numbertheory" ;
+            buildable = true ;
+        }
+        workspace order {
+            qualified_name = "mathlib/order" ;
+            rel_path = "00taut/mathlib/order" ;
+            module_path = "sov.fleet/tautmathlib-order" ;
+            buildable = true ;
+        }
+        workspace ringfield {
+            qualified_name = "mathlib/ringfield" ;
+            rel_path = "00taut/mathlib/ringfield" ;
+            module_path = "sov.fleet/tautmathlib-ringfield" ;
+            buildable = true ;
+        }
+        workspace scilean {
+            qualified_name = "mathlib/scilean" ;
+            rel_path = "00taut/mathlib/scilean" ;
+            module_path = "sov.fleet/tautmathlib-scilean" ;
+            buildable = true ;
+        }
+        workspace topology {
+            qualified_name = "mathlib/topology" ;
+            rel_path = "00taut/mathlib/topology" ;
+            module_path = "sov.fleet/tautmathlib-topology" ;
+            buildable = true ;
+        }
+    }
+
+    # --- Family: proofs (12 workspaces) ---
+    family proofs {
+        github_repo = "VelociKey/proofs" ;
+        attestation_workspace = "attestation" ;
+
+        workspace attestation {
+            qualified_name = "proofs/attestation" ;
+            rel_path = "00taut/proofs/attestation" ;
+            module_path = "sov.fleet/proofs/attestation" ;
+            buildable = true ;
+            tag = "attestation" ;
+        }
+        workspace ams {
+            qualified_name = "proofs/ams" ;
+            rel_path = "00taut/proofs/ams" ;
+            module_path = "sov.fleet/proof-ams" ;
+            buildable = true ;
+        }
+        workspace apostol {
+            qualified_name = "proofs/apostol" ;
+            rel_path = "00taut/proofs/apostol" ;
+            module_path = "sov.fleet/proof-apostol" ;
+            buildable = true ;
+        }
+        workspace arxiv {
+            qualified_name = "proofs/arxiv" ;
+            rel_path = "00taut/proofs/arxiv" ;
+            module_path = "sov.fleet/proof-arxiv" ;
+            buildable = true ;
+        }
+        workspace cmi {
+            qualified_name = "proofs/cmi" ;
+            rel_path = "00taut/proofs/cmi" ;
+            module_path = "sov.fleet/proof-cmi" ;
+            buildable = true ;
+        }
+        workspace knuth {
+            qualified_name = "proofs/knuth" ;
+            rel_path = "00taut/proofs/knuth" ;
+            module_path = "sov.fleet/proof-knuth" ;
+            buildable = true ;
+        }
+        workspace navier-stokes {
+            qualified_name = "proofs/navier-stokes" ;
+            rel_path = "00taut/proofs/navier-stokes" ;
+            module_path = "sov.fleet/proof-navier-stokes" ;
+            buildable = true ;
+        }
+        workspace palomar {
+            qualified_name = "proofs/palomar" ;
+            rel_path = "00taut/proofs/palomar" ;
+            module_path = "sov.fleet/proof-palomar" ;
+            buildable = true ;
+        }
+        workspace white3 {
+            qualified_name = "proofs/white3" ;
+            rel_path = "00taut/proofs/white3" ;
+            module_path = "sov.fleet/proof-white3" ;
+            buildable = true ;
+        }
+        workspace wilson-palomar {
+            qualified_name = "proofs/wilson-palomar" ;
+            rel_path = "00taut/proofs/wilson-palomar" ;
+            module_path = "sov.fleet/proof-wilson-palomar" ;
+            buildable = true ;
+        }
+        workspace yale {
+            qualified_name = "proofs/yale" ;
+            rel_path = "00taut/proofs/yale" ;
+            module_path = "sov.fleet/proof-yale" ;
+            buildable = true ;
+        }
+        workspace jhu {
+            qualified_name = "proofs/jhu" ;
+            rel_path = "00taut/proofs/jhu" ;
+            module_path = "sov.fleet/jhu" ;
+            buildable = true ;
+        }
+    }
+}
+
+# ─── Silo: 00xper (191 workspaces) ───
+silo 00xper {
+    classification = experimental ;
+
+    # --- Family: corealgorithms (4 workspaces) ---
+    family corealgorithms {
+        github_repo = "VelociKey/corealgorithms" ;
+        attestation_workspace = "attestation" ;
+
+        workspace uuid {
+            qualified_name = "corealgorithms/uuid" ;
+            rel_path = "00xper/corealgorithms/uuid" ;
+            module_path = "sov.fleet/corealgorithms/uuid" ;
+            buildable = true ;
+        }
+        workspace cadence-orchestrator {
+            qualified_name = "corealgorithms/cadence-orchestrator" ;
+            rel_path = "00xper/corealgorithms/cadence-orchestrator" ;
+            module_path = "sov.fleet/corealgorithms/cadence-orchestrator" ;
+            buildable = true ;
+        }
+        workspace corealgorithms-attestation {
+            qualified_name = "corealgorithms/attestation" ;
+            rel_path = "00xper/corealgorithms/attestation" ;
+            module_path = "sov.fleet/corealgorithms/attestation" ;
+            buildable = true ;
+            tag = "attestation" ;
+        }
+        workspace corealgorithms-info {
+            qualified_name = "corealgorithms/info" ;
+            rel_path = "00xper/corealgorithms/info" ;
+            module_path = "sov.fleet/corealgorithms/info" ;
+            buildable = true ;
+        }
+    }
+
+    # --- Family: carbon (12 workspaces) ---
+    family carbon {
+        github_repo = "VelociKey/carbon" ;
+        attestation_workspace = "attestation" ;
+
+        workspace bluecore {
+            qualified_name = "carbon/bluecore" ;
+            rel_path = "00xper/carbon/bluecore" ;
+            module_path = "sov.fleet/carbon/bluecore" ;
+            buildable = true ;
+        }
+        workspace ballistics {
+            qualified_name = "carbon/ballistics" ;
+            rel_path = "00xper/carbon/ballistics" ;
+            module_path = "sov.fleet/carbon/ballistics" ;
+            buildable = true ;
+        }
+        workspace evecommon {
+            qualified_name = "carbon/evecommon" ;
+            rel_path = "00xper/carbon/evecommon" ;
+            module_path = "sov.fleet/carbon/evecommon" ;
+            buildable = true ;
+        }
+        workspace solnode {
+            qualified_name = "carbon/solnode" ;
+            rel_path = "00xper/carbon/solnode" ;
+            module_path = "sov.fleet/carbon/solnode" ;
+            buildable = true ;
+        }
+        workspace eveserver {
+            qualified_name = "carbon/eveserver" ;
+            rel_path = "00xper/carbon/eveserver" ;
+            module_path = "sov.fleet/carbon/eveserver" ;
+            buildable = true ;
+        }
+        workspace evefrontier {
+            qualified_name = "carbon/evefrontier" ;
+            rel_path = "00xper/carbon/evefrontier" ;
+            module_path = "sov.fleet/carbon/evefrontier" ;
+            buildable = true ;
+        }
+        workspace avataron3d {
+            qualified_name = "carbon/avataron3d" ;
+            rel_path = "00xper/carbon/avataron3d" ;
+            module_path = "sov.fleet/carbon/avataron3d" ;
+            buildable = true ;
+        }
+        workspace eveclient {
+            qualified_name = "carbon/eveclient" ;
+            rel_path = "00xper/carbon/eveclient" ;
+            module_path = "sov.fleet/carbon/eveclient" ;
+            buildable = true ;
+        }
+        workspace frontierclient {
+            qualified_name = "carbon/frontierclient" ;
+            rel_path = "00xper/carbon/frontierclient" ;
+            module_path = "sov.fleet/carbon/frontierclient" ;
+            buildable = true ;
+        }
+        workspace reanimated {
+            qualified_name = "carbon/reanimated" ;
+            rel_path = "00xper/carbon/reanimated" ;
+            module_path = "sov.fleet/carbon/reanimated" ;
+            buildable = true ;
+        }
+        workspace carbon-attestation {
+            qualified_name = "carbon/attestation" ;
+            rel_path = "00xper/carbon/attestation" ;
+            module_path = "sov.fleet/carbon/attestation" ;
+            buildable = true ;
+            tag = "attestation" ;
+        }
+        workspace carbon-info {
+            qualified_name = "carbon/info" ;
+            rel_path = "00xper/carbon/info" ;
+            module_path = "sov.fleet/carbon/info" ;
+            buildable = true ;
+        }
+    }
+
+    # --- Family: npmresearch (3 workspaces) ---
+    family npmresearch {
+        github_repo = "VelociKey/npmresearch" ;
+        attestation_workspace = "npmresearch-attestation" ;
+
+        workspace stratifier {
+            qualified_name = "npmresearch/stratifier" ;
+            rel_path = "00xper/npmresearch/stratifier" ;
+            module_path = "sov.fleet/npmresearch/stratifier" ;
+            buildable = true ;
+        }
+        workspace npmresearch-attestation {
+            qualified_name = "npmresearch/npmresearch-attestation" ;
+            rel_path = "00xper/npmresearch/npmresearch-attestation" ;
+            module_path = "sov.fleet/npmresearch/attestation" ;
+            buildable = true ;
+            tag = "attestation" ;
+        }
+        workspace npmresearch-info {
+            qualified_name = "npmresearch/npmresearch-info" ;
+            rel_path = "00xper/npmresearch/npmresearch-info" ;
+            module_path = "sov.fleet/npmresearch/info" ;
+            buildable = true ;
+        }
+    }
+
+    # --- Pseudo-Family: antigravity (5 workspaces) ---
+    workspace antigravity-sdk-go {
+        qualified_name = "antigravity-sdk-go" ;
+        rel_path = "00xper/antigravity-sdk-go" ;
+        module_path = "sov.fleet/antigravity-sdk-go" ;
+        buildable = true ;
+    }
+    workspace antigravitypluginframework {
+        qualified_name = "antigravitypluginframework" ;
+        rel_path = "00xper/antigravitypluginframework" ;
+        module_path = "sov.fleet/antigravitypluginframework" ;
+        buildable = true ;
+    }
+    workspace antigravityplugins {
+        qualified_name = "antigravityplugins" ;
+        rel_path = "00xper/antigravityplugins" ;
+        module_path = "sov.fleet/antigravityplugins" ;
+        buildable = true ;
+    }
+    workspace antigravityproduct {
+        qualified_name = "antigravityproduct" ;
+        rel_path = "00xper/antigravityproduct" ;
+        module_path = "sov.fleet/antigravityproduct" ;
+        buildable = true ;
+    }
+    workspace antigravitystudio {
+        qualified_name = "antigravitystudio" ;
+        rel_path = "00xper/antigravitystudio" ;
+        module_path = "sov.fleet/antigravitystudio" ;
+        buildable = true ;
+    }
+
+    # --- Pseudo-Family: aplum (7 workspaces) ---
+    workspace aplum {
+        qualified_name = "aplum" ;
+        rel_path = "00xper/aplum" ;
+        module_path = "sov.fleet/aplum" ;
+        buildable = true ;
+    }
+    workspace aplum-attestation {
+        qualified_name = "aplum-attestation" ;
+        rel_path = "00xper/aplum-attestation" ;
+        module_path = "sov.fleet/aplum-attestation" ;
+        buildable = true ;
+    }
+    workspace aplum-germinate {
+        qualified_name = "aplum-germinate" ;
+        rel_path = "00xper/aplum-germinate" ;
+        module_path = "sov.fleet/aplum-germinate" ;
+        buildable = true ;
+    }
+    workspace aplum-grow {
+        qualified_name = "aplum-grow" ;
+        rel_path = "00xper/aplum-grow" ;
+        module_path = "sov.fleet/aplum-grow" ;
+        buildable = true ;
+    }
+    workspace aplum-host {
+        qualified_name = "aplum-host" ;
+        rel_path = "00xper/aplum-host" ;
+        module_path = "sov.fleet/aplum-host" ;
+        buildable = true ;
+    }
+    workspace aplum-pricing {
+        qualified_name = "aplum-pricing" ;
+        rel_path = "00xper/aplum-pricing" ;
+        module_path = "sov.fleet/aplum-pricing" ;
+        buildable = true ;
+    }
+    workspace aplum-relay {
+        qualified_name = "aplum-relay" ;
+        rel_path = "00xper/aplum-relay" ;
+        module_path = "sov.fleet/aplum-relay" ;
+        buildable = true ;
+    }
+
+    # --- Pseudo-Family: cogni (4 workspaces) ---
+    workspace cognihistory {
+        qualified_name = "cognihistory" ;
+        rel_path = "00xper/cognihistory" ;
+        module_path = "sov.fleet/cognihistory" ;
+        buildable = true ;
+    }
+    workspace cognirealm {
+        qualified_name = "cognirealm" ;
+        rel_path = "00xper/cognirealm" ;
+        module_path = "sov.fleet/cognirealm" ;
+        buildable = true ;
+    }
+    workspace cognirealmstudio {
+        qualified_name = "cognirealmstudio" ;
+        rel_path = "00xper/cognirealmstudio" ;
+        module_path = "sov.fleet/cognirealmstudio" ;
+        buildable = true ;
+    }
+    workspace cognireflect {
+        qualified_name = "cognireflect" ;
+        rel_path = "00xper/cognireflect" ;
+        module_path = "sov.fleet/cognireflect" ;
+        buildable = true ;
+    }
+
+    # --- Pseudo-Family: dextr (2 workspaces) ---
+    workspace dextr {
+        qualified_name = "dextr" ;
+        rel_path = "00xper/dextr" ;
+        module_path = "sov.fleet/dextr" ;
+        buildable = true ;
+    }
+    workspace dextrattestation {
+        qualified_name = "dextrattestation" ;
+        rel_path = "00xper/dextrattestation" ;
+        module_path = "sov.fleet/dextrattestation" ;
+        buildable = true ;
+    }
+
+    # --- Pseudo-Family: evolution-scaffold (2 workspaces) ---
+    workspace evolution-scaffold {
+        qualified_name = "evolution-scaffold" ;
+        rel_path = "00xper/evolution-scaffold" ;
+        module_path = "sov.fleet/evolution-scaffold" ;
+        buildable = true ;
+    }
+    workspace evolution-scaffold-attestation {
+        qualified_name = "evolution-scaffold-attestation" ;
+        rel_path = "00xper/evolution-scaffold-attestation" ;
+        module_path = "sov.fleet/evolution-scaffold-attestation" ;
+        buildable = true ;
+    }
+
+    # --- Pseudo-Family: lflang (1 workspace) ---
+    workspace lflang-test {
+        qualified_name = "lflang-test" ;
+        rel_path = "00xper/lflang-test" ;
+        module_path = "sov.fleet/lflang-test" ;
+        buildable = true ;
+    }
+
+    # --- Pseudo-Family: lithic (22 workspaces) ---
+    workspace lithic-adapt {
+        qualified_name = "lithic-adapt" ;
+        rel_path = "00xper/lithic-adapt" ;
+        module_path = "sov.fleet/lithic-adapt" ;
+        buildable = true ;
+    }
+    workspace lithic-adtech {
+        qualified_name = "lithic-adtech" ;
+        rel_path = "00xper/lithic-adtech" ;
+        module_path = "sov.fleet/lithic-adtech" ;
+        buildable = true ;
+    }
+    workspace lithic-ai {
+        qualified_name = "lithic-ai" ;
+        rel_path = "00xper/lithic-ai" ;
+        module_path = "sov.fleet/lithic-ai" ;
+        buildable = true ;
+    }
+    workspace lithic-bio {
+        qualified_name = "lithic-bio" ;
+        rel_path = "00xper/lithic-bio" ;
+        module_path = "sov.fleet/lithic-bio" ;
+        buildable = true ;
+    }
+    workspace lithic-codec {
+        qualified_name = "lithic-codec" ;
+        rel_path = "00xper/lithic-codec" ;
+        module_path = "sov.fleet/lithic-codec" ;
+        buildable = true ;
+    }
+    workspace lithic-dataprep {
+        qualified_name = "lithic-dataprep" ;
+        rel_path = "00xper/lithic-dataprep" ;
+        module_path = "sov.fleet/lithic-dataprep" ;
+        buildable = true ;
+    }
+    workspace lithic-edge {
+        qualified_name = "lithic-edge" ;
+        rel_path = "00xper/lithic-edge" ;
+        module_path = "sov.fleet/lithic-edge" ;
+        buildable = true ;
+    }
+    workspace lithic-fintech {
+        qualified_name = "lithic-fintech" ;
+        rel_path = "00xper/lithic-fintech" ;
+        module_path = "sov.fleet/lithic-fintech" ;
+        buildable = true ;
+    }
+    workspace lithic-graph {
+        qualified_name = "lithic-graph" ;
+        rel_path = "00xper/lithic-graph" ;
+        module_path = "sov.fleet/lithic-graph" ;
+        buildable = true ;
+    }
+    workspace lithic-media {
+        qualified_name = "lithic-media" ;
+        rel_path = "00xper/lithic-media" ;
+        module_path = "sov.fleet/lithic-media" ;
+        buildable = true ;
+    }
+    workspace lithic-molecular {
+        qualified_name = "lithic-molecular" ;
+        rel_path = "00xper/lithic-molecular" ;
+        module_path = "sov.fleet/lithic-molecular" ;
+        buildable = true ;
+    }
+    workspace lithic-neuro {
+        qualified_name = "lithic-neuro" ;
+        rel_path = "00xper/lithic-neuro" ;
+        module_path = "sov.fleet/lithic-neuro" ;
+        buildable = true ;
+    }
+    workspace lithic-physics {
+        qualified_name = "lithic-physics" ;
+        rel_path = "00xper/lithic-physics" ;
+        module_path = "sov.fleet/lithic-physics" ;
+        buildable = true ;
+    }
+    workspace lithic-quantum {
+        qualified_name = "lithic-quantum" ;
+        rel_path = "00xper/lithic-quantum" ;
+        module_path = "sov.fleet/lithic-quantum" ;
+        buildable = true ;
+    }
+    workspace lithic-robotics {
+        qualified_name = "lithic-robotics" ;
+        rel_path = "00xper/lithic-robotics" ;
+        module_path = "sov.fleet/lithic-robotics" ;
+        buildable = true ;
+    }
+    workspace lithic-snn {
+        qualified_name = "lithic-snn" ;
+        rel_path = "00xper/lithic-snn" ;
+        module_path = "sov.fleet/lithic-snn" ;
+        buildable = true ;
+    }
+    workspace lithic-surgmed {
+        qualified_name = "lithic-surgmed" ;
+        rel_path = "00xper/lithic-surgmed" ;
+        module_path = "sov.fleet/lithic-surgmed" ;
+        buildable = true ;
+    }
+    workspace lithic-swarm {
+        qualified_name = "lithic-swarm" ;
+        rel_path = "00xper/lithic-swarm" ;
+        module_path = "sov.fleet/lithic-swarm" ;
+        buildable = true ;
+    }
+    workspace lithic-vector {
+        qualified_name = "lithic-vector" ;
+        rel_path = "00xper/lithic-vector" ;
+        module_path = "sov.fleet/lithic-vector" ;
+        buildable = true ;
+    }
+    workspace lithic-zkml {
+        qualified_name = "lithic-zkml" ;
+        rel_path = "00xper/lithic-zkml" ;
+        module_path = "sov.fleet/lithic-zkml" ;
+        buildable = true ;
+    }
+    workspace lithicattestation {
+        qualified_name = "lithicattestation" ;
+        rel_path = "00xper/lithicattestation" ;
+        module_path = "sov.fleet/lithicattestation" ;
+        buildable = true ;
+    }
+    workspace lithicmigration {
+        qualified_name = "lithicmigration" ;
+        rel_path = "00xper/lithicmigration" ;
+        module_path = "sov.fleet/lithicmigration" ;
+        buildable = true ;
+    }
+
+    # --- Pseudo-Family: mathesis (3 workspaces) ---
+    workspace mathesis-langlands {
+        qualified_name = "mathesis-langlands" ;
+        rel_path = "00xper/mathesis-langlands" ;
+        module_path = "sov.fleet/mathesis-langlands" ;
+        buildable = true ;
+    }
+    workspace mathesisattestation {
+        qualified_name = "mathesisattestation" ;
+        rel_path = "00xper/mathesisattestation" ;
+        module_path = "sov.fleet/mathesisattestation" ;
+        buildable = true ;
+    }
+    workspace mathetexsis {
+        qualified_name = "mathetexsis" ;
+        rel_path = "00xper/mathetexsis" ;
+        module_path = "sov.fleet/mathetexsis" ;
+        buildable = true ;
+    }
+
+    # --- Pseudo-Family: model (1 workspace) ---
+    workspace modeloutputgrammar {
+        qualified_name = "modeloutputgrammar" ;
+        rel_path = "00xper/modeloutputgrammar" ;
+        module_path = "sov.fleet/modeloutputgrammar" ;
+        buildable = true ;
+    }
+
+    # --- Pseudo-Family: ms (3 workspaces) ---
+    workspace ms-benchmarks {
+        qualified_name = "ms-benchmarks" ;
+        rel_path = "00xper/ms-benchmarks" ;
+        module_path = "sov.fleet/ms-benchmarks" ;
+        buildable = true ;
+    }
+    workspace ms-symboltable {
+        qualified_name = "ms-symboltable" ;
+        rel_path = "00xper/ms-symboltable" ;
+        module_path = "sov.fleet/ms-symboltable" ;
+        buildable = true ;
+    }
+    workspace ms-warehouse {
+        qualified_name = "ms-warehouse" ;
+        rel_path = "00xper/ms-warehouse" ;
+        module_path = "sov.fleet/ms-warehouse" ;
+        buildable = true ;
+    }
+
+    # --- Orphan: plinth-modelservice (experimental, staying in 00xper) ---
+    workspace plinth-modelservice {
+        qualified_name = "plinth-modelservice" ;
+        rel_path = "00xper/plinth-modelservice" ;
+        module_path = "sov.fleet/plinth-modelservice" ;
+        buildable = true ;
+    }
+
+    # --- Pseudo-Family: proofs (2 workspaces) ---
+    workspace proofs {
+        qualified_name = "proofs" ;
+        rel_path = "00xper/proofs" ;
+        module_path = "github.com/VelociKey/proofs" ;
+        buildable = true ;
+    }
+    workspace proofs-white3 {
+        qualified_name = "proofs-white3" ;
+        rel_path = "00xper/proofs-white3" ;
+        module_path = "sov.fleet/proofs-white3" ;
+        buildable = true ;
+    }
+
+    # --- Pseudo-Family: q (scientific models) (6 workspaces) ---
+    workspace qastro {
+        qualified_name = "qastro" ;
+        rel_path = "00xper/qastro" ;
+        module_path = "sov.fleet/qastro" ;
+        buildable = true ;
+    }
+    workspace qcfd {
+        qualified_name = "qcfd" ;
+        rel_path = "00xper/qcfd" ;
+        module_path = "sov.fleet/qcfd" ;
+        buildable = true ;
+    }
+    workspace qchem {
+        qualified_name = "qchem" ;
+        rel_path = "00xper/qchem" ;
+        module_path = "sov.fleet/qchem" ;
+        buildable = true ;
+    }
+    workspace qfea {
+        qualified_name = "qfea" ;
+        rel_path = "00xper/qfea" ;
+        module_path = "sov.fleet/qfea" ;
+        buildable = true ;
+    }
+    workspace qiskit {
+        qualified_name = "qiskit" ;
+        rel_path = "00xper/qiskit" ;
+        module_path = "sov.fleet/qiskit" ;
+        buildable = true ;
+    }
+    workspace qsim {
+        qualified_name = "qsim" ;
+        rel_path = "00xper/qsim" ;
+        module_path = "sov.fleet/qsim" ;
+        buildable = true ;
+    }
+
+    # --- Pseudo-Family: romaine (4 workspaces) ---
+    workspace romaine {
+        qualified_name = "romaine" ;
+        rel_path = "00xper/romaine" ;
+        module_path = "sov.fleet/romaine" ;
+        buildable = true ;
+    }
+    workspace romaineattestation {
+        qualified_name = "romaineattestation" ;
+        rel_path = "00xper/romaineattestation" ;
+        module_path = "sov.fleet/romaineattestation" ;
+        buildable = true ;
+    }
+    workspace romaineinvestigation {
+        qualified_name = "romaineinvestigation" ;
+        rel_path = "00xper/romaineinvestigation" ;
+        module_path = "sov.fleet/romaineinvestigation" ;
+        buildable = true ;
+    }
+    workspace romainemigrate {
+        qualified_name = "romainemigrate" ;
+        rel_path = "00xper/romainemigrate" ;
+        module_path = "sov.fleet/romainemigrate" ;
+        buildable = true ;
+    }
+
+    # --- Pseudo-Family: rosetta (3 workspaces) ---
+    workspace rosetta {
+        qualified_name = "rosetta" ;
+        rel_path = "00xper/rosetta" ;
+        module_path = "sov.fleet/rosetta" ;
+        buildable = true ;
+    }
+    workspace rosetta-atlas {
+        qualified_name = "rosetta-atlas" ;
+        rel_path = "00xper/rosetta-atlas" ;
+        module_path = "sov.fleet/rosetta-atlas" ;
+        buildable = true ;
+    }
+    workspace rosettamirror {
+        qualified_name = "rosettamirror" ;
+        rel_path = "00xper/rosettamirror" ;
+        module_path = "sov.fleet/rosettamirror" ;
+        buildable = true ;
+    }
+
+    # --- Pseudo-Family: spatial (2 workspaces) ---
+    workspace spatial {
+        qualified_name = "spatial" ;
+        rel_path = "00xper/spatial" ;
+        module_path = "sov.fleet/spatial" ;
+        buildable = true ;
+    }
+    workspace spatialkernel {
+        qualified_name = "spatialkernel" ;
+        rel_path = "00xper/spatialkernel" ;
+        module_path = "sov.fleet/spatialkernel" ;
+        buildable = true ;
+    }
+
+    # --- Pseudo-Family: verver (3 workspaces) ---
+    workspace verver {
+        qualified_name = "verver" ;
+        rel_path = "00xper/verver" ;
+        module_path = "sov.fleet/verver" ;
+        buildable = true ;
+    }
+    workspace ververbrain {
+        qualified_name = "ververbrain" ;
+        rel_path = "00xper/ververbrain" ;
+        module_path = "sov.fleet/ververbrain" ;
+        buildable = true ;
+    }
+        workspace ververserver {
+        qualified_name = "ververserver" ;
+        rel_path = "00xper/ververserver" ;
+        module_path = "sov.fleet/ververserver" ;
+        buildable = true ;
+    }
+
+    # --- Pseudo-Family: warehouse (3 workspaces) ---
+    workspace warehouse-jhu {
+        qualified_name = "warehouse-jhu" ;
+        rel_path = "00xper/warehouse-jhu" ;
+        module_path = "sov.fleet/warehouse-jhu" ;
+        buildable = true ;
+    }
+    workspace warehouse-rosetta {
+        qualified_name = "warehouse-rosetta" ;
+        rel_path = "00xper/warehouse-rosetta" ;
+        module_path = "sov.fleet/warehouse-rosetta" ;
+        buildable = true ;
+    }
+    workspace warehouse-rosetta-transformed {
+        qualified_name = "warehouse-rosetta-transformed" ;
+        rel_path = "00xper/warehouse-rosetta-transformed" ;
+        module_path = "sov.fleet/unified-rosetta" ;
+        buildable = true ;
+    }
+
+    # --- Orphan Workspaces ---
+    workspace aerospace-scramjet {
+        qualified_name = "aerospace-scramjet" ;
+        rel_path = "00xper/aerospace-scramjet" ;
+        module_path = "sov.fleet/00xper/qaerospace-scramjet" ;
+        buildable = true ;
+    }
+    workspace agape {
+        qualified_name = "agape" ;
+        rel_path = "00xper/agape" ;
+        module_path = "sov.fleet/agape" ;
+        buildable = true ;
+    }
+    workspace algebraic-transform {
+        qualified_name = "algebraic-transform" ;
+        rel_path = "00xper/algebraic-transform" ;
+        module_path = "sov.fleet/algebraic-transform" ;
+        buildable = true ;
+    }
+    workspace alphafold {
+        qualified_name = "alphafold" ;
+        rel_path = "00xper/alphafold" ;
+        module_path = "sov.fleet/alphafold" ;
+        buildable = true ;
+    }
+    workspace apprehension {
+        qualified_name = "apprehension" ;
+        rel_path = "00xper/apprehension" ;
+        module_path = "sov.fleet/apprehension" ;
+        buildable = true ;
+    }
+    workspace arcagi-learn {
+        qualified_name = "arcagi-learn" ;
+        rel_path = "00xper/arcagi-learn" ;
+        module_path = "sov.fleet/arcagi-learn" ;
+        buildable = true ;
+    }
+    workspace ariel {
+        qualified_name = "ariel" ;
+        rel_path = "00xper/ariel" ;
+        module_path = "sov.fleet/ariel" ;
+        buildable = true ;
+    }
+    workspace atmosphere {
+        qualified_name = "atmosphere" ;
+        rel_path = "00xper/atmosphere" ;
+        module_path = "sov.fleet/atmosphere" ;
+        buildable = true ;
+    }
+    workspace authkernel {
+        qualified_name = "authkernel" ;
+        rel_path = "00xper/authkernel" ;
+        module_path = "sov.fleet/authkernel" ;
+        buildable = true ;
+    }
+    workspace basilisk {
+        qualified_name = "basilisk" ;
+        rel_path = "00xper/basilisk" ;
+        module_path = "sov.fleet/basilisk" ;
+        buildable = true ;
+    }
+    workspace bitsandbytes {
+        qualified_name = "bitsandbytes" ;
+        rel_path = "00xper/bitsandbytes" ;
+        module_path = "sov.fleet/bitsandbytes" ;
+        buildable = true ;
+    }
+    workspace blackscholes {
+        qualified_name = "blackscholes" ;
+        rel_path = "00xper/blackscholes" ;
+        module_path = "sov.fleet/blackscholes" ;
+        buildable = true ;
+    }
+    workspace bloqade {
+        qualified_name = "bloqade" ;
+        rel_path = "00xper/bloqade" ;
+        module_path = "sov.fleet/bloqade" ;
+        buildable = true ;
+    }
+    workspace bout-dev {
+        qualified_name = "bout-dev" ;
+        rel_path = "00xper/bout-dev" ;
+        module_path = "sov.fleet/bout-dev" ;
+        buildable = true ;
+    }
+    workspace bwa {
+        qualified_name = "bwa" ;
+        rel_path = "00xper/bwa" ;
+        module_path = "sov.fleet/bwa" ;
+        buildable = true ;
+    }
+    workspace certificationworld {
+        qualified_name = "certificationworld" ;
+        rel_path = "00xper/certificationworld" ;
+        module_path = "sov.fleet/certificationworld" ;
+        buildable = true ;
+    }
+    workspace cicskernel {
+        qualified_name = "cicskernel" ;
+        rel_path = "00xper/cicskernel" ;
+        module_path = "sov.fleet/cicskernel" ;
+        buildable = true ;
+    }
+    workspace cirq {
+        qualified_name = "cirq" ;
+        rel_path = "00xper/cirq" ;
+        module_path = "sov.fleet/cirq" ;
+        buildable = true ;
+    }
+    workspace climate-microphysics {
+        qualified_name = "climate-microphysics" ;
+        rel_path = "00xper/climate-microphysics" ;
+        module_path = "sov.fleet/00xper/qclimate-microphysics" ;
+        buildable = true ;
+    }
+    workspace conch {
+        qualified_name = "conch" ;
+        rel_path = "00xper/conch" ;
+        module_path = "sov.fleet/conch" ;
+        buildable = true ;
+    }
+    workspace coral-thermalreef {
+        qualified_name = "coral-thermalreef" ;
+        rel_path = "00xper/coral-thermalreef" ;
+        module_path = "sov.fleet/00xper/qcoral-thermalreef" ;
+        buildable = true ;
+    }
+    workspace crop-orphandrought {
+        qualified_name = "crop-orphandrought" ;
+        rel_path = "00xper/crop-orphandrought" ;
+        module_path = "sov.fleet/00xper/qcrop-orphandrought" ;
+        buildable = true ;
+    }
+    workspace customerflow {
+        qualified_name = "customerflow" ;
+        rel_path = "00xper/customerflow" ;
+        module_path = "sov.fleet/customerflow" ;
+        buildable = true ;
+    }
+    workspace disease-orphanfolding {
+        qualified_name = "disease-orphanfolding" ;
+        rel_path = "00xper/disease-orphanfolding" ;
+        module_path = "sov.fleet/00xper/disease-orphanfolding" ;
+        buildable = true ;
+    }
+    workspace docregistry {
+        qualified_name = "docregistry" ;
+        rel_path = "00xper/docregistry" ;
+        module_path = "sov.fleet/docregistry" ;
+        buildable = true ;
+    }
+    workspace dynamicui {
+        qualified_name = "dynamicui" ;
+        rel_path = "00xper/dynamicui" ;
+        module_path = "sov.fleet/dynamicui" ;
+        buildable = true ;
+    }
+    workspace effectorgrammar {
+        qualified_name = "effectorgrammar" ;
+        rel_path = "00xper/effectorgrammar" ;
+        module_path = "sov.fleet/effectorgrammar" ;
+        buildable = true ;
+    }
+    workspace emulator-milvus {
+        qualified_name = "emulator-milvus" ;
+        rel_path = "00xper/emulator-milvus" ;
+        module_path = "sov.fleet/emulator-milvus" ;
+        buildable = true ;
+    }
+    workspace ephemeralcapacity {
+        qualified_name = "ephemeralcapacity" ;
+        rel_path = "00xper/ephemeralcapacity" ;
+        module_path = "sov.fleet/ephemeralcapacity" ;
+        buildable = true ;
+    }
+    workspace epigenetics-3dfold {
+        qualified_name = "epigenetics-3dfold" ;
+        rel_path = "00xper/epigenetics-3dfold" ;
+        module_path = "sov.fleet/00xper/qepigenetics-3dfold" ;
+        buildable = true ;
+    }
+    workspace expecala {
+        qualified_name = "expecala" ;
+        rel_path = "00xper/expecala" ;
+        module_path = "sov.fleet/expecala" ;
+        buildable = true ;
+    }
+    workspace fireworks {
+        qualified_name = "fireworks" ;
+        rel_path = "00xper/fireworks" ;
+        module_path = "sov.fleet/fireworks" ;
+        buildable = true ;
+    }
+    workspace flash-attention {
+        qualified_name = "flash-attention" ;
+        rel_path = "00xper/flash-attention" ;
+        module_path = "sov.fleet/flash-attention" ;
+        buildable = true ;
+    }
+    workspace foundry {
+        qualified_name = "foundry" ;
+        rel_path = "00xper/foundry" ;
+        module_path = "sov.fleet/foundry" ;
+        buildable = true ;
+    }
+    workspace fusion-tokamak {
+        qualified_name = "fusion-tokamak" ;
+        rel_path = "00xper/fusion-tokamak" ;
+        module_path = "sov.fleet/00xper/qfusion-tokamak" ;
+        buildable = true ;
+    }
+    workspace gtc-p {
+        qualified_name = "gtc-p" ;
+        rel_path = "00xper/gtc-p" ;
+        module_path = "sov.fleet/gtc-p" ;
+        buildable = true ;
+    }
+    workspace hydro-microturbine {
+        qualified_name = "hydro-microturbine" ;
+        rel_path = "00xper/hydro-microturbine" ;
+        module_path = "sov.fleet/00xper/qhydro-microturbine" ;
+        buildable = true ;
+    }
+    workspace knuth-open-conjectures {
+        qualified_name = "knuth-open-conjectures" ;
+        rel_path = "00xper/knuth-open-conjectures" ;
+        module_path = "sov.fleet/knuth-open-conjectures" ;
+        buildable = true ;
+    }
+    workspace linpack {
+        qualified_name = "linpack" ;
+        rel_path = "00xper/linpack" ;
+        module_path = "sov.fleet/linpack" ;
+        buildable = true ;
+    }
+    workspace manuscript-decipher {
+        qualified_name = "manuscript-decipher" ;
+        rel_path = "00xper/manuscript-decipher" ;
+        module_path = "sov.fleet/00xper/qmanuscript-decipher" ;
+        buildable = true ;
+    }
+    workspace marketingthrust {
+        qualified_name = "marketingthrust" ;
+        rel_path = "00xper/marketingthrust" ;
+        module_path = "sov.fleet/marketingthrust" ;
+        buildable = true ;
+    }
+    workspace materials-superconductor {
+        qualified_name = "materials-superconductor" ;
+        rel_path = "00xper/materials-superconductor" ;
+        module_path = "sov.fleet/00xper/qmaterials-superconductor" ;
+        buildable = true ;
+    }
+    workspace mcpserver {
+        qualified_name = "mcpserver" ;
+        rel_path = "00xper/mcpserver" ;
+        module_path = "sov.fleet/mcpserver" ;
+        buildable = true ;
+    }
+    workspace minimap2 {
+        qualified_name = "minimap2" ;
+        rel_path = "00xper/minimap2" ;
+        module_path = "sov.fleet/minimap2" ;
+        buildable = true ;
+    }
+    workspace moonshot-breakthroughs {
+        qualified_name = "moonshot-breakthroughs" ;
+        rel_path = "00xper/moonshot-breakthroughs" ;
+        module_path = "sov.fleet/moonshot-breakthroughs" ;
+        buildable = true ;
+    }
+    workspace nautilusattestation {
+        qualified_name = "nautilusattestation" ;
+        rel_path = "00xper/nautilusattestation" ;
+        module_path = "sov.fleet/nautilusattestation" ;
+        buildable = true ;
+    }
+    workspace neuro-wholecell {
+        qualified_name = "neuro-wholecell" ;
+        rel_path = "00xper/neuro-wholecell" ;
+        module_path = "sov.fleet/00xper/qneuro-wholecell" ;
+        buildable = true ;
+    }
+    workspace ntd-drugdiscovery {
+        qualified_name = "ntd-drugdiscovery" ;
+        rel_path = "00xper/ntd-drugdiscovery" ;
+        module_path = "sov.fleet/00xper/qntd-drugdiscovery" ;
+        buildable = true ;
+    }
+    workspace opcenter {
+        qualified_name = "opcenter" ;
+        rel_path = "00xper/opcenter" ;
+        module_path = "sov.fleet/opcenter" ;
+        buildable = true ;
+    }
+    workspace openmc {
+        qualified_name = "openmc" ;
+        rel_path = "00xper/openmc" ;
+        module_path = "sov.fleet/openmc" ;
+        buildable = true ;
+    }
+    workspace openmm {
+        qualified_name = "openmm" ;
+        rel_path = "00xper/openmm" ;
+        module_path = "sov.fleet/openmm" ;
+        buildable = true ;
+    }
+    workspace pagmo2 {
+        qualified_name = "pagmo2" ;
+        rel_path = "00xper/pagmo2" ;
+        module_path = "sov.fleet/pagmo2" ;
+        buildable = true ;
+    }
+    workspace physicskernel {
+        qualified_name = "physicskernel" ;
+        rel_path = "00xper/physicskernel" ;
+        module_path = "sov.fleet/physicskernel" ;
+        buildable = true ;
+    }
+    workspace pollinator-swarm {
+        qualified_name = "pollinator-swarm" ;
+        rel_path = "00xper/pollinator-swarm" ;
+        module_path = "sov.fleet/00xper/qpollinator-swarm" ;
+        buildable = true ;
+    }
+    workspace privacy-medai {
+        qualified_name = "privacy-medai" ;
+        rel_path = "00xper/privacy-medai" ;
+        module_path = "sov.fleet/00xper/qprivacy-medai" ;
+        buildable = true ;
+    }
+    workspace prosthetics-socket {
+        qualified_name = "prosthetics-socket" ;
+        rel_path = "00xper/prosthetics-socket" ;
+        module_path = "sov.fleet/00xper/qprosthetics-socket" ;
+        buildable = true ;
+    }
+    workspace proteome-docking {
+        qualified_name = "proteome-docking" ;
+        rel_path = "00xper/proteome-docking" ;
+        module_path = "00xper/proteome-docking" ;
+        buildable = true ;
+    }
+    workspace purchaseinfo-validation {
+        qualified_name = "purchaseinfo-validation" ;
+        rel_path = "00xper/purchaseinfo-validation" ;
+        module_path = "sov.fleet/purchaseinfo-validation" ;
+        buildable = true ;
+    }
+    workspace quantum-decoder {
+        qualified_name = "quantum-decoder" ;
+        rel_path = "00xper/quantum-decoder" ;
+        module_path = "sov.fleet/00xper/qquantum-decoder" ;
+        buildable = true ;
+    }
+    workspace runappbenchmarks {
+        qualified_name = "runappbenchmarks" ;
+        rel_path = "00xper/runappbenchmarks" ;
+        module_path = "sov.fleet/runappbenchmarks" ;
+        buildable = true ;
+    }
+    workspace runcloudapplications {
+        qualified_name = "runcloudapplications" ;
+        rel_path = "00xper/runcloudapplications" ;
+        module_path = "sov.fleet/runcloudapplications" ;
+        buildable = true ;
+    }
+    workspace samtools {
+        qualified_name = "samtools" ;
+        rel_path = "00xper/samtools" ;
+        module_path = "sov.fleet/samtools" ;
+        buildable = true ;
+    }
+    workspace scenematter {
+        qualified_name = "scenematter" ;
+        rel_path = "00xper/scenematter" ;
+        module_path = "sov.fleet/scenematter" ;
+        buildable = true ;
+    }
+    workspace scientific-apps {
+        qualified_name = "scientific-apps" ;
+        rel_path = "00xper/scientific-apps" ;
+        module_path = "sov.fleet/scientific-apps" ;
+        buildable = true ;
+    }
+    workspace seerstm {
+        qualified_name = "seerstm" ;
+        rel_path = "00xper/seerstm" ;
+        module_path = "sov.fleet/seerstm" ;
+        buildable = true ;
+    }
+    workspace sensorygrammar {
+        qualified_name = "sensorygrammar" ;
+        rel_path = "00xper/sensorygrammar" ;
+        module_path = "sov.fleet/sensorygrammar" ;
+        buildable = true ;
+    }
+    workspace solarcooker-heatstorage {
+        qualified_name = "solarcooker-heatstorage" ;
+        rel_path = "00xper/solarcooker-heatstorage" ;
+        module_path = "sov.fleet/00xper/qsolarcooker-heatstorage" ;
+        buildable = true ;
+    }
+    workspace specalignment {
+        qualified_name = "specalignment" ;
+        rel_path = "00xper/specalignment" ;
+        module_path = "sov.fleet/specalignment" ;
+        buildable = true ;
+    }
+    workspace spice-node {
+        qualified_name = "spice-node" ;
+        rel_path = "00xper/spice-node" ;
+        module_path = "sov.fleet/spice-node" ;
+        buildable = true ;
+    }
+    workspace stmmathlib {
+        qualified_name = "stmmathlib" ;
+        rel_path = "00xper/stmmathlib" ;
+        module_path = "sov.fleet/stmmathlib" ;
+        buildable = true ;
+    }
+    workspace sustainability-mofcapture {
+        qualified_name = "sustainability-mofcapture" ;
+        rel_path = "00xper/sustainability-mofcapture" ;
+        module_path = "sov.fleet/00xper/qsustainability-mofcapture" ;
+        buildable = true ;
+    }
+    workspace swarm-citytraffic {
+        qualified_name = "swarm-citytraffic" ;
+        rel_path = "00xper/swarm-citytraffic" ;
+        module_path = "sov.fleet/00xper/qswarm-citytraffic" ;
+        buildable = true ;
+    }
+    workspace telog-engine {
+        qualified_name = "telog-engine" ;
+        rel_path = "00xper/telog-engine" ;
+        module_path = "sov.fleet/telog-engine" ;
+        buildable = true ;
+    }
+    workspace thunderkittens {
+        qualified_name = "thunderkittens" ;
+        rel_path = "00xper/thunderkittens" ;
+        module_path = "sov.fleet/thunderkittens" ;
+        buildable = true ;
+    }
+    workspace topos {
+        qualified_name = "topos" ;
+        rel_path = "00xper/topos" ;
+        module_path = "sov.fleet/topos" ;
+        buildable = true ;
+    }
+    workspace transformational-math {
+        qualified_name = "transformational-math" ;
+        rel_path = "00xper/transformational-math" ;
+        module_path = "sov.fleet/transformational-math" ;
+        buildable = true ;
+    }
+    workspace trustsignet {
+        qualified_name = "trustsignet" ;
+        rel_path = "00xper/trustsignet" ;
+        module_path = "sov.fleet/trustsignet" ;
+        buildable = true ;
+    }
+    workspace uac2muac {
+        qualified_name = "uac2muac" ;
+        rel_path = "00xper/uac2muac" ;
+        module_path = "sov.fleet/00xper/uac2muac" ;
+        buildable = true ;
+    }
+    workspace umog-grammar {
+        qualified_name = "umog-grammar" ;
+        rel_path = "00xper/umog-grammar" ;
+        module_path = "sov.fleet/umog-grammar" ;
+        buildable = true ;
+    }
+    workspace umtg-validate {
+        qualified_name = "umtg-validate" ;
+        rel_path = "00xper/umtg-validate" ;
+        module_path = "sov.fleet/umtg-validate" ;
+        buildable = true ;
+    }
+    workspace vktickloom {
+        qualified_name = "vktickloom" ;
+        rel_path = "00xper/vktickloom" ;
+        module_path = "sov.fleet/vktickloom" ;
+        buildable = true ;
+    }
+    workspace vllm {
+        qualified_name = "vllm" ;
+        rel_path = "00xper/vllm" ;
+        module_path = "sov.fleet/vllm" ;
+        buildable = true ;
+    }
+    workspace vsamkernel {
+        qualified_name = "vsamkernel" ;
+        rel_path = "00xper/vsamkernel" ;
+        module_path = "sov.fleet/vsamkernel" ;
+        buildable = true ;
+    }
+    workspace water-arsenicfilter {
+        qualified_name = "water-arsenicfilter" ;
+        rel_path = "00xper/water-arsenicfilter" ;
+        module_path = "sov.fleet/00xper/qwater-arsenicfilter" ;
+        buildable = true ;
+    }
+    workspace wgitplus-diff {
+        qualified_name = "wgitplus-diff" ;
+        rel_path = "00xper/wgitplus-diff" ;
+        module_path = "sov.fleet/wgitplus-diff" ;
+        buildable = true ;
+    }
+    workspace wilson-palomar {
+        qualified_name = "wilson-palomar" ;
+        rel_path = "00xper/wilson-palomar" ;
+        module_path = "sov.fleet/wilson-palomar" ;
+        buildable = true ;
+    }
+    workspace wraith {
+        qualified_name = "wraith" ;
+        rel_path = "00xper/wraith" ;
+        module_path = "sov.fleet/wraith" ;
+        buildable = true ;
+    }
+    workspace xray {
+        qualified_name = "xray" ;
+        rel_path = "00xper/xray" ;
+        module_path = "sov.fleet/xray" ;
+        buildable = true ;
+    }
+}
+
+# ─── Silo: 01prod (1 workspace) ───
+silo 01prod {
+    classification = production ;
+
+    # --- Orphan Workspaces ---
+    workspace preserve-myagy {
+        qualified_name = "preserve-myagy" ;
+        rel_path = "01prod/preserve-myagy" ;
+        module_path = "sov.fleet/preserve-myagy" ;
+        buildable = true ;
+    }
+}
+
+# ─── Silo: 99cogt (7 workspaces) ───
+silo 99cogt {
+    classification = cognitive ;
+
+    # --- Pseudo-Family: cogt-vkeygit (2 workspaces) ---
+    workspace cogt-vkeygit-conformance {
+        qualified_name = "cogt-vkeygit-conformance" ;
+        rel_path = "99cogt/cogt-vkeygit-conformance" ;
+        module_path = "sov.fleet/cogt-vkeygit-conformance" ;
+        buildable = true ;
+    }
+    workspace cogt-vkeygitplus-chaos {
+        qualified_name = "cogt-vkeygitplus-chaos" ;
+        rel_path = "99cogt/cogt-vkeygitplus-chaos" ;
+        module_path = "sov.fleet/cogt-vkeygitplus-chaos" ;
+        buildable = true ;
+    }
+
+    # --- Orphan Workspaces ---
+    workspace aplum-stress-harness {
+        qualified_name = "aplum-stress-harness" ;
+        rel_path = "99cogt/aplum-stress-harness" ;
+        module_path = "sov.fleet/aplum-stress-harness" ;
+        buildable = true ;
+    }
+    workspace tautmathlibattestation {
+        qualified_name = "tautmathlibattestation" ;
+        rel_path = "99cogt/tautmathlibattestation" ;
+        module_path = "sov.fleet/tautmathlibattestation" ;
+        buildable = true ;
+    }
+    workspace vinaattestation {
+        qualified_name = "vinaattestation" ;
+        rel_path = "99cogt/vinaattestation" ;
+        module_path = "sov.fleet/vinaattestation" ;
+        buildable = true ;
+    }
+    workspace xaasattestation {
+        qualified_name = "xaasattestation" ;
+        rel_path = "99cogt/xaasattestation" ;
+        module_path = "sov.fleet/xaasattestation" ;
+        buildable = true ;
+    }
+}

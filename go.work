@@ -1,344 +1,460 @@
-go 1.26.4
+go 1.27
 
 use (
-	./00flow/tensorcore-octonions
-	./00flow/plinth-filesystem
-	./00xper/romainemigrate
-	./00xper/romaineinvestigation
-	./00xper/romaineattestation
-	./00xper/romaine
-	./00xper/telog-engine
-	./00flow/extendgo
-	./00flow/plinth-desktop
-	./00flow/plinth-hal
-	./00flow/anchorsuite
-	./00floo/qvertex
-	./00xper/ariel
-	./00xper/xray
-	./00flon/janus
-	./00flon/sovmux
-	./00flon/sovereign-client
-	./00flon/sovereign-worker
-	./00floo/afflume
-	./00floo/afflumeattestation
-	./00floo/banking
-	./00floo/billing
-	./00floo/jurisdiction-nexus
-	./00floo/vaultline
-	./00floo/vaultline-attestation
-	./00floo/vaultline-catalog
-	./00floo/vaultline-certaffirm
-	./00floo/vaultline-core
-	./00floo/vaultline-filing
-	./00floo/vaultline-foresight
-	./00floo/vaultline-ftl
-	./00floo/vaultline-guardian
-	./00floo/vaultline-identity
-	./00floo/vaultline-ingress
-	./00floo/vaultline-persona
-	./00floo/vaultline-reconciler
-	./00floo/vaultline-replay
-	./00floo/vaultline-studio
-	./00floo/vaultline-twin
-	./00floo/vaultline-visibility
+	./000all/cassandra/abinitio
+	./000all/cassandra/cassandra-attestation
+	./000all/cassandra/cassandra-info
+	./00flon/00flon-attestation
+	./00flon/00flon-info
+	./00flon/ingress/ingress-attestation
+	./00flon/ingress/ingress-gateway
+	./00flon/ingress/ingress-info
+	./00flon/ingress/sovmux
+	./00flon/transport/blueprint
+	./00flon/transport/client
+	./00flon/transport/quic-core
+	./00flon/transport/testing
+	./00flon/transport/transport-attestation
+	./00flon/transport/transport-info
+	./00flon/transport/worker
+	./00floo/00floo-attestation
+	./00floo/00floo-info
+	./00floo/afflume/afflume-attestation
+	./00floo/afflume/afflume-engine
+	./00floo/afflume/afflume-info
+	./00floo/afflume/realization
+	./00floo/commerce/commerce-attestation
+	./00floo/commerce/commerce-banking
+	./00floo/commerce/commerce-billing
+	./00floo/commerce/commerce-info
+	./00floo/commerce/entitlement
+	./00floo/commerce/invoicing
+	./00floo/commerce/jurisdiction-nexus
+	./00floo/company-portal/company-portal-attestation
+	./00floo/company-portal/company-portal-info
+	./00floo/company-portal/portal-gateway
+	./00floo/company-portal/portal-library
+	./00floo/company-portal/saas
+	./00floo/vaultline/catalog
+	./00floo/vaultline/certaffirm
+	./00floo/vaultline/filing
+	./00floo/vaultline/foresight
+	./00floo/vaultline/ftl
+	./00floo/vaultline/guardian
+	./00floo/vaultline/identity
+	./00floo/vaultline/persona
+	./00floo/vaultline/reconciler
+	./00floo/vaultline/replay
+	./00floo/vaultline/vaultline-attestation
+	./00floo/vaultline/vaultline-core
+	./00floo/vaultline/vaultline-hub
+	./00floo/vaultline/vaultline-info
+	./00floo/vaultline/vaultline-ingress
+	./00floo/vaultline/vaultline-studio
+	./00floo/vaultline/vaultline-twin
+	./00floo/vaultline/visibility
+	./00flow/00flow-attestation
+	./00flow/00flow-info
+	./00flow/a2a
+	./00flow/actor-attestator
+	./00flow/actors/actors-attestation
+	./00flow/actors/actors-core
+	./00flow/actors/actors-info
+	./00flow/actors/actors-runtime
+	./00flow/actors/actors-studio
+	./00flow/actors/actors-transport
+	./00flow/actors/coordination
+	./00flow/actors/lattice
+	./00flow/actors/trustcircle
 	./00flow/adaptivelock
-	./00flow/adph
+	./00flow/adk
+	./00flow/agentframework
+	./00flow/anchorsuite
+	./00flow/animus
 	./00flow/applyconcurrency
-	./00flow/chipgrammar
+	./00flow/assurance
+	./00flow/authorize
+	./00flow/casepreserve
 	./00flow/codeworld
+	./00flow/cosvkey
 	./00flow/cyberneticstudio
 	./00flow/dedupkernel
+	./00flow/distribution
 	./00flow/effectortokenizer
+	./00flow/emulator-avalara
+	./00flow/emulator-stripetax
 	./00flow/fab-aides
 	./00flow/financialkernel
+	./00flow/fleettopology
 	./00flow/flowcore
+	./00flow/flowcorebackup
 	./00flow/floweryworld
-
-	// ./00flow/forge/93000-external-libraries/x-net-quic
+	./00flow/flowtrack
+	./00flow/forge
+	./00flow/gcp-service-errors
+	./00flow/generatewalkthru
+	./00flow/gopatch
+	./00flow/hardware-bridge
 	./00flow/hotcross
-	./00flow/hotcrossattestation
+	./00flow/hotcross-attestation
+	./00flow/humanity_frontier_benchmarks
 	./00flow/hydration
+	./00flow/ingestion
+	./00flow/introspect-conformance
+	./00flow/introspect-diagnostics
+	./00flow/introspect-secrets
+	./00flow/introspect-synthesis
+	./00flow/introspect-transformation
+	./00flow/introspect-workspacedna
 	./00flow/introspection
-	./00flow/languagegrammar
+	./00flow/latentlingua
 	./00flow/latentlingua-csl
-	./00flow/lingua-translator
-	./00flow/lingua-transpiler
+	./00flow/latentlingua-dsl
+	./00flow/latentlinguadie
+	./00flow/lingualattice
 	./00flow/lithic
 	./00flow/lithicpersist
-	./00flow/logiclibrary
-	./00flow/macroir
+	./00flow/liveauthentication
+	./00flow/marketstation
 	./00flow/matterkernel
-	./00flow/merkletree
 	./00flow/mcp
-	./00flow/mcpstudio
+	./00flow/mcp-greeter
+	./00flow/mcp-studio
+	./00flow/merkletree
 	./00flow/modelaccess
 	./00flow/modelcompression
-	./00flow/nautilus
-	./00flow/nontrivial
 	./00flow/observation
-	./00flow/orchestrator-weaver
+	./00flow/okf
+	./00flow/okf-knowledge-forge
+	./00flow/okf-store
+	./00flow/okfrealization
 	./00flow/paradigms
-	./00flow/plinth
-	./00flow/plinth-agentbox
-	./00flow/plinth-attestation
-	./00flow/plinth-basics
-	./00flow/plinth-conduit
-	./00flow/plinth-dast-suite
-	./00flow/plinth-hub
-	./00flow/plinth-kmsvault
-	./00flow/plinth-nvmewal
-	./00flow/plinth-pbac
-	./00flow/plinth-polyaccum
-	./00flow/plinth-posix
-	./00flow/plinth-substrate
+	./00flow/parallizer
+	./00flow/plinth/agentbox
+	./00flow/plinth/basics
+	./00flow/plinth/dast-suite
+	./00flow/plinth/desktop
+	./00flow/plinth/filesystem
+	./00flow/plinth/hal
+	./00flow/plinth/hub
+	./00flow/plinth/kmsvault
+	./00flow/plinth/nvmewal
+	./00flow/plinth/pbac
+	./00flow/plinth/plinth-attestation
+	./00flow/plinth/plinth-conduit
+	./00flow/plinth/plinth-core
+	./00flow/plinth/plinth-info
+	./00flow/plinth/plinth-substrate
+	./00flow/plinth/polyaccum
+	./00flow/plinth/posix
+	./00flow/plinth/supervision
+	./00flow/ppnatives
+	./00flow/pragmalingua
 	./00flow/qdag
+	./00flow/qsec
+	./00flow/qzerocopy
 	./00flow/sacp
+	./00flow/schema-broker
+	./00flow/scorecard
 	./00flow/seerSTMci
 	./00flow/sensorytokenizer
+	./00flow/spotscheduler
 	./00flow/syntalist
 	./00flow/taskrelay
-	./00flow/tensorcore
-	./00flow/tensorcore-core
-	./00flow/tensorcore-umc
+	./00flow/taxonomy-guard
+	./00flow/tensor/engine
+	./00flow/tensor/modelgrammar
+	./00flow/tensor/models
+	./00flow/tensor/multimodal
+	./00flow/tensor/tensor-acquisition
+	./00flow/tensor/tensor-attestation
+	./00flow/tensor/tensor-conduit
+	./00flow/tensor/tensor-info
+	./00flow/tensor/trainer
+	./00flow/transform-antigravity
+	./00flow/trust-circle
+	./00flow/unilangunichip/chelm
+	./00flow/unilangunichip/grammar-chip
+	./00flow/unilangunichip/grammar-data
+	./00flow/unilangunichip/grammar-language
+	./00flow/unilangunichip/grammar-microchip
+	./00flow/unilangunichip/grammar-migrate
+	./00flow/unilangunichip/grammar-platform
+	./00flow/unilangunichip/grammar-ur
+	./00flow/unilangunichip/grammar-use
+	./00flow/unilangunichip/lingua-assembler
+	./00flow/unilangunichip/lingua-certifier
+	./00flow/unilangunichip/lingua-classifier
+	./00flow/unilangunichip/lingua-translator
+	./00flow/unilangunichip/lingua-transpiler
+	./00flow/unilangunichip/linguaflow
+	./00flow/unilangunichip/macroir
+	./00flow/unilangunichip/nautilus
+	./00flow/unilangunichip/nontrivial
+	./00flow/unilangunichip/orchestrator-weaver
+	./00flow/unilangunichip/recovery
+	./00flow/unilangunichip/unilangunichip-attestation
+	./00flow/unilangunichip/unilangunichip-info
+	./00flow/unilangunichip/whelm
 	./00flow/urpacklibrary
 	./00flow/ververcontract
 	./00flow/vkeymesh
 	./00flow/waps
-	./00fora/ucis
-	./00xper/aerospace-scramjet
-	./00xper/agape
-	./00xper/algebraic-transform
-	./00xper/alphafold
-	./00xper/antigravity-sdk-go
-	./00xper/antigravitypluginframework
-	./00xper/antigravityplugins
-	./00xper/antigravityproduct
-	./00xper/antigravitystudio
-	./00xper/aplum
-	./00xper/aplum-attestation
-	./00xper/aplum-germinate
-	./00xper/aplum-grow
-	./00xper/aplum-host
-	./00xper/aplum-pricing
-	./00xper/aplum-relay
-	./00xper/apprehension
-	./00xper/arcagi-learn
-	./00xper/atmosphere
-	./00xper/authkernel
-	./00xper/basilisk
-	./00xper/bitsandbytes
-	./00xper/blackscholes
-	./00xper/bloqade
-	./00xper/bout-dev
-	./00xper/bwa
-	./00xper/certificationworld
-	./00xper/cicskernel
-	./00xper/cirq
-	./00xper/climate-microphysics
-	./00xper/cognihistory
-	./00xper/cognirealm
-	./00xper/cognirealmstudio
-	./00xper/cognireflect
-	./00xper/conch
-	./00xper/coral-thermalreef
-	./00xper/crop-orphandrought
-	./00xper/customerflow
-	./00xper/dextr
-	./00xper/dextrattestation
-	./00xper/disease-orphanfolding
-	./00xper/docregistry
-	./00xper/dynamicui
-	./00xper/effectorgrammar
-	./00xper/emulator-milvus
-	./00xper/ephemeralcapacity
-	./00xper/epigenetics-3dfold
-	./00xper/evolution-scaffold
-	./00xper/evolution-scaffold-attestation
-	./00xper/expecala
-	./00xper/fireworks
-	./00xper/flash-attention
-	./00xper/foundry
-	./00xper/fusion-tokamak
-	./00xper/gtc-p
-	./00flow/humanity_frontier_benchmarks
-	./00xper/hydro-microturbine
-	./00xper/knuth-open-conjectures
-	./00xper/lflang
-	./00xper/lflang-test
-	./00xper/linpack
-	./00xper/lithic-adapt
-	./00xper/lithic-adtech
-	./00xper/lithic-ai
-	./00xper/lithic-bio
-	./00xper/lithic-codec
-	./00xper/lithic-dataprep
-	./00xper/lithic-edge
-	./00xper/lithic-fintech
-	./00xper/lithic-graph
-	./00xper/lithic-media
-	./00xper/lithic-molecular
-	./00xper/lithic-neuro
-	./00xper/lithic-physics
-	./00xper/lithic-quantum
-	./00xper/lithic-robotics
-	./00xper/lithic-snn
-	./00xper/lithic-surgmed
-	./00xper/lithic-swarm
-	./00xper/lithic-vector
-	./00xper/lithic-zkml
-	./00xper/lithicattestation
-	./00xper/lithicmigration
-	./00xper/manuscript-decipher
-	./00xper/marketingthrust
-	./00xper/materials-superconductor
-	./00xper/mathesis-langlands
-	./00xper/mathesisattestation
-	./00xper/mathetexsis
-	./00xper/mcpserver
-	./00xper/microchipgrammar
-	./00xper/minimap2
-	./00xper/modelgrammar
-	./00xper/modeloutputgrammar
-	./00xper/umog-grammar
-	./00xper/moonshot-breakthroughs
-	./00xper/ms-benchmarks
-	./00xper/ms-symboltable
-	./00xper/ms-warehouse
-	./00xper/nautilusattestation
-	./00xper/neuro-wholecell
-	./00xper/ntd-drugdiscovery
-	./00xper/opcenter
-	./00xper/openmc
-	./00xper/openmm
-	./00xper/pagmo2
-	./00xper/physicskernel
-	./00xper/plinth-modelservice
-	./00xper/plinthattestation
-	./00xper/pollinator-swarm
-	./00xper/privacy-medai
-	./00xper/proofs
-	./00xper/proofs-white3
-	./00xper/prosthetics-socket
-	./00xper/proteome-docking
+	./00flow/webconduit
+	./00flow/webnf
+	./00flow/webnfdb
+	./00flow/white3
+	./00flow/wpim
+	./00skim/00skim-attestation
+	./00skim/00skim-info
+	./00skim/skim/manifold
+	./00skim/skim/skim-attestation
+	./00skim/skim/skim-client
+	./00skim/skim/skim-governance
+	./00skim/skim/skim-info
+	./00skim/skim/skim-library
+	./00skim/skim/vkey-git
+	./00taut/00taut-attestation
+	./00taut/00taut-info
+	./00taut/mathlib/mathlib-attestation
+	./00taut/mathlib/mathlib-info
+	./00taut/mathlib/tautmathlib-algebra
+	./00taut/mathlib/tautmathlib-analysis
+	./00taut/mathlib/tautmathlib-bridge
+	./00taut/mathlib/tautmathlib-category
+	./00taut/mathlib/tautmathlib-combinatorics
+	./00taut/mathlib/tautmathlib-data
+	./00taut/mathlib/tautmathlib-geometry
+	./00taut/mathlib/tautmathlib-logic
+	./00taut/mathlib/tautmathlib-measure
+	./00taut/mathlib/tautmathlib-numbertheory
+	./00taut/mathlib/tautmathlib-order
+	./00taut/mathlib/tautmathlib-ringfield
+	./00taut/mathlib/tautmathlib-scilean
+	./00taut/mathlib/tautmathlib-topology
+	./00taut/proofs/proof-ams
+	./00taut/proofs/proof-apostol
+	./00taut/proofs/proof-arxiv
+	./00taut/proofs/proof-cmi
+	./00taut/proofs/proof-jhu
+	./00taut/proofs/proof-knuth
+	./00taut/proofs/proof-navier-stokes
+	./00taut/proofs/proof-palomar
+	./00taut/proofs/proof-white3
+	./00taut/proofs/proof-wilson-palomar
+	./00taut/proofs/proof-yale
+	./00taut/proofs/proofs-attestation
+	./00taut/proofs/proofs-info
+	./00taut/taut/alphaproof
+	./00taut/taut/compressor
+	./00taut/taut/kernel
+	./00taut/taut/mathesis
+	./00taut/taut/sledgehammer
+	./00taut/taut/taut-attestation
+	./00taut/taut/taut-info
+	./00ulib/00ulib-attestation
+	./00ulib/00ulib-info
+	./00ulib/commercial/commercial-attestation
+	./00ulib/commercial/commercial-banking
+	./00ulib/commercial/commercial-billing
+	./00ulib/commercial/commercial-core
+	./00ulib/commercial/commercial-info
+	./00ulib/commercial/contracts
+	./00ulib/commercial/gcp
+	./00ulib/commercial/ledger
+	./00ulib/crypto/crypto-attestation
+	./00ulib/crypto/crypto-core
+	./00ulib/crypto/crypto-info
+	./00ulib/crypto/sovaead
+	./00ulib/crypto/sovargon2
+	./00ulib/crypto/sovecdh
+	./00ulib/crypto/sovecdsa
+	./00ulib/crypto/soveddsa
+	./00ulib/crypto/sovkdf
+	./00ulib/crypto/sovmerkle
+	./00ulib/crypto/sovrsa
+	./00ulib/crypto/vkey-finslerkdf
+	./00ulib/crypto/vkey-fmhdsa
+	./00ulib/crypto/vkey-fmheddsa
+	./00ulib/crypto/vkey-fmhkem
+	./00ulib/crypto/vkey-fmhrsa
+	./00ulib/crypto/vkey-m31stark
+	./00ulib/crypto/vkey-white3aead
+	./00ulib/crypto/vkey-white3kdf
+	./00ulib/wire/soverasure
+	./00ulib/wire/sovsketch
+	./00ulib/wire/sovwire
+	./00ulib/wire/sovzstd
+	./00ulib/wire/vkey-finslerann
+	./00ulib/wire/vkey-m31fec
+	./00ulib/wire/vkey-sheafwire
+	./00ulib/wire/vkey-tropicalz
+	./00ulib/wire/wire-attestation
+	./00ulib/wire/wire-core
+	./00ulib/wire/wire-info
+	./00ulib/genalgorithms/adph
+	./00ulib/genalgorithms/genalgorithms-attestation
+	./00ulib/genalgorithms/genalgorithms-info
+	./00ulib/language/extendgo
+	./00ulib/language/language-attestation
+	./00ulib/language/language-info
+	./00ulib/math/arithmetic
+	./00ulib/math/automorphic
+	./00ulib/math/combinatorics
+	./00ulib/math/condensed
+	./00ulib/math/fastmath
+	./00ulib/math/foundation
+	./00ulib/math/gauge
+	./00ulib/math/linear
+	./00ulib/math/math-attestation
+	./00ulib/math/math-core
+	./00ulib/math/math-info
+	./00ulib/math/motivic
+	./00ulib/math/noncommutative
+	./00ulib/math/order
+	./00ulib/math/precision
+	./00ulib/math/sheaf
+	./00ulib/math/solvers
+	./00ulib/math/symplectic
+	./00ulib/math/tannakian
+	./00ulib/math/transforms
+	./00ulib/substrate/blake3
+	./00ulib/substrate/cas
+	./00ulib/substrate/codecs
+	./00ulib/substrate/concurrency
+	./00ulib/substrate/fastbytes
+	./00ulib/substrate/fastconv
+	./00ulib/substrate/fastcrypto
+	./00ulib/substrate/fasthash
+	./00ulib/substrate/fastlog
+	./00ulib/substrate/fastsort
+	./00ulib/substrate/galois
+	./00ulib/substrate/net
+	./00ulib/substrate/primitives
+	./00ulib/substrate/sovmod
+	./00ulib/substrate/substrate-attestation
+	./00ulib/substrate/substrate-core
+	./00ulib/substrate/substrate-info
+	./00ulib/substrate/wasm
+	./00xper/corealgorithms/cadence-orchestrator
+	./00xper/corealgorithms/corealgorithms-attestation
+	./00xper/corealgorithms/corealgorithms-info
+	./00xper/corealgorithms/uuid
+	./00xper/harness2
 	./00xper/purchaseinfo-validation
-	./00xper/qastro
-	./00xper/qcfd
-	./00xper/qchem
-	./00xper/qfea
-	./00xper/qiskit
-	./00xper/qsim
-	./00xper/quantum-decoder
-	./00xper/rosetta
-	./00xper/rosetta-atlas
-	./00xper/rosettamirror
-	./00xper/runappbenchmarks
-	./00xper/runcloudapplications
-	./00xper/samtools
-	./00xper/scenematter
-	./00xper/scientific-apps
-	./00xper/seerstm
-	./00xper/sensorygrammar
-
-	./00xper/solarcooker-heatstorage
-	./00xper/spatial
-	./00xper/spatialkernel
-	./00xper/specalignment
-	./00xper/spice-node
-	./00xper/stmmathlib
-	./00xper/sustainability-mofcapture
-	./00xper/swarm-citytraffic
-	./00xper/taut
-	./00xper/taut-mathesis
-	./00xper/taut3
-	./00xper/taut4
-	./00xper/tautmathlib
-	./00xper/tautmathlib-analysis
-	./00xper/tautmathlib-category
-	./00xper/tautmathlib-data
-	./00xper/tautmathlib-geometry
-	./00xper/tautmathlib-measure
-	./00xper/tautmathlib-numbertheory
-	./00xper/tautmathlib-ringfield
-	./00xper/tautmathlib-scilean
-	./00xper/tautmathlib-topology
-	./00xper/tautproof
-	./00xper/thunderkittens
-	./00xper/topos
-	./00xper/transformational-math
-	./00xper/trustsignet
-	./00xper/uac2muac
-	./00xper/umtg-validate
-	./00xper/urgrammar-attestation
-	./00xper/verver
-	./00xper/ververbrain
-	./00xper/ververserver
-	./00xper/vkeygit
-	./00xper/vktickloom
-	./00xper/vllm
-	./00xper/vsamkernel
-	./00xper/warehouse-jhu
-	./00xper/warehouse-rosetta
-	./00xper/warehouse-rosetta-transformed
-	./00xper/water-arsenicfilter
-	./00xper/wgitplus-diff
-	./00xper/whelm
-	./00xper/white3
-	./00xper/wilson-palomar
-	./00xper/wraith
-	./00xper/yieldra
-	./01prod/preserve-myagy
-	./99cogt/aplum-stress-harness
-	./99cogt/tautmathlibattestation
-	./99cogt/tensorcoreattestation
-	./99cogt/vinaattestation
-	./99cogt/xaasattestation
 )
 
-replace sov.fleet/sacp v0.0.0 => C:\aCogSpaceSeed\00flow\sacp
-
-replace github.com/mattn/go-isatty => C:\aCogSpaceSeed\00flow\forge\93000-external-libraries\go-isatty
-
-replace github.com/ncruces/go-strftime => C:\aCogSpaceSeed\00flow\forge\93000-external-libraries\go-strftime
-
-replace golang.org/x/sys => C:\aCogSpaceSeed\00flow\forge\93000-external-libraries\x-sys
-
-replace golang.org/x/crypto => C:\aCogSpaceSeed\00flow\forge\93000-external-libraries\x-crypto
-
-replace github.com/google/uuid => C:\aCogSpaceSeed\00flow\forge\93000-external-libraries\google-uuid
-
-// replace modernc.org/libc => C:\aCogSpaceSeed\00flow\forge\93000-external-libraries\libc
-
-// replace modernc.org/mathutil => C:\aCogSpaceSeed\00flow\forge\93000-external-libraries\mathutil
-
-// replace modernc.org/memory => C:\aCogSpaceSeed\00flow\forge\93000-external-libraries\memory
-
-replace sov.fleet/nontrivial v0.0.0 => C:\aCogSpaceSeed\00flow\nontrivial
-
-replace sov.fleet/s-adaptivelock v0.0.0 => C:\aCogSpaceSeed\00flow\adaptivelock
-
-replace sov.fleet/financialkernel v0.0.0-00010101000000-000000000000 => C:\aCogSpaceSeed\00flow\financialkernel
-replace sov.fleet/financialkernel v0.0.0 => C:\aCogSpaceSeed\00flow\financialkernel
-
-replace sov.fleet/hotcross v0.0.0-00010101000000-000000000000 => C:\aCogSpaceSeed\00flow\hotcross
-replace sov.fleet/hotcross v0.0.0 => C:\aCogSpaceSeed\00flow\hotcross
-
-replace sov.fleet/hotcrossattestation v0.0.0-00010101000000-000000000000 => C:\aCogSpaceSeed\00flow\hotcrossattestation
-replace sov.fleet/hotcrossattestation v0.0.0 => C:\aCogSpaceSeed\00flow\hotcrossattestation
-
-replace sov.fleet/chipgrammar v0.0.0-00010101000000-000000000000 => C:\aCogSpaceSeed\00flow\chipgrammar
-replace sov.fleet/chipgrammar v0.0.0 => C:\aCogSpaceSeed\00flow\chipgrammar
-
-replace sov.fleet/macroir v0.0.0-00010101000000-000000000000 => C:\aCogSpaceSeed\00flow\macroir
-replace sov.fleet/macroir v0.0.0 => C:\aCogSpaceSeed\00flow\macroir
-replace sov.fleet/wellvm => C:\aCogSpaceSeed\00flow\macroir
-replace sov.fleet/costeel => C:\aCogSpaceSeed\00flow\macroir
-
-replace sov.fleet/nautilus v0.0.0 => C:\aCogSpaceSeed\00flow\nautilus
-
-replace sov.fleet/nautilusattestation v0.0.0 => C:\aCogSpaceSeed\00xper\nautilusattestation
-
-replace sov.fleet/languagegrammar v0.0.0 => C:\aCogSpaceSeed\00flow\languagegrammar
-
-replace sov.fleet/white3 v0.0.0 => C:\aCogSpaceSeed\00xper\white3
-
-replace sov.fleet/extendgo v0.0.0 => C:\aCogSpaceSeed\00flow\extendgo
+replace (
+	cloud.google.com/go => C:\aCogSpaceSeed\00flow\forge\90200-module-cache\cloud.google.com\go@v0.123.0
+	cloud.google.com/go/bigquery => C:\aCogSpaceSeed\00flow\forge\90200-module-cache\cloud.google.com\go\bigquery@v1.77.0
+	cloud.google.com/go/bigtable => C:\aCogSpaceSeed\00flow\forge\90200-module-cache\cloud.google.com\go\bigtable@v1.37.0
+	cloud.google.com/go/firestore => C:\aCogSpaceSeed\00flow\forge\90200-module-cache\cloud.google.com/go/firestore@v1.9.0
+	cloud.google.com/go/pubsub => C:\aCogSpaceSeed\00flow\forge\90200-module-cache\cloud.google.com\go\pubsub@v1.50.2
+	cloud.google.com/go/spanner => C:\aCogSpaceSeed\00flow\forge\90200-module-cache\cloud.google.com\go\spanner@v1.92.0
+	cloud.google.com/go/storage => C:\aCogSpaceSeed\00flow\forge\90200-module-cache\cloud.google.com\go\storage@v1.56.0
+	github.com/GoogleCloudPlatform/opentelemetry-operations-go/detectors/gcp => C:\aCogSpaceSeed\00flow\forge\90200-module-cache\github.com\!google!cloud!platform\opentelemetry-operations-go\detectors\gcp@v1.32.0
+	github.com/GoogleCloudPlatform/opentelemetry-operations-go/exporter/metric => C:\aCogSpaceSeed\00flow\forge\90200-module-cache\github.com\!google!cloud!platform\opentelemetry-operations-go\exporter\metric@v0.57.0
+	github.com/GoogleCloudPlatform/opentelemetry-operations-go/internal/resourcemapping => C:\aCogSpaceSeed\00flow\forge\90200-module-cache\github.com\!google!cloud!platform\opentelemetry-operations-go\internal\resourcemapping@v0.57.0
+	github.com/modelcontextprotocol/go-sdk => ./00flow/agentframework/83000-external-libraries-source/go-sdk
+	go.opentelemetry.io/contrib/detectors/gcp => C:\aCogSpaceSeed\00flow\forge\90200-module-cache\go.opentelemetry.io\contrib\detectors\gcp@v1.43.0
+	go.opentelemetry.io/otel => C:\aCogSpaceSeed\00flow\forge\90200-module-cache\go.opentelemetry.io\otel@v1.44.0
+	go.opentelemetry.io/otel/exporters/stdout/stdoutmetric => C:\aCogSpaceSeed\00flow\forge\90200-module-cache\go.opentelemetry.io\otel\exporters\stdout\stdoutmetric@v1.43.0
+	go.opentelemetry.io/otel/metric => C:\aCogSpaceSeed\00flow\forge\90200-module-cache\go.opentelemetry.io\otel\metric@v1.44.0
+	go.opentelemetry.io/otel/sdk => C:\aCogSpaceSeed\00flow\forge\90200-module-cache\go.opentelemetry.io\otel\sdk@v1.44.0
+	go.opentelemetry.io/otel/sdk/metric => C:\aCogSpaceSeed\00flow\forge\90200-module-cache\go.opentelemetry.io\otel\sdk\metric@v1.44.0
+	go.opentelemetry.io/otel/trace => C:\aCogSpaceSeed\00flow\forge\90200-module-cache\go.opentelemetry.io\otel\trace@v1.44.0
+	golang.org/x/sys => C:\aCogSpaceSeed\00flow\forge\90200-module-cache\golang.org\x\sys@v0.33.0
+	golang.org/x/net => C:\aCogSpaceSeed\00flow\forge\90200-module-cache\golang.org\x\net@v0.56.0
+	sov.fleet/adph v0.0.0 => C:\aCogSpaceSeed\00ulib\genalgorithms\adph
+	sov.fleet/afflume-realization v0.0.0 => ./00floo/afflume/realization
+	sov.fleet/afflumeattestation v0.0.0 => ./00floo/afflume/afflume-attestation
+	sov.fleet/costeel => ./00flow/unilangunichip/macroir
+	sov.fleet/extendgo v0.0.0 => ./00ulib/language/extendgo
+	sov.fleet/financialkernel v0.0.0 => ./00flow/financialkernel
+	sov.fleet/financialkernel v0.0.0-00010101000000-000000000000 => ./00flow/financialkernel
+	sov.fleet/hotcross v0.0.0 => ./00flow/hotcross
+	sov.fleet/hotcross v0.0.0-00010101000000-000000000000 => ./00flow/hotcross
+	sov.fleet/hotcrossattestation v0.0.0 => ./00flow/hotcross-attestation
+	sov.fleet/hotcrossattestation v0.0.0-00010101000000-000000000000 => ./00flow/hotcross-attestation
+	sov.fleet/ingress/attestation v0.0.0 => ./00flon/ingress/ingress-attestation
+	sov.fleet/lingua-assembler v0.0.0 => ./00flow/unilangunichip/lingua-assembler
+	sov.fleet/lingua-certifier v0.0.0 => ./00flow/unilangunichip/lingua-certifier
+	sov.fleet/lingua-classifier v0.0.0 => ./00flow/unilangunichip/lingua-classifier
+	sov.fleet/lingua-translator v0.0.0 => ./00flow/unilangunichip/lingua-translator
+	sov.fleet/lingua-transpiler v0.0.0 => ./00flow/unilangunichip/lingua-transpiler
+	sov.fleet/linguaflow v0.0.0 => ./00flow/unilangunichip/linguaflow
+	sov.fleet/macroir v0.0.0 => ./00flow/unilangunichip/macroir
+	sov.fleet/macroir v0.0.0-00010101000000-000000000000 => ./00flow/unilangunichip/macroir
+	sov.fleet/n-sovereign-blueprint v0.0.0 => ./00flon/transport/blueprint
+	sov.fleet/n-sovereign-blueprint v0.0.0-00010101000000-000000000000 => ./00flon/transport/blueprint
+	sov.fleet/n-sovereign-ingress v0.0.0 => ./00flon/ingress/ingress-gateway
+	sov.fleet/n-sovereign-ingress v0.0.0-00010101000000-000000000000 => ./00flon/ingress/ingress-gateway
+	sov.fleet/nautilus v0.0.0 => ./00flow/unilangunichip/nautilus
+	sov.fleet/nautilusattestation v0.0.0 => ./00flow/unilangunichip/unilangunichip-attestation
+	sov.fleet/nontrivial v0.0.0 => ./00flow/unilangunichip/nontrivial
+	sov.fleet/orchestrator-weaver v0.0.0 => ./00flow/unilangunichip/orchestrator-weaver
+	sov.fleet/quic-core v0.0.0 => ./00flon/transport/quic-core
+	sov.fleet/quic-core v0.0.0-00010101000000-000000000000 => ./00flon/transport/quic-core
+	sov.fleet/root => C:\aCogSpaceSeed\00flow\forge
+	sov.fleet/s-adaptivelock v0.0.0 => C:\aCogSpaceSeed\00flow\adaptivelock
+	sov.fleet/sacp v0.0.0 => C:\aCogSpaceSeed\00flow\sacp
+	sov.fleet/sovereign-client v0.0.0 => C:\aCogSpaceSeed\00flon\transport\client
+	sov.fleet/sovereign-client v0.0.0-00010101000000-000000000000 => C:\aCogSpaceSeed\00flon\transport\client
+	sov.fleet/sovereign-testing v0.0.0 => C:\aCogSpaceSeed\00flon\transport\testing
+	sov.fleet/sovereign-testing v0.0.0-00010101000000-000000000000 => C:\aCogSpaceSeed\00flon\transport\testing
+	sov.fleet/sovereign-worker v0.0.0 => C:\aCogSpaceSeed\00flon\transport\worker
+	sov.fleet/sovereign-worker v0.0.0-00010101000000-000000000000 => C:\aCogSpaceSeed\00flon\transport\worker
+	sov.fleet/sovmux v0.0.0 => C:\aCogSpaceSeed\00flon\ingress\sovmux
+	sov.fleet/sovmux v0.0.0-00010101000000-000000000000 => C:\aCogSpaceSeed\00flon\ingress\sovmux
+	sov.fleet/taut v0.0.0 => ./00taut/taut/kernel
+	sov.fleet/taut v0.0.0-00010101000000-000000000000 => ./00taut/taut/kernel
+	sov.fleet/taut3 v0.0.0 => ./00taut/taut/sledgehammer
+	sov.fleet/taut3 v0.0.0-00010101000000-000000000000 => ./00taut/taut/sledgehammer
+	sov.fleet/tautmathlib v0.0.0 => ./00taut/mathlib/tautmathlib-bridge
+	sov.fleet/tautmathlib v0.0.0-00010101000000-000000000000 => ./00taut/mathlib/tautmathlib-bridge
+	sov.fleet/tautmathlib-algebra v0.0.0 => ./00taut/mathlib/tautmathlib-algebra
+	sov.fleet/tautmathlib-algebra v0.0.0-00010101000000-000000000000 => ./00taut/mathlib/tautmathlib-algebra
+	sov.fleet/tautmathlib-analysis v0.0.0 => ./00taut/mathlib/tautmathlib-analysis
+	sov.fleet/tautmathlib-analysis v0.0.0-00010101000000-000000000000 => ./00taut/mathlib/tautmathlib-analysis
+	sov.fleet/tautmathlib-category v0.0.0 => ./00taut/mathlib/tautmathlib-category
+	sov.fleet/tautmathlib-category v0.0.0-00010101000000-000000000000 => ./00taut/mathlib/tautmathlib-category
+	sov.fleet/tautmathlib-combinatorics v0.0.0 => ./00taut/mathlib/tautmathlib-combinatorics
+	sov.fleet/tautmathlib-combinatorics v0.0.0-00010101000000-000000000000 => ./00taut/mathlib/tautmathlib-combinatorics
+	sov.fleet/tautmathlib-data v0.0.0 => ./00taut/mathlib/tautmathlib-data
+	sov.fleet/tautmathlib-data v0.0.0-00010101000000-000000000000 => ./00taut/mathlib/tautmathlib-data
+	sov.fleet/tautmathlib-geometry v0.0.0 => ./00taut/mathlib/tautmathlib-geometry
+	sov.fleet/tautmathlib-geometry v0.0.0-00010101000000-000000000000 => ./00taut/mathlib/tautmathlib-geometry
+	sov.fleet/tautmathlib-logic v0.0.0 => ./00taut/mathlib/tautmathlib-logic
+	sov.fleet/tautmathlib-logic v0.0.0-00010101000000-000000000000 => ./00taut/mathlib/tautmathlib-logic
+	sov.fleet/tautmathlib-measure v0.0.0 => ./00taut/mathlib/tautmathlib-measure
+	sov.fleet/tautmathlib-measure v0.0.0-00010101000000-000000000000 => ./00taut/mathlib/tautmathlib-measure
+	sov.fleet/tautmathlib-numbertheory v0.0.0 => ./00taut/mathlib/tautmathlib-numbertheory
+	sov.fleet/tautmathlib-numbertheory v0.0.0-00010101000000-000000000000 => ./00taut/mathlib/tautmathlib-numbertheory
+	sov.fleet/tautmathlib-order v0.0.0 => ./00taut/mathlib/tautmathlib-order
+	sov.fleet/tautmathlib-order v0.0.0-00010101000000-000000000000 => ./00taut/mathlib/tautmathlib-order
+	sov.fleet/tautmathlib-ringfield v0.0.0 => ./00taut/mathlib/tautmathlib-ringfield
+	sov.fleet/tautmathlib-ringfield v0.0.0-00010101000000-000000000000 => ./00taut/mathlib/tautmathlib-ringfield
+	sov.fleet/tautmathlib-scilean v0.0.0 => ./00taut/mathlib/tautmathlib-scilean
+	sov.fleet/tautmathlib-scilean v0.0.0-00010101000000-000000000000 => ./00taut/mathlib/tautmathlib-scilean
+	sov.fleet/tautmathlib-topology v0.0.0 => ./00taut/mathlib/tautmathlib-topology
+	sov.fleet/tautmathlib-topology v0.0.0-00010101000000-000000000000 => ./00taut/mathlib/tautmathlib-topology
+	sov.fleet/transport/attestation v0.0.0 => ./00flon/transport/transport-attestation
+	sov.fleet/unilangunichip-attestation v0.0.0 => ./00flow/unilangunichip/unilangunichip-attestation
+	sov.fleet/unilangunichip-info v0.0.0 => C:\aCogSpaceSeed\00flow\unilangunichip\unilangunichip-info
+	sov.fleet/unilangunichip/attestation v0.0.0 => C:\aCogSpaceSeed\00flow\unilangunichip\unilangunichip-attestation
+	sov.fleet/unilangunichip/chelm v0.0.0 => C:\aCogSpaceSeed\00flow\unilangunichip\chelm
+	sov.fleet/unilangunichip/grammar-chip v0.0.0 => C:\aCogSpaceSeed\00flow\unilangunichip\grammar-chip
+	sov.fleet/unilangunichip/grammar-data v0.0.0 => C:\aCogSpaceSeed\00flow\unilangunichip\grammar-data
+	sov.fleet/unilangunichip/grammar-info v0.0.0 => C:\aCogSpaceSeed\00flow\unilangunichip\unilangunichip-info
+	sov.fleet/unilangunichip/grammar-language v0.0.0 => C:\aCogSpaceSeed\00flow\unilangunichip\grammar-language
+	sov.fleet/unilangunichip/grammar-microchip v0.0.0 => C:\aCogSpaceSeed\00flow\unilangunichip\grammar-microchip
+	sov.fleet/unilangunichip/grammar-migrate v0.0.0 => C:\aCogSpaceSeed\00flow\unilangunichip\grammar-migrate
+	sov.fleet/unilangunichip/grammar-platform v0.0.0 => C:\aCogSpaceSeed\00flow\unilangunichip\grammar-platform
+	sov.fleet/unilangunichip/grammar-ur v0.0.0 => C:\aCogSpaceSeed\00flow\unilangunichip\grammar-ur
+	sov.fleet/unilangunichip/grammar-use v0.0.0 => C:\aCogSpaceSeed\00flow\unilangunichip\grammar-use
+	sov.fleet/unilangunichip/nontrivial v0.0.0 => C:\aCogSpaceSeed\00flow\unilangunichip\nontrivial
+	sov.fleet/unilangunichip/recovery v0.0.0 => C:\aCogSpaceSeed\00flow\unilangunichip\recovery
+	sov.fleet/unilangunichip/whelm v0.0.0 => C:\aCogSpaceSeed\00flow\unilangunichip\whelm
+	sov.fleet/wellvm => C:\aCogSpaceSeed\00flow\unilangunichip\macroir
+	sov.fleet/white3 v0.0.0 => C:\aCogSpaceSeed\00flow\white3
+)

@@ -1,19 +1,32 @@
-# Antigravity IDE Agent Context Ignore Rules
-# Exclude heavy artifact stores, dependency trees, and caches to prevent token scope explosion.
+# ==============================================================================
+# Antigravity IDE Agent Context Ignore Rules (.antigravityignore)
+# Synchronized with .ignore for Antigravity v2.14.0
+# Excludes heavy artifact stores, dependency trees, and caches to prevent token scope explosion.
+# ==============================================================================
 
 # 1. Prune sovereign artifact registry and toolchains (keep executables runnable via absolute path)
+/00flow/forge/
 /00flow/s-forge/
 /00flow/s-builder/
 /86sref/
 /13reng/
-/00xper/
-
+/50cove/
+/51slam/
+/99cbox/
 
 # 2. Prune ephemeral scratch spaces, test assets, and caches
-/c0990-ephemeral-scratch/
+c0990-ephemeral-scratch/
+**/c0990-ephemeral-scratch/**
+c8900-build-cache/
+**/c8900-build-cache/**
+hydrationcache/
+**/hydrationcache/**
+scratch/
+**/scratch/**
+data/
+exports/
 **/.gemini/
 **/.antigravitycli/
-**/.agents/
 **/.idea/
 **/.vscode/
 
@@ -24,22 +37,29 @@
 **/.next/
 **/ios/
 **/android/
-**/windows/
-**/macos/
-**/linux/
 
-# 4. Prune binary outputs and log files
+# 4. Prune binary outputs, archives, and log files
 **/*.exe
 **/*.wasm
 **/*.dll
-**/*.log
+**/*.so
+**/*.dylib
+**/*.bin
 **/*.o
 **/*.a
-**/*.so
+**/*.pdb
+**/*.test
+**/*.prof
+coverage.out
+**/*.log
 **/*.zip
 **/*.tar.gz
 **/*.tgz
+**/*.7z
 **/*.pkg
+**/*.oci.tar
+**/*.tensorbin*
+**/*.h5ad
 
 # 5. Prune internal VCS indexes
 **/.git/
@@ -58,4 +78,3 @@ c[0-9][0-9][0-9][0-9]*/
 # 8. Ignore all 9xxxx authority/artifact subdirectories globally in any workspace to prevent token scope explosion
 9[0-9][0-9][0-9][0-9]*/
 **/9[0-9][0-9][0-9][0-9]*/**
-

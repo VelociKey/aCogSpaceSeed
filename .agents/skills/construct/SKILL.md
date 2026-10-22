@@ -38,3 +38,26 @@ Executes both local workspace taxonomy hydration and remote Git/GitHub creation:
 ```bash
 C:\aCogSpaceSeed\00flow\forge\97000-internal-toolchains\vkey.exe construct both -name "{{name}}" -silo "{{silo}}" -org "{{org}}"
 ```
+
+---
+
+## Hollowed-Out Silo Provisioning Protocol
+
+When provisioning a workspace inside a **brand new silo** (e.g. `00skim`):
+1. **Hollowed-Out Directory Anchor**:
+   - Create `C:\aCogSpaceSeed\<silo>\.gitkeep` (0-byte marker).
+   - In `C:\aCogSpaceSeed\.gitignore`, add `/<silo>/` to the ignored silo list and `!/<silo>/.gitkeep` to unignored markers.
+   - Stage root bootstrap changes via `vkey construct add`.
+2. **Silo Authority Declaration**:
+   - Add the new silo and its architectural mission to `AGENTS.md` Section 3 (*Platform Structure & Silo Architecture*).
+3. **Mandatory Silo Governance Workspace (`<silo>-info`)**:
+   - Always provision `<silo>-info` first before child workspaces:
+     ```bash
+     C:\aCogSpaceSeed\00flow\forge\97000-internal-toolchains\vkey.exe construct both -name "<silo>-info" -silo "<silo>" -org "VelociKey"
+     ```
+   - Register in root `go.work` and configure `.workspace-dna.webnf`.
+4. **Target Workspace Provisioning**:
+   - Provision child workspaces under the hollowed-out silo:
+     ```bash
+     C:\aCogSpaceSeed\00flow\forge\97000-internal-toolchains\vkey.exe construct both -name "<name>" -silo "<silo>" -org "VelociKey"
+     ```

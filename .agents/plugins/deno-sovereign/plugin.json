@@ -1,0 +1,63 @@
+{
+  "name": "dynomination",
+  "alias": "denomination",
+  "version": "1.0.0",
+  "displayName": "Dynomination (Denomination) - Sovereign Modern Deno Replacement",
+  "description": "Zero-CGo 2.8MB Pure Go Modern Deno Replacement Engine with Working Title 'Dynomination' (formal alias: Denomination), Langlands 9-Field Functor Optimization, Stage 4 Node-to-qAPC Bridge, Autonomous BYOE Server Self-Deployment, and plomb Multi-Rail Banking Settlement",
+  "author": "Sovereign Fleet Research & Nautilus Core Group",
+  "family": "00xper/dynomination",
+  "entrypoint": "bin/dynomination.exe",
+  "companion_bridge": "bin/nodesacpbridge.exe",
+  "attestation_suite": "bin/dynomination-attestation.exe",
+  "skills": ["skills/linguadeno"],
+  "capabilities": [
+    "zero_cgo_native_go_runtime",
+    "dynomination_engine_core",
+    "denomination_cli_parity",
+    "sub_microsecond_qapc_node_bridge",
+    "dual_plane_express_sacp_listener",
+    "sub_millisecond_typescript_boot",
+    "zero_heap_allocation_stack_arenas",
+    "galois_frobenius_capability_sandbox",
+    "fukaya_sheaf_module_resolution",
+    "tropical_max_plus_event_loop",
+    "autonomous_server_self_deployment",
+    "plomb_multirail_banking_settlement"
+  ],
+  "commercial_terms": {
+    "zero_free_policy": true,
+    "working_title": "Dynomination",
+    "formal_title": "Denomination",
+    "pilot_tiers": [
+      {
+        "id": "pilot_60_day_midmarket",
+        "duration_days": 60,
+        "fee_usd": 3500.00,
+        "convertible_vpu_credits_pct": 100
+      },
+      {
+        "id": "pilot_90_day_enterprise",
+        "duration_days": 90,
+        "fee_usd": 12500.00,
+        "convertible_vpu_credits_pct": 100
+      }
+    ],
+    "annual_tiers": [
+      {
+        "id": "annual_byoe_fleet",
+        "fee_annual_usd": 35000.00,
+        "description": "Commercial BYOE multi-node clustering with 100% pilot fee credit rollover"
+      },
+      {
+        "id": "annual_high_assurance_enclave",
+        "fee_annual_usd": 150000.00,
+        "description": "NIST CCVS85 certified air-gapped sovereign site license"
+      }
+    ]
+  },
+  "settlement": {
+    "provider": "plomb_multirail_banking",
+    "rails": ["mercury_virtual_accounts", "relay_subaccounts", "stripe_corporate_card"],
+    "metrics": ["vpu_hourly_compute", "vip_volume_throughput"]
+  }
+}

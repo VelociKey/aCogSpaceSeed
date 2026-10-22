@@ -1,13 +1,13 @@
 ---
 name: EMT-OT
-description: Evaluate Mathematical Transform then Optimize and Test (Emergency Mathematical Transformation Working Overtime). Standardized three-stage execution pipeline for transforming raw domain applications (P1 -> P2), applying Six-Frontier canonical ADPH hint optimizations, and executing live real-world dataset A/B benchmarks.
+description: Evaluate Mathematical Transform then Optimize and Test (Emergency Mathematical Transformation Working Overtime). Standardized three-stage execution pipeline for transforming raw domain applications (P1 -> P2), applying Nine-Field canonical Langlands ADPH hint optimizations, and executing live real-world dataset A/B benchmarks.
 ---
 
 # EMT-OT: Emergency Mathematical Transformation Working Overtime
 
 > [!IMPORTANT]
 > **Authoritative Sovereign Skill Specification:**  
-> `EMT-OT` (Evaluate Mathematical Transform then Optimize and Test) is the fleet's standardized, three-stage execution pipeline to mathematically transform raw Euclidean domain applications, apply canonical Six-Frontier ADPH hint-based optimizations, and prove performance gains via live real-world A/B micro-benchmarks.
+> `EMT-OT` (Evaluate Mathematical Transform then Optimize and Test) is the fleet's standardized, three-stage execution pipeline to mathematically transform raw Euclidean domain applications, apply canonical Nine-Field Langlands ADPH hint-based optimizations, and prove performance gains via live real-world A/B micro-benchmarks.
 
 ---
 
@@ -17,7 +17,7 @@ description: Evaluate Mathematical Transform then Optimize and Test (Emergency M
 graph TD
     subgraph Stage1["Stage 1: Evaluate & Transform (P1 -> P2)"]
         S1_1["Evaluate Raw Euclidean / Classical Formulation P1"]
-        S1_2["Select Pure Math Frontier (Arithmetic, Representation, Topos, Symplectic, Metric, NonCommutative)"]
+        S1_2["Select Pure Math Field (Arithmetic, Automorphic, Sheaf, Tannakian, Symplectic, NonCommutative, Motivic, Condensed, Gauge)"]
         S1_3["Lower into Canonical Dual Spectral Form P2 = T(P1)"]
     end
 
@@ -42,13 +42,16 @@ graph TD
 
 ### Stage 1: Evaluate & Transform ($P_1 \mapsto P_2$)
 1. **Domain Ingestion:** Analyze the raw application code ($P_1$) to pinpoint its computational bottleneck (*e.g., $O(N^3)$ matrix inversions, $O(2^N)$ state space explosion, $O(N^2)$ attention memory wall*).
-2. **Six-Frontier Selection:** Select the corresponding **Pure Mathematics Transformation Frontier ($\mathcal{T}_{\text{Domain}}$)**:
-   - **`arithmetic.*`:** Scholze Perfectoid Tilting, Bhatt-Scholze Prismatic SAT, Frobenius deduplication.
-   - **`representation.*`:** Ben-Zvi & Frenkel Affine Lie Critical Level, Hecke $\mathcal{D}$-modules, Hopf braiding.
-   - **`topos.*`:** Čech Sheaf Cohomology ($H^1=0$), Tropical Max-Plus Semirings, June Huh Lorentzian Polynomials.
-   - **`symplectic.*`:** Kontsevich-Fukaya Homological Mirror, Hamiltonian Phase Geodesics, Chebyshev Photonic Excitons.
-   - **`metric.*`:** Perelman Ricci Flow CFG Surgery, Ollivier-Ricci Transport Curvature ($\kappa = 1 - W_1/d$).
-   - **`noncommutative.*`:** Connes-Dirac Spectral Traces ($\operatorname{Tr}(f(D/\Lambda))$), Voiculescu Free Probability.
+2. **Nine-Field Selection:** Select the corresponding **Pure Mathematics Transformation Field ($\mathcal{T}_{\text{Domain}}$)**:
+   - **`arithmetic.*` (Field 1):** Scholze Perfectoid Tilting, Galois Field CLMUL, Frobenius endomorphisms.
+   - **`automorphic.*` (Field 2):** Arthur-Selberg Trace Discretization, Hecke spectral harmonics, S-duality.
+   - **`sheaf.*` (Field 3):** Geometric Langlands $\mathcal{D}$-modules, Hitchin systems, cellular sheaf diffusion.
+   - **`tannakian.*` (Field 4):** Grothendieck-Deligne fiber functors, Hopf group reconstruction, CMOV registers.
+   - **`symplectic.*` (Field 5):** Kontsevich-Fukaya Homological Mirror, Hamiltonian phase geodesics, Floer homology.
+   - **`noncommutative.*` (Field 6):** Connes-Dirac spectral traces ($\operatorname{Tr}(f(D/\Lambda))$), Voiculescu free probability.
+   - **`motivic.*` (Field 7):** Voevodsky Univalent Foundations, Lurie $(\infty, 1)$-topos homotopy colimits.
+   - **`condensed.*` (Field 8):** Clausen-Scholze solid modules, Bhatt-Scholze prismatic crystals, exact zero-alloc arenas.
+   - **`gauge.*` (Field 9):** Perelman Ricci flow CFG surgery, Hitchin ASD monopoles, Octonionic $G_2/\text{Spin}(7)$ holonomy.
 3. **Canonical Lowering:** Emit the transformed solver module ($P_2$) in pure native Go under `81000-active-source/`.
 
 ### Stage 2: Optimize (ADPH & Macro-IR Lowering)
