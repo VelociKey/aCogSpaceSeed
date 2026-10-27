@@ -12,16 +12,16 @@ description: >-
 
 ---
 
-## Injected Slash Commands
+## Autonomous CLI Execution Rules (CRITICAL FOR ALL AGENTS)
 
-- `/vkeygit on` (or `/vkeygit enable`): Enable `vkeygit` as the active sovereign version control engine.
-- `/vkeygit off` (or `/vkeygit disable`): Switch back to standard legacy `git` subprocesses.
-- `/vkeygit status`: Inspect the active VCS engine and repository provenance.
-- `/vkeygit-sandbox-create <name> [scope]`: Spin up an isolated worktree in scratch memory (`<20ms`).
-- `/vkeygit-sandbox-merge <path>`: Decompose and apply verified changes back to active workspace via 3-way AST merge.
-- `/vkeygit-sandbox-discard <path>`: Discard ephemeral sandbox without leaving any workspace footprint.
-- `/vkeygit-memory-save <key> <content>`: Store plan milestones or reasoning traces in `.git/agent_memory/` with White3-PQC cryptoseals.
-- `/vkeygit-memory-recall <key|tag>`: Recall historical thought DAGs without burning context window tokens.
+> [!IMPORTANT]
+> **NEVER ask the user to type `/vkeygit` or `/vkeygit-sandbox-create` in the chat UI.**
+> Those slash commands are user-facing triggers; **agents must always invoke the `vkeygit.exe` binary directly** via `run_command` using the full path `C:\aCogSpaceSeed\00flow\forge\97000-internal-toolchains\vkeygit.exe`.
+>
+> **3 Mandatory Invocation Rules on Windows (`pwsh`):**
+> 1. **Do NOT quote the executable path:** Never run `"C:\aCogSpaceSeed\00flow\forge\97000-internal-toolchains\vkeygit.exe" sandbox ...` (in `pwsh`, a quoted string at the start of a line without `&` causes `ParserError: Unexpected token 'sandbox'`). Always pass the unquoted path `C:\aCogSpaceSeed\00flow\forge\97000-internal-toolchains\vkeygit.exe`.
+> 2. **Always pass `-dir <workspace_repo_root>`:** `c:\aCogSpaceSeed` is a multi-repo root; the `.git` directory resides inside individual workspaces (e.g. `c:\aCogSpaceSeed\00flow\unilangunichip\nautilus`). Always pass `-dir <workspace_repo_root>`.
+> 3. **Always pass `-scope` relative to `-dir`:** Scope paths are matched relative to `-dir` (e.g. `-scope 81000-active-source`, NOT `-scope c:\aCogSpaceSeed\...`).
 
 ---
 
@@ -33,23 +33,22 @@ When the user asks for multi-file refactoring, compiler changes, or speculative 
 
 1. **Create Sandbox:**
    ```bash
-   vkeygit sandbox create -name "task-opt" -scope "src/calculus,src/transport"
+   C:\aCogSpaceSeed\00flow\forge\97000-internal-toolchains\vkeygit.exe sandbox create -dir c:\aCogSpaceSeed\00flow\unilangunichip\nautilus -name laso-ws1 -scope 81000-active-source
    ```
 2. **Execute Autonomous Work Inside Sandbox:**
-   * Make edits directly inside the sandbox path returned.
-   * Run compiler and test harnesses inside the sandbox.
+   * Make edits directly inside the sandbox path returned (`C:\aCogSpaceSeed\00flow\hydrationcache\c0990-ephemeral-scratch\sandboxes\<name>`).
    * If tests fail, iterate in the sandbox without polluting the user's primary workspace.
 3. **Verify Status & Partitioning:**
    ```bash
-   vkeygit sandbox status -dir "<sandbox_path>"
+   C:\aCogSpaceSeed\00flow\forge\97000-internal-toolchains\vkeygit.exe sandbox status -dir C:\aCogSpaceSeed\00flow\hydrationcache\c0990-ephemeral-scratch\sandboxes\laso-ws1
    ```
 4. **Merge Back to Workspace:**
    ```bash
-   vkeygit sandbox merge -dir "<sandbox_path>" --direct-merge
+   C:\aCogSpaceSeed\00flow\forge\97000-internal-toolchains\vkeygit.exe sandbox merge -dir C:\aCogSpaceSeed\00flow\hydrationcache\c0990-ephemeral-scratch\sandboxes\laso-ws1 --direct-merge
    ```
 5. **Discard Sandbox:**
    ```bash
-   vkeygit sandbox discard -dir "<sandbox_path>"
+   C:\aCogSpaceSeed\00flow\forge\97000-internal-toolchains\vkeygit.exe sandbox discard -dir C:\aCogSpaceSeed\00flow\hydrationcache\c0990-ephemeral-scratch\sandboxes\laso-ws1
    ```
 
 ---
@@ -60,13 +59,13 @@ To record key milestones or branch alternative hypotheses:
 
 1. **Save Reasoning Checkpoint:**
    ```bash
-   vkeygit memory save -key "hypothesis-simd-v1" -prompt "AVX-512 tensor optimization" -tags "simd,speedup" -content "Plan and test results..."
+   C:\aCogSpaceSeed\00flow\forge\97000-internal-toolchains\vkeygit.exe memory save -dir c:\aCogSpaceSeed\00flow\unilangunichip\nautilus -key "hypothesis-simd-v1" -prompt "AVX-512 tensor optimization" -tags "simd,speedup" -content "Plan and test results..."
    ```
 2. **Recall Checkpoint:**
    ```bash
-   vkeygit memory recall -key "hypothesis-simd-v1"
+   C:\aCogSpaceSeed\00flow\forge\97000-internal-toolchains\vkeygit.exe memory recall -dir c:\aCogSpaceSeed\00flow\unilangunichip\nautilus -key "hypothesis-simd-v1"
    ```
 3. **List Active Cognitive DAG:**
    ```bash
-   vkeygit memory list
+   C:\aCogSpaceSeed\00flow\forge\97000-internal-toolchains\vkeygit.exe memory list -dir c:\aCogSpaceSeed\00flow\unilangunichip\nautilus
    ```
