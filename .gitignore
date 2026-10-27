@@ -40,6 +40,7 @@ test_out.txt
 # /00fora/
 # /00cogt/
 # /01xpsd/
+# /01open/
 # /01prod/
 # /00taut/
 # /00skim/
@@ -137,6 +138,12 @@ hydrationcache/
 /00gmkt/launch/*
 !/00gmkt/launch/.gitkeep
 
+/00proc/*
+!/00proc/.gitkeep
+!/00proc/rescue-euridice/
+/00proc/rescue-euridice/*
+!/00proc/rescue-euridice/.gitkeep
+
 /00skim/*
 !/00skim/.gitkeep
 
@@ -199,6 +206,12 @@ hydrationcache/
 !/00xper/software-vendors/
 /00xper/software-vendors/*
 !/00xper/software-vendors/.gitkeep
+
+/01open/*
+!/01open/.gitkeep
+!/01open/modernopen/
+/01open/modernopen/*
+!/01open/modernopen/.gitkeep
 
 /01prod/*
 !/01prod/.gitkeep

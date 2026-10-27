@@ -72,3 +72,21 @@ Scaffold the complete ORE-nnnnn pipeline under 00xper/orpheus-unbound/81000-acti
 4. Multi-user zero-copy egress interface (shm / SACP streams) for concurrent downstream users.
 Verify 100% precision and confirm 388,000x real-world speedup!
 ```
+
+---
+
+## Sovereign Process Factory: `00proc/rescue-euridice` (Language & Application Enclave Rescue)
+
+When applying `RescueEuridice` to rescue a legacy computing or language enclave (such as PHP `5.4`–`8.5`, Python `2.7`–`3.13`, `.NET Framework`–`.NET 9`, or Java `6`–`21`) out of its locked legacy underworld into Plinth + Tungsten V8 + Multi-Platform Flutter (`Windows`, `Linux`, `macOS`, `Android`, `iOS`, `WebWASM`), agents MUST use the canonical **`00proc/rescue-euridice`** family workspaces:
+
+1. **`00proc/rescue-euridice/wag-dialect-migrator` (`sov.fleet/wag-dialect-migrator`):**
+   - Executes **Step 1 & Step 2a**: Ingests source into Plinth (`0x340000`) via Nautilus **Border 1** (`FlatASTSoA` + `GhostTokens` trivia isolation), applies one-time **Bucket A** syntax upgrades, and partitions **Bucket C** findings into **Tier 1 (Existing Latent Production Defects)** vs. **Tier 2 (Cross-Dialect Ambiguities)**.
+2. **`00proc/rescue-euridice/puresoul-mesh-lifter` (`sov.fleet/puresoul-mesh-lifter`):**
+   - Executes **Step 2b**: Dispatches the **5-Subnet & 6-Node Subagent Mesh** (`Gemini 4 Argon High/Medium/Low` + `Gemini 3.8 Flash High/Medium/Low`) to lift imperative routes/controllers/models into the 4-stage `PureSoul` contract (`Accept -> Recall -> Decide -> Render`).
+3. **`00proc/rescue-euridice/defect-ambiguity-studio` (`sov.fleet/defect-ambiguity-studio`):**
+   - Executes **Step 3 (Consumer 1)**: Projects Tier 1 Latent Defects and Tier 2 Ambiguities into interactive resolution cards with live shadow-equivalence verification.
+4. **`00proc/rescue-euridice/tungsten-flutter-sacp` (`sov.fleet/tungsten-flutter-sacp`):**
+   - Executes **Step 3 (Consumer 2) & Step 4**: Enforces the **Zero-Gen PII Airlock**, writes `< 4 KB` binary `MagicVKFL` frames to `PlinthFlutterStateRingBase` (`0x3C0000`), and generates the 6-OS Declarative Dart Material 3 Shell (`UI = f(State)`).
+5. **`00proc/rescue-euridice/euridice-forge` (`sov.fleet/euridice-forge`):**
+   - Turnkey CLI & Code Generator (`ForgeEnclaveRescue`) that orchestrates all 4 stages and emits the Go scanner + Flutter Dart shell for any target enclave.
+

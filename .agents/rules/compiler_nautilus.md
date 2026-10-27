@@ -1,7 +1,8 @@
 # Sovereign Rule: Nautilus Three-Border Compiler & Optimization Principles
 
 > **Scope:** Applicable to all compiler, toolchain, and low-level code generation tasks across the sovereign fleet.  
-> **Governed Workspaces:** `00flow/nautilus`, `00flow/chipgrammar`, `00flow/macroir`, `00flow/adph`.
+> **Governed Workspaces:** `00flow/nautilus`, `00flow/chipgrammar`, `00flow/macroir`, `00flow/adph`.  
+> **Fast Epistemic Orientation Guide:** @c:\aCogSpaceSeed\00flow\unilangunichip\unilangunichip-info\00100-specification\EPISTEMIC_BORDER_STRATIFICATION.md
 
 ---
 

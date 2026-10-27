@@ -1398,11 +1398,11 @@ silo 00fora {
     }
 }
 
-# ─── Silo: 00skim (8 workspaces) ───
+# ─── Silo: 00skim (11 workspaces) ───
 silo 00skim {
     classification = platform ;
 
-    # --- Family: skim (7 workspaces) ---
+    # --- Family: skim (10 workspaces) ---
     family skim {
         github_repo = "VelociKey/skim" ;
         attestation_workspace = "attestation" ;
@@ -1437,6 +1437,24 @@ silo 00skim {
             qualified_name = "skim/skim-client" ;
             rel_path = "00skim/skim/skim-client" ;
             module_path = "sov.fleet/skim-client" ;
+            buildable = true ;
+        }
+        workspace skim-server {
+            qualified_name = "skim/skim-server" ;
+            rel_path = "00skim/skim/skim-server" ;
+            module_path = "sov.fleet/skim-server" ;
+            buildable = true ;
+        }
+        workspace skim-hybrid-client {
+            qualified_name = "skim/skim-hybrid-client" ;
+            rel_path = "00skim/skim/skim-hybrid-client" ;
+            module_path = "sov.fleet/skim-hybrid-client" ;
+            buildable = true ;
+        }
+        workspace skim-recover {
+            qualified_name = "skim/skim-recover" ;
+            rel_path = "00skim/skim/skim-recover" ;
+            module_path = "sov.fleet/skim-recover" ;
             buildable = true ;
         }
         workspace skim-governance {
@@ -2898,5 +2916,110 @@ silo 99cogt {
         rel_path = "99cogt/xaasattestation" ;
         module_path = "sov.fleet/xaasattestation" ;
         buildable = true ;
+    }
+}
+
+# ─── Silo: 01open (4 workspaces) ───
+silo 01open {
+    classification = open_modernization ;
+
+    workspace 01open-info {
+        qualified_name = "01open-info" ;
+        rel_path = "01open/01open-info" ;
+        module_path = "sov.fleet/01open-info" ;
+        buildable = true ;
+    }
+
+    # --- Family: modernopen (3 workspaces) ---
+    family modernopen {
+        github_repo = "VelociKey/modernopen" ;
+        attestation_workspace = "modernopen-attestation" ;
+
+        workspace modernopen-info {
+            qualified_name = "modernopen/modernopen-info" ;
+            rel_path = "01open/modernopen/modernopen-info" ;
+            module_path = "sov.fleet/modernopen-info" ;
+            buildable = true ;
+        }
+        workspace modernopen-attestation {
+            qualified_name = "modernopen/modernopen-attestation" ;
+            rel_path = "01open/modernopen/modernopen-attestation" ;
+            module_path = "sov.fleet/modernopen-attestation" ;
+            buildable = true ;
+            tag = "attestation" ;
+        }
+        workspace vkey-php {
+            qualified_name = "modernopen/vkey-php" ;
+            rel_path = "01open/modernopen/vkey-php" ;
+            module_path = "sov.fleet/vkey-php" ;
+            buildable = true ;
+        }
+        workspace bpy {
+            qualified_name = "modernopen/bpy" ;
+            rel_path = "01open/modernopen/bpy" ;
+            module_path = "sov.fleet/bpy" ;
+            buildable = true ;
+        }
+    }
+}
+
+# ─── Silo: 00proc (8 workspaces across 1 family) ───
+silo 00proc {
+    classification = process_factory ;
+
+    workspace 00proc-info {
+        qualified_name = "00proc-info" ;
+        rel_path = "00proc/00proc-info" ;
+        module_path = "sov.fleet/00proc-info" ;
+        buildable = true ;
+    }
+
+    family rescue-euridice {
+        github_repo = "VelociKey/rescue-euridice" ;
+        attestation_workspace = "rescue-euridice-attestation" ;
+
+        workspace rescue-euridice-info {
+            qualified_name = "rescue-euridice/rescue-euridice-info" ;
+            rel_path = "00proc/rescue-euridice/rescue-euridice-info" ;
+            module_path = "sov.fleet/rescue-euridice-info" ;
+            buildable = true ;
+        }
+        workspace rescue-euridice-attestation {
+            qualified_name = "rescue-euridice/rescue-euridice-attestation" ;
+            rel_path = "00proc/rescue-euridice/rescue-euridice-attestation" ;
+            module_path = "sov.fleet/rescue-euridice-attestation" ;
+            buildable = true ;
+            tag = "attestation" ;
+        }
+        workspace wag-dialect-migrator {
+            qualified_name = "rescue-euridice/wag-dialect-migrator" ;
+            rel_path = "00proc/rescue-euridice/wag-dialect-migrator" ;
+            module_path = "sov.fleet/wag-dialect-migrator" ;
+            buildable = true ;
+        }
+        workspace puresoul-mesh-lifter {
+            qualified_name = "rescue-euridice/puresoul-mesh-lifter" ;
+            rel_path = "00proc/rescue-euridice/puresoul-mesh-lifter" ;
+            module_path = "sov.fleet/puresoul-mesh-lifter" ;
+            buildable = true ;
+        }
+        workspace tungsten-flutter-sacp {
+            qualified_name = "rescue-euridice/tungsten-flutter-sacp" ;
+            rel_path = "00proc/rescue-euridice/tungsten-flutter-sacp" ;
+            module_path = "sov.fleet/tungsten-flutter-sacp" ;
+            buildable = true ;
+        }
+        workspace defect-ambiguity-studio {
+            qualified_name = "rescue-euridice/defect-ambiguity-studio" ;
+            rel_path = "00proc/rescue-euridice/defect-ambiguity-studio" ;
+            module_path = "sov.fleet/defect-ambiguity-studio" ;
+            buildable = true ;
+        }
+        workspace euridice-forge {
+            qualified_name = "rescue-euridice/euridice-forge" ;
+            rel_path = "00proc/rescue-euridice/euridice-forge" ;
+            module_path = "sov.fleet/euridice-forge" ;
+            buildable = true ;
+        }
     }
 }

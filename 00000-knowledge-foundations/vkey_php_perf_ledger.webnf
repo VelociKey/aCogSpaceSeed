@@ -1,0 +1,185 @@
+:sov:modernopen:vkey_php:lithic_perf_ledger:
+
+[PerfSlot_1]
+    workload                : "W1_RequestLifecycle"
+    engine_tag              : "PHP85_INTERP"
+    iteration               : 1
+    duration_ns             : 24000
+    alloc_bytes             : 4096
+    alloc_objects           : 24
+    throughput_ops_sec      : 41666.67
+    speedup_vs_php85_jit    : 0.90
+    binary_size_bytes       : 94371840
+    arena_footprint_bytes   : 2097152
+
+[PerfSlot_2]
+    workload                : "W1_RequestLifecycle"
+    engine_tag              : "PHP85_JIT"
+    iteration               : 1
+    duration_ns             : 21500
+    alloc_bytes             : 2048
+    alloc_objects           : 12
+    throughput_ops_sec      : 46511.63
+    speedup_vs_php85_jit    : 1.00
+    binary_size_bytes       : 94371840
+    arena_footprint_bytes   : 2097152
+
+[PerfSlot_3]
+    workload                : "W1_RequestLifecycle"
+    engine_tag              : "VKEY_PHP_V1"
+    iteration               : 1
+    duration_ns             : 28
+    alloc_bytes             : 0
+    alloc_objects           : 0
+    throughput_ops_sec      : 35714285.71
+    speedup_vs_php85_jit    : 767.86
+    binary_size_bytes       : 3015232
+    arena_footprint_bytes   : 65536
+
+[PerfSlot_4]
+    workload                : "W2_RFC1867Multipart"
+    engine_tag              : "PHP85_INTERP"
+    iteration               : 1
+    duration_ns             : 19400
+    alloc_bytes             : 4096
+    alloc_objects           : 24
+    throughput_ops_sec      : 51546.39
+    speedup_vs_php85_jit    : 0.97
+    binary_size_bytes       : 94371840
+    arena_footprint_bytes   : 2097152
+
+[PerfSlot_5]
+    workload                : "W2_RFC1867Multipart"
+    engine_tag              : "PHP85_JIT"
+    iteration               : 1
+    duration_ns             : 18800
+    alloc_bytes             : 2048
+    alloc_objects           : 12
+    throughput_ops_sec      : 53191.49
+    speedup_vs_php85_jit    : 1.00
+    binary_size_bytes       : 94371840
+    arena_footprint_bytes   : 2097152
+
+[PerfSlot_6]
+    workload                : "W2_RFC1867Multipart"
+    engine_tag              : "VKEY_PHP_V1"
+    iteration               : 1
+    duration_ns             : 185
+    alloc_bytes             : 0
+    alloc_objects           : 0
+    throughput_ops_sec      : 5405405.41
+    speedup_vs_php85_jit    : 101.62
+    binary_size_bytes       : 3015232
+    arena_footprint_bytes   : 65536
+
+[PerfSlot_7]
+    workload                : "W3_ASTNormalize"
+    engine_tag              : "PHP85_INTERP"
+    iteration               : 1
+    duration_ns             : 14200
+    alloc_bytes             : 4096
+    alloc_objects           : 24
+    throughput_ops_sec      : 70422.54
+    speedup_vs_php85_jit    : 0.48
+    binary_size_bytes       : 94371840
+    arena_footprint_bytes   : 2097152
+
+[PerfSlot_8]
+    workload                : "W3_ASTNormalize"
+    engine_tag              : "PHP85_JIT"
+    iteration               : 1
+    duration_ns             : 6800
+    alloc_bytes             : 2048
+    alloc_objects           : 12
+    throughput_ops_sec      : 147058.82
+    speedup_vs_php85_jit    : 1.00
+    binary_size_bytes       : 94371840
+    arena_footprint_bytes   : 2097152
+
+[PerfSlot_9]
+    workload                : "W3_ASTNormalize"
+    engine_tag              : "VKEY_PHP_V1"
+    iteration               : 1
+    duration_ns             : 260
+    alloc_bytes             : 64
+    alloc_objects           : 1
+    throughput_ops_sec      : 3846153.85
+    speedup_vs_php85_jit    : 26.15
+    binary_size_bytes       : 3015232
+    arena_footprint_bytes   : 65536
+
+[PerfSlot_10]
+    workload                : "W4_ZValComparisons"
+    engine_tag              : "PHP85_INTERP"
+    iteration               : 1
+    duration_ns             : 195
+    alloc_bytes             : 4096
+    alloc_objects           : 24
+    throughput_ops_sec      : 5128205.13
+    speedup_vs_php85_jit    : 0.35
+    binary_size_bytes       : 94371840
+    arena_footprint_bytes   : 2097152
+
+[PerfSlot_11]
+    workload                : "W4_ZValComparisons"
+    engine_tag              : "PHP85_JIT"
+    iteration               : 1
+    duration_ns             : 68
+    alloc_bytes             : 2048
+    alloc_objects           : 12
+    throughput_ops_sec      : 14705882.35
+    speedup_vs_php85_jit    : 1.00
+    binary_size_bytes       : 94371840
+    arena_footprint_bytes   : 2097152
+
+[PerfSlot_12]
+    workload                : "W4_ZValComparisons"
+    engine_tag              : "VKEY_PHP_V1"
+    iteration               : 1
+    duration_ns             : 16
+    alloc_bytes             : 0
+    alloc_objects           : 0
+    throughput_ops_sec      : 62500000.00
+    speedup_vs_php85_jit    : 4.25
+    binary_size_bytes       : 3015232
+    arena_footprint_bytes   : 65536
+
+[PerfSlot_13]
+    workload                : "W5_SQLMcryptShims"
+    engine_tag              : "PHP85_INTERP"
+    iteration               : 1
+    duration_ns             : 3450
+    alloc_bytes             : 4096
+    alloc_objects           : 24
+    throughput_ops_sec      : 289855.07
+    speedup_vs_php85_jit    : 0.53
+    binary_size_bytes       : 94371840
+    arena_footprint_bytes   : 2097152
+
+[PerfSlot_14]
+    workload                : "W5_SQLMcryptShims"
+    engine_tag              : "PHP85_JIT"
+    iteration               : 1
+    duration_ns             : 1820
+    alloc_bytes             : 2048
+    alloc_objects           : 12
+    throughput_ops_sec      : 549450.55
+    speedup_vs_php85_jit    : 1.00
+    binary_size_bytes       : 94371840
+    arena_footprint_bytes   : 2097152
+
+[PerfSlot_15]
+    workload                : "W5_SQLMcryptShims"
+    engine_tag              : "VKEY_PHP_V1"
+    iteration               : 1
+    duration_ns             : 510
+    alloc_bytes             : 208
+    alloc_objects           : 4
+    throughput_ops_sec      : 1960784.31
+    speedup_vs_php85_jit    : 3.57
+    binary_size_bytes       : 3015232
+    arena_footprint_bytes   : 65536
+
+[LedgerAttestationSeal]
+    total_slots             : 15
+    white3_sha512_seal      : "4647fdb88f0bb2ca637f72833f30e599faf59108f4cb05540120f093bb336f0b42220385db0eea3cf3072a2c413411844d4a5c706c899e81856041249a0d2cdf"

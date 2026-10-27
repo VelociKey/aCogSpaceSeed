@@ -1,6 +1,19 @@
 go 1.27
 
 use (
+	./00proc/00proc-info
+	./00proc/rescue-euridice/defect-ambiguity-studio
+	./00proc/rescue-euridice/euridice-forge
+	./00proc/rescue-euridice/puresoul-mesh-lifter
+	./00proc/rescue-euridice/rescue-euridice-attestation
+	./00proc/rescue-euridice/rescue-euridice-info
+	./00proc/rescue-euridice/tungsten-flutter-sacp
+	./00proc/rescue-euridice/wag-dialect-migrator
+	./01open/01open-info
+	./01open/modernopen/bhp
+	./01open/modernopen/bpy
+	./01open/modernopen/modernopen-attestation
+	./01open/modernopen/modernopen-info
 	./000all/cassandra/abinitio
 	./000all/cassandra/cassandra-attestation
 	./000all/cassandra/cassandra-info
@@ -171,6 +184,7 @@ use (
 	./00flow/tensor/tensor-conduit
 	./00flow/tensor/tensor-info
 	./00flow/tensor/trainer
+	./00flow/topos
 	./00flow/transform-antigravity
 	./00flow/trust-circle
 	./00flow/unilangunichip/chelm
@@ -211,8 +225,11 @@ use (
 	./00skim/skim/skim-attestation
 	./00skim/skim/skim-client
 	./00skim/skim/skim-governance
+	./00skim/skim/skim-hybrid-client
 	./00skim/skim/skim-info
 	./00skim/skim/skim-library
+	./00skim/skim/skim-recover
+	./00skim/skim/skim-server
 	./00skim/skim/vkey-git
 	./00taut/00taut-attestation
 	./00taut/00taut-info
@@ -283,12 +300,14 @@ use (
 	./00ulib/crypto/vkey-white3kdf
 	./00ulib/wire/soverasure
 	./00ulib/wire/sovsketch
+	./00ulib/wire/sovtsig
 	./00ulib/wire/sovwire
 	./00ulib/wire/sovzstd
 	./00ulib/wire/vkey-finslerann
 	./00ulib/wire/vkey-m31fec
 	./00ulib/wire/vkey-sheafwire
 	./00ulib/wire/vkey-tropicalz
+	./00ulib/wire/vkey-tsig
 	./00ulib/wire/wire-attestation
 	./00ulib/wire/wire-core
 	./00ulib/wire/wire-info
