@@ -361,6 +361,10 @@ use (
 	./00xper/corealgorithms/uuid
 	./00xper/harness2
 	./00xper/purchaseinfo-validation
+	./86sref/unify-unity/unify-unity-attestation
+	./86sref/unify-unity/unify-unity-info
+	./86sref/unity-unify/unity-unify-attestation
+	./86sref/unity-unify/unity-unify-info
 )
 
 replace (
