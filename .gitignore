@@ -206,6 +206,9 @@ hydrationcache/
 !/00xper/software-vendors/
 /00xper/software-vendors/*
 !/00xper/software-vendors/.gitkeep
+!/00xper/unify-unity/
+/00xper/unify-unity/*
+!/00xper/unify-unity/.gitkeep
 
 /01open/*
 !/01open/.gitkeep

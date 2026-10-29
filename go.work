@@ -337,6 +337,7 @@ use (
 	./00ulib/math/symplectic
 	./00ulib/math/tannakian
 	./00ulib/math/transforms
+	./00ulib/substrate/addressspace
 	./00ulib/substrate/blake3
 	./00ulib/substrate/cas
 	./00ulib/substrate/codecs
@@ -355,16 +356,27 @@ use (
 	./00ulib/substrate/substrate-core
 	./00ulib/substrate/substrate-info
 	./00ulib/substrate/wasm
+	./00xper/carbon/avataron3d
+	./00xper/carbon/ballistics
+	./00xper/carbon/bluecore
 	./00xper/corealgorithms/cadence-orchestrator
 	./00xper/corealgorithms/corealgorithms-attestation
 	./00xper/corealgorithms/corealgorithms-info
 	./00xper/corealgorithms/uuid
 	./00xper/harness2
 	./00xper/purchaseinfo-validation
-	./86sref/unify-unity/unify-unity-attestation
-	./86sref/unify-unity/unify-unity-info
-	./86sref/unity-unify/unity-unify-attestation
-	./86sref/unity-unify/unity-unify-info
+	./00xper/unify-unity/avataron-editor
+	./00xper/unify-unity/avataron-input-xr-audio
+	./00xper/unify-unity/avataron-srp
+	./00xper/unify-unity/avataron-ugui
+	./00xper/unify-unity/dots-plinth
+	./00xper/unify-unity/plinth-object
+	./00xper/unify-unity/unify-math
+	./00xper/unify-unity/unify-navmesh
+	./00xper/unify-unity/unify-netcode
+	./00xper/unify-unity/unify-physics
+	./00xper/unify-unity/unify-unity-attestation
+	./00xper/unify-unity/unify-unity-info
 )
 
 replace (

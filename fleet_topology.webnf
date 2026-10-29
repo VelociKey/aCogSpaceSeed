@@ -97,6 +97,12 @@ silo 00ulib {
             module_path = "sov.fleet/substrate/cas" ;
             buildable = true ;
         }
+        workspace addressspace {
+            qualified_name = "substrate/addressspace" ;
+            rel_path = "00ulib/substrate/addressspace" ;
+            module_path = "sov.fleet/substrate/addressspace" ;
+            buildable = true ;
+        }
     }
 
     family math {
