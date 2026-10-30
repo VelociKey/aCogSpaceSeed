@@ -119,6 +119,9 @@ hydrationcache/
 !/00flow/actors/
 /00flow/actors/*
 !/00flow/actors/.gitkeep
+!/00flow/carbon/
+/00flow/carbon/*
+!/00flow/carbon/.gitkeep
 !/00flow/plinth/
 /00flow/plinth/*
 !/00flow/plinth/.gitkeep
@@ -188,6 +191,9 @@ hydrationcache/
 !/00xper/carbon/
 /00xper/carbon/*
 !/00xper/carbon/.gitkeep
+!/00xper/code-signing/
+/00xper/code-signing/*
+!/00xper/code-signing/.gitkeep
 !/00xper/codecs/
 /00xper/codecs/*
 !/00xper/codecs/.gitkeep

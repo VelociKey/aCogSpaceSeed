@@ -1,6 +1,9 @@
 go 1.27
 
 use (
+	./00xper/code-signing/apple
+	./00xper/code-signing/code-signing-attestation
+	./00xper/code-signing/code-signing-info
 	./00proc/00proc-info
 	./00proc/rescue-euridice/defect-ambiguity-studio
 	./00proc/rescue-euridice/euridice-forge
@@ -166,7 +169,6 @@ use (
 	./00flow/qdag
 	./00flow/qsec
 	./00flow/qzerocopy
-	./00flow/sacp
 	./00flow/schema-broker
 	./00flow/scorecard
 	./00flow/seerSTMci
@@ -432,7 +434,6 @@ replace (
 	sov.fleet/quic-core v0.0.0-00010101000000-000000000000 => ./00flon/transport/quic-core
 	sov.fleet/root => C:\aCogSpaceSeed\00flow\forge
 	sov.fleet/s-adaptivelock v0.0.0 => C:\aCogSpaceSeed\00flow\adaptivelock
-	sov.fleet/sacp v0.0.0 => C:\aCogSpaceSeed\00flow\sacp
 	sov.fleet/sovereign-client v0.0.0 => C:\aCogSpaceSeed\00flon\transport\client
 	sov.fleet/sovereign-client v0.0.0-00010101000000-000000000000 => C:\aCogSpaceSeed\00flon\transport\client
 	sov.fleet/sovereign-testing v0.0.0 => C:\aCogSpaceSeed\00flon\transport\testing

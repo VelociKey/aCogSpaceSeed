@@ -1,0 +1,117 @@
+{
+  "name": "com.velocikey.compilers",
+  "version": "1.0.0",
+  "displayName": "VelociKey Drop-In Replacement Compilers Suite (Path 2)",
+  "description": "Strict 1:1 drop-in replacement compiler executables (vkey-rustc, vkey-clang, vkey-llvm, vkey-gcc, vkey-go, vkey-pythonc, vkey-tsc, vkey-javac, vkey-gfortran, vkey-php, vkey-wasm) with zero extension of public compiler semantics. Delivers measurable compilation speed and memory improvements across chosen build-host chip architectures to accelerate human developer and LLM agent iteration loops and achieve earlier time-to-market.",
+  "author": "VelociKey Sovereign Fleet",
+  "license": "Sovereign Fleet License (Stage 1 Antigravity-Exclusive / Stage 2 CI / Stage 3 Enterprise)",
+  "category": "Compilers & Developer Velocity",
+  "homepage": "https://velocikey.com/compilers",
+  "entrypoint": "C:\\aCogSpaceSeed\\00flow\\forge\\96000-internal-executables\\purchaseinfo-validation.exe",
+  "transport": "stdio",
+  "skills": [
+    "skills/compilers"
+  ],
+  "capabilities": [
+    "strict_drop_in_compiler_replacement",
+    "zero_feature_extension_upstream_compatibility",
+    "multi_host_chip_architecture_execution",
+    "black_box_speed_and_memory_verification",
+    "six_wave_staged_rollout_entitlement_gate",
+    "vault_backed_compiler_and_host_chip_poll"
+  ],
+  "billing": {
+    "provider": "antigravity_marketplace",
+    "tier": "staged_rollout_subscription",
+    "plans": {
+      "stage1_antigravity_ide_monthly": {
+        "monthly_usd": 240,
+        "sku": "SKU-VKEY-COMPILERS-S1-MO",
+        "description": "Stage 1 Antigravity IDE + agy CLI Node-Locked Seat ($240/mo)"
+      },
+      "stage1_antigravity_ide_annual": {
+        "annual_usd": 2400,
+        "sku": "SKU-VKEY-COMPILERS-S1-YR",
+        "description": "Stage 1 Antigravity IDE + agy CLI Annual Seat ($2,400/yr — 10x monthly = 2 months free, under $2,500 corporate P-Card threshold)"
+      },
+      "stage2_connected_ci_convertible_pilot": {
+        "pilot_usd": 25000,
+        "sku": "SKU-VKEY-COMPILERS-S2-PILOT",
+        "description": "Stage 2 Connected CI/CD Runner 60/90-Day Convertible Pilot (100% credit rollover into Year-1 Annual)"
+      },
+      "stage2_connected_ci_annual": {
+        "annual_usd": 49000,
+        "sku": "SKU-VKEY-COMPILERS-S2-YR",
+        "description": "Stage 2 Floating CI/CD Runner Pack ($4,900/mo or $49,000/yr)"
+      }
+    }
+  },
+  "tools": [
+    {
+      "name": "vkey_compiler_activate",
+      "description": "Activates a drop-in replacement compiler (e.g. vkey-rustc, vkey-clang, vkey-go) for the current Antigravity workspace and build-host chip architecture.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "compiler_sku": {
+            "type": "string",
+            "description": "Drop-in compiler SKU (vkey-rustc, vkey-clang, vkey-llvm, vkey-gcc, vkey-go, vkey-pythonc, vkey-tsc, vkey-javac, vkey-gfortran, vkey-php, vkey-wasm)"
+          },
+          "host_chip_arch": {
+            "type": "string",
+            "description": "Build-host chip architecture where the compiler executable runs (e.g. intel_n100_avx2, avx512, amd-epyc-zen4, aws-graviton4, google-axion-v2, apple-m4-max, riscv64_vector_v1)"
+          },
+          "rollout_stage": {
+            "type": "string",
+            "description": "Deployment stage (Stage1_AntigravityIDE, Stage2_ConnectedCI, Stage3_EnterpriseBuildFarm)"
+          }
+        },
+        "required": ["compiler_sku", "host_chip_arch"]
+      }
+    },
+    {
+      "name": "vkey_compiler_scorecard",
+      "description": "Runs a zero-IP black-box comparison between the upstream public compiler and the vkey-<compiler> drop-in replacement, reporting only measured compilation time, compiler memory usage, and binary size.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "compiler_sku": {
+            "type": "string",
+            "description": "Drop-in compiler SKU to benchmark"
+          },
+          "target_triple": {
+            "type": "string",
+            "description": "Standard target architecture supported by the upstream compiler"
+          }
+        },
+        "required": ["compiler_sku"]
+      }
+    },
+    {
+      "name": "vkey_compiler_poll_vote",
+      "description": "Submits a weighted customer vote for the next vkey-<compiler> wave and build-host chip architecture, unlocking Private Early-Access eligibility for both winning and runner-up voters.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "subscriber_id": {
+            "type": "string",
+            "description": "Subscriber or organization identifier"
+          },
+          "voted_compiler_sku": {
+            "type": "string",
+            "description": "Pre-built vault compiler candidate on the ballot (e.g. vkey-clang, vkey-go, vkey-pythonc, vkey-tsc, vkey-javac)"
+          },
+          "voted_host_chip": {
+            "type": "string",
+            "description": "Requested build-host chip architecture (e.g. avx512, aws-graviton4, google-axion-v2, apple-m4-max, riscv64_vector_v1)"
+          },
+          "voter_tier": {
+            "type": "string",
+            "description": "Commercial commitment tier for vote weighting: Community (1x), AntigravitySeat (10x), ConvertibleCIPilot (500x + 72h Private Unlock)"
+          }
+        },
+        "required": ["subscriber_id", "voted_compiler_sku", "voted_host_chip", "voter_tier"]
+      }
+    }
+  ]
+}
