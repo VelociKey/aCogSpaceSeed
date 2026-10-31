@@ -1,6 +1,11 @@
 go 1.27
 
 use (
+	./00xper/plinth-explorer
+	./00xper/authentication/authentication-attestation
+	./00xper/authentication/authentication-info
+	./00xper/authentication/avataron-auth
+	./00xper/authentication/tungsten-auth
 	./00xper/code-signing/apple
 	./00xper/code-signing/code-signing-attestation
 	./00xper/code-signing/code-signing-info

@@ -188,6 +188,9 @@ hydrationcache/
 
 /00xper/*
 !/00xper/.gitkeep
+!/00xper/authentication/
+/00xper/authentication/*
+!/00xper/authentication/.gitkeep
 !/00xper/carbon/
 /00xper/carbon/*
 !/00xper/carbon/.gitkeep

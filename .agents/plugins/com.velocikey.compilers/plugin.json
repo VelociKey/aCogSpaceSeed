@@ -2,7 +2,7 @@
   "name": "com.velocikey.compilers",
   "version": "1.0.0",
   "displayName": "VelociKey Drop-In Replacement Compilers Suite (Path 2)",
-  "description": "Strict 1:1 drop-in replacement compiler executables (vkey-rustc, vkey-clang, vkey-llvm, vkey-gcc, vkey-go, vkey-pythonc, vkey-tsc, vkey-javac, vkey-gfortran, vkey-php, vkey-wasm) with zero extension of public compiler semantics. Delivers measurable compilation speed and memory improvements across chosen build-host chip architectures to accelerate human developer and LLM agent iteration loops and achieve earlier time-to-market.",
+  "description": "Strict 1:1 drop-in replacement compiler executables (vkey-rustc, vkey-clang, vkey-llvm, vkey-gcc, vkey-go, vkey-pythonc, vkey-tsc, vkey-javac, vkey-gfortran, vkey-php, vkey-dart, vkey-wasm) with zero extension of public compiler semantics. Delivers measurable compilation speed and memory improvements across chosen build-host chip architectures to accelerate human developer and LLM agent iteration loops and achieve earlier time-to-market.",
   "author": "VelociKey Sovereign Fleet",
   "license": "Sovereign Fleet License (Stage 1 Antigravity-Exclusive / Stage 2 CI / Stage 3 Enterprise)",
   "category": "Compilers & Developer Velocity",
@@ -55,7 +55,7 @@
         "properties": {
           "compiler_sku": {
             "type": "string",
-            "description": "Drop-in compiler SKU (vkey-rustc, vkey-clang, vkey-llvm, vkey-gcc, vkey-go, vkey-pythonc, vkey-tsc, vkey-javac, vkey-gfortran, vkey-php, vkey-wasm)"
+            "description": "Drop-in compiler SKU (vkey-rustc, vkey-clang, vkey-llvm, vkey-gcc, vkey-go, vkey-pythonc, vkey-tsc, vkey-javac, vkey-gfortran, vkey-php, vkey-dart, vkey-wasm)"
           },
           "host_chip_arch": {
             "type": "string",
@@ -99,7 +99,7 @@
           },
           "voted_compiler_sku": {
             "type": "string",
-            "description": "Pre-built vault compiler candidate on the ballot (e.g. vkey-clang, vkey-go, vkey-pythonc, vkey-tsc, vkey-javac)"
+            "description": "Pre-built vault compiler candidate on the ballot (e.g. vkey-clang, vkey-go, vkey-pythonc, vkey-tsc, vkey-javac, vkey-dart)"
           },
           "voted_host_chip": {
             "type": "string",

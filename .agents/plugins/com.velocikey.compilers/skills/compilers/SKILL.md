@@ -1,6 +1,6 @@
 ---
 name: compilers
-description: VelociKey Drop-In Replacement Compilers Suite (vkey-rustc, vkey-clang, vkey-llvm, vkey-gcc, vkey-go, vkey-pythonc, vkey-tsc, vkey-javac, vkey-gfortran, vkey-php, vkey-wasm). Strict 1:1 drop-in replacements for public compilers with zero feature extension, delivering measurable compilation speed and memory improvements across chosen build-host chip architectures to accelerate human and LLM-agent development velocity and time-to-market.
+description: VelociKey Drop-In Replacement Compilers Suite (vkey-rustc, vkey-clang, vkey-llvm, vkey-gcc, vkey-go, vkey-pythonc, vkey-tsc, vkey-javac, vkey-gfortran, vkey-php, vkey-dart, vkey-wasm). Strict 1:1 drop-in replacements for public compilers with zero feature extension, delivering measurable compilation speed and memory improvements across chosen build-host chip architectures to accelerate human and LLM-agent development velocity and time-to-market.
 ---
 
 # VelociKey Drop-In Replacement Compilers Suite (`com.velocikey.compilers`)
@@ -31,6 +31,7 @@ description: VelociKey Drop-In Replacement Compilers Suite (vkey-rustc, vkey-cla
 | **`vkey-clang` & `vkey-llvm`** (`42,487,808 B` PE32+, `.text = 5,751,488 B`) | `13.68 MB` LLVM 19.1.7 C++ source (`lib/IR`, `lib/Transforms`, `lib/Target/X86`) | Whole-backend PE32+ executable built in **`9.83 s`** (`42,487,808 B`) | Drop-in `CC=vkey-clang` / `CXX=vkey-clang++` replacement |
 | **`vkey-pythonc` & `vkey-triton`** (`244,224 B` `vkey-pythonc`, `323,072 B` `vkey-triton`, `1,693,184 B` `vkey-vllm-compile`) | Python / Triton / vLLM compilation subsystems | Built in **`69.89 ms`** (`bpy`), **`78.18 ms`** (`triton/compiler`), **`259.47 ms`** (`vllm/compilation`); 50M-pass compiler benchmark executes in **`14.20 ms`** (`25,600 B`) | Stripped (`-dwarf=strip_all`, `0` exposed symbols) native compiler executables |
 | **`vkey-tsc`, `vkey-javac`, `vkey-php`, `vkey-wasm`** | Upstream JS/TS, Java, PHP, and WASM toolchains | `vkey-tsc` (`27,136 B` built in `317.71 ms`), `vkey-php` (`1,434,112 B` built in `578.84 ms`), `vkey-wasm` (`241,664 B` built in `339.12 ms`) | Stripped (`-dwarf=strip_all`, `0` exposed symbols) native compiler executables |
+| **`vkey-dart` (`vkey-flutter` / `gen_snapshot` / `dart2wasm` / `dart2js` / `impellerc`)** (`19,158,016 B` PE32+, `.text = 2,469,552 B`) | Upstream Dart & Flutter SDK toolchain (`dart`, `flutter_tools`, `gen_snapshot`, `impellerc`) | Full AppFlowy Flutter corpus (`1,526` `.dart` files, `7,480,212 B`) compiled in **`2,085.58 ms`** (`19,158,016 B` PE32+); AI subsystem (`32` `.dart` files, `233,282 B`) in **`81.14 ms`** (`609,792 B` PE32+); single unit in **`45.23 ms`** (`38,912 B` PE32+) | Stripped (`-dwarf=strip_all`, `0` exposed symbols) native Dart/Flutter toolchain with zero-touch Google Antigravity `flutter` plugin acceleration |
 
 ---
 
