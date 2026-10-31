@@ -45,3 +45,27 @@ description: VelociKey Drop-In Replacement Compilers Suite (vkey-rustc, vkey-cla
 - **Wave 6:** `vkey-php`, `vkey-gfortran`, `vkey-dart`, `vkey-wasm`
 
 Each wave enters **Stage 1 (Antigravity IDE + `agy` CLI Exclusive)** for 30 days before graduating to **Stage 2 (`agy ci`)** and **Stage 3 (Enterprise Build Farms)**. Use `vkey_compiler_poll_vote` to record customer votes for the next wave and build-host chip architecture.
+
+---
+
+## 4. Reversible Antigravity Airlock Installation, Deinstallation & A/B Benchmarking (`weBNF.sn` / `.wag`)
+
+All installation receipts (`.vkey-airlock-receipt.webnf`), rollback state snapshots, and Mode A vs. Mode B Antigravity A/B telemetry records conform strictly to the embedded Wirth Augmented Grammar [`dropin_compiler_airlock.wag`](file:///c:/aCogSpaceSeed/00xper/purchaseinfo-validation/81000-active-source/validator/dropin_compiler_airlock.wag) (`:com:velocikey:compilers:airlock`):
+
+- **Install Virtual SDK Airlock (`.dart_tool/vkey-sdk/`):**
+  ```
+  C:\aCogSpaceSeed\00flow\forge\96000-internal-executables\purchaseinfo-validation.exe -compiler-action=install -sku=vkey-dart -workspace=<workspace_dir> -host-chip=intel_n100_avx2 -q -force -y
+  ```
+- **Inspect Airlock Status:**
+  ```
+  C:\aCogSpaceSeed\00flow\forge\96000-internal-executables\purchaseinfo-validation.exe -compiler-action=status -sku=vkey-dart -workspace=<workspace_dir> -q -force -y
+  ```
+- **Run Mode A (Uninstalled Native) vs. Mode B (`vkey-dart` Active) Antigravity A/B Benchmark:**
+  ```
+  C:\aCogSpaceSeed\00flow\forge\96000-internal-executables\purchaseinfo-validation.exe -compiler-action=ab-benchmark -sku=vkey-dart -workspace=<workspace_dir> -host-chip=intel_n100_avx2 -keep-installed=false -q -force -y
+  ```
+- **Deinstall & Verify Clean Rollback (`ResidualFilesCount = 0`):**
+  ```
+  C:\aCogSpaceSeed\00flow\forge\96000-internal-executables\purchaseinfo-validation.exe -compiler-action=uninstall -sku=vkey-dart -workspace=<workspace_dir> -q -force -y
+  ```
+
