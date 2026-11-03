@@ -1,8 +1,6 @@
 go 1.27
 
 use (
-	./00flow/databases/databases-info
-	./00flow/databases/databases-attestation
 	./00xper/plinth-explorer
 	./00xper/authentication/authentication-attestation
 	./00xper/authentication/authentication-info
@@ -101,6 +99,9 @@ use (
 	./00flow/codeworld
 	./00flow/cosvkey
 	./00flow/cyberneticstudio
+	./00flow/databases/databases-attestation
+	./00flow/databases/databases-info
+	./00flow/databases/romaine
 	./00flow/dedupkernel
 	./00flow/distribution
 	./00flow/effectortokenizer

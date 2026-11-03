@@ -738,7 +738,7 @@ silo 00flow {
         }
     }
 
-    # --- Family: databases (2 workspaces) ---
+    # --- Family: databases (3 workspaces) ---
     family databases {
         github_repo = "VelociKey/databases" ;
         attestation_workspace = "databases-attestation" ;
@@ -755,6 +755,12 @@ silo 00flow {
             module_path = "sov.fleet/databases-attestation" ;
             buildable = true ;
             tag = "attestation" ;
+        }
+        workspace romaine {
+            qualified_name = "databases/romaine" ;
+            rel_path = "00flow/databases/romaine" ;
+            module_path = "sov.fleet/romaine" ;
+            buildable = true ;
         }
     }
 
@@ -2256,13 +2262,7 @@ silo 00xper {
         buildable = true ;
     }
 
-    # --- Pseudo-Family: romaine (4 workspaces) ---
-    workspace romaine {
-        qualified_name = "romaine" ;
-        rel_path = "00xper/romaine" ;
-        module_path = "sov.fleet/romaine" ;
-        buildable = true ;
-    }
+    # --- Pseudo-Family: romaine (3 workspaces) ---
     workspace romaineattestation {
         qualified_name = "romaineattestation" ;
         rel_path = "00xper/romaineattestation" ;
