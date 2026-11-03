@@ -2,23 +2,24 @@
   "name": "com.velocikey.compilers",
   "version": "1.0.0",
   "displayName": "VelociKey Drop-In Replacement Compilers Suite (Path 2)",
-  "description": "Strict 1:1 drop-in replacement compiler executables (vkey-rustc, vkey-clang, vkey-llvm, vkey-gcc, vkey-go, vkey-pythonc, vkey-tsc, vkey-javac, vkey-gfortran, vkey-php, vkey-dart, vkey-wasm) with zero extension of public compiler semantics. Delivers measurable compilation speed and memory improvements across chosen build-host chip architectures to accelerate human developer and LLM agent iteration loops and achieve earlier time-to-market.",
+  "description": "Strict 1:1 standalone drop-in replacement compiler executables (vkey-rustc, vkey-clang, vkey-llvm, vkey-go, vkey-pythonc, vkey-cuda, vkey-triton, vkey-xla, vkey-tvm, vkey-iree, vkey-tsc, vkey-kotlinc, vkey-swiftc, vkey-slang, vkey-halide, vkey-taichi, vkey-flang, vkey-php, vkey-dart, vkey-wasm, vkey-sycl, vkey-numba, vkey-futhark, vkey-protoc, vkey-jaxc, vkey-zetasql, vkey-r8, vkey-bazel, vkey-v8, vkey-flutterc, vkey-tint, vkey-binaryen, vkey-j2cl, vkey-xls, vkey-cel, vkey-flatc, vkey-carbon) built exclusively from permissive non-viral upstream sources with zero extension of public compiler semantics and zero dependency on pre-installed upstream toolchains.",
   "author": "VelociKey Sovereign Fleet",
   "license": "Sovereign Fleet License (Stage 1 Antigravity-Exclusive / Stage 2 CI / Stage 3 Enterprise)",
   "category": "Compilers & Developer Velocity",
   "homepage": "https://velocikey.com/compilers",
-  "entrypoint": "C:\\aCogSpaceSeed\\00flow\\forge\\96000-internal-executables\\purchaseinfo-validation.exe",
+  "entrypoint": "C:\\aCogSpaceSeed\\00flow\\forge\\96000-internal-executables\\antigravityplugins.exe",
   "transport": "stdio",
   "skills": [
     "skills/compilers"
   ],
   "capabilities": [
     "strict_drop_in_compiler_replacement",
+    "standalone_self_contained_virtual_sdk_airlock",
     "zero_feature_extension_upstream_compatibility",
     "multi_host_chip_architecture_execution",
-    "black_box_speed_and_memory_verification",
     "six_wave_staged_rollout_entitlement_gate",
-    "vault_backed_compiler_and_host_chip_poll"
+    "vault_backed_compiler_and_host_chip_poll",
+    "hybrid_saas_ptx_to_cubin_nlpert_acceleration"
   ],
   "billing": {
     "provider": "antigravity_marketplace",
@@ -48,43 +49,61 @@
   },
   "tools": [
     {
-      "name": "vkey_compiler_activate",
-      "description": "Activates a drop-in replacement compiler (e.g. vkey-rustc, vkey-clang, vkey-go) for the current Antigravity workspace and build-host chip architecture.",
+      "name": "vkey_compiler_install",
+      "description": "Installs a standalone, self-contained vkey-<compiler> Virtual SDK Airlock in the target workspace and emits a cryptographically sealed .webnf receipt (CompilerAirlockReceipt) with zero dependency on pre-installed toolchains.",
       "parameters": {
         "type": "object",
         "properties": {
+          "workspace_dir": {
+            "type": "string",
+            "description": "Target workspace directory path"
+          },
           "compiler_sku": {
             "type": "string",
-            "description": "Drop-in compiler SKU (vkey-rustc, vkey-clang, vkey-llvm, vkey-gcc, vkey-go, vkey-pythonc, vkey-tsc, vkey-javac, vkey-gfortran, vkey-php, vkey-dart, vkey-wasm)"
+            "description": "Drop-in compiler SKU (vkey-rustc, vkey-clang, vkey-llvm, vkey-go, vkey-pythonc, vkey-cuda, vkey-triton, vkey-xla, vkey-tvm, vkey-iree, vkey-tsc, vkey-kotlinc, vkey-swiftc, vkey-slang, vkey-halide, vkey-taichi, vkey-flang, vkey-php, vkey-dart, vkey-wasm, vkey-sycl, vkey-numba, vkey-futhark, vkey-protoc, vkey-jaxc, vkey-zetasql, vkey-r8, vkey-bazel, vkey-v8, vkey-flutterc, vkey-tint, vkey-binaryen, vkey-j2cl, vkey-xls, vkey-cel, vkey-flatc, vkey-carbon)"
           },
           "host_chip_arch": {
             "type": "string",
-            "description": "Build-host chip architecture where the compiler executable runs (e.g. intel_n100_avx2, avx512, amd-epyc-zen4, aws-graviton4, google-axion-v2, apple-m4-max, riscv64_vector_v1)"
-          },
-          "rollout_stage": {
-            "type": "string",
-            "description": "Deployment stage (Stage1_AntigravityIDE, Stage2_ConnectedCI, Stage3_EnterpriseBuildFarm)"
+            "description": "Build-host chip architecture where the compiler executable runs"
           }
         },
-        "required": ["compiler_sku", "host_chip_arch"]
+        "required": ["workspace_dir", "compiler_sku", "host_chip_arch"]
       }
     },
     {
-      "name": "vkey_compiler_scorecard",
-      "description": "Runs a zero-IP black-box comparison between the upstream public compiler and the vkey-<compiler> drop-in replacement, reporting only measured compilation time, compiler memory usage, and binary size.",
+      "name": "vkey_compiler_status",
+      "description": "Inspects the live standalone Virtual SDK Airlock status and verifies the .vkey-airlock-receipt.webnf seal in the workspace.",
       "parameters": {
         "type": "object",
         "properties": {
+          "workspace_dir": {
+            "type": "string",
+            "description": "Target workspace directory path"
+          },
           "compiler_sku": {
             "type": "string",
-            "description": "Drop-in compiler SKU to benchmark"
-          },
-          "target_triple": {
-            "type": "string",
-            "description": "Standard target architecture supported by the upstream compiler"
+            "description": "Drop-in compiler SKU to inspect (vkey-rustc, vkey-clang, vkey-llvm, vkey-go, vkey-pythonc, vkey-cuda, vkey-triton, vkey-xla, vkey-tvm, vkey-iree, vkey-tsc, vkey-kotlinc, vkey-swiftc, vkey-slang, vkey-halide, vkey-taichi, vkey-flang, vkey-php, vkey-dart, vkey-wasm, vkey-sycl, vkey-numba, vkey-futhark, vkey-protoc, vkey-jaxc, vkey-zetasql, vkey-r8, vkey-bazel, vkey-v8, vkey-flutterc, vkey-tint, vkey-binaryen, vkey-j2cl, vkey-xls, vkey-cel, vkey-flatc, vkey-carbon)"
           }
         },
-        "required": ["compiler_sku"]
+        "required": ["workspace_dir", "compiler_sku"]
+      }
+    },
+    {
+      "name": "vkey_compiler_uninstall",
+      "description": "Deinstalls the workspace Virtual SDK Airlock, removes all hydrated binaries and marker files with zero residual footprint, and emits a sealed CompilerUninstallReceipt (.webnf).",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "workspace_dir": {
+            "type": "string",
+            "description": "Target workspace directory path"
+          },
+          "compiler_sku": {
+            "type": "string",
+            "description": "Drop-in compiler SKU to deinstall (vkey-rustc, vkey-clang, vkey-llvm, vkey-go, vkey-pythonc, vkey-cuda, vkey-triton, vkey-xla, vkey-tvm, vkey-iree, vkey-tsc, vkey-kotlinc, vkey-swiftc, vkey-slang, vkey-halide, vkey-taichi, vkey-flang, vkey-php, vkey-dart, vkey-wasm, vkey-sycl, vkey-numba, vkey-futhark, vkey-protoc, vkey-jaxc, vkey-zetasql, vkey-r8, vkey-bazel, vkey-v8, vkey-flutterc, vkey-tint, vkey-binaryen, vkey-j2cl, vkey-xls, vkey-cel, vkey-flatc, vkey-carbon)"
+          }
+        },
+        "required": ["workspace_dir", "compiler_sku"]
       }
     },
     {
@@ -99,7 +118,7 @@
           },
           "voted_compiler_sku": {
             "type": "string",
-            "description": "Pre-built vault compiler candidate on the ballot (e.g. vkey-clang, vkey-go, vkey-pythonc, vkey-tsc, vkey-javac, vkey-dart)"
+            "description": "Pre-built vault compiler candidate on the ballot (vkey-rustc, vkey-clang, vkey-llvm, vkey-go, vkey-pythonc, vkey-cuda, vkey-triton, vkey-xla, vkey-tvm, vkey-iree, vkey-tsc, vkey-kotlinc, vkey-swiftc, vkey-slang, vkey-halide, vkey-taichi, vkey-flang, vkey-php, vkey-dart, vkey-wasm, vkey-sycl, vkey-numba, vkey-futhark, vkey-protoc, vkey-jaxc, vkey-zetasql, vkey-r8, vkey-bazel, vkey-v8, vkey-flutterc, vkey-tint, vkey-binaryen, vkey-j2cl, vkey-xls, vkey-cel, vkey-flatc, vkey-carbon)"
           },
           "voted_host_chip": {
             "type": "string",

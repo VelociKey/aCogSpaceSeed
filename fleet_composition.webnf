@@ -50,6 +50,12 @@ suite commerce_full {
     include family commerce ;
 }
 
+suite databases_full {
+    description = "Complete 00flow/databases family" ;
+    output = individual ;
+    include family databases ;
+}
+
 # ─── Composite Suites ───
 
 suite platform_essentials {

@@ -1,6 +1,8 @@
 go 1.27
 
 use (
+	./00flow/databases/databases-info
+	./00flow/databases/databases-attestation
 	./00xper/plinth-explorer
 	./00xper/authentication/authentication-attestation
 	./00xper/authentication/authentication-info
@@ -363,6 +365,8 @@ use (
 	./00ulib/substrate/substrate-core
 	./00ulib/substrate/substrate-info
 	./00ulib/substrate/wasm
+	./00xper/antigravity-sdk-go
+	./00xper/antigravityplugins
 	./00xper/carbon/avataron3d
 	./00xper/carbon/ballistics
 	./00xper/carbon/bluecore

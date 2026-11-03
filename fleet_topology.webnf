@@ -738,6 +738,26 @@ silo 00flow {
         }
     }
 
+    # --- Family: databases (2 workspaces) ---
+    family databases {
+        github_repo = "VelociKey/databases" ;
+        attestation_workspace = "databases-attestation" ;
+
+        workspace databases-info {
+            qualified_name = "databases/databases-info" ;
+            rel_path = "00flow/databases/databases-info" ;
+            module_path = "sov.fleet/databases-info" ;
+            buildable = true ;
+        }
+        workspace databases-attestation {
+            qualified_name = "databases/databases-attestation" ;
+            rel_path = "00flow/databases/databases-attestation" ;
+            module_path = "sov.fleet/databases-attestation" ;
+            buildable = true ;
+            tag = "attestation" ;
+        }
+    }
+
     # --- Orphan Workspaces ---
     workspace adaptivelock {
         qualified_name = "adaptivelock" ;
