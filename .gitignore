@@ -209,6 +209,9 @@ hydrationcache/
 !/00xper/codecs/
 /00xper/codecs/*
 !/00xper/codecs/.gitkeep
+!/00xper/compete/
+/00xper/compete/*
+!/00xper/compete/.gitkeep
 !/00xper/corealgorithms/
 /00xper/corealgorithms/*
 !/00xper/corealgorithms/.gitkeep
