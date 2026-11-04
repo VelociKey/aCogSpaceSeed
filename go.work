@@ -1,6 +1,7 @@
 go 1.27
 
 use (
+	./00xper/compete/compete-core
 	./00xper/compete/blnk-v2
 	./00xper/compete/formance-v2
 	./00xper/compete/blnk
