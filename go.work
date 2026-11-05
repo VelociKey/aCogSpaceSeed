@@ -1,6 +1,7 @@
 go 1.27
 
 use (
+	./00xper/applications/vkey-oceansight
 	./00xper/applications/vkey-gvcom-datatocompute
 	./00xper/applications/vkey-fvcom-gvcom
 	./00xper/applications/vkey-fvcom
