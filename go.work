@@ -1,6 +1,18 @@
 go 1.27
 
 use (
+	./00xper/applications/vkey-fvcom
+	./00xper/applications/applications-attestation
+	./00xper/applications/applications-info
+	./00xper/linuxreplacements/distro-core
+	./00xper/linuxreplacements/vkey-omarchy
+	./00xper/linuxreplacements/linuxreplacements-attestation
+	./00xper/linuxreplacements/linuxreplacements-info
+	./00xper/darkmatter/darkmatter-attestation
+	./00xper/darkmatter/darkmatter-cli
+	./00xper/darkmatter/darkmatter-desktop
+	./00xper/darkmatter/darkmatter-harness
+	./00xper/darkmatter/darkmatter-info
 	./00xper/compete/compete-core
 	./00xper/compete/blnk-v2
 	./00xper/compete/formance-v2

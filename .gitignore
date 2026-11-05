@@ -197,6 +197,9 @@ hydrationcache/
 
 /00xper/*
 !/00xper/.gitkeep
+!/00xper/applications/
+/00xper/applications/*
+!/00xper/applications/.gitkeep
 !/00xper/authentication/
 /00xper/authentication/*
 !/00xper/authentication/.gitkeep
@@ -215,12 +218,18 @@ hydrationcache/
 !/00xper/corealgorithms/
 /00xper/corealgorithms/*
 !/00xper/corealgorithms/.gitkeep
+!/00xper/darkmatter/
+/00xper/darkmatter/*
+!/00xper/darkmatter/.gitkeep
 !/00xper/habitat/
 /00xper/habitat/*
 !/00xper/habitat/.gitkeep
 !/00xper/iso/
 /00xper/iso/*
 !/00xper/iso/.gitkeep
+!/00xper/linuxreplacements/
+/00xper/linuxreplacements/*
+!/00xper/linuxreplacements/.gitkeep
 !/00xper/npmresearch/
 /00xper/npmresearch/*
 !/00xper/npmresearch/.gitkeep

@@ -1882,6 +1882,64 @@ silo 00xper {
         }
     }
 
+    # --- Family: linuxreplacements (4 workspaces) ---
+    family linuxreplacements {
+        github_repo = "VelociKey/linuxreplacements" ;
+        attestation_workspace = "linuxreplacements-attestation" ;
+
+        workspace distro-core {
+            qualified_name = "linuxreplacements/distro-core" ;
+            rel_path = "00xper/linuxreplacements/distro-core" ;
+            module_path = "sov.fleet/distro-core" ;
+            buildable = true ;
+        }
+        workspace omarchy {
+            qualified_name = "linuxreplacements/omarchy" ;
+            rel_path = "00xper/linuxreplacements/omarchy" ;
+            module_path = "sov.fleet/omarchy" ;
+            buildable = true ;
+        }
+        workspace linuxreplacements-info {
+            qualified_name = "linuxreplacements/linuxreplacements-info" ;
+            rel_path = "00xper/linuxreplacements/linuxreplacements-info" ;
+            module_path = "sov.fleet/linuxreplacements-info" ;
+            buildable = true ;
+        }
+        workspace linuxreplacements-attestation {
+            qualified_name = "linuxreplacements/linuxreplacements-attestation" ;
+            rel_path = "00xper/linuxreplacements/linuxreplacements-attestation" ;
+            module_path = "sov.fleet/linuxreplacements-attestation" ;
+            buildable = true ;
+            tag = "attestation" ;
+        }
+    }
+
+    # --- Family: applications (3 workspaces) ---
+    family applications {
+        github_repo = "VelociKey/applications" ;
+        attestation_workspace = "applications-attestation" ;
+
+        workspace vkey-fvcom {
+            qualified_name = "applications/vkey-fvcom" ;
+            rel_path = "00xper/applications/vkey-fvcom" ;
+            module_path = "sov.fleet/vkey-fvcom" ;
+            buildable = true ;
+        }
+        workspace applications-info {
+            qualified_name = "applications/applications-info" ;
+            rel_path = "00xper/applications/applications-info" ;
+            module_path = "sov.fleet/applications-info" ;
+            buildable = true ;
+        }
+        workspace applications-attestation {
+            qualified_name = "applications/applications-attestation" ;
+            rel_path = "00xper/applications/applications-attestation" ;
+            module_path = "sov.fleet/applications-attestation" ;
+            buildable = true ;
+            tag = "attestation" ;
+        }
+    }
+
     # --- Pseudo-Family: antigravity (5 workspaces) ---
     workspace antigravity-sdk-go {
         qualified_name = "antigravity-sdk-go" ;
