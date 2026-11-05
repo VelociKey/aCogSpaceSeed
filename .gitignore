@@ -140,6 +140,9 @@ hydrationcache/
 !/00flow/unilangunichip/
 /00flow/unilangunichip/*
 !/00flow/unilangunichip/.gitkeep
+!/00flow/weather/
+/00flow/weather/*
+!/00flow/weather/.gitkeep
 
 /00fora/*
 !/00fora/.gitkeep
@@ -197,9 +200,6 @@ hydrationcache/
 
 /00xper/*
 !/00xper/.gitkeep
-!/00xper/applications/
-/00xper/applications/*
-!/00xper/applications/.gitkeep
 !/00xper/authentication/
 /00xper/authentication/*
 !/00xper/authentication/.gitkeep

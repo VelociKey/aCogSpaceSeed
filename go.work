@@ -1,11 +1,11 @@
 go 1.27
 
 use (
-	./00xper/applications/vkey-oceansight
-	./00xper/applications/vkey-fvcom-gvcom
-	./00xper/applications/vkey-fvcom
-	./00xper/applications/applications-attestation
-	./00xper/applications/applications-info
+	./00flow/weather/vkey-oceansight
+	./00flow/weather/vkey-fvcom-gvcom
+	./00flow/weather/vkey-fvcom
+	./00flow/weather/weather-attestation
+	./00flow/weather/weather-info
 	./00xper/linuxreplacements/distro-core
 	./00xper/linuxreplacements/vkey-omarchy
 	./00xper/linuxreplacements/linuxreplacements-attestation
