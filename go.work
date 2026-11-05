@@ -116,6 +116,9 @@ use (
 	./00flow/applyconcurrency
 	./00flow/assurance
 	./00flow/authorize
+	./00flow/avataron/avataron-attestation
+	./00flow/avataron/avataron-info
+	./00flow/avataron/avataron3d
 	./00flow/casepreserve
 	./00flow/codeworld
 	./00flow/cosvkey

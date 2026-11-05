@@ -119,9 +119,9 @@ hydrationcache/
 !/00flow/actors/
 /00flow/actors/*
 !/00flow/actors/.gitkeep
-!/00flow/carbon/
-/00flow/carbon/*
-!/00flow/carbon/.gitkeep
+!/00flow/avataron/
+/00flow/avataron/*
+!/00flow/avataron/.gitkeep
 !/00flow/compiler/
 /00flow/compiler/*
 !/00flow/compiler/.gitkeep
