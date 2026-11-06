@@ -395,6 +395,12 @@ use (
 	./00xper/carbon/avataron3d
 	./00xper/carbon/ballistics
 	./00xper/carbon/bluecore
+	./00xper/continuum3d/continuum3d-attestation
+	./00xper/continuum3d/continuum3d-core
+	./00xper/continuum3d/continuum3d-game-realms
+	./00xper/continuum3d/continuum3d-info
+	./00xper/continuum3d/continuum3d-matter-usd
+	./00xper/continuum3d/continuum3d-spatial-dev
 	./00xper/corealgorithms/cadence-orchestrator
 	./00xper/corealgorithms/corealgorithms-attestation
 	./00xper/corealgorithms/corealgorithms-info

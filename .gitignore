@@ -215,6 +215,9 @@ hydrationcache/
 !/00xper/compete/
 /00xper/compete/*
 !/00xper/compete/.gitkeep
+!/00xper/continuum3d/
+/00xper/continuum3d/*
+!/00xper/continuum3d/.gitkeep
 !/00xper/corealgorithms/
 /00xper/corealgorithms/*
 !/00xper/corealgorithms/.gitkeep
