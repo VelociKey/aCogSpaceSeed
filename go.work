@@ -1,6 +1,7 @@
 go 1.27
 
 use (
+	./00flow/weather/earthsight
 	./00flow/weather/oceansight3d
 	./00flow/weather/oceansight-library
 	./00flow/weather/vkey-oceansight
