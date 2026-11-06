@@ -24,13 +24,13 @@ The sovereign `tensor` family open model engine executes directly against native
 3. **Plinth MTC4 In-Situ Evaluation**: Evaluates compressed 8-bit/4-bit Morton tiles directly into registers, bypassing DRAM dequantization bottlenecks.
 4. **Float128 RMSNorm & Octonionic Conformal RoPE**: Supports context scaling up to 2,000,000 tokens with certified numerical precision (< 1e-4 relative error).
 
-## Tool Calls Available via MCP (`com.velocikey.tensor`)
+## 5 First-Class Tool Calls Available via MCP (`com.velocikey.tensor`)
 
-- `tensor_model_infer`: Direct forward inference with top_logit, entropy, token telemetry, and specialized multilingual translation (`target_language` parameter with `vkgem`).
-- `tensor_speculative_critic`: Immediate architectural verification of code diffs against sovereign invariants (pure Go, zero allocations, fastlog compliance).
-- `tensor_synthesize_tests`: Generates idiomatic Go unit, benchmark, and allocation tests using local coding models.
-- `tensor_ast_audit`: Deep security scan verifying zero CGo, zero raw git, and pure `vkeyslog` adoption.
-- `tensor_swarm_dispatch`: Concurrent execution of up to 16 subagents in parallel with consensus aggregation.
+- `tensor_model_infer`: Unified single-model inference, `vkgem` 256K multilingual translation (`target_language` / `source_text`), `qwen-coder` test synthesis (`test_type` / `source_code` / `file_path`), 5-mode `PersonaVault` & CAA steering (`lora_adapter: "persona:..."` / `"steer:..."`), and Kronecker `slerp:` / `ties:` merged models.
+- `tensor_swarm_dispatch`: Concurrent execution of up to 16 subagents in parallel with Tropical $(\min,+)$ geodesic routing and Galois $\text{GF}(2)$ bitwise deduplication.
+- `tensor_speculative_critic`: Unified speculative code critique + deep AST security scan (`slog`, CGo, raw `git`, loop allocations) + `TracIn` influence attribution + $<1\ \mu\text{s}$ $O(1)$ `KVCacheEpochManager` rollback on violation.
+- `tensor_carpetbag_pack`: First-class worktree and context bundler (`CARPETBAG-VERKLE-V1` + White3-256 cryptoseal + VerkleReceiver roundtrip verification + direct mounting into the unified 16-EB `MountModel` aperture).
+- `tensor_catalog_inspect`: Unified model catalog + `LithicModelDatabase` workstation runnability + 16-EB `UnifiedMountReceipt` facet status (`SOVEREIGN_SECRET_VAULT` vs. `OPEN_ZERO_COPY_APERTURE`).
 
 ## Model Specializations & Complementary Roles
 
