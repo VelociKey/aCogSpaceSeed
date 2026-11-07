@@ -1,6 +1,7 @@
 go 1.27
 
 use (
+	./00flow/weather/earthsight-attestation
 	./00flow/weather/earthsight
 	./00flow/weather/earthsight-library
 	./00flow/weather/oceansight3d
