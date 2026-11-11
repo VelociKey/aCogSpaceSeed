@@ -262,7 +262,6 @@ use (
 	./00flow/webnfdb
 	./00flow/white3
 	./00flow/wpim
-	./00skim/00skim-attestation
 	./00skim/00skim-info
 	./00skim/skim/manifold
 	./00skim/skim/skim-attestation

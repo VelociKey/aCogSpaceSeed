@@ -1439,16 +1439,16 @@ silo 00skim {
         github_repo = "VelociKey/skim" ;
         attestation_workspace = "attestation" ;
 
-        workspace info {
+        workspace skim-info {
             qualified_name = "skim/info" ;
-            rel_path = "00skim/skim/info" ;
+            rel_path = "00skim/skim/skim-info" ;
             module_path = "sov.fleet/skim-info" ;
             buildable = true ;
             tag = "info" ;
         }
-        workspace attestation {
+        workspace skim-attestation {
             qualified_name = "skim/attestation" ;
-            rel_path = "00skim/skim/attestation" ;
+            rel_path = "00skim/skim/skim-attestation" ;
             module_path = "sov.fleet/skim-attestation" ;
             buildable = true ;
             tag = "attestation" ;
