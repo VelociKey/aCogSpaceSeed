@@ -481,14 +481,20 @@ silo 00flow {
         }
     }
 
-    # --- Family: plinth (17 workspaces) ---
+    # --- Family: plinth (18 workspaces) ---
     family plinth {
         github_repo = "VelociKey/plinth" ;
-        attestation_workspace = "attestation" ;
+        attestation_workspace = "plinth-attestation" ;
 
-        workspace plinth {
-            qualified_name = "plinth" ;
-            rel_path = "00flow/plinth" ;
+        workspace plinth-info {
+            qualified_name = "plinth/plinth-info" ;
+            rel_path = "00flow/plinth/plinth-info" ;
+            module_path = "sov.fleet/plinth-info" ;
+            buildable = true ;
+        }
+        workspace plinth-core {
+            qualified_name = "plinth/plinth-core" ;
+            rel_path = "00flow/plinth/plinth-core" ;
             module_path = "sov.fleet/plinth" ;
             buildable = true ;
         }
@@ -498,9 +504,9 @@ silo 00flow {
             module_path = "sov.fleet/plinth-agentbox" ;
             buildable = true ;
         }
-        workspace attestation {
-            qualified_name = "plinth/attestation" ;
-            rel_path = "00flow/plinth/attestation" ;
+        workspace plinth-attestation {
+            qualified_name = "plinth/plinth-attestation" ;
+            rel_path = "00flow/plinth/plinth-attestation" ;
             module_path = "sov.fleet/plinth-attestation" ;
             buildable = true ;
             tag = "attestation" ;
@@ -511,9 +517,9 @@ silo 00flow {
             module_path = "sov.fleet/plinth-basics" ;
             buildable = true ;
         }
-        workspace conduit {
-            qualified_name = "plinth/conduit" ;
-            rel_path = "00flow/plinth/conduit" ;
+        workspace plinth-conduit {
+            qualified_name = "plinth/plinth-conduit" ;
+            rel_path = "00flow/plinth/plinth-conduit" ;
             module_path = "sov.fleet/plinth-conduit" ;
             buildable = true ;
         }
@@ -578,18 +584,17 @@ silo 00flow {
             module_path = "sov.fleet/plinth-posix" ;
             buildable = true ;
         }
-        workspace substrate {
-            qualified_name = "plinth/substrate" ;
-            rel_path = "00flow/plinth/substrate" ;
+        workspace plinth-substrate {
+            qualified_name = "plinth/plinth-substrate" ;
+            rel_path = "00flow/plinth/plinth-substrate" ;
             module_path = "sov.fleet/plinth-substrate" ;
             buildable = true ;
         }
-        workspace experimental-attestation {
-            qualified_name = "plinth/experimental-attestation" ;
-            rel_path = "00flow/plinth/experimental-attestation" ;
-            module_path = "sov.fleet/plinthattestation" ;
+        workspace supervision {
+            qualified_name = "plinth/supervision" ;
+            rel_path = "00flow/plinth/supervision" ;
+            module_path = "sov.fleet/plinth-supervision" ;
             buildable = true ;
-            tag = "experimental" ;
         }
     }
 
