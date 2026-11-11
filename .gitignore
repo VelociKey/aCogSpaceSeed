@@ -83,6 +83,9 @@ hydrationcache/
 
 /00cogt/*
 !/00cogt/.gitkeep
+!/00cogt/validatenautilus/
+/00cogt/validatenautilus/*
+!/00cogt/validatenautilus/.gitkeep
 
 /00flob/*
 !/00flob/.gitkeep
