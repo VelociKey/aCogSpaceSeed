@@ -432,7 +432,8 @@ use (
 replace (
 	cloud.google.com/go => C:\aCogSpaceSeed\00flow\forge\90200-module-cache\cloud.google.com\go@v0.123.0
 	cloud.google.com/go/bigquery => C:\aCogSpaceSeed\00flow\forge\90200-module-cache\cloud.google.com\go\bigquery@v1.77.0
-	cloud.google.com/go/bigtable => C:\aCogSpaceSeed\00flow\forge\90200-module-cache\cloud.google.com\go\bigtable@v1.37.0
+	cloud.google.com/go/bigtable => C:\aCogSpaceSeed\00flow\forge\90200-module-cache\cloud.google.com\go\bigtable@v1.50.0
+	cloud.google.com/go/datacatalog => ./00flow/forge/90200-module-cache/cloud.google.com/go/datacatalog@v1.32.0
 	cloud.google.com/go/firestore => C:\aCogSpaceSeed\00flow\forge\90200-module-cache\cloud.google.com/go/firestore@v1.9.0
 	cloud.google.com/go/pubsub => C:\aCogSpaceSeed\00flow\forge\90200-module-cache\cloud.google.com\go\pubsub@v1.50.2
 	cloud.google.com/go/spanner => C:\aCogSpaceSeed\00flow\forge\90200-module-cache\cloud.google.com\go\spanner@v1.92.0
