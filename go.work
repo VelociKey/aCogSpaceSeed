@@ -1,59 +1,6 @@
 go 1.27.1
 
 use (
-	./00cogt/validatenautilus/checkborder1
-	./00cogt/validatenautilus/nautiluscanary
-	./00cogt/validatenautilus/validatenautilus-info
-	./00cogt/validatenautilus/validatenautilus-attestation
-	./00flow/weather/earthsight-attestation
-	./00flow/weather/earthsight
-	./00flow/weather/earthsight-library
-	./00flow/weather/oceansight3d
-	./00flow/weather/vkey-oceansight
-	./00flow/weather/vkey-fvcom-gvcom
-	./00flow/weather/vkey-fvcom
-	./00flow/weather/weather-attestation
-	./00flow/weather/weather-info
-	./00xper/linuxreplacements/distro-core
-	./00xper/linuxreplacements/vkey-omarchy
-	./00xper/linuxreplacements/linuxreplacements-attestation
-	./00xper/linuxreplacements/linuxreplacements-info
-	./00xper/darkmatter/darkmatter-attestation
-	./00xper/darkmatter/darkmatter-cli
-	./00xper/darkmatter/darkmatter-desktop
-	./00xper/darkmatter/darkmatter-harness
-	./00xper/darkmatter/darkmatter-info
-	./00xper/compete/compete-core
-	./00xper/compete/blnk-v2
-	./00xper/compete/formance-v2
-	./00xper/compete/blnk
-	./00xper/compete/formance
-	./00xper/compete/compete-info
-	./00xper/compete/compete-attestation
-	./00xper/plinth-explorer
-	./00xper/authentication/authentication-attestation
-	./00xper/authentication/authentication-info
-	./00xper/authentication/avataron-auth
-	./00xper/authentication/tungsten-auth
-	./00xper/code-signing/apple
-	./00xper/code-signing/code-signing-attestation
-	./00xper/code-signing/code-signing-info
-	./00proc/00proc-info
-	./00proc/rescue-euridice/defect-ambiguity-studio
-	./00proc/rescue-euridice/euridice-forge
-	./00proc/rescue-euridice/puresoul-mesh-lifter
-	./00proc/rescue-euridice/rescue-euridice-attestation
-	./00proc/rescue-euridice/rescue-euridice-info
-	./00proc/rescue-euridice/tungsten-flutter-sacp
-	./00proc/rescue-euridice/wag-dialect-migrator
-	./01open/01open-info
-	./01open/modernopen/bhp
-	./01open/modernopen/bpy
-	./01open/modernopen/modernopen-attestation
-	./01open/modernopen/modernopen-info
-	./000all/cassandra/abinitio
-	./000all/cassandra/cassandra-attestation
-	./000all/cassandra/cassandra-info
 	./00flon/00flon-attestation
 	./00flon/00flon-info
 	./00flon/ingress/ingress-attestation
@@ -257,6 +204,15 @@ use (
 	./00flow/ververcontract
 	./00flow/vkeymesh
 	./00flow/waps
+	./00flow/weather/earthsight
+	./00flow/weather/earthsight-attestation
+	./00flow/weather/earthsight-library
+	./00flow/weather/oceansight3d
+	./00flow/weather/vkey-fvcom
+	./00flow/weather/vkey-fvcom-gvcom
+	./00flow/weather/vkey-oceansight
+	./00flow/weather/weather-attestation
+	./00flow/weather/weather-info
 	./00flow/webconduit
 	./00flow/webnf
 	./00flow/webnfdb
@@ -340,19 +296,6 @@ use (
 	./00ulib/crypto/vkey-m31stark
 	./00ulib/crypto/vkey-white3aead
 	./00ulib/crypto/vkey-white3kdf
-	./00ulib/wire/soverasure
-	./00ulib/wire/sovsketch
-	./00ulib/wire/sovtsig
-	./00ulib/wire/sovwire
-	./00ulib/wire/sovzstd
-	./00ulib/wire/vkey-finslerann
-	./00ulib/wire/vkey-m31fec
-	./00ulib/wire/vkey-sheafwire
-	./00ulib/wire/vkey-tropicalz
-	./00ulib/wire/vkey-tsig
-	./00ulib/wire/wire-attestation
-	./00ulib/wire/wire-core
-	./00ulib/wire/wire-info
 	./00ulib/genalgorithms/adph
 	./00ulib/genalgorithms/genalgorithms-attestation
 	./00ulib/genalgorithms/genalgorithms-info
@@ -398,35 +341,19 @@ use (
 	./00ulib/substrate/substrate-core
 	./00ulib/substrate/substrate-info
 	./00ulib/substrate/wasm
-	./00xper/antigravity-sdk-go
-	./00xper/antigravityplugins
-	./00xper/carbon/avataron3d
-	./00xper/carbon/ballistics
-	./00xper/carbon/bluecore
-	./00xper/continuum3d/continuum3d-attestation
-	./00xper/continuum3d/continuum3d-core
-	./00xper/continuum3d/continuum3d-game-realms
-	./00xper/continuum3d/continuum3d-info
-	./00xper/continuum3d/continuum3d-matter-usd
-	./00xper/continuum3d/continuum3d-spatial-dev
-	./00xper/corealgorithms/cadence-orchestrator
-	./00xper/corealgorithms/corealgorithms-attestation
-	./00xper/corealgorithms/corealgorithms-info
-	./00xper/corealgorithms/uuid
-	./00xper/harness2
-	./00xper/purchaseinfo-validation
-	./00xper/unify-unity/avataron-editor
-	./00xper/unify-unity/avataron-input-xr-audio
-	./00xper/unify-unity/avataron-srp
-	./00xper/unify-unity/avataron-ugui
-	./00xper/unify-unity/dots-plinth
-	./00xper/unify-unity/plinth-object
-	./00xper/unify-unity/unify-math
-	./00xper/unify-unity/unify-navmesh
-	./00xper/unify-unity/unify-netcode
-	./00xper/unify-unity/unify-physics
-	./00xper/unify-unity/unify-unity-attestation
-	./00xper/unify-unity/unify-unity-info
+	./00ulib/wire/soverasure
+	./00ulib/wire/sovsketch
+	./00ulib/wire/sovtsig
+	./00ulib/wire/sovwire
+	./00ulib/wire/sovzstd
+	./00ulib/wire/vkey-finslerann
+	./00ulib/wire/vkey-m31fec
+	./00ulib/wire/vkey-sheafwire
+	./00ulib/wire/vkey-tropicalz
+	./00ulib/wire/vkey-tsig
+	./00ulib/wire/wire-attestation
+	./00ulib/wire/wire-core
+	./00ulib/wire/wire-info
 )
 
 replace (
@@ -449,8 +376,8 @@ replace (
 	go.opentelemetry.io/otel/sdk => C:\aCogSpaceSeed\00flow\forge\90200-module-cache\go.opentelemetry.io\otel\sdk@v1.44.0
 	go.opentelemetry.io/otel/sdk/metric => C:\aCogSpaceSeed\00flow\forge\90200-module-cache\go.opentelemetry.io\otel\sdk\metric@v1.44.0
 	go.opentelemetry.io/otel/trace => C:\aCogSpaceSeed\00flow\forge\90200-module-cache\go.opentelemetry.io\otel\trace@v1.44.0
-	golang.org/x/sys => C:\aCogSpaceSeed\00flow\forge\90200-module-cache\golang.org\x\sys@v0.33.0
 	golang.org/x/net => C:\aCogSpaceSeed\00flow\forge\90200-module-cache\golang.org\x\net@v0.56.0
+	golang.org/x/sys => C:\aCogSpaceSeed\00flow\forge\90200-module-cache\golang.org\x\sys@v0.33.0
 	sov.fleet/adph v0.0.0 => C:\aCogSpaceSeed\00ulib\genalgorithms\adph
 	sov.fleet/afflume-realization v0.0.0 => ./00floo/afflume/realization
 	sov.fleet/afflumeattestation v0.0.0 => ./00floo/afflume/afflume-attestation
