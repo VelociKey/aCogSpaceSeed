@@ -1,0 +1,18 @@
+00flow/commerce/81000-active-source/settlement_engine.go:4:2: [SECURITY_WARNING] W-LASO-CRYPTO-DEPRECATED: crypto/md5 — Package "crypto/md5" is cryptographically broken (RFC 6151 collision attacks) and ignored by 00ulib (suggestion: Migrate to sov.fleet/crypto/sovkdf (SHA-256) or sov.fleet/crypto/vkey-white3kdf)
+      4 | 	"crypto/md5"
+        | 	^~~~~~~~~~~~
+00flow/commerce/81000-active-source/settlement_engine.go:6:2: [INFO] I-LASO-UNUSED-IMPORT: math — Unreferenced import (bound symbol 'math' is never used in module); automatically elided by Nautilus (0 bytes of dead code emitted) (suggestion: Informational [INFO] only (unlike Google's go compiler, Nautilus never fails compilation on unused imports because unreferenced imports are stripped at Border 1.0))
+      6 | 	"math"
+        | 	^~~~~~
+00flow/commerce/81000-active-source/settlement_engine.go:11:12: [ERROR] E-LASO-DEONTIC-SECRET-TRAP: sk-proj-live-secret-99 — Inline credential, JNDI payload, or prompt-injection marker detected at Border 0.9 -> 1.0 Deontic Airlock (suggestion: Load credentials via 00ulib/substrate/plinth vault or environment binding instead of hardcoded literal)
+      11 | 	apiKey := "sk-proj-live-secret-99"
+         | 	          ^~~~~~~~~~~~~~~~~~~~~~~~
+00flow/commerce/81000-active-source/settlement_engine.go:13:23: [ERROR] E-LASO-SYNTAX-UNMATCHED-DELIMITER: ) — Unmatched closing delimiter ')' in token stream (suggestion: Remove extraneous ')' or balance with matching '(')
+      13 | 	digest := md5.Sum(raw))
+         | 	                     ^
+00flow/commerce/81000-active-source/settlement_engine.go:12:12: [WARNING] W-LASO-JSON-INTERNAL-GEN: json.Marshal — JSON generation detected outside a third-party external input boundary (WebNF Canonical Invariant: Zero-JSON/YAML) (suggestion: Use WebNF (.webnf) or sov.fleet/wire/vkey-sheafwire for internal sovereign data; generate JSON only when required as input by third-party code)
+      12 | 	raw, _ := json.Marshal(v)
+         | 	          ^~~~~~~~~~~~
+00flow/commerce/81000-active-source/settlement_engine.go:13:12: [SECURITY_WARNING] W-LASO-CRYPTO-DEPRECATED: md5.Sum — Call "md5.Sum" invokes a broken/legacy cryptographic primitive ignored by 00ulib (suggestion: Migrate to 00ulib/crypto (sovkdf, sovaead, soveddsa, sovecdsa, or vkey-white3kdf))
+      13 | 	digest := md5.Sum(raw))
+         | 	          ^~~~~~~
