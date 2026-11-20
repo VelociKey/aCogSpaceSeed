@@ -12,6 +12,7 @@
 2. **NO ARTIFICIAL STRUCT PADDING HACKS:** Hand-rolled `_ [64]byte` padding fields are strictly prohibited. They bloat struct sizes, induce cacheline fragmentation, and distort compiler layout analysis.
 3. **LINEAR MEMORY INDEXING OVER PLINTH:** Code must be written with clean, natural, idiomatic Go data structures and linear memory indexing over raw Plinth memory slices (`as.Bytes()`).
 4. **COMPILER-DRIVEN OPTIMIZATION:** The Nautilus Sovereign Three-Border Compiler (`nautilus.exe`) automatically detects the host workstation chip architecture (Zen 4 AVX-512, Intel AVX2, ARM NEON), optimizes struct layout and cacheline alignment, analyzes loop dependencies, fuses micro-architectural registers, and emits optimal vectorization.
+5. **NEVER INSPECT PRODUCED BINARY ARTIFACTS:** Compiled `*.b1.mir` files (`WB1M`), like `*.exe` files and `*.qdag.bin` files, are produced binary build outputs and must NEVER be examined with `read_file`, `view_file`, or text inspection utilities (`cat`, `head`, `tail`, `grep`).
 </hard_invariants>
 
 ---

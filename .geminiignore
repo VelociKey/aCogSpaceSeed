@@ -1,0 +1,25 @@
+# Sovereign Produced Binaries, Compiler Artifacts & Ephemeral Caches
+# Prevent IDE indexers and LLM tools from serializing binary outputs.
+
+*.exe
+*.dll
+*.so
+*.dylib
+*.wasm
+*.b1.mir
+*.mir
+*.wvm1
+*.wir1
+*.qdag.bin
+*.sls
+*.plinthfb
+*.tensorbin*
+*.mtc
+*.oci.tar
+
+# Heavy delivery and ephemeral scratch directories
+9[0-9][0-9][0-9][0-9]*/
+c[0-9][0-9][0-9][0-9]*/
+00flow/hydrationcache/
+hydrationcache/
+c0990-ephemeral-scratch/

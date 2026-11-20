@@ -10,6 +10,13 @@
 *.zip
 *.tar.gz
 *.gose
+*.b1.mir
+*.wvm1
+*.wir1
+*.sls
+*.db
+*.diagnostics.log
+*.lnk
 */scratch/*
 scratch/
 data/
