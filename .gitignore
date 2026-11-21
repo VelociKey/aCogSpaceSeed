@@ -132,9 +132,6 @@ hydrationcache/
 !/00flow/avataron/
 /00flow/avataron/*
 !/00flow/avataron/.gitkeep
-!/00flow/compiler/
-/00flow/compiler/*
-!/00flow/compiler/.gitkeep
 !/00flow/databases/
 /00flow/databases/*
 !/00flow/databases/.gitkeep
