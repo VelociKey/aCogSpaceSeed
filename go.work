@@ -142,6 +142,7 @@ use (
 	./00flow/plinth/hub
 	./00flow/plinth/kmsvault
 	./00flow/plinth/nvmewal
+	./00flow/plinth/pal
 	./00flow/plinth/pbac
 	./00flow/plinth/plinth-attestation
 	./00flow/plinth/plinth-conduit
