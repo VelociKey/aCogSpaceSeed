@@ -9,8 +9,11 @@
 ## 1. Core Structural Invariants
 1. **NO ORPHAN WORKSPACES:** Every workspace MUST belong to exactly one family within its silo. Orphan workspaces directly under a silo root are deprecated.
 2. **PREFIX-FREE TAXONOMY:** Workspace and family names must be strictly prefix-free domain semantic names (e.g. `nautilus`, `ingress`, `commerce`). No artificial single-letter prefixes (such as `q` or `s`).
-3. **SILO LAYERING DIRECTIONALITY:** Dependencies MUST flow downward:
-   $$\text{00xper} \longrightarrow \text{00floo / 00flon} \longrightarrow \text{00flow} \longrightarrow \text{00taut}$$
+3. **SILO LAYERING DIRECTIONALITY (Option B-Direct):** Dependencies MUST flow strictly downward:
+   $$\text{00xper} \longrightarrow \text{00floo / 00flon} \longrightarrow \text{00flow (Plinth Tiers 0..3 \& toolchains)} \longrightarrow \text{00ulib} \longrightarrow \text{00flow/plinth/pal (Tier -1, 0 requires)} \longrightarrow \text{00taut}$$
+   - `00flow/plinth/pal` (`sov.fleet/plinth-pal`, Tier `-1`) is the sole permitted host-OS ABI (`//nautilus:extern`) leaf workspace and MUST have zero `require` entries in `go.mod`.
+   - `00ulib` workspaces may depend downward on `00flow/plinth/pal` (Tier `-1`) only, and MUST NOT depend on any Tier 0-3 `00flow/plinth` workspace (`plinth-hal`, `plinth-core`, `plinth-filesystem`, `plinth-posix`, etc.).
+   - `00flow/plinth/hal` (Tier `0`) and all higher strata MUST NOT import `"syscall"`, `NewLazyDLL`, or `//nautilus:extern` (only `//nautilus:chipleaf` ISA leaves belong in `hal`).
    - `00flow` workspaces MUST NOT depend on `00floo` or `00flon`.
    - `00floo` workspaces MUST NOT depend on `00flon` directly (use `logiclibrary`).
    - Production workspaces MUST NOT depend on `00xper`.
