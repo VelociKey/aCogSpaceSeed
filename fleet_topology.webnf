@@ -566,6 +566,12 @@ silo 00flow {
             module_path = "sov.fleet/plinth-nvmewal" ;
             buildable = true ;
         }
+        workspace pal {
+            qualified_name = "plinth/pal" ;
+            rel_path = "00flow/plinth/pal" ;
+            module_path = "sov.fleet/plinth-pal" ;
+            buildable = true ;
+        }
         workspace pbac {
             qualified_name = "plinth/pbac" ;
             rel_path = "00flow/plinth/pbac" ;
